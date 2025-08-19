@@ -20,7 +20,7 @@ I help small businesses and solopreneurs streamline operations and boost product
 - CSS3
 - JavaScript
 - Google Sheets
-- GitHub Pages:contentReference[oaicite:20]{index=20}
+- GitHub Pages
 
 ---
 
