@@ -21,6 +21,8 @@ I help small businesses and solopreneurs streamline operations and boost product
 - JavaScript
 - Google Sheets
 - GitHub Pages
+- Python
+- SQL
 
 ---
 
