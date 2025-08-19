@@ -7,7 +7,7 @@ I build **simple tools** that help SMB and small teams make smarter decisions an
 ## 🚀 Featured Projects  
 - [Priority Matrix Builder](https://dgsconsulting.github.io/priority-matrix-builder/) – drag-and-drop task prioritization.  
 - [SOP Designer](https://dgsconsulting.github.io/SOP-Designer/) – create and manage Standard Operating Procedures.  
-- Lean Solopreneur Toolkit – templates and guides for focus and growth.  
+  
 
 ---
 
