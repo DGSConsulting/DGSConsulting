@@ -35,7 +35,7 @@ I help small businesses and solopreneurs streamline operations and boost product
 
 - [LinkedIn](https://www.linkedin.com/in/dg-snook)
 - [Instagram](https://www.instagram.com/dgsconsult)
-- [Email](mailto:your.email@example.com)
+- [Email](mailto:DGSConsult@consultant.com)
 
 ---
 
