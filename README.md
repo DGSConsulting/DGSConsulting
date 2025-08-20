@@ -6,17 +6,21 @@ I help small businesses and solopreneurs streamline operations and boost product
 
 ## 🚀 Featured Projects
 
-- **[Priority Matrix Builder](https://github.com/DGSConsulting/priority-matrix-builder)**  
-  A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort.
+- [Priority Matrix Builder](https://github.com/DGSConsulting/priority-matrix-builder)
   
-- **[SOP Designer](https://dgsconsulting.github.io/SOP-Designer/)**  
-  Create and manage Standard Operating Procedures with ease.
+    A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort.
   
-- **[SCALE Framework](https://dgsconsulting.github.io/-SCALE-Framework/)**
-  An open framework for streamlining and scaling small-to-medium businesses.
+- [SOP Designer](https://dgsconsulting.github.io/SOP-Designer/)
+  
+    Create and manage Standard Operating Procedures with ease.
+  
+- [SCALE Framework](https://dgsconsulting.github.io/-SCALE-Framework/)
+  
+    An open framework for streamlining and scaling small-to-medium businesses.
 
-- **[Business Audit Framework](https://dgsconsulting.github.io/Business-Audit-Framework-/)
-  A free, 10-minute self-assessment tool to evaluate your business operations, identify strengths, and uncover growth opportunities.
+- [Business Audit Framework](https://dgsconsulting.github.io/Business-Audit-Framework-/)
+  
+    A free, 10-minute self-assessment tool to evaluate your business operations, identify strengths, and uncover growth opportunities.
 
 
 ---
