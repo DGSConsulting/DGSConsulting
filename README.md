@@ -13,6 +13,7 @@ I help small businesses and solopreneurs streamline operations and boost product
   Create and manage Standard Operating Procedures with ease.
   
 -  **[SCALE Framework](https://dgsconsulting.github.io/-SCALE-Framework/)**
+  
 An open framework for streamlining and scaling small-to-medium businesses.
 
 ---
