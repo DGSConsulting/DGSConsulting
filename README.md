@@ -14,7 +14,7 @@ I help small businesses and solopreneurs streamline operations and boost product
   
 -  **[SCALE Framework](https://dgsconsulting.github.io/-SCALE-Framework/)**
   
-An open framework for streamlining and scaling small-to-medium businesses.
+  An open framework for streamlining and scaling small-to-medium businesses.
 
 ---
 
