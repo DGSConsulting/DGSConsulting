@@ -12,7 +12,7 @@ I help small businesses and solopreneurs streamline operations and boost product
 - **[SOP Builder](https://github.com/DGSConsulting/sop-builder)**  
   Create and manage Standard Operating Procedures with ease.:contentReference[oaicite:9]{index=9}
   
--  **[SCALE Framework](https://github.com/DGSConsulting/-SCALE-Framework)**
+-  **[SCALE Framework](https://dgsconsulting.github.io/-SCALE-Framework/)**
 An open framework for streamlining and scaling small-to-medium businesses.
 
 ---
