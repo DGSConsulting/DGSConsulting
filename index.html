@@ -3,27 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGS Consulting | Simple Tools. Big Impact.</title>
-    <meta name="description" content="Streamline operations and boost productivity with simple, no-fuss business tools for solopreneurs and small teams.">
+    <title>DGS Consulting - Simple Business Tools for Real Results</title>
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #3b82f6;
-            --secondary-color: #64748b;
-            --accent-color: #10b981;
-            --warning-color: #f59e0b;
-            --background: #f8fafc;
-            --background-alt: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-light: #94a3b8;
-            --border-color: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -31,292 +12,194 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--background);
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #e2e8f0);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: #059669;
-        }
-
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
-        /* Tools Section */
-        .tools-section {
-            padding: 4rem 0;
-            background: var(--background-alt);
-        }
-
-        .section-header {
+        header {
             text-align: center;
-            margin-bottom: 3rem;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .description {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .tools-section {
+            background: white;
+            padding: 80px 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
         }
 
         .section-title {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3748;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .tool-card {
-            background: var(--background-alt);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
             transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
             position: relative;
             overflow: hidden;
         }
 
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-color);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
         .tool-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            text-decoration: none;
-            color: inherit;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .tool-card:hover::before {
-            transform: scaleX(1);
+        .tool-card.featured {
+            border: 2px solid #667eea;
+            background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+        }
+
+        .tool-card.featured::before {
+            content: "NEW";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         .tool-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             display: block;
         }
 
         .tool-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
         }
 
         .tool-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            color: #718096;
+            margin-bottom: 20px;
             line-height: 1.6;
         }
 
-        .tool-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .tool-features li {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
+        .tool-link:hover {
+            color: #5a6fd8;
         }
 
-        .tool-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
+        .tool-link::after {
+            content: "→";
+            margin-left: 8px;
+            transition: transform 0.3s ease;
         }
 
-        .tool-status {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            border-radius: 6px;
+        .tool-link:hover::after {
+            transform: translateX(3px);
         }
 
-        .tool-status.new {
-            background: var(--warning-color);
-        }
-
-        /* About Section */
         .about-section {
-            padding: 4rem 0;
-            background: var(--background);
+            background: #f8fafc;
+            padding: 60px 0;
+            text-align: center;
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .stat-card {
-            background: var(--background-alt);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .stat-number {
+        .about-title {
             font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: block;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2d3748;
         }
 
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 20px;
         }
 
-        /* Footer */
-        .footer {
-            background: var(--text-primary);
-            color: var(--text-light);
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 2rem;
-        }
-
-        .footer h3 {
+        footer {
+            background: #2d3748;
             color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer p {
-            margin-bottom: 1rem;
+            text-align: center;
+            padding: 40px 0;
         }
 
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 20px;
         }
 
         .footer-links a {
-            color: var(--text-light);
+            color: #a0aec0;
             text-decoration: none;
+            margin: 0 15px;
             transition: color 0.3s ease;
         }
 
@@ -324,336 +207,121 @@
             color: white;
         }
 
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--secondary-color);
-            color: var(--text-light);
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 1rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
             .tools-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 20px;
             }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            
+            .tool-card {
+                padding: 25px;
             }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .section-title {
+            
+            .logo {
                 font-size: 2rem;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            
+            header {
+                padding: 40px 0;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
-        .mb-2 {
-            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>DGS Consulting</h1>
-            <p class="tagline">✨ Simple tools. Big impact. ✨</p>
-            <p class="description">
-                Streamline operations and boost productivity with simple, no-fuss tools designed specifically for solopreneurs and small teams.
-            </p>
-            <a href="#tools" class="cta-button">Explore Our Tools</a>
-        </div>
-    </section>
-
-    <!-- Tools Section -->
-    <section id="tools" class="tools-section">
+    <header>
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">🛠️ Business Tools</h2>
-                <p class="section-subtitle">
-                    Professional-grade tools that are simple to use and designed to solve real business problems.
-                </p>
-            </div>
+            <div class="logo">✨ DGS Consulting ✨</div>
+            <div class="tagline">Simple tools. Big impact.</div>
+            <div class="description">Streamline operations and boost productivity with simple, no-fuss tools designed specifically for solopreneurs and small teams.</div>
+        </div>
+    </header>
 
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Professional Tools That Just Work</h2>
+            <p class="section-subtitle">Professional-grade tools that are simple to use and designed to solve real business problems.</p>
+            
             <div class="tools-grid">
-                <!-- Priority Matrix Builder -->
-                <a href="https://dgsconsulting.github.io/priority-matrix-builder/" class="tool-card" target="_blank">
-                    <span class="tool-icon">📊</span>
+                <div class="tool-card featured">
+                    <div class="tool-icon">📊</div>
+                    <h3 class="tool-title">Break-Even Analysis Calculator</h3>
+                    <p class="tool-description">A clean, mobile-friendly calculator for solopreneurs and small teams. Calculate break-even points, analyze pricing scenarios, and export professional reports with real-time calculations.</p>
+                    <a href="https://dgsconsulting.github.io/Break-Even-Calculator/" class="tool-link">Try Calculator</a>
+                </div>
+
+                <div class="tool-card featured">
+                    <div class="tool-icon">👥</div>
+                    <h3 class="tool-title">Browser CRM System</h3>
+                    <p class="tool-description">A lightweight, modern CRM that runs entirely in your browser. No servers, no databases, no hassle - just pure contact management magic! Perfect for solopreneurs and small teams.</p>
+                    <a href="https://dgsconsulting.github.io/CRM-System/" class="tool-link">Launch CRM</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">⚖️</div>
                     <h3 class="tool-title">Priority Matrix Builder</h3>
-                    <p class="tool-description">
-                        A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Visual task prioritization</li>
-                        <li>Drag & drop interface</li>
-                        <li>Mobile responsive design</li>
-                        <li>Export capabilities</li>
-                    </ul>
-                    <span class="tool-status">Live</span>
-                </a>
+                    <p class="tool-description">A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort. Focus on revenue-generating work with smart task prioritization.</p>
+                    <a href="https://dgsconsulting.github.io/priority-matrix-builder/" class="tool-link">Organize Tasks</a>
+                </div>
 
-                <!-- SOP Designer -->
-                <a href="https://dgsconsulting.github.io/SOP-Designer/" class="tool-card" target="_blank">
-                    <span class="tool-icon">📋</span>
+                <div class="tool-card">
+                    <div class="tool-icon">📋</div>
                     <h3 class="tool-title">SOP Designer</h3>
-                    <p class="tool-description">
-                        Create and manage Standard Operating Procedures with ease. Perfect for documenting processes.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Step-by-step builder</li>
-                        <li>Template library</li>
-                        <li>Professional formatting</li>
-                        <li>Team collaboration</li>
-                    </ul>
-                    <span class="tool-status">Live</span>
-                </a>
+                    <p class="tool-description">Create and manage Standard Operating Procedures with ease. Perfect for documenting processes with live preview and export capabilities.</p>
+                    <a href="https://dgsconsulting.github.io/SOP-Designer/" class="tool-link">Build SOPs</a>
+                </div>
 
-                <!-- SCALE Framework -->
-                <a href="https://dgsconsulting.github.io/-SCALE-Framework/" class="tool-card" target="_blank">
-                    <span class="tool-icon">🚀</span>
+                <div class="tool-card">
+                    <div class="tool-icon">📈</div>
                     <h3 class="tool-title">SCALE Framework</h3>
-                    <p class="tool-description">
-                        An open framework for streamlining and scaling small-to-medium businesses with proven methodologies.
-                    </p>
-                    <ul class="tool-features">
-                        <li>5-pillar methodology</li>
-                        <li>Implementation roadmap</li>
-                        <li>Progress tracking</li>
-                        <li>Success metrics</li>
-                    </ul>
-                    <span class="tool-status">Live</span>
-                </a>
+                    <p class="tool-description">An open framework for streamlining and scaling small-to-medium businesses with proven methodologies, practical worksheets, and actionable checklists.</p>
+                    <a href="https://dgsconsulting.github.io/-SCALE-Framework/" class="tool-link">Start Scaling</a>
+                </div>
 
-                <!-- Business Audit Framework -->
-                <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" class="tool-card" target="_blank">
-                    <span class="tool-icon">🎯</span>
+                <div class="tool-card">
+                    <div class="tool-icon">🔍</div>
                     <h3 class="tool-title">Business Audit Framework</h3>
-                    <p class="tool-description">
-                        A free, 10-minute self-assessment tool to evaluate your business operations and identify growth opportunities.
-                    </p>
-                    <ul class="tool-features">
-                        <li>5 key business areas</li>
-                        <li>Instant results</li>
-                        <li>Actionable recommendations</li>
-                        <li>Progress benchmarking</li>
-                    </ul>
-                    <span class="tool-status">Live</span>
-                </a>
+                    <p class="tool-description">A free, 10-minute self-assessment tool to evaluate your business operations and identify growth opportunities. Get instant insights into your business health.</p>
+                    <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" class="tool-link">Audit Business</a>
+                </div>
 
-                <!-- Cash Flow Forecaster -->
-                <a href="https://dgsconsulting.github.io/Cash-Flow-Forecaster-tool/" class="tool-card" target="_blank">
-                    <span class="tool-icon">💰</span>
+                <div class="tool-card">
+                    <div class="tool-icon">💰</div>
                     <h3 class="tool-title">Cash Flow Forecaster</h3>
-                    <p class="tool-description">
-                        Plan your financial future with confidence. Forecast your cash flow for up to 24 months ahead.
-                    </p>
-                    <ul class="tool-features">
-                        <li>12-24 month forecasts</li>
-                        <li>Growth rate modeling</li>
-                        <li>Cash flow insights</li>
-                        <li>Export capabilities</li>
-                    </ul>
-                    <span class="tool-status">Live</span>
-                </a>
+                    <p class="tool-description">Plan your financial future with confidence. Forecast your cash flow for up to 24 months ahead with actionable insights for small businesses.</p>
+                    <a href="https://dgsconsulting.github.io/Cash-Flow-Forecaster-tool/" class="tool-link">Forecast Cash Flow</a>
+                </div>
 
-                <!-- ROI Calculator Suite - Now Live -->
-                <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" class="tool-card" target="_blank">
-                    <span class="tool-icon">📈</span>
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
                     <h3 class="tool-title">ROI Calculator Suite</h3>
-                    <p class="tool-description">
-                        Comprehensive ROI analysis tools for business investments, marketing campaigns, and strategic decisions.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Investment analysis</li>
-                        <li>Marketing ROI tracking</li>
-                        <li>Break-even calculations</li>
-                        <li>Scenario planning</li>
-                    </ul>
-                    <span class="tool-status">Live</span>
-                </a>
+                    <p class="tool-description">Comprehensive ROI analysis tools for business investments, marketing campaigns, and strategic decisions. Make data-driven choices with confidence.</p>
+                    <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" class="tool-link">Calculate ROI</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about-section">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose DGS Consulting Tools?</h2>
-                    <p>
-                        We believe that powerful business tools shouldn't be complicated. Our suite of web-based applications 
-                        is designed with busy entrepreneurs and small teams in mind.
-                    </p>
-                    <p>
-                        Each tool focuses on solving specific business challenges without the bloat of enterprise software. 
-                        Get up and running in minutes, not months.
-                    </p>
-                    <p>
-                        <strong>Best of all?</strong> These tools are completely free and open source. No subscriptions, 
-                        no hidden fees, no data lock-in.
-                    </p>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">6</span>
-                        <span class="stat-label">Business Tools</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Free & Open Source</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">< 2 min</span>
-                        <span class="stat-label">Setup Time</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">Mobile</span>
-                        <span class="stat-label">Responsive</span>
-                    </div>
-                </div>
+                <h2 class="about-title">Why Choose Our Tools?</h2>
+                <p class="about-text">We believe that powerful business tools shouldn't be complicated. Our suite of web-based applications is designed with busy entrepreneurs and small teams in mind.</p>
+                <p class="about-text">Each tool focuses on solving specific business challenges without the bloat of enterprise software. Get up and running in minutes, not months.</p>
+                <p class="about-text"><strong>Best of all? These tools are completely free and open source.</strong> No subscriptions, no hidden fees, no data lock-in.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <h3>DGS Consulting</h3>
-                <p>Empowering small businesses with simple, effective tools.</p>
-                
-                <div class="footer-links">
-                    <a href="https://github.com/DGSConsulting" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
-                    <a href="https://www.instagram.com/dgsconsult/" target="_blank">Instagram</a>
-                    <a href="mailto:DGSConsult@consultant.com">Contact</a>
-                    <a href="#tools">Tools</a>
-                </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/dgs-consutling/">Company</a>
+                <a href="https://www.instagram.com/dgsconsult/">Instagram</a>
+                <a href="https://github.com/DGSConsulting">GitHub</a>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 DGS Consulting. Open source tools for business success.</p>
-                <p>Built with ❤️ for solopreneurs and small Business everywhere.</p>
-            </div>
+            <p>&copy; 2025 DGS Consulting. Open source business tools for everyone.</p>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all tool cards
-        document.querySelectorAll('.tool-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Dynamic stats counter (optional enhancement)
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const text = stat.textContent.trim();
-                if (text.includes('+')) {
-                    const number = parseInt(text);
-                    let current = 0;
-                    const increment = number / 30;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= number) {
-                            stat.textContent = number + '+';
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(current) + '+';
-                        }
-                    }, 50);
-                }
-            });
-        }
-
-        // Trigger stats animation when section is visible
-        const statsSection = document.querySelector('.about-section');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statsObserver.observe(statsSection);
-    </script>
 </body>
 </html>
