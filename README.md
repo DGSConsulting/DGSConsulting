@@ -1,53 +1,68 @@
-# 👋 Hi, I'm Darren Snook
+DGS Consulting
 
-I help small businesses and solopreneurs streamline operations and boost productivity with simple, no-fuss tools.
+✨ Simple Tools. Big Impact. ✨
 
----
+At DGS Consulting, we empower solopreneurs and small teams with straightforward, effective tools designed to streamline operations and boost productivity.
 
-## 🚀 Featured Projects
+🛠️ Business Tools
 
-- [Priority Matrix Builder](https://github.com/DGSConsulting/priority-matrix-builder)
-  
-    A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort.
-  
-- [SOP Designer](https://dgsconsulting.github.io/SOP-Designer/)
-  
-    Create and manage Standard Operating Procedures with ease.
-  
-- [SCALE Framework](https://dgsconsulting.github.io/-SCALE-Framework/)
-  
-    An open framework for streamlining and scaling small-to-medium businesses.
+Our suite of professional-grade tools is crafted to solve real business challenges—without the complexity of enterprise software.
 
-- [Business Audit Framework](https://dgsconsulting.github.io/Business-Audit-Framework-/)
-  
-    A free, 10-minute self-assessment tool to evaluate your business operations, identify strengths, and uncover growth opportunities.
+1. Priority Matrix Builder
 
+A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort.
 
----
+Features visual task prioritization, drag & drop interface, mobile responsiveness, and export capabilities.
 
-## 🛠️ Tech Stack
+2. SOP Designer
 
-- HTML5
-- CSS3
-- JavaScript
-- Google Sheets
-- GitHub Pages
-- Python
-- SQL
+Create and manage Standard Operating Procedures with ease.
 
----
+Includes a step-by-step builder, template library, professional formatting, and team collaboration features.
 
-## 📊 GitHub Stats
+3. SCALE Framework
 
-![GitHub Followers](https://img.shields.io/github/followers/DGSConsulting?style=social)
-![GitHub Stars](https://img.shields.io/github/stars/DGSConsulting?style=social)
+An open framework for streamlining and scaling small-to-medium businesses with proven methodologies.
 
----
+Offers a 5-pillar methodology, implementation roadmap, progress tracking, and success metrics.
 
-## 📬 Let's Connect
+4. Business Audit Framework
 
-- [LinkedIn](https://www.linkedin.com/in/dg-snook)
-- [Instagram](https://www.instagram.com/dgsconsult)
+A free, 10-minute self-assessment tool to evaluate your business operations and identify growth opportunities.
+
+Provides insights across 5 key business areas, instant results, actionable recommendations, and progress benchmarking.
+
+5. Cash Flow Forecaster
+
+Plan your financial future with confidence by forecasting your cash flow for up to 24 months ahead.
+
+Features 12-24 month forecasts, growth rate modeling, cash flow insights, and export capabilities.
+
+6. ROI Calculator Suite
+
+Comprehensive ROI analysis tools for business investments, marketing campaigns, and strategic decisions.
+
+Includes investment analysis, marketing ROI tracking, break-even calculations, and scenario planning.
+
+✅ Why Choose DGS Consulting Tools?
+
+100% Free & Open Source: No subscriptions, no hidden fees, no data lock-in.
+
+< 2 min Setup Time: Get up and running in minutes, not months.
+
+Mobile Responsive: Access your tools anytime, anywhere.
+
+Designed for Entrepreneurs: Tailored for busy solopreneurs and small teams.
+
+🔗 Connect with Us
+
+GitHub
+
+LinkedIn
+
+Instagram
+
+Built with ❤️ for solopreneurs and small businesses everywhere.
 - [Email](mailto:DGSConsult@consultant.com)
 
 ---
