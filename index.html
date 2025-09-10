@@ -245,47 +245,93 @@
       </p>
     </section>
 
-    <!-- Call to Action - Updated "Ready to Scale" Section -->
-    <section class="scale-gradient text-white py-20 text-center relative overflow-hidden">
-      <div class="absolute inset-0 bg-black/10"></div>
-      <div class="relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Scale Smarter?</h2>
-        <p class="text-xl mb-8 opacity-95 max-w-2xl mx-auto">Take your business to the next level with our comprehensive suite of tools and frameworks.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="cta-button px-8 py-4 bg-white  text-green-700 font-bold rounded-full shadow-xl hover:bg-gray-50">
-            Start with SCALE Framework
-          </a>
-          <a href="mailto:DGSConsult@consultant.com" target="_blank" class="cta-button px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-700">
-            Questions
-          </a>
-        </div>
-      </div>
-    </section>
+<!-- Call to Action - Updated "Ready to Scale" Section -->
+<section class="scale-gradient text-white py-20 text-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/10"></div>
+  <div class="relative z-10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Scale Smarter?</h2>
+    <p class="text-xl mb-8 opacity-95 max-w-2xl mx-auto">Take your business to the next level with our comprehensive suite of tools and frameworks.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="cta-button px-8 py-4 bg-white  text-green-700 font-bold rounded-full shadow-xl hover:bg-gray-50">
+        Start with SCALE Framework
+      </a>
+      <a href="mailto:DGSConsult@consultant.com" target="_blank" class="cta-button px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-700">
+        Questions
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-gray-900 text-gray-300 py-12">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-        <div>
-          <img src="asset/logo-mark.png.png" alt="DGS Logo" class="h-12 mb-6">
-          <p class="text-sm">&copy; 2025 DGS Consulting. All rights reserved.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
-          <ul class="space-y-3">
-            <li><a href="#tools" class="hover: text-green-700 transition-colors">Tools</a></li>
-            <li><a href="#why" class="hover: text-green-700 transition-colors">Why DGS</a></li>
-            <li><a href="#about" class="hover: text-green-700 transition-colors">About</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-white">Connect</h4>
-          <ul class="space-y-3">
-            <li><a href="mailto:DGSConsult@consultant.com" class="hover:text-teal-400 transition-colors">Email Us</a></li>
-            <li><a href="https://www.linkedin.com/company/dgs-consutling" target="_blank" class="hover:text-teal-400 transition-colors">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/dgsconsult/" target="_blank" class="hover:text-teal-400 transition-colors">Instagram</a></li>
-          </ul>
-        </div>
+<!-- Contact Form Section -->
+<section class="bg-white py-16" id="contact">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+    <p class="text-gray-600 mb-10">Have a question or want to work together? Fill out the form below.</p>
+
+    <form
+      action="https://formspree.io/f/mpwjbkek"
+      method="POST"
+      class="bg-gray-50 p-8 rounded-2xl shadow-md text-left space-y-6"
+    >
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-forest focus:border-forest"
+        />
       </div>
-    </footer>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
+        <textarea
+          name="message"
+          id="message"
+          rows="5"
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-forest focus:border-forest"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="w-full bg-forest text-white font-semibold py-3 px-6 rounded-xl hover:bg-olive transition"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <div>
+      <img src="asset/logo-mark.png.png" alt="DGS Logo" class="h-12 mb-6">
+      <p class="text-sm">&copy; 2025 DGS Consulting. All rights reserved.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
+      <ul class="space-y-3">
+        <li><a href="#tools" class="hover:text-green-700 transition-colors">Tools</a></li>
+        <li><a href="#why" class="hover:text-green-700 transition-colors">Why DGS</a></li>
+        <li><a href="#about" class="hover:text-green-700 transition-colors">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-white">Connect</h4>
+      <ul class="space-y-3">
+        <li><a href="mailto:DGSConsult@consultant.com" class="hover:text-teal-400 transition-colors">Email Us</a></li>
+        <li><a href="https://www.linkedin.com/company/dgs-consutling" target="_blank" class="hover:text-teal-400 transition-colors">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/dgsconsult/" target="_blank" class="hover:text-teal-400 transition-colors">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
   </body>
 </html>
