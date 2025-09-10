@@ -1,271 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DGS Consulting</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DGS Consulting</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="asset/logo-mark.png" type="image/png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-mark.png.png" />
+    <link rel="icon" type="image/x-icon" href="assets/logo-mark.png.png" />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
 
-  <style>
-    body { font-family: 'Inter', sans-serif; }
+      /* Custom gradient that complements your teal-blue theme */
+      .hero-gradient {
+        background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 50%,  #4A5D23 100%);
+      }
 
-    /* Card hover effect */
-    .tool-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .tool-card:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(20, 184, 166, 0.15);
-    }
+      .scale-gradient {
+        background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 50%,  #4A5D23 100%);
+      }
 
-    /* CTA button animation */
-    .cta-button {
-      transition: all 0.3s ease;
-    }
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
+      /* Enhanced card hover effects */
+      .tool-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-  <!-- Navbar -->
-  <header class="bg-white shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-white/95">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <img src="asset/logo-full.png" alt="DGS Consulting Logo" class="h-10">
+      .tool-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(20, 184, 166, 0.15);
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Logo glow effect */
+      .logo-glow {
+        filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.3));
+      }
+
+      /* CTA button animations */
+      .cta-button {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(156,175,136,0.3), transparent);
+        transition: left 0.5s;
+      }
+
+      .cta-button:hover:before {
+        left: 100%;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-teal': '#14b8a6',
+              'brand-blue': '#0891b2',
+              'brand-navy': '#1e40af',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-white shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <img src="asset/logo-full.png.png" alt="DGS Consulting Logo" class="h-10 logo-glow" />
+        </div>
+        <nav class="hidden md:flex space-x-8 font-semibold">
+          <a href="#tools" class="hover:text-green-600 transition-colors duration-300">Tools</a>
+          <a href="#why" class="hover:text-green-600 transition-colors duration-300">Why DGS</a>
+          <a href="#about" class="hover:text-green-600 transition-colors duration-300">About</a>
+          <a href="#contact" class="hover:text-green-600 transition-colors duration-300">Contact</a>
+        </nav>
       </div>
-      <nav class="hidden md:flex space-x-8 font-semibold">
-        <a href="#tools" class="hover:text-green-600 transition-colors duration-300">Tools</a>
-        <a href="#why-dgs" class="hover:text-green-600 transition-colors duration-300">Why DGS</a>
-        <a href="#about" class="hover:text-green-600 transition-colors duration-300">About</a>
-        <a href="#contact" class="hover:text-green-600 transition-colors duration-300">Contact</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-[#9CAF88] via-[#6B8E5A] to-[#4A5D23] text-white py-24 text-center relative">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <img src="asset/logo-full.png" alt="DGS Consulting" class="mx-auto mb-8 h-28">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Streamline Today, Scale Tomorrow</h1>
-      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">Tools and frameworks to help solopreneurs and small teams grow smarter</p>
-      <a href="#tools" class="cta-button inline-block px-8 py-4 bg-white text-green-600 font-bold rounded-full shadow-xl hover:bg-gray-50">
-        Explore Tools
+    <!-- Hero -->
+    <section class="hero-gradient text-white py-24 text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="relative z-10">
+        <img src="asset/logo-full.png.png" alt="DGS Consulting" class="mx-auto mb-8 h-28 logo-glow">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Streamline Today, Scale Tomorrow</h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">Tools and frameworks to help solopreneurs and small teams grow smarter</p>
+        <a href="#tools" class="cta-button inline-block px-8 py-4 bg-white text-green-600 font-bold rounded-full shadow-xl hover:bg-gray-50">Explore Tools</a>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-24 max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Our Tools</h2>
+
+      <!-- Productivity Tools -->
+      <div class="mb-20">
+        <h3 class="text-3xl font-semibold mb-8 text-green-700 flex items-center">
+          <div class="w-1 h-8 bg-gradient-to-b from-green-600 to-green-800 rounded-full mr-4"></div>
+          Productivity Tools
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="Priority Matrix Builder" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">Priority Matrix Builder</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Organize tasks by impact and effort with a mobile-friendly Eisenhower Matrix tool.</p>
+            <a href="https://dgsconsulting.github.io/priority-matrix-builder/" target="_blank" class="text-green-600 hover:text-teal-700 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="Time Tracker" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">Time Tracker PWA</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Track your time anywhere with a progressive web app designed for simplicity.</p>
+            <a href="https://dgsconsulting.github.io/-Time-Tracker-Progressive-Web-App/" target="_blank" class="text-green-600 hover:text-teal-700 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="CRM System" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">CRM System</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">A lightweight CRM you can run directly in your browser for client management.</p>
+            <a href="https://dgsconsulting.github.io/CRM-System/" target="_blank" class="text-green-600 hover:text-teal-700 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financial Tools -->
+      <div class="mb-20">
+        <h3 class="text-3xl font-semibold mb-8 text-green-700 flex items-center">
+          <div class="w-1 h-8 bg-gradient-to-b from-green-600 to-green-800 rounded-full mr-4"></div>
+          Financial Tools
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="Break-Even Analysis" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">Break-Even Analysis Calculator</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Quickly calculate your break-even point to make smarter financial decisions.</p>
+            <a href="https://dgsconsulting.github.io/Break-Even-Analysis-Calculator/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="Cash Flow Forecaster" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">Cash Flow Forecaster</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Forecast your business's cash flow with this easy-to-use tool.</p>
+            <a href="https://dgsconsulting.github.io/Cash-Flow-Forecaster-tool/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="ROI Calculator" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">ROI Calculator Suite</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Evaluate your return on investment with this suite of calculators.</p>
+            <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Frameworks -->
+      <div>
+        <h3 class="text-3xl font-semibold mb-8 text-green-700 flex items-center">
+          <div class="w-1 h-8 bg-gradient-to-b from-green-600 to-green-800 rounded-full mr-4"></div>
+          Business Frameworks & Assessment
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="SCALE Framework" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">SCALE Framework</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">A framework with worksheets and checklists to streamline and scale operations.</p>
+            <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="Business Audit Framework" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">Business Audit Framework</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Evaluate and improve operations to align with best practices and growth goals.</p>
+            <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+          <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
+            <img src="asset/logo-icon.png.png" class="h-14 mb-6" alt="SOP Designer" />
+            <h4 class="text-xl font-bold mb-3 text-gray-900">SOP Designer</h4>
+            <p class="text-gray-600 mb-4 leading-relaxed">Create and manage Standard Operating Procedures with a simple, intuitive designer.</p>
+            <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY DGS SECTION -->
+<section id="why-dgs" style="background: #9CAF88; color: #ffffff; padding: 60px 20px; font-family: Arial, sans-serif;">
+  <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.5em; margin-bottom: 10px;">Why Choose DGS Consulting?</h2>
+    <p style="font-size: 1.2em; margin-bottom: 40px;">Empowering small teams and solopreneurs with free, practical tools to streamline operations and scale efficiently.</p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+      <div style="flex: 1 1 220px; background: #6B8E5A; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Save Time</h3>
+        <p>Automate workflows with simple, ready-to-use tools so you can focus on what matters.</p>
+      </div>
+
+      <div style="flex: 1 1 220px; background: #6B8E5A; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Save Money</h3>
+        <p>All tools are free and open-source, no hidden costs or subscriptions.</p>
+      </div>
+
+      <div style="flex: 1 1 220px; background: #6B8E5A; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Be Strategic</h3>
+        <p>Frameworks designed to help you prioritize, track progress, and scale your business effectively.</p>
+      </div>
+
+      <div style="flex: 1 1 220px; background: #6B8E5A; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Built for You</h3>
+        <p>Designed with small teams and solo entrepreneurs in mind, by someone who understands your challenges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" style="background: #F7F9F5; color: #4A5D23; padding: 60px 20px; font-family: Arial, sans-serif;">
+  <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.5em; margin-bottom: 10px;">About DGS Consulting</h2>
+    <p style="font-size: 1.2em; margin-bottom: 30px;">Founded by Darren Snook, DGS Consulting exists to help solopreneurs and small teams streamline business processes efficiently and effectively.</p>
+
+    <p style="font-size: 1.1em; margin-bottom: 40px;">We believe small businesses deserve the same efficiency and insight as large enterprises—without the high cost. Our mission is simple: <strong>streamline today, scale tomorrow.</strong></p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+      <div style="flex: 1 1 220px; background: #9CAF88; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Open & Transparent</h3>
+        <p>All tools are open-source, promoting transparency and community-driven improvement.</p>
+      </div>
+
+      <div style="flex: 1 1 220px; background: #9CAF88; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">User-Focused</h3>
+        <p>Every tool is designed with small businesses in mind, making them practical and intuitive.</p>
+      </div>
+
+      <div style="flex: 1 1 220px; background: #9CAF88; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Practical Solutions</h3>
+        <p>Frameworks and tools that actually help businesses prioritize, track, and grow without unnecessary complexity.</p>
+      </div>
+
+      <div style="flex: 1 1 220px; background: #9CAF88; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 10px;">Community Driven</h3>
+        <p>We value feedback and ideas from our users to continuously improve and adapt our tools.</p>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div style="margin-top: 40px;">
+      <a href="#tools" style="
+        background: #F7F9F5; 
+        color: #4A5D23; 
+        padding: 15px 35px; 
+        border-radius: 8px; 
+        font-size: 1.1em; 
+        text-decoration: none; 
+        display: inline-block;
+        transition: background 0.3s ease;
+      " 
+      onmouseover="this.style.background='#9CAF88'" 
+      onmouseout="this.style.background='#4A5D23'">
+        Explore our tools &rarr;
       </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Tools Section -->
-  <section id="tools" class="py-24 max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">Our Tools</h2>
-
-    <!-- Productivity Tools -->
-    <div class="mb-20">
-      <h3 class="text-3xl font-semibold mb-8 text-green-700 flex items-center">
-        <div class="w-1 h-8 bg-gradient-to-b from-green-600 to-green-800 rounded-full mr-4"></div>
-        Productivity Tools
-      </h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="Priority Matrix Builder" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">Priority Matrix Builder</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Organize tasks by impact and effort with a mobile-friendly Eisenhower Matrix tool.</p>
-          <a href="https://dgsconsulting.github.io/priority-matrix-builder/" target="_blank" class="text-green-600 hover:text-teal-700 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="Time Tracker" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">Time Tracker PWA</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Track your time anywhere with a progressive web app designed for simplicity.</p>
-          <a href="https://dgsconsulting.github.io/-Time-Tracker-Progressive-Web-App/" target="_blank" class="text-green-600 hover:text-teal-700 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="CRM System" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">CRM System</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">A lightweight CRM you can run directly in your browser for client management.</p>
-          <a href="https://dgsconsulting.github.io/CRM-System/" target="_blank" class="text-green-600 hover:text-teal-700 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-      </div>
+<!-- Call to Action - Updated "Ready to Scale" Section -->
+<section class="scale-gradient text-white py-20 text-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/10"></div>
+  <div class="relative z-10">
+<!-- READY TO SCALE CTA SECTION -->
+<section class="bg-gradient-to-br from-[#9CAF88] via-[#6B8E5A] to-[#4A5D23] text-white py-24">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Scale Smarter?</h2>
+    <p class="text-xl mb-8 opacity-95 max-w-2xl mx-auto">Take your business to the next level with our comprehensive suite of tools and frameworks.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="cta-button px-8 py-4 bg-white  text-green-700 font-bold rounded-full shadow-xl hover:bg-gray-50">
+        Start with SCALE Framework
+      </a>
     </div>
+    <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto">Take your business to the next level with our comprehensive suite of tools and frameworks designed for solopreneurs and small teams.</p>
+    
+    <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="inline-block px-8 py-4 bg-[#6B8E5A] text-white font-bold rounded-full shadow-lg hover:bg-[#4A5D23] transition">
+      Start with SCALE Framework &rarr;
+    </a>
+  </div>
+</section>
 
-    <!-- Financial Tools -->
-    <div class="mb-20">
-      <h3 class="text-3xl font-semibold mb-8 text-green-700 flex items-center">
-        <div class="w-1 h-8 bg-gradient-to-b from-green-600 to-green-800 rounded-full mr-4"></div>
-        Financial Tools
-      </h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="Break-Even Analysis" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">Break-Even Analysis Calculator</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Quickly calculate your break-even point to make smarter financial decisions.</p>
-          <a href="https://dgsconsulting.github.io/Break-Even-Analysis-Calculator/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="Cash Flow Forecaster" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">Cash Flow Forecaster</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Forecast your business's cash flow with this easy-to-use tool.</p>
-          <a href="https://dgsconsulting.github.io/Cash-Flow-Forecaster-tool/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="ROI Calculator" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">ROI Calculator Suite</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Evaluate your return on investment with this suite of calculators.</p>
-          <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
+<!-- Contact Form Section -->
+<section class="py-16" id="contact" style="background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 50%, #4A5D23 100%);">
+<!-- CONTACT FORM SECTION -->
+<section id="contact" class="bg-gradient-to-br from-[#9CAF88] via-[#6B8E5A] to-[#4A5D23] py-24">
+  <div class="max-w-3xl mx-auto px-6 text-center text-white">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+    <p class="mb-10 opacity-90">Have a question or want to work together? Fill out the form below.</p>
+    <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+    <p class="text-lg mb-12 max-w-2xl mx-auto opacity-90">Have a question or want to collaborate? Fill out the form below and we’ll get back to you promptly.</p>
+
+    <form
+      action="https://formspree.io/f/mpwjbkek"
+      method="POST"
+      class="bg-white p-8 rounded-2xl shadow-md text-left space-y-6"
+    >
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-gray-900 font-semibold mb-2">Your Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9CAF88] focus:border-[#6B8E5A]"
+        />
       </div>
-    </div>
 
-    <!-- Business Frameworks -->
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-gray-900 font-semibold mb-2">Your Message</label>
+        <textarea
+          name="message"
+          id="message"
+          rows="5"
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9CAF88] focus:border-[#6B8E5A]"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="w-full bg-[#6B8E5A] text-white font-semibold py-3 px-6 rounded-xl hover:bg-[#4A5D23] transition"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
     <div>
-      <h3 class="text-3xl font-semibold mb-8 text-green-700 flex items-center">
-        <div class="w-1 h-8 bg-gradient-to-b from-green-600 to-green-800 rounded-full mr-4"></div>
-        Business Frameworks & Assessment
-      </h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="SCALE Framework" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">SCALE Framework</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">A framework with worksheets and checklists to streamline and scale operations.</p>
-          <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="Business Audit Framework" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">Business Audit Framework</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Evaluate and improve operations to align with best practices and growth goals.</p>
-          <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-        <div class="tool-card bg-white shadow-xl rounded-3xl p-8 border border-gray-100">
-          <img src="asset/logo-icon.png" class="h-14 mb-6" alt="SOP Designer" />
-          <h4 class="text-xl font-bold mb-3 text-gray-900">SOP Designer</h4>
-          <p class="text-gray-600 mb-4 leading-relaxed">Create and manage Standard Operating Procedures with a simple, intuitive designer.</p>
-          <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="text-green-600 hover:text-green-600 font-semibold hover:underline transition-colors">Try It →</a>
-        </div>
-      </div>
+      <img src="asset/logo-mark.png.png" alt="DGS Logo" class="h-12 mb-6">
+      <p class="text-sm">&copy; 2025 DGS Consulting. All rights reserved.</p>
     </div>
-  </section>
-
-  <!-- WHY DGS SECTION -->
-  <section id="why-dgs" class="bg-[#9CAF88] text-white py-24">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Choose DGS Consulting?</h2>
-      <p class="text-lg md:text-xl mb-16">Empowering small teams and solopreneurs with free, practical tools to streamline operations and scale efficiently.</p>
-
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="bg-[#6B8E5A] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Save Time</h3>
-          <p>Automate workflows with simple, ready-to-use tools so you can focus on what matters.</p>
-        </div>
-        <div class="bg-[#6B8E5A] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Save Money</h3>
-          <p>All tools are free and open-source, no hidden costs or subscriptions.</p>
-        </div>
-        <div class="bg-[#6B8E5A] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Be Strategic</h3>
-          <p>Frameworks designed to help you prioritize, track progress, and scale your business effectively.</p>
-        </div>
-        <div class="bg-[#6B8E5A] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Built for You</h3>
-          <p>Designed with small teams and solo entrepreneurs in mind, by someone who understands your challenges.</p>
-        </div>
-      </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
+      <ul class="space-y-3">
+        <li><a href="#tools" class="hover:text-green-700 transition-colors">Tools</a></li>
+        <li><a href="#why" class="hover:text-green-700 transition-colors">Why DGS</a></li>
+        <li><a href="#about" class="hover:text-green-700 transition-colors">About</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="bg-[#F7F9F5] text-[#4A5D23] py-24">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">About DGS Consulting</h2>
-      <p class="text-lg md:text-xl mb-6">Founded by Darren Snook, DGS Consulting exists to help solopreneurs and small teams streamline business processes efficiently and effectively.</p>
-      <p class="text-base md:text-lg mb-12">We believe small businesses deserve the same efficiency and insight as large enterprises—without the high cost. Our mission is simple: <strong>streamline today, scale tomorrow.</strong></p>
-
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-        <div class="bg-[#9CAF88] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Open & Transparent</h3>
-          <p>All tools are open-source, promoting transparency and community-driven improvement.</p>
-        </div>
-        <div class="bg-[#9CAF88] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">User-Focused</h3>
-          <p>Every tool is designed with small businesses in mind, making them practical and intuitive.</p>
-        </div>
-        <div class="bg-[#9CAF88] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Practical Solutions</h3>
-          <p>Frameworks and tools that actually help businesses prioritize, track, and grow without unnecessary complexity.</p>
-        </div>
-        <div class="bg-[#9CAF88] p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Community Driven</h3>
-          <p>We value feedback and ideas from our users to continuously improve and adapt our tools.</p>
-        </div>
-      </div>
-
-      <a href="#tools" class="inline-block px-8 py-4 bg-[#6B8E5A] text-white font-bold rounded-full shadow-lg hover:bg-[#4A5D23] transition">
-        Explore Our Tools &rarr;
-      </a>
+    <div>
+      <h4 class="font-semibold mb-4 text-white">Connect</h4>
+      <ul class="space-y-3">
+        <li><a href="mailto:DGSConsult@consultant.com" class="hover:text-teal-400 transition-colors">Email Us</a></li>
+        <li><a href="https://www.linkedin.com/company/dgs-consutling" target="_blank" class="hover:text-teal-400 transition-colors">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/dgsconsult/" target="_blank" class="hover:text-teal-400 transition-colors">Instagram</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- READY TO SCALE CTA -->
-  <section class="bg-gradient-to-br from-[#9CAF88] via-[#6B8E5A] to-[#4A5D23] text-white py-24">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Scale Smarter?</h2>
-      <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto">Take your business to the next level with our comprehensive suite of tools and frameworks designed for solopreneurs and small teams.</p>
-      <a href="https://dgsconsulting.github.io/-SCALE-Framework/" target="_blank" class="inline-block px-8 py-4 bg-[#6B8E5A] text-white font-bold rounded-full shadow-lg hover:bg-[#4A5D23] transition">
-        Start with SCALE Framework &rarr;
-      </a>
-    </div>
-  </section>
-
-  <!-- CONTACT FORM -->
-  <section id="contact" class="bg-gradient-to-br from-[#9CAF88] via-[#6B8E5A] to-[#4A5D23] py-24">
-    <div class="max-w-3xl mx-auto px-6 text-center text-white">
-      <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
-      <p class="text-lg mb-12 max-w-2xl mx-auto opacity-90">Have a question or want to collaborate? Fill out the form below and we’ll get back to you promptly.</p>
-
-      <form action="https://formspree.io/f/mpwjbkek" method="POST" class="bg-white p-8 rounded-2xl shadow-md text-left space-y-6">
-        <div>
-          <label for="email" class="block text-gray-900 font-semibold mb-2">Your Email</label>
-          <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9CAF88] focus:border-[#6B8E5A]" />
-        </div>
-        <div>
-          <label for="message" class="block text-gray-900 font-semibold mb-2">Your Message</label>
-          <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9CAF88] focus:border-[#6B8E5A]"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-[#6B8E5A] text-white font-semibold py-3 px-6 rounded-xl hover:bg-[#4A5D23] transition">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-      <div>
-        <img src="asset/logo-mark.png" alt="DGS Logo" class="h-12 mb-6">
-        <p class="text-sm">&copy; 2025 DGS Consulting. All rights reserved.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
-        <ul class="space-y-3">
-          <li><a href="#tools" class="hover:text-green-700 transition-colors">Tools</a></li>
-          <li><a href="#why-dgs" class="hover:text-green-700 transition-colors">Why DGS</a></li>
-          <li><a href="#about" class="hover:text-green-700 transition-colors">About</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-4 text-white">Connect</h4>
-        <ul class="space-y-3">
-          <li><a href="mailto:DGSConsult@consultant.com" class="hover:text-teal-400 transition-colors">Email Us</a></li>
-          <li><a href="https://www.linkedin.com/company/dgs-consutling" target="_blank" class="hover:text-teal-400 transition-colors">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/dgsconsult/" target="_blank" class="hover:text-teal-400 transition-colors">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-</body>
+  </div>
+</footer>
+  </body>
 </html>
