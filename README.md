@@ -6,7 +6,7 @@ At DGS Consulting, we empower solopreneurs and small teams with straightforward,
 
 🛠️ Business Tools
 
-Our suite of professional-grade tools is crafted to solve real business challenges—without the complexity of enterprise software.
+Our suite of tools is crafted to solve real business challenges—without the complexity of enterprise software.
 
 1. Priority Matrix Builder
 
