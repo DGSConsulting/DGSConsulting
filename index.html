@@ -1,230 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DGS Consulting</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DGS Consulting</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/logo-mark.png.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-mark.png.png" />
 
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #fff;
-        color: #333;
-      }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
 
-      header {
-        background: linear-gradient(
-          90deg,
-          #9caf88 0%,
-          #6b8e5a 50%,
-          #4a5d23 100%
-        );
-        color: white;
-        padding: 20px;
-        text-align: center;
-      }
+    header {
+      background: linear-gradient(90deg, #9CAF88 0%, #6B8E5A 50%, #4A5D23 100%);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-      header img {
-        height: 60px;
-      }
+    header img {
+      height: 60px;
+    }
 
-      section {
-        padding: 80px 20px;
-        text-align: center;
-      }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
 
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-      }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-      }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
 
-      .tools-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-      }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-      .tool-card {
-        background: #fff;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        text-align: left;
-      }
+    .tool-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
 
-      .tool-icon {
-        font-size: 40px;
-        margin-bottom: 15px;
-      }
+    .tool-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
 
-      .tool-card h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #333;
-      }
+    .tool-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
 
-      .tool-card p {
-        color: #555;
-        margin-bottom: 20px;
-      }
+    .tool-card p {
+      color: #555;
+      margin-bottom: 20px;
+    }
 
-      .tool-features {
-        margin-bottom: 20px;
-        color: #666;
-      }
+    .tool-features {
+      margin-bottom: 20px;
+      color: #666;
+    }
 
-      .tool-btn {
-        display: inline-block;
-        background: #6b8e5a;
-        color: #fff;
-        padding: 12px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-      }
+    .tool-btn {
+      display: inline-block;
+      background: #6B8E5A;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-      footer {
-        background: linear-gradient(
-          90deg,
-          #9caf88 0%,
-          #6b8e5a 50%,
-          #4a5d23 100%
-        );
-        color: #fff;
-        text-align: center;
-        padding: 20px;
-        margin-top: 50px;
-        font-size: 14px;
-      }
+    footer {
+      background: linear-gradient(90deg, #9CAF88 0%, #6B8E5A 50%, #4A5D23 100%);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
 
-      footer a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <img src="assets/logo-full-t.png" alt="DGS Consulting" />
-      <h1>DGS Consulting</h1>
-      <p>Streamline Today, Scale Tomorrow</p>
-    </header>
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="assets/logo-full-t.png" alt="DGS Consulting" />
+    <h1>DGS Consulting</h1>
+    <p>Streamline Today, Scale Tomorrow</p>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Unlock Efficiency with Free Business Tools</h1>
-      <p>
-        Optimize your operations with free calculators, documentation templates,
-        and assessments designed for growth.
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Unlock Efficiency with Free Business Tools</h1>
+    <p>
+      Optimize your operations with free calculators, documentation templates,
+      and assessments designed for growth.
+    </p>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools" style="background:#f9fafb;">
+    <div class="section-header">
+      <h2 style="font-size:2.5rem; font-weight:bold; margin-bottom:20px; color:#333;">
+        Free Tools to Streamline Your Business
+      </h2>
+      <p style="max-width:700px; margin:0 auto; color:#555;">
+        Use our free tools to document processes, calculate ROI, and assess
+        operational health.
       </p>
-    </section>
+    </div>
 
-    <!-- Tools Section -->
-    <section id="tools" style="background:#f9fafb;">
-      <div class="section-header">
-        <h2 style="font-size:2.5rem; font-weight:bold; margin-bottom:20px; color:#333;">
-          Free Tools to Streamline Your Business
-        </h2>
-        <p style="max-width:700px; margin:0 auto; color:#555;">
-          Use our free tools to document processes, calculate ROI, and assess
-          operational health.
+    <div class="tools-grid">
+      <!-- Documentation Tool -->
+      <div class="tool-card">
+        <div class="tool-icon">📋</div>
+        <h3>Process Documentation System</h3>
+        <p>
+          Professional templates for documenting and standardizing your
+          operations - the foundation of scalable growth.
         </p>
+        <div class="tool-features">
+          <span>✓ SOP templates</span><br />
+          <span>✓ Workflow mapping guides</span><br />
+          <span>✓ Quality checklists</span>
+        </div>
+        <a href="https://dgsconsulting.github.io/SOP-Designer/" class="tool-btn" target="_blank">Open Tool</a>
       </div>
 
-      <div class="tools-grid">
-        <!-- Documentation Tool -->
-        <div class="tool-card">
-          <div class="tool-icon">📋</div>
-          <h3>Process Documentation System</h3>
-          <p>
-            Professional templates for documenting and standardizing your
-            operations - the foundation of scalable growth.
-          </p>
-          <div class="tool-features">
-            <span>✓ SOP templates</span><br />
-            <span>✓ Workflow mapping guides</span><br />
-            <span>✓ Quality checklists</span>
-          </div>
-          <a
-            href="https://dgsconsulting.github.io/SOP-Designer/"
-            class="tool-btn"
-            target="_blank"
-            >Open Tool</a
-          >
+      <!-- ROI Calculator -->
+      <div class="tool-card">
+        <div class="tool-icon">💰</div>
+        <h3>ROI Calculator</h3>
+        <p>
+          Calculate the return on investment of streamlining operations before
+          you commit to changes.
+        </p>
+        <div class="tool-features">
+          <span>✓ Cost analysis</span><br />
+          <span>✓ Time savings projection</span><br />
+          <span>✓ Break-even insights</span>
         </div>
-
-        <!-- ROI Calculator -->
-        <div class="tool-card">
-          <div class="tool-icon">💰</div>
-          <h3>ROI Calculator</h3>
-          <p>
-            Calculate the return on investment of streamlining operations before
-            you commit to changes.
-          </p>
-          <div class="tool-features">
-            <span>✓ Cost analysis</span><br />
-            <span>✓ Time savings projection</span><br />
-            <span>✓ Break-even insights</span>
-          </div>
-          <a
-            href="https://dgsconsulting.github.io/ROI-Calculator-Suite/"
-            class="tool-btn"
-            target="_blank"
-            >Open Tool</a
-          >
-        </div>
-
-        <!-- Business Audit -->
-        <div class="tool-card">
-          <div class="tool-icon">📊</div>
-          <h3>Operational Assessment</h3>
-          <p>
-            Evaluate your current processes and uncover gaps holding your
-            business back.
-          </p>
-          <div class="tool-features">
-            <span>✓ Efficiency check</span><br />
-            <span>✓ Risk analysis</span><br />
-            <span>✓ Growth readiness score</span>
-          </div>
-          <a
-            href="https://dgsconsulting.github.io/Business-Audit-Framework-/"
-            class="tool-btn"
-            target="_blank"
-            >Open Tool</a
-          >
-        </div>
+        <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" class="tool-btn" target="_blank">Open Tool</a>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 DGS Consulting — Streamline Today, Scale Tomorrow</p>
-      <p>
-        <a href="mailto:DGSConsult@consultant.com">Contact</a> |
-        <a
-          href="https://www.linkedin.com/company/dgs-consutling/"
-          target="_blank"
-          >LinkedIn</a
-        >
-        |
-        <a href="https://www.instagram.com/dgsconsult/" target="_blank"
-          >Instagram</a
-        >
-      </p>
-    </footer>
-  </body>
+      <!-- Business Audit -->
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <h3>Operational Assessment</h3>
+        <p>
+          Evaluate your current processes and uncover gaps holding your
+          business back.
+        </p>
+        <div class="tool-features">
+          <span>✓ Efficiency check</span><br />
+          <span>✓ Risk analysis</span><br />
+          <span>✓ Growth readiness score</span>
+        </div>
+        <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" class="tool-btn" target="_blank">Open Tool</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 DGS Consulting — Streamline Today, Scale Tomorrow</p>
+    <p>
+      <a href="mailto:DGSConsult@consultant.com">Contact</a> |
+      <a href="https://www.linkedin.com/company/dgs-consutling/" target="_blank">LinkedIn</a> |
+      <a href="https://www.instagram.com/dgsconsult/" target="_blank">Instagram</a>
+    </p>
+  </footer>
+</body>
 </html>
+
