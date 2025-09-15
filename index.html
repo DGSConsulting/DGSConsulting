@@ -56,12 +56,14 @@
 
     .floating-elements { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
     .floating-card { position: absolute; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 15px; font-size: 12px; color: white; animation: float 8s ease-in-out infinite; }
-    .card-1 { top: 20%; left: -10%; animation-delay: -2s; }
-    .card-2 { top: 60%; right: -5%; animation-delay: -4s; }
+    .card-1 { top: 10%; left: -20%; animation-delay: -2s; }
+    .card-2 { top: 70%; right: -18%; animation-delay: -4s; }
 
     /* Social Proof Section */
     .social-proof { padding: 80px 0; background: #f8f9fa; }
-    .testimonial-card { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); max-width: 800px; margin: 0 auto; text-align: center; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .testimonial-card { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); text-align: center; }
+    .testimonials-grid .testimonial-card { margin: 0; max-width: none; }
     .quote-icon { font-size: 3rem; color: #9CAF88; margin-bottom: 20px; }
     .testimonial-text { font-size: 1.2rem; line-height: 1.7; color: #2d3748; margin-bottom: 30px; font-style: italic; }
     .testimonial-author { display: flex; align-items: center; justify-content: center; gap: 20px; }
@@ -183,16 +185,55 @@
   <!-- Social Proof Section -->
   <section class="social-proof">
     <div class="container">
-      <div class="testimonial-card">
-        <div class="quote-icon">"</div>
-        <div class="testimonial-text">
-          "I've had the pleasure of working with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. He brings a solid understanding of small business dynamics and offers insights that are both strategic and highly actionable. Darren is incredibly reliable, always delivering thoughtful analysis and recommendations that help move projects forward."
+      <div class="section-header" style="margin-bottom: 50px;">
+        <h2 style="color: #2d3748;">What Business Leaders Say</h2>
+        <p style="color: #4a5568;">Real feedback from executives and business partners</p>
+      </div>
+      
+      <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; margin-bottom: 40px;">
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="testimonial-text" style="font-size: 1.1rem;">
+            "Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and was able to offer actionable insights that added real value to the business. <strong>If I ever started a company, Darren would be my first hire.</strong>"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">NZ</div>
+            <div class="author-info">
+              <h4>Norm Zenglein, MBA</h4>
+              <p>Account Executive, Schulich School of Business</p>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">BG</div>
-          <div class="author-info">
-            <h4>Bakir Ghunaim</h4>
-            <p>Founder of Social Stuff | Business Strategist</p>
+
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="testimonial-text" style="font-size: 1.1rem;">
+            "I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. He brings a solid understanding of small business dynamics and offers insights that are both strategic and highly actionable. Darren is incredibly reliable, always delivering thoughtful analysis."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">BG</div>
+            <div class="author-info">
+              <h4>Bakir Ghunaim</h4>
+              <p>Founder of Social Stuff | Business Strategist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Credentials -->
+      <div class="credentials-bar" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); text-align: center;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; align-items: center;">
+          <div class="credential">
+            <div style="font-size: 1.5rem; font-weight: 700; color: #6B8E5A; margin-bottom: 5px;">6 Years</div>
+            <div style="color: #4a5568; font-size: 14px;">Business Analysis Experience</div>
+          </div>
+          <div class="credential">
+            <div style="font-size: 1.5rem; font-weight: 700; color: #6B8E5A; margin-bottom: 5px;">IT World Canada</div>
+            <div style="color: #4a5568; font-size: 14px;">Senior Business Analyst</div>
+          </div>
+          <div class="credential">
+            <div style="font-size: 1.5rem; font-weight: 700; color: #6B8E5A; margin-bottom: 5px;">Sales & Operations</div>
+            <div style="color: #4a5568; font-size: 14px;">Business Development Leader</div>
           </div>
         </div>
       </div>
@@ -358,7 +399,7 @@
   <footer class="footer">
     <div class="container">
       <p>© 2025 DGS Consulting — Strategic Analysis, Actionable Results</p>
-      <p><a href="mailto:DGSConsult@consultant.com">darren@dgsconsulting.com</a> | <a href="https://www.linkedin.com/in/dg-snook/="_blank">LinkedIn</a></p>
+      <p><a href="mailto:darren@dgsconsulting.com">darren@dgsconsulting.com</a> | <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
     </div>
   </footer>
 </body>
