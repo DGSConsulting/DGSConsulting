@@ -1,864 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGS Consulting - Field Service Digital Transformation</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DGS Consulting</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-mark.png.png" />
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .hero-text {
-            color: white;
-        }
-        
-        .impact-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, #B6C7AD 0%, #C1C4AB 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 500px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .stat {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .stat:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #B6C7AD;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-            color: white;
-            box-shadow: 0 10px 30px rgba(107, 142, 90, 0.4);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(107, 142, 90, 0.6);
-        }
-        
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        .hero-visual {
-            position: relative;
-        }
-        
-        .phone-mockup {
-            background: #1a1a1a;
-            border-radius: 30px;
-            padding: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            transform: rotate(-5deg);
-            animation: float 6s ease-in-out infinite;
-            margin: 0 auto;
-            max-width: 300px;
-        }
-        
-        .phone-screen {
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            border-radius: 20px;
-            padding: 30px 20px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .phone-screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        .app-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .app-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .app-subtitle {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-        
-        .app-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .app-stat {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px 10px;
-            text-align: center;
-        }
-        
-        .app-stat-number {
-            font-size: 16px;
-            font-weight: 700;
-            color: #B6C7AD;
-        }
-        
-        .app-stat-label {
-            font-size: 10px;
-            opacity: 0.8;
-        }
-        
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .floating-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 15px;
-            font-size: 12px;
-            color: white;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .card-1 {
-            top: 20%;
-            left: -10%;
-            animation-delay: -2s;
-        }
-        
-        .card-2 {
-            top: 60%;
-            right: -5%;
-            animation-delay: -4s;
-        }
-        
-        /* Tools Section Styles */
-        .tools-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #C1C4AB 0%, #B6C7AD 100%);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-        
-        .section-header p {
-            font-size: 1.2rem;
-            color: #4a5568;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-        
-        .tool-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-        }
-        
-        .tool-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .tool-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-        
-        .tool-card p {
-            color: #4a5568;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-        
-        .tool-features {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 30px;
-        }
-        
-        .feature {
-            font-size: 14px;
-            color: #4a5568;
-            font-weight: 500;
-        }
-        
-        .tool-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .tool-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(107, 142, 90, 0.3);
-        }
-        
-        .consultation-cta {
-            background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            color: white;
-        }
-        
-        .cta-content h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .cta-content p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Form Section Styles */
-        .form-section {
-            padding: 100px 0;
-            background: #B6C7AD;
-        }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 60px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .form-header h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-        
-        .form-header p {
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-        
-        .assessment-form {
-            width: 100%;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-        
-        .form-group label {
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #6B8E5A;
-            box-shadow: 0 0 0 3px rgba(107, 142, 90, 0.1);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            font-family: inherit;
-        }
-        
-        .checkbox-group {
-            margin: 30px 0;
-        }
-        
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 500;
-            color: #4a5568;
-        }
-        
-        .checkbox-label input[type="checkbox"] {
-            margin-right: 12px;
-            width: 18px;
-            height: 18px;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px 30px;
-            font-size: 18px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-            color: white;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(107, 142, 90, 0.3);
-        }
-        
-        .btn-arrow {
-            transition: transform 0.3s ease;
-        }
-        
-        .submit-btn:hover .btn-arrow {
-            transform: translateX(5px);
-        }
-        
-        .form-disclaimer {
-            text-align: center;
-            font-size: 14px;
-            color: #4a5568;
-            line-height: 1.5;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .cta-buttons {
-                justify-content: center;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .floating-card {
-                display: none;
-            }
-            
-            .tools-section,
-            .form-section {
-                padding: 60px 0;
-            }
-            
-            .form-container {
-                padding: 40px 30px;
-            }
-            
-            .consultation-cta {
-                padding: 40px 30px;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          90deg,
+          #9caf88 0%,
+          #6b8e5a 50%,
+          #4a5d23 100%
+        );
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      header img {
+        height: 60px;
+      }
+
+      section {
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .tool-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+
+      .tool-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+
+      .tool-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .tool-card p {
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .tool-features {
+        margin-bottom: 20px;
+        color: #666;
+      }
+
+      .tool-btn {
+        display: inline-block;
+        background: #6b8e5a;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer {
+        background: linear-gradient(
+          90deg,
+          #9caf88 0%,
+          #6b8e5a 50%,
+          #4a5d23 100%
+        );
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-top: 50px;
+        font-size: 14px;
+      }
+
+      footer a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 8px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <img src="assets/logo-full-t.png" alt="DGS Consulting" />
+      <h1>DGS Consulting</h1>
+      <p>Streamline Today, Scale Tomorrow</p>
+    </header>
+
+    <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="impact-badge">✅ Proven Results: $1.5M → $4.0M in 24 Months</div>
-                    
-                    <h1>I Help Field Service Companies <span class="highlight">Scale Operations</span> With Mobile-First Technology</h1>
-                    
-                    <p>The same digital transformation strategy that grew a landscaping company 167% in two seasons. Real systems, real results, real ROI.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat">
-                            <span class="stat-number">167%</span>
-                            <span class="stat-label">Revenue Growth</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">50%</span>
-                            <span class="stat-label">Faster Collections</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">20%</span>
-                            <span class="stat-label">Cost Reduction</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">350%</span>
-                            <span class="stat-label">More Referrals</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cta-buttons">
-                        <a href="#case-study" class="btn btn-primary">See The Full Case Study</a>
-                        <a href="#tools" class="btn btn-secondary">Free Tools & Assessment</a>
-                    </div>
-                </div>
-                
-                <div class="hero-visual">
-                    <div class="floating-elements">
-                        <div class="floating-card card-1">
-                            💳 Real-time payments<br>
-                            ↗️ 50% faster AR
-                        </div>
-                        <div class="floating-card card-2">
-                            📱 Mobile tracking<br>
-                            ↘️ 20% cost savings
-                        </div>
-                    </div>
-                    
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="app-header">
-                                <div class="app-title">Field Operations</div>
-                                <div class="app-subtitle">Live Dashboard</div>
-                            </div>
-                            <div class="app-stats">
-                                <div class="app-stat">
-                                    <div class="app-stat-number">$47K</div>
-                                    <div class="app-stat-label">Today's Revenue</div>
-                                </div>
-                                <div class="app-stat">
-                                    <div class="app-stat-number">8</div>
-                                    <div class="app-stat-label">Active Jobs</div>
-                                </div>
-                                <div class="app-stat">
-                                    <div class="app-stat-number">94%</div>
-                                    <div class="app-stat-label">On-Time Rate</div>
-                                </div>
-                                <div class="app-stat">
-                                    <div class="app-stat-number">$12K</div>
-                                    <div class="app-stat-label">Pending Payments</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <h1>Unlock Efficiency with Free Business Tools</h1>
+      <p>
+        Optimize your operations with free calculators, documentation templates,
+        and assessments designed for growth.
+      </p>
     </section>
 
     <!-- Tools Section -->
-    <section id="tools" class="tools-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Same Tools I Use With $1M+ Clients</h2>
-                <p>Available free to help you identify your biggest growth opportunities</p>
-            </div>
-            
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">📊</div>
-                    <h3>Operational Health Assessment</h3>
-                    <p>Comprehensive analysis tool that identifies your biggest bottlenecks and growth barriers in under 10 minutes.</p>
-                    <div class="tool-features">
-                        <span class="feature">✓ Cash flow analysis</span>
-                        <span class="feature">✓ Process efficiency scoring</span>
-                        <span class="feature">✓ Technology gap identification</span>
-                    </div>
-                    <a href="#assessment-form" class="tool-btn" onclick="scrollToForm()">Get Your Score</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">📋</div>
-                    <h3>Process Documentation System</h3>
-                    <p>Professional templates for documenting and standardizing your operations - the foundation of scalable growth.</p>
-                    <div class="tool-features">
-                        <span class="feature">✓ SOP templates</span>
-                        <span class="feature">✓ Workflow mapping guides</span>
-                        <span class="feature">✓ Quality checklists</span>
-                    </div>
-                    <a href="#assessment-form" class="tool-btn" onclick="selectTool('documentation')">Download Free</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">💰</div>
-                    <h3>Investment Analysis Calculator</h3>
-                    <p>ROI calculator for mobile technology investments. See exactly how digital transformation will impact your bottom line.</p>
-                    <div class="tool-features">
-                        <span class="feature">✓ Cost-benefit analysis</span>
-                        <span class="feature">✓ Cash flow projections</span>
-                        <span class="feature">✓ Implementation timeline</span>
-                    </div>
-                    <a href="#assessment-form" class="tool-btn" onclick="selectTool('calculator')">Calculate ROI</a>
-                </div>
-            </div>
-            
-            <div class="consultation-cta">
-                <div class="cta-content">
-                    <h3>Want a personalized assessment of your operations?</h3>
-                    <p>I'll analyze your specific situation and show you exactly where the biggest opportunities are hiding.</p>
-                    <a href="#assessment-form" class="btn btn-primary" onclick="scrollToForm()">Schedule Free 30-Minute Assessment</a>
-                </div>
-            </div>
+    <section id="tools" style="background:#f9fafb;">
+      <div class="section-header">
+        <h2 style="font-size:2.5rem; font-weight:bold; margin-bottom:20px; color:#333;">
+          Free Tools to Streamline Your Business
+        </h2>
+        <p style="max-width:700px; margin:0 auto; color:#555;">
+          Use our free tools to document processes, calculate ROI, and assess
+          operational health.
+        </p>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Documentation Tool -->
+        <div class="tool-card">
+          <div class="tool-icon">📋</div>
+          <h3>Process Documentation System</h3>
+          <p>
+            Professional templates for documenting and standardizing your
+            operations - the foundation of scalable growth.
+          </p>
+          <div class="tool-features">
+            <span>✓ SOP templates</span><br />
+            <span>✓ Workflow mapping guides</span><br />
+            <span>✓ Quality checklists</span>
+          </div>
+          <a
+            href="https://dgsconsulting.github.io/SOP-Designer/"
+            class="tool-btn"
+            target="_blank"
+            >Open Tool</a
+          >
         </div>
+
+        <!-- ROI Calculator -->
+        <div class="tool-card">
+          <div class="tool-icon">💰</div>
+          <h3>ROI Calculator</h3>
+          <p>
+            Calculate the return on investment of streamlining operations before
+            you commit to changes.
+          </p>
+          <div class="tool-features">
+            <span>✓ Cost analysis</span><br />
+            <span>✓ Time savings projection</span><br />
+            <span>✓ Break-even insights</span>
+          </div>
+          <a
+            href="https://dgsconsulting.github.io/ROI-Calculator-Suite/"
+            class="tool-btn"
+            target="_blank"
+            >Open Tool</a
+          >
+        </div>
+
+        <!-- Business Audit -->
+        <div class="tool-card">
+          <div class="tool-icon">📊</div>
+          <h3>Operational Assessment</h3>
+          <p>
+            Evaluate your current processes and uncover gaps holding your
+            business back.
+          </p>
+          <div class="tool-features">
+            <span>✓ Efficiency check</span><br />
+            <span>✓ Risk analysis</span><br />
+            <span>✓ Growth readiness score</span>
+          </div>
+          <a
+            href="https://dgsconsulting.github.io/Business-Audit-Framework-/"
+            class="tool-btn"
+            target="_blank"
+            >Open Tool</a
+          >
+        </div>
+      </div>
     </section>
 
-    <!-- Assessment Form Section -->
-    <section id="assessment-form" class="form-section">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-header">
-                    <h2>Get Your Free Operational Assessment</h2>
-                    <p>Tell me about your business and I'll send you a personalized analysis with specific recommendations</p>
-                </div>
-                
-                <form action="https://formspree.io/f/mpwjbkek" method="POST" class="assessment-form">
-                    <input type="hidden" name="requested_tool" id="requested-tool" value="">
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Business Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="industry">Industry/Service Type</label>
-                            <select id="industry" name="industry" required>
-                                <option value="">Select your industry</option>
-                                <option value="landscaping">Landscaping</option>
-                                <option value="hvac">HVAC</option>
-                                <option value="plumbing">Plumbing</option>
-                                <option value="electrical">Electrical</option>
-                                <option value="cleaning">Cleaning Services</option>
-                                <option value="pest-control">Pest Control</option>
-                                <option value="construction">Construction</option>
-                                <option value="other">Other Field Service</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="revenue">Annual Revenue Range</label>
-                            <select id="revenue" name="revenue" required>
-                                <option value="">Select revenue range</option>
-                                <option value="under-500k">Under $500K</option>
-                                <option value="500k-1m">$500K - $1M</option>
-                                <option value="1m-3m">$1M - $3M</option>
-                                <option value="3m-5m">$3M - $5M</option>
-                                <option value="over-5m">Over $5M</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="team-size">Team Size</label>
-                            <select id="team-size" name="team-size" required>
-                                <option value="">Select team size</option>
-                                <option value="1-5">1-5 employees</option>
-                                <option value="6-15">6-15 employees</option>
-                                <option value="16-30">16-30 employees</option>
-                                <option value="31-50">31-50 employees</option>
-                                <option value="over-50">Over 50 employees</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="challenges">What's your biggest operational challenge right now?</label>
-                        <textarea id="challenges" name="challenges" rows="4" placeholder="e.g., Cash flow issues, manual processes taking too much time, can't scale without working more hours..." required></textarea>
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="goals">What would success look like for you in the next 12 months?</label>
-                        <textarea id="goals" name="goals" rows="3" placeholder="e.g., Double revenue, free up 20 hours per week, eliminate cash flow stress..." required></textarea>
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="tools-interest" value="yes" checked>
-                            <span class="checkmark"></span>
-                            Yes, send me the free operational assessment tools
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        Get My Free Assessment
-                        <span class="btn-arrow">→</span>
-                    </button>
-                    
-                    <p class="form-disclaimer">
-                        No spam, ever. I'll send you a detailed analysis within 24 hours, plus occasional insights on field service optimization.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function scrollToForm() {
-            document.getElementById('assessment-form').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-        
-        function selectTool(toolType) {
-            document.getElementById('requested-tool').value = toolType;
-            scrollToForm();
-            
-            // Update form header to show which tool was requested
-            const formHeader = document.querySelector('.form-header h2');
-            if (toolType === 'documentation') {
-                formHeader.textContent = 'Get Your Free Process Documentation Templates';
-            } else if (toolType === 'calculator') {
-                formHeader.textContent = 'Get Your Free ROI Calculator';
-            } else {
-                formHeader.textContent = 'Get Your Free Operational Assessment';
-            }
-        }
-    </script>
-</body>
-    </script>
-
-    <footer style="
-      background: linear-gradient(90deg, #9CAF88 0%, #6B8E5A 50%, #4A5D23 100%);
-      color:#fff;
-      text-align:center;
-      padding:20px;
-      margin-top:50px;
-      font-size:14px;
-    ">
+    <!-- Footer -->
+    <footer>
       <p>© 2025 DGS Consulting — Streamline Today, Scale Tomorrow</p>
       <p>
-        <a href="mailto:DGSConsult@consultant.com" style="color:#fff; text-decoration:none; margin:0 8px;">Contact</a> |
-        <a href="https://www.linkedin.com/company/dgs-consutling/" target="_blank" style="color:#fff; text-decoration:none; margin:0 8px;">LinkedIn</a> |
-        <a href="https://www.instagram.com/dgsconsult/" target="_blank" style="color:#fff; text-decoration:none; margin:0 8px;">Instagram</a>
+        <a href="mailto:DGSConsult@consultant.com">Contact</a> |
+        <a
+          href="https://www.linkedin.com/company/dgs-consutling/"
+          target="_blank"
+          >LinkedIn</a
+        >
+        |
+        <a href="https://www.instagram.com/dgsconsult/" target="_blank"
+          >Instagram</a
+        >
       </p>
     </footer>
+  </body>
 </html>
