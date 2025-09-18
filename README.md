@@ -47,7 +47,7 @@ Track results, refine strategies, and ensure sustained growth through ongoing an
 - ✅ Identifies biggest bottlenecks and opportunities  
 - ✅ Same framework used with $1M+ businesses
 
-[**🚀 Take Free Assessment**](http://dgsconsulting.solutions/) | [**📊 Sample Results**](#)
+[**🚀 Take Free Assessment**](https://dgsconsulting.github.io/Business-Audit-Framework-/) | [**📊 Sample Results**](#)
 
 ---
 
@@ -59,7 +59,7 @@ Track results, refine strategies, and ensure sustained growth through ongoing an
 - ✅ Foundation for scalable growth
 - ✅ Standardization frameworks
 
-[**📥 Download Templates**](#) | [**📖 Implementation Guide**](#)
+[**📥 Download Templates**](https://dgsconsulting.github.io/SOP-Designer/) | [**📖 Implementation Guide**](#)
 
 ---
 
@@ -71,7 +71,7 @@ Track results, refine strategies, and ensure sustained growth through ongoing an
 - ✅ Staffing investment projections
 - ✅ Operational improvement ROI
 
-[**🧮 Access Calculator**](#) | [**📈 Example Analyses**](#)
+[**🧮 Access Calculator**](https://dgsconsulting.github.io/ROI-Calculator-Suite/) | [**📈 Example Analyses**](#)
 
 ---
 
@@ -82,7 +82,7 @@ Want to explore additional business optimization tools?
 - **Cash Flow Forecaster** - Plan your financial future with confidence
 - **SCALE Framework** - Systematic approach to business scaling
 
-[**🛠️ Browse All Tools**](#)
+[**🛠️ Browse All Tools**](https://dgsconsulting.github.io/Tool-Library/)
 
 ## 💼 Ready to Scale Your Business?
 
@@ -94,7 +94,7 @@ This isn't just another generic business quiz. It's the same comprehensive asses
 
 <div align="center">
 
-[**🚀 Start Your Free Assessment**](http://dgsconsulting.solutions/)
+[**🚀 Start Your Free Assessment**](https://dgsconsulting.github.io/Business-Audit-Framework-/)
 
 </div>
 
@@ -125,8 +125,8 @@ Stay updated on the latest business optimization strategies and tools:
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github&style=flat-square)](https://github.com/DGSConsulting)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin&style=flat-square)](#)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?logo=gmail&style=flat-square)](#)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/dg-snook/)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?logo=gmail&style=flat-square)](DGSConsult@consultant.com)
 
 </div>
 
