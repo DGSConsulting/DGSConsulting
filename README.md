@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![DGS Consulting](./assets/your-mark-t.png)
+![DGS Consulting](/assets/your-mark-t.png)
 
 **Business Analysis & Digital Strategy for Growing Small Businesses**
 
