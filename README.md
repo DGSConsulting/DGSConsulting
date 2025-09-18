@@ -1,70 +1,151 @@
-DGS Consulting
+# DGS Consulting
 
-✨ Simple Tools. Big Impact. ✨
+<div align="center">
 
-At DGS Consulting, we empower solopreneurs and small teams with straightforward, effective tools designed to streamline operations and boost productivity.
+![DGS Consulting](./assets/your-mark-t.png)
 
-🛠️ Business Tools
+**Business Analysis & Digital Strategy for Growing Small Businesses**
 
-Our suite of tools is crafted to solve real business challenges—without the complexity of enterprise software.
+*I help small business owners identify their biggest growth bottlenecks and implement digital solutions that deliver measurable results.*
 
-1. Priority Matrix Builder
+[![Website](https://img.shields.io/badge/Website-dgsconsulting.solutions-blue?style=for-the-badge)](http://dgsconsulting.solutions/)
+[![GitHub](https://img.shields.io/github/followers/DGSConsulting?style=social)](https://github.com/DGSConsulting)
 
-A clean, mobile-friendly Eisenhower Matrix tool to organize tasks by impact and effort.
-
-Features visual task prioritization, drag & drop interface, mobile responsiveness, and export capabilities.
-
-2. SOP Designer
-
-Create and manage Standard Operating Procedures with ease.
-
-Includes a step-by-step builder, template library, professional formatting, and team collaboration features.
-
-3. SCALE Framework
-
-An open framework for streamlining and scaling small-to-medium businesses with proven methodologies.
-
-Offers a 5-pillar methodology, implementation roadmap, progress tracking, and success metrics.
-
-4. Business Audit Framework
-
-A free, 10-minute self-assessment tool to evaluate your business operations and identify growth opportunities.
-
-Provides insights across 5 key business areas, instant results, actionable recommendations, and progress benchmarking.
-
-5. Cash Flow Forecaster
-
-Plan your financial future with confidence by forecasting your cash flow for up to 24 months ahead.
-
-Features 12-24 month forecasts, growth rate modeling, cash flow insights, and export capabilities.
-
-6. ROI Calculator Suite
-
-Comprehensive ROI analysis tools for business investments, marketing campaigns, and strategic decisions.
-
-Includes investment analysis, marketing ROI tracking, break-even calculations, and scenario planning.
-
-✅ Why Choose DGS Consulting Tools?
-
-100% Free & Open Source: No subscriptions, no hidden fees, no data lock-in.
-
-< 2 min Setup Time: Get up and running in minutes, not months.
-
-Mobile Responsive: Access your tools anytime, anywhere.
-
-Designed for Entrepreneurs: Tailored for busy solopreneurs and small teams.
-
-🔗 Connect with Us
-
-GitHub
-
-LinkedIn
-
-Instagram
-
-Built with ❤️ for solopreneurs and small businesses everywhere.
-- [Email](mailto:DGSConsult@consultant.com)
+</div>
 
 ---
 
-✨ _"Simple tools. Big impact."_
+## 🎯 About DGS Consulting
+
+I specialize in helping small business owners break through growth barriers using the same assessment frameworks and digital solutions that work for $1M+ businesses. My approach focuses on **identifying bottlenecks**, **implementing systematic solutions**, and **delivering measurable results**.
+
+## 🔍 My 4-Step Growth Framework
+
+### 1. **📊 Assess**
+Comprehensive evaluation of your operations, finances, and market position to identify the biggest growth barriers and opportunities.
+
+### 2. **🗺️ Plan** 
+Develop a prioritized roadmap with specific, actionable recommendations that address your most critical business challenges first.
+
+### 3. **🚀 Implement**
+Guide you through implementing digital solutions, process improvements, and strategic initiatives with measurable milestones.
+
+### 4. **📈 Optimize**
+Track results, refine strategies, and ensure sustained growth through ongoing analysis and strategic adjustments.
+
+---
+
+## 🛠️ Free Business Tools & Frameworks
+
+*The same assessment frameworks I use with growing businesses - available free to help you identify your biggest opportunities*
+
+### 🔍 **Business Bottleneck Assessment**
+**10-minute comprehensive analysis** that identifies your biggest bottlenecks and growth opportunities across operations, finance, and strategy.
+
+- ✅ Comprehensive 10-minute assessment
+- ✅ Analysis across operations, finance, and strategy
+- ✅ Identifies biggest bottlenecks and opportunities  
+- ✅ Same framework used with $1M+ businesses
+
+[**🚀 Take Free Assessment**](http://dgsconsulting.solutions/) | [**📊 Sample Results**](#)
+
+---
+
+### 📋 **Professional SOP Templates**
+**Professional templates** for documenting and standardizing your operations - the foundation of scalable, systematic growth.
+
+- ✅ Ready-to-use professional templates
+- ✅ Operations documentation made simple
+- ✅ Foundation for scalable growth
+- ✅ Standardization frameworks
+
+[**📥 Download Templates**](#) | [**📖 Implementation Guide**](#)
+
+---
+
+### 💰 **Strategic ROI Calculator**
+**Strategic investment analysis tool.** Calculate ROI for technology, marketing, staffing, and operational investments with detailed projections.
+
+- ✅ Technology investment analysis
+- ✅ Marketing ROI calculations  
+- ✅ Staffing investment projections
+- ✅ Operational improvement ROI
+
+[**🧮 Access Calculator**](#) | [**📈 Example Analyses**](#)
+
+---
+
+### 🔗 **Additional Business Tools**
+Want to explore additional business optimization tools?
+
+- **Priority Matrix Builder** - Organize tasks by impact and effort
+- **Cash Flow Forecaster** - Plan your financial future with confidence
+- **SCALE Framework** - Systematic approach to business scaling
+
+[**🛠️ Browse All Tools**](#)
+
+## 💼 Ready to Scale Your Business?
+
+### Take the Same Assessment I Use with $1M+ Businesses
+
+**Identify your biggest bottlenecks and untapped potential in just 10 minutes.**
+
+This isn't just another generic business quiz. It's the same comprehensive assessment framework I use with growing businesses to pinpoint exactly where they're losing money, time, and opportunities.
+
+<div align="center">
+
+[**🚀 Start Your Free Assessment**](http://dgsconsulting.solutions/)
+
+</div>
+
+---
+
+## 🎯 Who This Is For
+
+✅ **Small business owners** ready to break through growth plateaus  
+✅ **Entrepreneurs** looking to systematize and scale their operations  
+✅ **Business leaders** who want data-driven insights, not generic advice  
+✅ **Growing companies** that need strategic guidance without enterprise costs  
+
+## 📞 Work With Me
+
+Ready to identify and eliminate your biggest growth bottlenecks? Let's discuss how I can help accelerate your business growth with proven frameworks and digital solutions.
+
+<div align="center">
+
+[![Website](https://img.shields.io/badge/Visit%20Website-dgsconsulting.solutions-2563eb?style=for-the-badge&logo=safari&logoColor=white)](http://dgsconsulting.solutions/)
+[![Assessment](https://img.shields.io/badge/Free%20Assessment-Start%20Now-22c55e?style=for-the-badge&logo=checkmark&logoColor=white)](http://dgsconsulting.solutions/)
+
+</div>
+
+## 🤝 Connect & Follow
+
+Stay updated on the latest business optimization strategies and tools:
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github&style=flat-square)](https://github.com/DGSConsulting)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin&style=flat-square)](#)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?logo=gmail&style=flat-square)](#)
+
+</div>
+
+---
+
+<div align="center">
+
+**Systematic Growth. Measurable Results. Digital Solutions.**
+
+*Helping small businesses break through growth barriers since [Year]*
+
+⭐ **Found these tools helpful? Star this repo to support the project!** ⭐
+
+</div>
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+*Business Analysis & Digital Strategy | Growth Bottleneck Identification | Digital Solution Implementation*
