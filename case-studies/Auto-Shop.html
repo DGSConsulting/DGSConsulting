@@ -15,6 +15,28 @@
       background: #f4f4f4;
     }
 
+    /* Navigation */
+    .nav {
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav a {
+      margin: 0 1.5rem;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav a:hover {
+      color: #6B8E5A;
+    }
+
     /* Header */
     .case-header {
       position: relative;
@@ -44,7 +66,6 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    /* Section base */
     section {
       padding: 3rem 2rem;
     }
@@ -64,7 +85,6 @@
       color: #2d3748;
     }
 
-    /* Bullet Points */
     .bullet-points {
       list-style: none;
       padding-left: 0;
@@ -83,7 +103,6 @@
       font-weight: bold;
     }
 
-    /* Results */
     .results-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -110,7 +129,6 @@
       font-size: 1.1rem;
     }
 
-    /* Quote */
     .quote {
       margin: 3rem 2rem;
       background: #f7fafc;
@@ -135,7 +153,6 @@
       opacity: 0.7;
     }
 
-    /* Before & After Table */
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
@@ -151,7 +168,6 @@
       font-weight: 600;
     }
 
-    /* Lessons */
     .lessons {
       padding: 3rem 2rem;
       background: white;
@@ -161,10 +177,22 @@
       .results-grid {
         grid-template-columns: 1fr;
       }
+      .nav {
+        flex-direction: column;
+      }
+      .nav a {
+        margin: 0.5rem 0;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="http://dgsconsulting.solutions/">Home</a>
+    <a href="http://dgsconsulting.solutions/case-studies/">Case Studies Hub</a>
+  </nav>
+
   <!-- Hero -->
   <div class="case-header">
     <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
@@ -198,21 +226,20 @@
     <!-- Solution -->
     <section class="solution">
       <h2 class="section-title">The Solution: Integrating Smart, Simple Tools</h2>
-      <p>The goal wasn’t to overhaul Mike’s entire business — it was to make his existing workflow smarter. Rather than introducing yet another “all-in-one” platform, we focused on connecting the right tools.</p>
-      <p>The heart of the solution was a seamless integration between <strong>Shopmonkey</strong> and <strong>QuickBooks Online</strong>:</p>
+      <p>The heart of the solution was a seamless integration between <strong>Shopmonkey</strong> and <strong>QuickBooks Online</strong>. Shopmonkey became the operational hub, managing scheduling, repair orders, and technician workflows. QuickBooks handled financial tracking and synced automatically with Shopmonkey for invoices and payments.</p>
       <ul class="bullet-points">
-        <li><strong>Shopmonkey</strong> became the operational hub, managing scheduling, repair orders, and technician workflows.</li>
-        <li><strong>QuickBooks</strong> handled financial tracking, automatically syncing with Shopmonkey for invoices and payments.</li>
+        <li>Jobs closed in under 2 minutes instead of 15–20</li>
+        <li>Inventory updates automatically</li>
+        <li>Financial reporting in real time</li>
       </ul>
-      <p>Now, when a job is closed in Shopmonkey, parts inventory is updated, invoices are generated, and QuickBooks is updated instantly — no manual entry required. What once took 20 minutes now takes less than two.</p>
+      <p>Now, Mike’s team could focus on what they do best: fixing cars.</p>
     </section>
 
-    <!-- Why Shopmonkey & QuickBooks -->
+    <!-- Software Section -->
     <section>
-      <h2 class="section-title">Why These Tools Worked</h2>
+      <h2 class="section-title">Why Shopmonkey & QuickBooks Worked</h2>
 
       <h3>Shopmonkey</h3>
-      <p>Shopmonkey was a natural fit for Mike’s team because it’s built specifically for auto repair shops. It streamlined their day-to-day operations without a steep learning curve.</p>
       <ul class="bullet-points">
         <li>Centralized job tracking for all technicians</li>
         <li>Automatic inventory deductions when parts are used</li>
@@ -220,7 +247,6 @@
       </ul>
 
       <h3>QuickBooks Online</h3>
-      <p>QuickBooks gave Mike real-time financial visibility and simplified his accounting process. By syncing directly with Shopmonkey, it eliminated hours of redundant data entry each week.</p>
       <ul class="bullet-points">
         <li>Automatic invoice creation when jobs close</li>
         <li>Accurate financial reporting at any time</li>
@@ -231,8 +257,6 @@
     <!-- Results -->
     <section>
       <h2 class="section-title">The Results: Time Saved, Money Found</h2>
-      <p>Within a month of implementation, Mike and his team started to see dramatic improvements. The changes weren’t just noticeable — they were measurable.</p>
-
       <div class="results-grid">
         <div class="result-card">
           <div class="result-number">2–3</div>
@@ -249,7 +273,7 @@
       </div>
 
       <div class="quote">
-        “I didn’t realize how much time we were losing until it was gone. Now my guys focus on repairs, not paperwork — and I finally get to go home on time.”
+        “I didn’t realize how much time we were losing until it was gone. Now my guys focus on repairs, and I finally get to go home on time.”
         <div class="author">— Mike, Shop Owner</div>
       </div>
     </section>
@@ -294,7 +318,6 @@
         <li><strong>Match tools to people.</strong> Software works best when it fits naturally into existing workflows.</li>
         <li><strong>Observe before acting.</strong> Real improvements come from understanding the current process first.</li>
       </ul>
-      <p>For Mike, this meant less stress, happier employees, and a stronger bottom line. For other shop owners, it’s proof that sometimes the simplest changes bring the biggest wins.</p>
     </section>
   </div>
 
