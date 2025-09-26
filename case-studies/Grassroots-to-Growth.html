@@ -1,306 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="dgsconsulting.solution/asset/logo-mark-t.png" />
-  <title>Case Study: From Grassroots to Growth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: From Grassroots to Growth | DGS Consulting</title>
+<link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+<style>
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    line-height: 1.7;
+    background: #f4f4f4;
+    color: #2c3e50;
+  }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="asset/logo-mark-t.png"/>
+  header {
+    background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
 
-  <!-- Chart.js for live graphs -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+  }
 
-  <!-- Styles -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-      color: #fff;
-      line-height: 1.6;
-    }
+  header p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
 
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      text-align: center;
-    }
+  header nav {
+    margin-top: 1rem;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+  }
 
-    header p {
-      font-size: 1.2rem;
-      margin: 5px 0 15px;
-    }
+  .container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+  section {
+    padding: 3rem 2rem;
+  }
 
-    section {
-      padding: 40px;
-      background: rgba(0, 0, 0, 0.3);
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 1000px;
-    }
+  h2.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+  }
 
-    h2 {
-      border-bottom: 2px solid #fff;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
+  ul.bullet-points {
+    list-style: none;
+    padding-left: 0;
+  }
 
-    /* Chart Container */
+  ul.bullet-points li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  ul.bullet-points li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #38a169;
+    font-weight: bold;
+  }
+
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .chart-box {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+  }
+
+  .chart-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #6B8E5A;
+  }
+
+  canvas {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .infographic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+
+  .phase {
+    background: rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+
+  .phase.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .phase h4 {
+    margin-top: 0;
+    color: #6B8E5A;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: 220px;
+    background: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -110px;
+    transition: opacity 0.3s;
+  }
+
+  .phase:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .takeaways ul {
+    list-style: square;
+    padding-left: 20px;
+  }
+
+  .takeaways li {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width:768px){
     .chart-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-      margin: 20px 0;
+      flex-direction: column;
     }
-
-    .chart-box {
-      flex: 1;
-      min-width: 280px;
-      text-align: center;
-    }
-
-    .chart-box h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: #FFD700;
-    }
-
-    canvas {
-      background: #fff;
-      border-radius: 8px;
-      padding: 10px;
-      width: 100%;
-      height: auto;
-    }
-
-    /* Infographic */
     .infographic {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 30px;
+      flex-direction: column;
+      align-items: center;
     }
-
-    .phase {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 12px;
-      width: 200px;
-      text-align: center;
-      margin: 10px;
-      position: relative;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    .phase.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .phase h4 {
-      margin-top: 0;
-      color: #FFD700;
-    }
-
-    .tooltip {
-      visibility: hidden;
-      opacity: 0;
-      width: 220px;
-      background: #333;
-      color: #fff;
-      text-align: left;
-      border-radius: 6px;
-      padding: 10px;
-      position: absolute;
-      z-index: 1;
-      bottom: 120%;
-      left: 50%;
-      margin-left: -110px;
-      transition: opacity 0.3s;
-    }
-
-    .phase:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    /* Key Takeaways */
-    .takeaways ul {
-      list-style: square;
-      padding-left: 20px;
-    }
-
-    .takeaways li {
-      margin-bottom: 15px;
-    }
-  </style>
+  }
+</style>
 </head>
 
 <body>
-<header style="display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap;">
-  <div>
-    <h1>Case Study: From Grassroots to Growth</h1>
-    <p>How digital tools doubled one company’s sales in a year</p>
-  </div>
+
+<header>
+  <h1>Case Study: From Grassroots to Growth</h1>
+  <p>How digital tools doubled one company’s sales in a year</p>
   <nav>
-    <a href="/">Home</a> |
-    <a href="/case-studies/">All Case Studies</a>
+    <a href="http://dgsconsulting.solutions/">Home</a> |
+    <a href="http://dgsconsulting.solutions/case-studies/">All Case Studies</a>
   </nav>
 </header>
 
-<main>
-  <h2>📋 Background: The Company</h2>
-  <p>This landscaping company had built a reputation for high-quality work but was struggling to scale. With ~$1.5M in annual revenue and a team of 12, the business faced operational chaos that threatened growth. The owner was overextended, constantly putting out fires, and the company’s processes relied heavily on manual tracking, paper invoices, and gut-feel decision making.</p>
+<div class="container">
+  <section>
+    <h2 class="section-title">Background: The Company</h2>
+    <p>This landscaping company had built a reputation for high-quality work but was struggling to scale. With ~$1.5M in annual revenue and a team of 12, the business faced operational chaos that threatened growth. The owner was overextended, constantly putting out fires, and the company’s processes relied heavily on manual tracking, paper invoices, and gut-feel decision making.</p>
+  </section>
 
-  <h2>🎯 The Challenge</h2>
-  <ul>
-    <li>Cash flow struggles – slow payment cycles</li>
-    <li>Cost overruns – poor visibility into material usage</li>
-    <li>Unprofessional image – inconsistent branding</li>
-    <li>Owner burnout – hands-on with every decision</li>
-    <li>Limited scalability – quality risk if the business grew</li>
-  </ul>
-
-  <h2>💡 The Solution: Mobile-First Digital Infrastructure</h2>
-  <ul>
-    <li><strong>Mobile Application:</strong> real-time material logging, client approvals, photo documentation, payment integration</li>
-    <li><strong>Field Equipment:</strong> tablets with wireless printers, expense tracking, on-site payment</li>
-    <li><strong>Professional Documentation:</strong> complete project packages with design renderings, photo timeline, materials specs, invoices</li>
-    <li><strong>Brand Transformation:</strong> fleet standardization, uniforms, simplified pricing, professional presentation</li>
-  </ul>
-
-  <h2>📊 Results: Revenue & Metrics</h2>
-  <div class="chart-container">
-    <div class="chart-box">
-      <h3>Revenue Growth Over 24 Months</h3>
-      <canvas id="revenueChart" height="200"></canvas>
-    </div>
-    <div class="chart-box">
-      <h3>Operational Metrics Before vs After</h3>
-      <canvas id="metricsChart" height="200"></canvas>
-    </div>
-  </div>
-
-  <h2>📈 Implementation Phases</h2>
-  <div class="infographic">
-    <div class="phase">
-      <span class="icon">🔍</span>
-      <h4>Phase 1: Discovery</h4>
-      <p>Mapped workflows, identified bottlenecks, and collected crew feedback.</p>
-      <div class="tooltip">Analyzed current operations to find the root causes of delays and inefficiencies.</div>
-    </div>
-    <div class="phase">
-      <span class="icon">💻</span>
-      <h4>Phase 2: Tech Implementation</h4>
-      <p>Deployed mobile apps, tablets, digital invoicing, and payment processing.</p>
-      <div class="tooltip">Introduced digital tools to streamline approvals, tracking, and payments.</div>
-    </div>
-    <div class="phase">
-      <span class="icon">📚</span>
-      <h4>Phase 3: Training & Adoption</h4>
-      <p>Hands-on workshops, SOPs, and iterative feedback for crews.</p>
-      <div class="tooltip">Ensured crews could easily use tools while maintaining productivity.</div>
-    </div>
-    <div class="phase">
-      <span class="icon">⚡</span>
-      <h4>Phase 4: Optimization & Scaling</h4>
-      <p>Refined workflows, standardized reporting, and reduced waste.</p>
-      <div class="tooltip">Optimized processes to enable growth without quality loss.</div>
-    </div>
-  </div>
-
-  <h2>🔑 Key Takeaways</h2>
-  <div class="takeaways">
-    <ul>
-      <li><strong>For Service Executives:</strong> Mobile technology eliminates operational bottlenecks, freeing leaders to focus on growth strategy.</li>
-      <li><strong>For Technology Leaders:</strong> Field-friendly solutions with integrated payment, digital approvals, and real-time tracking dramatically improve productivity and reduce errors.</li>
-      <li><strong>For Operations Managers:</strong> Standardized workflows, digital documentation, and real-time reporting prevent cost overruns, maintain quality, and improve employee satisfaction.</li>
-      <li><strong>Client Experience Matters:</strong> Professional presentation, transparent pricing, and thorough documentation accelerate referrals and create premium positioning.</li>
-      <li><strong>Scalable Processes:</strong> Phased implementation allows teams to adopt new tools without disruption, creating systems that grow with the business.</li>
-      <li><strong>Data-Driven Decisions:</strong> Analytics replace guesswork; tracking revenue, material usage, and AR in real time enables smarter resource allocation.</li>
-      <li><strong>Holistic Transformation:</strong> Technology, brand, and process improvements together drive measurable growth, not isolated fixes.</li>
+  <section>
+    <h2 class="section-title">The Challenge</h2>
+    <ul class="bullet-points">
+      <li>Cash flow struggles – slow payment cycles</li>
+      <li>Cost overruns – poor visibility into material usage</li>
+      <li>Unprofessional image – inconsistent branding</li>
+      <li>Owner burnout – hands-on with every decision</li>
+      <li>Limited scalability – quality risk if the business grew</li>
     </ul>
-  </div>
-</main>
+  </section>
+
+  <section>
+    <h2 class="section-title">The Solution: Mobile-First Digital Infrastructure</h2>
+    <ul class="bullet-points">
+      <li>Mobile Application for real-time logging, client approvals, and payment integration</li>
+      <li>Field Equipment: tablets, wireless printers, expense tracking</li>
+      <li>Professional Documentation: design renderings, photo timelines, invoices</li>
+      <li>Brand Transformation: standardized fleet, uniforms, simplified pricing</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">Implementation Phases</h2>
+    <div class="infographic">
+      <div class="phase"><h4>Phase 1: Discovery</h4><p>Mapped workflows and identified bottlenecks.</p></div>
+      <div class="phase"><h4>Phase 2: Tech Implementation</h4><p>Deployed mobile apps, tablets, and digital invoicing.</p></div>
+      <div class="phase"><h4>Phase 3: Training & Adoption</h4><p>Hands-on workshops and iterative feedback.</p></div>
+      <div class="phase"><h4>Phase 4: Optimization & Scaling</h4><p>Refined workflows and standardized reporting.</p></div>
+    </div>
+  </section>
+
+  <section class="takeaways">
+    <h2 class="section-title">Key Takeaways</h2>
+    <ul>
+      <li>Mobile technology eliminates operational bottlenecks, freeing leaders to focus on growth.</li>
+      <li>Field-friendly solutions with integrated payments and approvals improve productivity.</li>
+      <li>Standardized workflows and reporting prevent cost overruns and maintain quality.</li>
+      <li>Professional presentation accelerates referrals and creates premium positioning.</li>
+      <li>Phased implementation allows teams to adopt tools without disruption.</li>
+      <li>Analytics enable smarter, data-driven decision making.</li>
+    </ul>
+  </section>
+</div>
 
 <script>
-  // Line Chart: Revenue Growth
-  const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-  new Chart(ctxRevenue, {
-    type: 'line',
-    data: {
-      labels: ['Month 0','Month 6','Month 12','Month 18','Month 24'],
-      datasets: [{
-        label: 'Revenue ($M)',
-        data: [1.5, 2.2, 3.0, 3.5, 4.0],
-        backgroundColor: 'rgba(255,215,0,0.2)',
-        borderColor: '#FFD700',
-        borderWidth: 3,
-        fill: true,
-        tension: 0.4,
-        pointRadius: 6,
-        pointBackgroundColor: '#FFD700'
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: false },
-        tooltip: { mode: 'index', intersect: false }
-      },
-      scales: {
-        y: { beginAtZero: false, title: { display: true, text: 'Revenue ($M)' } },
-        x: { title: { display: true, text: 'Months' } }
-      }
-    }
-  });
-
-  // Bar Chart: Operational Metrics
-  const ctxMetrics = document.getElementById('metricsChart').getContext('2d');
-  new Chart(ctxMetrics, {
-    type: 'bar',
-    data: {
-      labels: ['Accounts Receivable', 'Material Costs', 'Client Referrals'],
-      datasets: [
-        { label: 'Before', data: [100, 100, 10], backgroundColor: '#9CAF88' },
-        { label: 'After', data: [50, 80, 45], backgroundColor: '#6B8E5A' }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: { tooltip: { mode: 'index', intersect: false }, legend: { position: 'top' } },
-      scales: { y: { beginAtZero: true, title: { display: true, text: 'Value (%) / Referrals' } } }
-    }
-  });
-
-  // Animate infographic on scroll
   const phases = document.querySelectorAll('.phase');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');}
     });
-  }, { threshold: 0.3 });
-
-  phases.forEach(phase => observer.observe(phase));
+  }, {threshold:0.3});
+  phases.forEach(phase=>observer.observe(phase));
 </script>
 
 </body>
