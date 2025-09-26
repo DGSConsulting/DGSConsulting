@@ -4,64 +4,142 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grassroots to Growth Case Study</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 0;
     margin: 0;
+    line-height: 1.6;
     background-color: #f9f9f9;
   }
+
   header {
     padding: 20px;
     background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
     text-align: center;
-    color: #ffffff;
-    border-bottom: 2px solid #6B8E5A;
+    color: #fff;
   }
+
   header h1 {
     margin: 0;
     font-size: 2rem;
   }
+
   header p {
     margin: 5px 0 15px;
-    font-size: 1.1rem;
   }
+
   header nav a {
     text-decoration: none;
     color: #FFD700;
     margin: 0 5px;
     font-weight: bold;
   }
+
+  main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+
   h2, h3 {
     margin-top: 1.2em;
     margin-bottom: 0.5em;
   }
-  .chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-  }
-  .infographic-placeholder {
-    width: 100%;
-    max-width: 800px;
-    height: 400px;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #555;
-    margin: 20px auto;
-  }
-  table {
-    width: 100%;
-    margin: 20px 0;
-  }
+
   ul {
     padding-left: 20px;
+  }
+
+  /* BAR CHART */
+  .bar-chart {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+  }
+
+  .bar {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 30%;
+    position: relative;
+  }
+
+  .bar div {
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .bar .before {
+    background: #9CAF88;
+  }
+
+  .bar .after {
+    background: #6B8E5A;
+  }
+
+  .bar a.logo {
+    position: absolute;
+    top: -30px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .bar a.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* INFOGRAPHIC */
+  .infographic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+
+  .phase {
+    flex: 1 1 45%;
+    background: #9CAF88;
+    color: #fff;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 6px;
+    position: relative;
+  }
+
+  .phase h4 {
+    margin-top: 0;
+  }
+
+  .phase a.logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .phase a.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media(max-width: 600px){
+    .phase {
+      flex: 1 1 100%;
+    }
   }
 </style>
 </head>
@@ -76,169 +154,94 @@
   </nav>
 </header>
 
-<main class="container" style="padding: 20px; max-width: 900px; margin: auto;">
+<main>
+  <h2>📋 Background: The Company</h2>
+  <p>This landscaping company had built a reputation for high-quality work but was struggling to scale. With ~$1.5M in annual revenue and a team of 12, the business faced operational chaos that threatened growth. The owner was overextended, constantly putting out fires, and the company’s processes relied heavily on manual tracking, paper invoices, and gut-feel decision making.</p>
 
-<h2>📋 Background: The Company</h2>
-<p>This Ontario-based landscaping company had built a reputation for high-quality work but was struggling to scale. With ~$1.5M in annual revenue and a team of 12, the business faced operational chaos that threatened growth. The owner was overextended, constantly putting out fires, and the company’s processes relied heavily on manual tracking, paper invoices, and gut-feel decision making.</p>
+  <h2>📊 Revenue Growth</h2>
+  <div style="width: 100%; max-width: 800px; margin: 40px auto;">
+    <svg viewBox="0 0 500 200" width="100%" height="200">
+      <!-- X & Y axes -->
+      <line x1="40" y1="10" x2="40" y2="180" stroke="#6B8E5A" stroke-width="2"/>
+      <line x1="40" y1="180" x2="480" y2="180" stroke="#6B8E5A" stroke-width="2"/>
 
-<h2>🎯 The Challenge: Growth Bottlenecks</h2>
-<ul>
-  <li><strong>Cash flow struggles:</strong> Slow payment collection cycles.</li>
-  <li><strong>Cost overruns:</strong> Poor visibility into material usage, especially on large stone projects.</li>
-  <li><strong>Unprofessional image:</strong> Manual processes, inconsistent branding, ad hoc reporting.</li>
-  <li><strong>Owner burnout:</strong> Every operational decision required the owner’s involvement.</li>
-  <li><strong>Limited scalability:</strong> Existing systems couldn’t support expansion without sacrificing quality.</li>
-</ul>
-<p><em>Example:</em> Crews often ran out of materials mid-project, delaying completion by days, while the owner spent hours chasing overdue invoices.</p>
+      <!-- Connecting lines -->
+      <polyline 
+        points="40,126 140,100 240,60 340,40 440,20" 
+        fill="none" 
+        stroke="#FFD700" 
+        stroke-width="3" 
+      />
 
-<h2>💡 The Solution: Mobile-First Digital Infrastructure</h2>
+      <!-- Data points with clickable logos -->
+      <a href="logo-month0.png" target="_blank"><circle cx="40" cy="126" r="8" fill="#FFD700"/></a>
+      <a href="logo-month6.png" target="_blank"><circle cx="140" cy="100" r="8" fill="#FFD700"/></a>
+      <a href="logo-month12.png" target="_blank"><circle cx="240" cy="60" r="8" fill="#FFD700"/></a>
+      <a href="logo-month18.png" target="_blank"><circle cx="340" cy="40" r="8" fill="#FFD700"/></a>
+      <a href="logo-month24.png" target="_blank"><circle cx="440" cy="20" r="8" fill="#FFD700"/></a>
 
-<h3>Phase 1 – Discovery & Analysis (Month 1-2)</h3>
-<ul>
-  <li>Mapped every operational process from quoting to invoicing.</li>
-  <li>Identified bottlenecks and inefficiencies.</li>
-  <li>Collected feedback from crews and management to prioritize pain points.</li>
-</ul>
+      <!-- Labels -->
+      <text x="40" y="195" font-size="12" fill="#333" text-anchor="middle">Month 0</text>
+      <text x="140" y="195" font-size="12" fill="#333" text-anchor="middle">Month 6</text>
+      <text x="240" y="195" font-size="12" fill="#333" text-anchor="middle">Month 12</text>
+      <text x="340" y="195" font-size="12" fill="#333" text-anchor="middle">Month 18</text>
+      <text x="440" y="195" font-size="12" fill="#333" text-anchor="middle">Month 24</text>
 
-<h3>Phase 2 – Technology Implementation (Month 2-4)</h3>
-<ul>
-  <li><strong>Mobile Application:</strong> Real-time material logging, client sign-offs, photo documentation, integrated card payments.</li>
-  <li><strong>Field Equipment:</strong> Tablets in every truck with wireless printers for on-site receipts and expense tracking.</li>
-  <li><strong>Professional Documentation:</strong> Digital design renderings, photos, materials specs, invoices, and warranties in branded presentations.</li>
-</ul>
+      <!-- Y-axis labels -->
+      <text x="10" y="130" font-size="12" fill="#333" text-anchor="end">$1.5M</text>
+      <text x="10" y="100" font-size="12" fill="#333" text-anchor="end">$2.2M</text>
+      <text x="10" y="60" font-size="12" fill="#333" text-anchor="end">$3.0M</text>
+      <text x="10" y="40" font-size="12" fill="#333" text-anchor="end">$3.5M</text>
+      <text x="10" y="20" font-size="12" fill="#333" text-anchor="end">$4.0M</text>
+    </svg>
+  </div>
 
-<h3>Phase 3 – Training & Adoption (Month 3-5)</h3>
-<ul>
-  <li>Hands-on workshops for crews.</li>
-  <li>Step-by-step SOPs for new digital workflows.</li>
-  <li>Iterative feedback loop to refine adoption.</li>
-</ul>
+  <h2>📊 Operational Metrics</h2>
+  <div class="bar-chart">
+    <div class="bar">
+      <div class="after" style="height:50%;">50%</div>
+      <div class="before" style="height:100%;">100%</div>
+      <span>AR</span>
+      <a href="logo-ar.png" class="logo" target="_blank"><img src="logo-ar.png" alt="AR Logo"></a>
+    </div>
+    <div class="bar">
+      <div class="after" style="height:80%;">80%</div>
+      <div class="before" style="height:100%;">100%</div>
+      <span>Material</span>
+      <a href="logo-material.png" class="logo" target="_blank"><img src="logo-material.png" alt="Material Logo"></a>
+    </div>
+    <div class="bar">
+      <div class="after" style="height:90%;">45</div>
+      <div class="before" style="height:20%;">10</div>
+      <span>Referrals</span>
+      <a href="logo-referrals.png" class="logo" target="_blank"><img src="logo-referrals.png" alt="Referrals Logo"></a>
+    </div>
+  </div>
 
-<h3>Phase 4 – Optimization & Scaling (Month 5-6)</h3>
-<ul>
-  <li>Adjusted workflows based on real-time usage data.</li>
-  <li>Standardized reporting for management.</li>
-  <li>Optimized supply chain and inventory management to reduce waste.</li>
-</ul>
-
-<h2>🎨 Brand Transformation</h2>
-<ul>
-  <li>Fleet standardization: Clean signage, well-maintained vehicles.</li>
-  <li>Uniform appearance: Branded shirts and safety vests.</li>
-  <li>Simplified pricing: Transparent, easy-to-understand estimates.</li>
-</ul>
-
-<h2>📈 The Business Impact</h2>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Metric</th>
-      <th>Before</th>
-      <th>After</th>
-      <th>Change</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Revenue</td>
-      <td>$1.5M</td>
-      <td>$4.0M</td>
-      <td>+167%</td>
-    </tr>
-    <tr>
-      <td>Accounts Receivable (30-day)</td>
-      <td>100%</td>
-      <td>50%</td>
-      <td>-50%</td>
-    </tr>
-    <tr>
-      <td>Material Costs</td>
-      <td>Baseline</td>
-      <td>-20%</td>
-      <td>-20%</td>
-    </tr>
-    <tr>
-      <td>Referrals per season</td>
-      <td>10</td>
-      <td>45</td>
-      <td>+350%</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 class="mt-5">📊 Charts & Infographic</h2>
-
-<div class="chart-container">
-  <canvas id="revenueLineChart"></canvas>
-</div>
-
-<div class="chart-container">
-  <canvas id="arBarChart"></canvas>
-</div>
-
-<div class="infographic-placeholder">
-  Infographic Placeholder – Replace with Custom Design
-</div>
-
+  <h2>📈 Implementation Phases Infographic</h2>
+  <div class="infographic">
+    <div class="phase">
+      <h4>Phase 1: Discovery</h4>
+      <p>Mapped workflows, identified bottlenecks, collected crew feedback.</p>
+      <a href="logo-phase1.png" class="logo" target="_blank"><img src="logo-phase1.png" alt="Phase 1 Logo"></a>
+    </div>
+    <div class="phase">
+      <h4>Phase 2: Tech Implementation</h4>
+      <p>Deployed mobile apps, tablets, digital invoicing, and payment processing.</p>
+      <a href="logo-phase2.png" class="logo" target="_blank"><img src="logo-phase2.png" alt="Phase 2 Logo"></a>
+    </div>
+    <div class="phase">
+      <h4>Phase 3: Training & Adoption</h4>
+      <p>Hands-on workshops, SOPs, and iterative feedback for crews.</p>
+      <a href="logo-phase3.png" class="logo" target="_blank"><img src="logo-phase3.png" alt="Phase 3 Logo"></a>
+    </div>
+    <div class="phase">
+      <h4>Phase 4: Optimization & Scaling</h4>
+      <p>Refined workflows, standardized reporting, and reduced waste.</p>
+      <a href="logo-phase4.png" class="logo" target="_blank"><img src="logo-phase4.png" alt="Phase 4 Logo"></a>
+    </div>
+  </div>
 </main>
 
-<script>
-const revenueCtx = document.getElementById('revenueLineChart').getContext('2d');
-const revenueChart = new Chart(revenueCtx, {
-    type: 'line',
-    data: {
-        labels: ['Month 0','Month 6','Month 12','Month 18','Month 24'],
-        datasets: [{
-            label: 'Revenue ($M)',
-            data: [1.5, 2.2, 3.0, 3.5, 4.0],
-            borderColor: '#FFD700',
-            backgroundColor: 'rgba(255, 215, 0, 0.2)',
-            tension: 0.3,
-            fill: true,
-            pointRadius: 5
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: true, position: 'top', labels: { color: '#333' } },
-            title: { display: true, text: 'Revenue Growth Over Two Seasons', color: '#333' }
-        },
-        scales: { 
-            y: { beginAtZero: true, ticks: { color: '#333' } },
-            x: { ticks: { color: '#333' } }
-        }
-    }
-});
-
-const arCtx = document.getElementById('arBarChart').getContext('2d');
-const arChart = new Chart(arCtx, {
-    type: 'bar',
-    data: {
-        labels: ['AR (30-day)','Material Costs','Referrals per Season'],
-        datasets: [{
-            label: 'Before',
-            data: [100, 100, 10],
-            backgroundColor: '#9CAF88'
-        },{
-            label: 'After',
-            data: [50, 80, 45],
-            backgroundColor: '#6B8E5A'
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'top', labels: { color: '#333' } },
-            title: { display: true, text: 'Operational Impact Metrics', color: '#333' }
-        },
-        scales: { 
-            y: { beginAtZero: true, ticks: { color: '#333' } },
-            x: { ticks: { color: '#333' } }
-        }
-    }
-});
-</script>
-
 </body>
-</html
+</html>
