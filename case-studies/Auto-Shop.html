@@ -7,302 +7,222 @@
   <title>How One Auto Shop Found $20K Hiding in Plain Sight | DGS Consulting</title>
   <meta name="description" content="Real case study: How a simple system integration saved an auto shop $20K annually by eliminating inefficient processes and disconnected systems.">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
       color: #2c3e50;
-      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-      min-height: 100vh;
+      line-height: 1.6;
+      background: #f4f4f4;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .header {
-      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+    .case-header {
+      position: relative;
+      background: linear-gradient(135deg, #9CAF88, #6B8E5A);
       color: white;
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: float 20s linear infinite;
+    .case-header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
-
-    @keyframes float {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-40px, -40px); }
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .author-info {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .author-avatar img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid white;
-    }
-
-    .author-details h3 {
+    .case-header .subhead {
+      margin-top: 1rem;
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .author-details p {
-      font-size: 0.9rem;
       opacity: 0.9;
     }
 
-    .content {
+    .case-content {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .intro-section {
       padding: 3rem 2rem;
     }
 
-    .problem-section {
-      background: #fff5f5;
-      border-left: 5px solid #e53e3e;
-      padding: 2rem;
-      margin: 2rem 0;
-      border-radius: 0 10px 10px 0;
+    .intro-section p {
+      margin-bottom: 1.5rem;
     }
 
-    .solution-section {
-      background: #f0fff4;
-      border-left: 5px solid #38a169;
-      padding: 2rem;
-      margin: 2rem 0;
-      border-radius: 0 10px 10px 0;
-    }
-
-    .results-grid {
+    .two-column {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .two-column img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
     }
 
-    .result-card {
-      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      transform: translateY(0);
-      transition: transform 0.3s ease;
+    .problem, .solution {
+      padding: 3rem 2rem;
     }
-
-    .result-card:hover {
-      transform: translateY(-5px);
+    .problem {
+      background: #fff5f5;
     }
-
-    .result-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .result-text {
-      font-size: 1.1rem;
-    }
-
-    .quote {
-      font-style: italic;
-      font-size: 1.2rem;
-      color: #4a5568;
-      background: #f7fafc;
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-      position: relative;
-    }
-
-    .quote::before {
-      content: '"';
-      font-size: 4rem;
-      color: #cbd5e0;
-      position: absolute;
-      top: -10px;
-      left: 20px;
+    .solution {
+      background: #f0fff4;
     }
 
     .section-title {
       font-size: 1.8rem;
       font-weight: 700;
+      margin-bottom: 1.5rem;
       color: #2d3748;
-      margin: 3rem 0 1rem 0;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 3px;
-      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-      margin-top: 0.5rem;
     }
 
     .bullet-points {
       list-style: none;
-      margin: 1.5rem 0;
+      padding-left: 0;
     }
-
     .bullet-points li {
-      padding: 0.8rem 0;
-      padding-left: 2rem;
       position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
     }
-
     .bullet-points li::before {
       content: '✓';
       position: absolute;
       left: 0;
+      top: 0;
       color: #38a169;
       font-weight: bold;
-      font-size: 1.2rem;
     }
 
-    /* Before & After table */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .result-card {
+      background: linear-gradient(135deg, #9CAF88, #6B8E5A);
+      color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
+    .result-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .result-text {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .quote {
+      margin: 3rem 2rem;
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 8px;
+      font-style: italic;
+      color: #4a5568;
+      position: relative;
+    }
+    .quote::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 4rem;
+      color: #cbd5e0;
+    }
+    .quote .author {
+      text-align: right;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
       margin: 2rem 0;
-      font-size: 1rem;
     }
-
-    .comparison-table th,
-    .comparison-table td {
+    .comparison-table th, .comparison-table td {
       border: 1px solid #e2e8f0;
       padding: 1rem;
       text-align: left;
     }
-
     .comparison-table th {
       background: #f7fafc;
       font-weight: 600;
     }
 
-    .comparison-table td:first-child {
-      background: #fff5f5;
-    }
-
-    .comparison-table td:last-child {
-      background: #f0fff4;
-    }
-
-    .stats-highlight {
-      background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-weight: 600;
-      display: inline-block;
-      margin: 0 0.2rem;
-    }
-
-    .cta-section {
-      background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-      color: white;
+    .lessons, .cta-section, #contact {
       padding: 3rem 2rem;
-      text-align: center;
-      margin-top: 3rem;
     }
-
-    .cta-title {
+    .lessons {
+      background: white;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, #6B8E5A, #9CAF88);
+      color: white;
+      text-align: center;
+    }
+    .cta-section .cta-title {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
-    .cta-text {
+    .cta-section .cta-text {
       font-size: 1.1rem;
       margin-bottom: 2rem;
       opacity: 0.9;
     }
-
-    .cta-button {
+    .cta-section .cta-button {
       display: inline-block;
       background: #6B8E5A;
       color: white;
       padding: 1rem 2.5rem;
-      text-decoration: none;
       border-radius: 50px;
-      font-weight: 600;
       font-size: 1.1rem;
+      font-weight: 600;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .cta-button:hover {
+    .cta-section .cta-button:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(107, 142, 90, 0.3);
     }
 
-    /* Contact Form */
     #contact {
-      padding: 3rem 2rem;
       background: #f7fafc;
     }
-
     #contact form {
       max-width: 500px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
     }
-
     #contact label {
       font-weight: 600;
-      color: #2d3748;
     }
-
-    #contact input,
-    #contact textarea {
+    #contact input, #contact textarea {
       width: 100%;
       padding: 0.8rem;
       border: 1px solid #cbd5e0;
       border-radius: 8px;
       font-size: 1rem;
     }
-
     #contact button {
       background: #6B8E5A;
       color: white;
@@ -314,78 +234,68 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     #contact button:hover {
       background: #557145;
     }
 
     @media (max-width: 768px) {
-      .container {
-        margin: 0;
-        border-radius: 0;
-      }
-
-      .header h1 {
-        font-size: 2rem;
-      }
-
-      .author-info {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .content {
-        padding: 2rem 1.5rem;
-      }
-
-      .results-grid {
+      .two-column {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
+  <!-- Hero / Header -->
+  <div class="case-header">
+    <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
+    <div class="subhead">A real-world case study in operational efficiency and system integration</div>
+  </div>
+
+  <div class="case-content">
+    <!-- Introduction / Context -->
+    <section class="intro-section">
+      <p>When I first met <strong>Mike</strong>, owner of a busy auto shop in Ottawa, he was exhausted. The shop was bustling — cars lined up outside, calls pouring in — yet behind the scenes, chaos reigned.</p>
+      <p>His team of seven technicians spent nearly as much time filling out paperwork and updating systems as they did fixing vehicles. “We’re not a tech company,” Mike said. “I just want my guys fixing cars, not playing secretary.”</p>
+    </section>
+
+    <!-- Optional visual / photo to break the page -->
+    <section class="intro-section two-column">
+      <div>
+        <img src="asset/auto-shop-before.jpg" alt="Auto shop in operation (before)">
       </div>
-  <nav>
-    <a href="/">Home</a> |
-    <a href="/case-studies/">All Case Studies</a>
-  </nav>
-    </header>
-
-    <main class="content">
-      <!-- Introduction -->
-      <p>When I first met <strong>Mike</strong>, owner of a busy auto shop in Ontario, he was exhausted. The shop was thriving — cars lined up outside, phones ringing off the hook — but behind the scenes, chaos ruled. His team of seven technicians were spending almost as much time updating paperwork as they were fixing vehicles.</p>
-      <p>“We’re not a tech company,” Mike said. “I just want my guys fixing cars, not playing secretary.”</p>
-
-      <!-- Problem Section -->
-      <div class="problem-section">
-        <h2>The Hidden Money Drain</h2>
-        <p>Their techs were finishing jobs, then spending <span class="stats-highlight">15–20 minutes</span> updating three disconnected systems:</p>
-        <ul class="bullet-points">
-          <li>A scheduling board that was constantly out of date</li>
-          <li>A separate inventory system that required manual stock entry</li>
-          <li>An invoicing tool that didn’t sync with either system</li>
-        </ul>
-        <p>Multiply that across <span class="stats-highlight">8–10 jobs daily</span>, and the shop was losing over <strong>120 hours per month</strong> — the equivalent of a <strong>full-time salary</strong> wasted on data entry instead of revenue-generating work.</p>
-        <p>Customers were waiting longer for repairs, staff morale was sinking, and Mike was burning out trying to hold everything together.</p>
+      <div>
+        <img src="asset/auto-shop-after.jpg" alt="Auto shop streamlined (after)">
       </div>
+    </section>
 
-      <!-- Solution Section -->
-      <div class="solution-section">
-        <h2>The Simple Fix That Changed Everything</h2>
-        <p>Instead of overhauling everything overnight, we tackled the problem in three simple steps:</p>
-        <ul class="bullet-points">
-          <li><strong>Map the Workflow:</strong> We shadowed the team for two days, documenting every step from check-in to invoice.</li>
-          <li><strong>Choose the Right System:</strong> We selected software that fit their existing habits — no massive learning curve required.</li>
-          <li><strong>Train Without Pain:</strong> A two-hour training session was all it took for the team to get comfortable and excited.</li>
-        </ul>
-        <p>The result? Jobs now close with a couple of clicks. Inventory updates automatically. Invoices and payments sync in real time.</p>
-      </div>
+    <!-- Problem -->
+    <section class="problem">
+      <h2 class="section-title">The Hidden Money Drain</h2>
+      <p>The techs were finishing jobs, then spending <strong>15–20 minutes</strong> updating three disconnected systems:</p>
+      <ul class="bullet-points">
+        <li>A scheduling board that was always out of sync</li>
+        <li>An inventory system requiring manual updates</li>
+        <li>An invoicing tool that didn’t interface with either</li>
+      </ul>
+      <p>With <strong>8–10 jobs per day</strong>, that meant over <strong>120 hours per month</strong> were eaten up by redundant data entry — essentially a full-time salary squandered on administrative tasks.</p>
+      <p>Delays piled up, morale dipped, and Mike felt like he was always one step behind.</p>
+    </section>
 
-      <!-- Results Section -->
+    <!-- Solution -->
+    <section class="solution">
+      <h2 class="section-title">The Simple Fix That Changed Everything</h2>
+      <p>We approached the problem in three clear phases — minimizing disruption while gaining maximum impact:</p>
+      <ul class="bullet-points">
+        <li><strong>Workflow Mapping:</strong> Shadowed the team for two days to document every step from check-in to invoice.</li>
+        <li><strong>Smart Tool Selection:</strong> Chose a system that mirrored their real-world workflow, not forced them into new habits.</li>
+        <li><strong>Painless Training:</strong> Delivered a two-hour hands-on session that got immediate buy-in — techs saw the benefit instantly.</li>
+      </ul>
+      <p>The result: jobs close with a few clicks, inventory updates automatically, and invoices and payments sync seamlessly.</p>
+    </section>
+
+    <!-- Results -->
+    <section>
       <h2 class="section-title">The Results Speak for Themselves</h2>
       <div class="results-grid">
         <div class="result-card">
@@ -394,7 +304,7 @@
         </div>
         <div class="result-card">
           <div class="result-number">$1–2K</div>
-          <div class="result-text">Monthly operating costs cut</div>
+          <div class="result-text">Operating costs cut monthly</div>
         </div>
         <div class="result-card">
           <div class="result-number">$10–20K</div>
@@ -404,11 +314,13 @@
 
       <div class="quote">
         “They thought this would just slow us down. Now everybody actually gets to fix cars instead of filling out forms.”
-        <div style="text-align: right; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">— Shop Staff</div>
+        <div class="author">— Shop Staff</div>
       </div>
+    </section>
 
-      <!-- Before and After Table -->
-      <h2 class="section-title">Before & After</h2>
+    <!-- Before & After Table -->
+    <section class="intro-section">
+      <h2 class="section-title">Before &amp; After</h2>
       <table class="comparison-table">
         <thead>
           <tr>
@@ -418,49 +330,69 @@
         </thead>
         <tbody>
           <tr>
-            <td>3 separate systems that didn’t connect</td>
-            <td>1 integrated platform</td>
+            <td>3 disconnected systems</td>
+            <td>1 unified platform</td>
           </tr>
           <tr>
-            <td>15–20 min of admin per job</td>
-            <td>2–3 clicks to close job</td>
+            <td>15–20 minutes per job on admin</td>
+            <td>2–3 clicks to finalize job</td>
           </tr>
           <tr>
-            <td>Techs frustrated and overworked</td>
-            <td>Techs focused on fixing cars</td>
+            <td>Technicians overworked with paperwork</td>
+            <td>Focused purely on repairs</td>
           </tr>
           <tr>
-            <td>$1–2K/month wasted payroll hours</td>
-            <td>Payroll savings redirected to growth</td>
+            <td>$1–2K monthly lost in payroll</td>
+            <td>Cost savings reinvested into growth</td>
           </tr>
         </tbody>
       </table>
+    </section>
 
-      <!-- Lessons Learned -->
+    <!-- Lessons Learned -->
+    <section class="lessons">
       <h2 class="section-title">Key Lessons for Small Businesses</h2>
-      <p>This project reinforced three lessons I see again and again in small businesses:</p>
       <ul class="bullet-points">
-        <li>Technology only works if it fits the way <strong>people</strong> work.</li>
-        <li>Small, focused changes beat big, disruptive overhauls.</li>
-        <li>The hidden costs of inefficiency are almost always bigger than expected.</li>
+        <li>Technology only works when aligned with human workflows.</li>
+        <li>Small, focused changes yield better adoption than giant overhauls.</li>
+        <li>The hidden costs of inefficiency are almost always greater than they appear.</li>
       </ul>
-    </main>
+    </section>
 
-  <!-- Scripts -->
+    <!-- Contact Form -->
+    <section id="contact">
+      <h2 class="section-title" style="text-align:center;">Talk to Us</h2>
+      <form action="https://formspree.io/f/mwprpdwk" method="POST">
+        <label>
+          Your Email:
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+        <label>
+          Your Message:
+          <textarea name="message" placeholder="Describe your business challenge..." required></textarea>
+        </label>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Find Your Hidden $20K?</h2>
+      <p class="cta-text">Don’t let inefficiencies bleed your profits another year.<br>Book a consultation and let’s uncover your opportunities.</p>
+      <a href="#contact" class="cta-button">Schedule a Free Consultation</a>
+    </section>
+
+  </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Smooth scroll to contact form
-      document.querySelector('.cta-button').addEventListener('click', function(e) {
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scroll
+      document.querySelector('.cta-button').addEventListener('click', (e) => {
         e.preventDefault();
         document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
       });
 
-      // Animate cards on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
+      // Animate result cards
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -468,7 +400,7 @@
             entry.target.style.transform = 'translateY(0)';
           }
         });
-      }, observerOptions);
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
       document.querySelectorAll('.result-card').forEach(card => {
         card.style.opacity = '0';
