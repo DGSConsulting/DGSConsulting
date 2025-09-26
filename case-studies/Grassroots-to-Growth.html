@@ -1,349 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study | From Grassroots to Growth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grassroots to Growth Case Study</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  <header style="padding: 20px; 
+               background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+               text-align: center; 
+               color: #ffffff; 
+               border-bottom: 2px solid #6B8E5A;">
+  <h1 style="margin: 0; font-size: 2rem; font-family: Arial, sans-serif;">Case Study: From Grassroots to Growth</h1>
+  <p style="margin: 5px 0 15px; font-size: 1.1rem;">How digital tools doubled one company’s sales in a year</p>
+  <nav style="font-size: 1rem; font-family: Arial, sans-serif;">
+    <a href="/" style="text-decoration: none; color: #FFD700; margin-right: 10px;">Home</a> |
+    <a href="/case-studies/" style="text-decoration: none; color: #FFD700; margin-left: 10px;">All Case Studies</a>
+  </nav>
+</header>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  h1, h2, h3 {
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  .chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  .infographic-placeholder {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #555;
+    margin: 20px auto;
+  }
+  table {
+    width: 100%;
+    margin: 20px 0;
+  }
+</style>
 </head>
-   <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-40px, -40px); }
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .author-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .author-details h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .author-details p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 3rem 2rem;
-        }
-
-        .problem-section {
-            background: #fff5f5;
-            border-left: 5px solid #e53e3e;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .solution-section {
-            background: #f0fff4;
-            border-left: 5px solid #38a169;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .result-card {
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .result-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .result-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .result-text {
-            font-size: 1.1rem;
-        }
-
-        .quote {
-            font-style: italic;
-            font-size: 1.2rem;
-            color: #4a5568;
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .quote::before {
-            content: '"';
-            font-size: 4rem;
-            color: #cbd5e0;
-            position: absolute;
-            top: -10px;
-            left: 20px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin: 3rem 0 1rem 0;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            margin-top: 0.5rem;
-        }
-
-        .bullet-points {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .bullet-points li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .bullet-points li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #38a169;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .cta-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-text {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #6B8E5A;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
-        }
-
-        .stats-highlight {
-            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 0 0.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .author-info {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 <body>
-  <header>
-    <h1>Case Study: From Grassroots to Growth</h1>
-    <p>How digital tools doubled one company’s sales in a year</p>
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/case-studies/">All Case Studies</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>Overview</h2>
-      <p>
-        This case study highlights how a small, community-based company leveraged 
-        digital tools to overcome operational bottlenecks and unlock growth. 
-        With limited resources, they needed a way to scale without burning out their team.
-      </p>
-    </section>
+<h1>🚀 From Grassroots to Growth: How Digital Tools Doubled One Landscaping Company’s Revenue in Two Seasons</h1>
+<p>☕ <strong>Darren Snook</strong><br>
+Business Analyst & Digital Strategy Consultant | Helping Small Businesses Identify Growth Bottlenecks & Implement Measurable Solutions</p>
+<p><em>June 29, 2025</em></p>
 
-    <section>
-      <h2>Challenge</h2>
-      <p>
-        The client faced three core issues:
-      </p>
-      <ul>
-        <li>Manual processes were eating into valuable time</li>
-        <li>Sales opportunities were slipping through the cracks</li>
-        <li>Lack of clear visibility made decision-making reactive instead of proactive</li>
-      </ul>
-    </section>
+<h2>📋 Background: The Company</h2>
+<p>This Ontario-based landscaping company had built a reputation for high-quality work but was struggling to scale. With ~$1.5M in annual revenue and a team of 12, the business faced operational chaos that threatened growth. The owner was overextended, constantly putting out fires, and the company’s processes relied heavily on manual tracking, paper invoices, and gut-feel decision making.</p>
 
-    <section>
-      <h2>Solution</h2>
-      <p>
-        Working closely with the business owner, I implemented a set of practical 
-        digital tools tailored to their workflow. Key actions included:
-      </p>
-      <ul>
-        <li>Introducing an integrated CRM to track leads and customer interactions</li>
-        <li>Automating routine scheduling and reporting tasks</li>
-        <li>Setting up dashboards to provide real-time visibility into operations</li>
-      </ul>
-    </section>
+<h2>🎯 The Challenge: Growth Bottlenecks</h2>
+<ul>
+  <li><strong>Cash flow struggles:</strong> Slow payment collection cycles.</li>
+  <li><strong>Cost overruns:</strong> Poor visibility into material usage, especially on large stone projects.</li>
+  <li><strong>Unprofessional image:</strong> Manual processes, inconsistent branding, ad hoc reporting.</li>
+  <li><strong>Owner burnout:</strong> Every operational decision required the owner’s involvement.</li>
+  <li><strong>Limited scalability:</strong> Existing systems couldn’t support expansion without sacrificing quality.</li>
+</ul>
 
-    <section>
-      <h2>Results</h2>
-      <p>
-        Within the first year of adopting these changes, the company saw measurable improvements:
-      </p>
-      <ul>
-        <li><strong>100% revenue growth</strong> — sales doubled year-over-year</li>
-        <li><strong>40% less admin time</strong> — freeing up staff for higher-value work</li>
-        <li><strong>Stronger customer relationships</strong> — thanks to timely follow-ups and better communication</li>
-      </ul>
-    </section>
+<p><em>Example:</em> Crews often ran out of materials mid-project, delaying completion by days, while the owner spent hours chasing overdue invoices.</p>
 
-    <section>
-      <h2>Key Takeaway</h2>
-      <p>
-        Small businesses don’t need massive budgets or complex systems to scale. 
-        The right digital tools, applied with intention, can unlock growth and 
-        create more breathing room for owners and teams alike.
-      </p>
-    </section>
-  </main>
+<h2>💡 The Solution: Mobile-First Digital Infrastructure</h2>
 
-  <footer>
+<h3>Phase 1 – Discovery & Analysis (Month 1-2)</h3>
+<ul>
+  <li>Mapped every operational process from quoting to invoicing.</li>
+  <li>Identified bottlenecks and inefficiencies.</li>
+  <li>Collected feedback from crews and management to prioritize pain points.</li>
+</ul>
+
+<h3>Phase 2 – Technology Implementation (Month 2-4)</h3>
+<p><strong>Core Stack:</strong></p>
+<ul>
+  <li><strong>Mobile Application:</strong> Real-time material logging, client sign-offs, photo documentation, integrated card payments.</li>
+  <li><strong>Field Equipment:</strong> Tablets in every truck with wireless printers for on-site receipts and expense tracking.</li>
+  <li><strong>Professional Documentation:</strong> Digital design renderings, photos, materials specs, invoices, and warranties in branded presentations.</li>
+</ul>
+
+<h3>Phase 3 – Training & Adoption (Month 3-5)</h3>
+<ul>
+  <li>Hands-on workshops for crews.</li>
+  <li>Step-by-step SOPs for new digital workflows.</li>
+  <li>Iterative feedback loop to refine adoption.</li>
+</ul>
+
+<h3>Phase 4 – Optimization & Scaling (Month 5-6)</h3>
+<ul>
+  <li>Adjusted workflows based on real-time usage data.</li>
+  <li>Standardized reporting for management.</li>
+  <li>Optimized supply chain and inventory management to reduce waste.</li>
+</ul>
+
+<h2>🎨 Brand Transformation</h2>
+<ul>
+  <li>Fleet standardization: Clean signage, well-maintained vehicles.</li>
+  <li>Uniform appearance: Branded shirts and safety vests.</li>
+  <li>Simplified pricing: Transparent, easy-to-understand estimates.</li>
+</ul>
+
+<h2>📈 The Business Impact</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Before</th>
+      <th>After</th>
+      <th>Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Revenue</td>
+      <td>$1.5M</td>
+      <td>$4.0M</td>
+      <td>+167%</td>
+    </tr>
+    <tr>
+      <td>Accounts Receivable (30-day)</td>
+      <td>100%</td>
+      <td>50%</td>
+      <td>-50%</td>
+    </tr>
+    <tr>
+      <td>Material Costs</td>
+      <td>Baseline</td>
+      <td>-20%</td>
+      <td>-20%</td>
+    </tr>
+    <tr>
+      <td>Referrals per season</td>
+      <td>10</td>
+      <td>45</td>
+      <td>+350%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Operational & Growth Impact</h3>
+<ul>
+  <li>Immediate AR reduction with on-site card payments.</li>
+  <li>Material cost savings through real-time tracking.</li>
+  <li>Owner transitioned from hands-on operator to strategic leader.</li>
+  <li>Professional differentiation and accelerated referrals through improved client experience.</li>
+</ul>
+
+<h2 class="mt-5">📊 Charts & Infographic</h2>
+
+<div class="chart-container">
+  <canvas id="revenueLineChart"></canvas>
+</div>
+
+<div class="chart-container">
+  <canvas id="arBarChart"></canvas>
+</div>
+
+<div class="infographic-placeholder">
+  Infographic Placeholder – Replace with Custom Design
+</div>
+
+<script>
+const revenueCtx = document.getElementById('revenueLineChart').getContext('2d');
+const revenueChart = new Chart(revenueCtx, {
+    type: 'line',
+    data: {
+        labels: ['Month 0','Month 6','Month 12','Month 18','Month 24'],
+        datasets: [{
+            label: 'Revenue ($M)',
+            data: [1.5, 2.2, 3.0, 3.5, 4.0],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.3,
+            fill: true,
+            pointRadius: 5
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true, position: 'top' },
+            title: { display: true, text: 'Revenue Growth Over Two Seasons' }
+        },
+        scales: { y: { beginAtZero: true } }
+    }
+});
+
+const arCtx = document.getElementById('arBarChart').getContext('2d');
+const arChart = new Chart(arCtx, {
+    type: 'bar',
+    data: {
+        labels: ['AR (30-day)','Material Costs','Referrals per Season'],
+        datasets: [{
+            label: 'Before',
+            data: [100, 100, 10],
+            backgroundColor: 'rgba(255, 99, 132, 0.7)'
+        },{
+            label: 'After',
+            data: [50, 80, 45],
+            backgroundColor: 'rgba(54, 162, 235, 0.7)'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'top' },
+            title: { display: true, text: 'Operational Impact Metrics' }
+        },
+        scales: { y: { beginAtZero: true } }
+    }
+});
+</script>
+
+ <footer>
     <p>&copy; 2025 DGS Consulting | <a href="/case-studies/">Back to Case Studies</a></p>
   </footer>
 </body>
