@@ -74,11 +74,14 @@
     border-radius: 6px;
     text-align: center;
     position: relative;
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
   }
 
-  .phase:hover {
-    transform: translateY(-10px);
+  .phase.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .phase h4 {
@@ -89,12 +92,6 @@
     font-size: 2rem;
     margin-bottom: 10px;
     display: block;
-    animation: bounce 1s infinite alternate;
-  }
-
-  @keyframes bounce {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-5px); }
   }
 
   @media(max-width: 600px){
@@ -148,7 +145,7 @@
     <div class="phase">
       <span class="icon">🔍</span>
       <h4>Phase 1: Discovery</h4>
-      <p>Mapped workflows, identified bottlenecks, collected crew feedback.</p>
+      <p>Mapped workflows, identified bottlenecks, and collected crew feedback.</p>
     </div>
     <div class="phase">
       <span class="icon">💻</span>
@@ -169,10 +166,13 @@
 
   <h2>🔑 Key Takeaways</h2>
   <ul>
-    <li>Mobile technology can eliminate operational bottlenecks</li>
-    <li>Professional presentation amplifies improvements</li>
-    <li>Real-time data visibility enables better decisions</li>
-    <li>Client experience differentiation drives premium pricing</li>
+    <li><strong>For Service Executives:</strong> Mobile technology eliminates operational bottlenecks, freeing leaders to focus on growth strategy rather than day-to-day fires.</li>
+    <li><strong>For Technology Leaders:</strong> Field-friendly solutions with integrated payment, digital approvals, and real-time tracking dramatically improve productivity and reduce errors.</li>
+    <li><strong>For Operations Managers:</strong> Standardized workflows, digital documentation, and real-time reporting prevent cost overruns, maintain quality, and improve employee satisfaction.</li>
+    <li><strong>Client Experience Matters:</strong> Professional presentation, transparent pricing, and thorough documentation accelerate referrals and create premium positioning.</li>
+    <li><strong>Scalable Processes:</strong> Phased implementation allows teams to adopt new tools without disruption, creating systems that grow with the business.</li>
+    <li><strong>Data-Driven Decisions:</strong> Analytics replace guesswork; tracking revenue, material usage, and AR in real time enables smarter resource allocation.</li>
+    <li><strong>Holistic Transformation:</strong> Technology, brand, and process improvements together drive measurable growth, not isolated fixes.</li>
   </ul>
 </main>
 
@@ -202,13 +202,8 @@
         tooltip: { mode: 'index', intersect: false }
       },
       scales: {
-        y: {
-          beginAtZero: false,
-          title: { display: true, text: 'Revenue ($M)' }
-        },
-        x: {
-          title: { display: true, text: 'Months' }
-        }
+        y: { beginAtZero: false, title: { display: true, text: 'Revenue ($M)' } },
+        x: { title: { display: true, text: 'Months' } }
       }
     }
   });
@@ -220,32 +215,28 @@
     data: {
       labels: ['Accounts Receivable', 'Material Costs', 'Client Referrals'],
       datasets: [
-        {
-          label: 'Before',
-          data: [100, 100, 10],
-          backgroundColor: '#9CAF88'
-        },
-        {
-          label: 'After',
-          data: [50, 80, 45],
-          backgroundColor: '#6B8E5A'
-        }
+        { label: 'Before', data: [100, 100, 10], backgroundColor: '#9CAF88' },
+        { label: 'After', data: [50, 80, 45], backgroundColor: '#6B8E5A' }
       ]
     },
     options: {
       responsive: true,
-      plugins: {
-        tooltip: { mode: 'index', intersect: false },
-        legend: { position: 'top' }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: { display: true, text: 'Value (%) / Referrals' }
-        }
-      }
+      plugins: { tooltip: { mode: 'index', intersect: false }, legend: { position: 'top' } },
+      scales: { y: { beginAtZero: true, title: { display: true, text: 'Value (%) / Referrals' } } }
     }
   });
+
+  // Animate infographic on scroll
+  const phases = document.querySelectorAll('.phase');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  phases.forEach(phase => observer.observe(phase));
 </script>
 
 </body>
