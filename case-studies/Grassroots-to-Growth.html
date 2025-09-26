@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Study: From Grassroots to Growth | DGS Consulting</title>
 <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -21,27 +22,10 @@
     padding: 4rem 2rem;
   }
 
-  header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-  }
-
-  header p {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  header nav {
-    margin-top: 1rem;
-  }
-
-  header nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: 600;
-  }
+  header h1 { margin: 0; font-size: 2.8rem; }
+  header p { margin-top: 1rem; font-size: 1.2rem; opacity: 0.9; }
+  header nav { margin-top: 1rem; }
+  header nav a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: 600; }
 
   .container {
     max-width: 900px;
@@ -52,9 +36,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
 
-  section {
-    padding: 3rem 2rem;
-  }
+  section { padding: 3rem 2rem; }
 
   h2.section-title {
     font-size: 1.8rem;
@@ -63,17 +45,12 @@
     color: #2d3748;
   }
 
-  ul.bullet-points {
-    list-style: none;
-    padding-left: 0;
-  }
-
+  ul.bullet-points { list-style: none; padding-left: 0; }
   ul.bullet-points li {
     position: relative;
     padding-left: 2rem;
     margin-bottom: 1rem;
   }
-
   ul.bullet-points li::before {
     content: '✓';
     position: absolute;
@@ -90,25 +67,9 @@
     margin: 20px 0;
   }
 
-  .chart-box {
-    flex: 1;
-    min-width: 280px;
-    text-align: center;
-  }
-
-  .chart-box h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #6B8E5A;
-  }
-
-  canvas {
-    background: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    width: 100%;
-    height: auto;
-  }
+  .chart-box { flex: 1; min-width: 280px; text-align: center; }
+  .chart-box h3 { margin-bottom: 10px; font-size: 1.2rem; color: #6B8E5A; }
+  canvas { background: #fff; border-radius: 8px; padding: 10px; width: 100%; height: auto; }
 
   .infographic {
     display: flex;
@@ -116,7 +77,6 @@
     justify-content: space-around;
     margin-top: 30px;
   }
-
   .phase {
     background: rgba(0,0,0,0.05);
     padding: 20px;
@@ -128,60 +88,18 @@
     transform: translateY(20px);
     transition: all 0.6s ease;
   }
+  .phase.visible { opacity: 1; transform: translateY(0); }
+  .phase h4 { margin-top: 0; color: #6B8E5A; }
 
-  .phase.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .phase h4 {
-    margin-top: 0;
-    color: #6B8E5A;
-  }
-
-  .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    width: 220px;
-    background: #333;
-    color: #fff;
-    text-align: left;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    bottom: 120%;
-    left: 50%;
-    margin-left: -110px;
-    transition: opacity 0.3s;
-  }
-
-  .phase:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .takeaways ul {
-    list-style: square;
-    padding-left: 20px;
-  }
-
-  .takeaways li {
-    margin-bottom: 15px;
-  }
+  .takeaways ul { list-style: square; padding-left: 20px; }
+  .takeaways li { margin-bottom: 15px; }
 
   @media (max-width:768px){
-    .chart-container {
-      flex-direction: column;
-    }
-    .infographic {
-      flex-direction: column;
-      align-items: center;
-    }
+    .chart-container { flex-direction: column; }
+    .infographic { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -221,6 +139,20 @@
   </section>
 
   <section>
+    <h2 class="section-title">Results: Revenue & Operational Metrics</h2>
+    <div class="chart-container">
+      <div class="chart-box">
+        <h3>Revenue Growth Over 24 Months</h3>
+        <canvas id="revenueChart" height="200"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Operational Metrics Before vs After</h3>
+        <canvas id="metricsChart" height="200"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2 class="section-title">Implementation Phases</h2>
     <div class="infographic">
       <div class="phase"><h4>Phase 1: Discovery</h4><p>Mapped workflows and identified bottlenecks.</p></div>
@@ -244,6 +176,7 @@
 </div>
 
 <script>
+  // Animate infographic phases
   const phases = document.querySelectorAll('.phase');
   const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
@@ -251,6 +184,49 @@
     });
   }, {threshold:0.3});
   phases.forEach(phase=>observer.observe(phase));
+
+  // Chart.js: Revenue Growth Line Chart
+  const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+  new Chart(ctxRevenue, {
+    type: 'line',
+    data: {
+      labels: ['Month 0','Month 6','Month 12','Month 18','Month 24'],
+      datasets: [{
+        label: 'Revenue ($M)',
+        data: [1.5, 2.2, 3.0, 3.5, 4.0],
+        backgroundColor: 'rgba(155,175,136,0.2)',
+        borderColor: '#6B8E5A',
+        borderWidth: 3,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 6,
+        pointBackgroundColor: '#6B8E5A'
+      }]
+    },
+    options: {
+      responsive:true,
+      plugins:{legend:{display:false}, tooltip:{mode:'index',intersect:false}},
+      scales:{y:{beginAtZero:false, title:{display:true, text:'Revenue ($M)'}}, x:{title:{display:true,text:'Months'}}}
+    }
+  });
+
+  // Chart.js: Operational Metrics Bar Chart
+  const ctxMetrics = document.getElementById('metricsChart').getContext('2d');
+  new Chart(ctxMetrics, {
+    type: 'bar',
+    data: {
+      labels: ['Accounts Receivable', 'Material Costs', 'Client Referrals'],
+      datasets: [
+        { label: 'Before', data: [100,100,10], backgroundColor:'#9CAF88' },
+        { label: 'After', data: [50,80,45], backgroundColor:'#6B8E5A' }
+      ]
+    },
+    options: {
+      responsive:true,
+      plugins:{tooltip:{mode:'index',intersect:false}, legend:{position:'top'}},
+      scales:{y:{beginAtZero:true, title:{display:true,text:'Value (%) / Referrals'}}}
+    }
+  });
 </script>
 
 </body>
