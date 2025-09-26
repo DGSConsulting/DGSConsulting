@@ -7,25 +7,35 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-  <header> style="padding: 20px; 
-               background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-               text-align: center; 
-               color: #ffffff; 
-               border-bottom: 2px solid #6B8E5A;">
-  <h1 style="margin: 0; font-size: 2rem; font-family: Arial, sans-serif;">Case Study: From Grassroots to Growth</h1>
-  <p style="margin: 5px 0 15px; font-size: 1.1rem;">How digital tools doubled one company’s sales in a year</p>
-  <nav style="font-size: 1rem; font-family: Arial, sans-serif;">
-    <a href="/" style="text-decoration: none; color: #FFD700; margin-right: 10px;">Home</a> |
-    <a href="/case-studies/" style="text-decoration: none; color: #FFD700; margin-left: 10px;">All Case Studies</a>
-  </nav>
-</header>
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
     background-color: #f9f9f9;
   }
-  h1, h2, h3 {
+  header {
+    padding: 20px;
+    background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 2px solid #6B8E5A;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  header p {
+    margin: 5px 0 15px;
+    font-size: 1.1rem;
+  }
+  header nav a {
+    text-decoration: none;
+    color: #FFD700;
+    margin: 0 5px;
+    font-weight: bold;
+  }
+  h2, h3 {
     margin-top: 1.2em;
     margin-bottom: 0.5em;
   }
@@ -50,14 +60,23 @@
     width: 100%;
     margin: 20px 0;
   }
+  ul {
+    padding-left: 20px;
+  }
 </style>
 </head>
 <body>
 
-<h1>🚀 From Grassroots to Growth: How Digital Tools Doubled One Landscaping Company’s Revenue in Two Seasons</h1>
-<p>☕ <strong>Darren Snook</strong><br>
-Business Analyst & Digital Strategy Consultant | Helping Small Businesses Identify Growth Bottlenecks & Implement Measurable Solutions</p>
-<p><em>June 29, 2025</em></p>
+<header>
+  <h1>Case Study: From Grassroots to Growth</h1>
+  <p>How digital tools doubled one company’s sales in a year</p>
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/case-studies/">All Case Studies</a>
+  </nav>
+</header>
+
+<main class="container" style="padding: 20px; max-width: 900px; margin: auto;">
 
 <h2>📋 Background: The Company</h2>
 <p>This Ontario-based landscaping company had built a reputation for high-quality work but was struggling to scale. With ~$1.5M in annual revenue and a team of 12, the business faced operational chaos that threatened growth. The owner was overextended, constantly putting out fires, and the company’s processes relied heavily on manual tracking, paper invoices, and gut-feel decision making.</p>
@@ -70,7 +89,6 @@ Business Analyst & Digital Strategy Consultant | Helping Small Businesses Identi
   <li><strong>Owner burnout:</strong> Every operational decision required the owner’s involvement.</li>
   <li><strong>Limited scalability:</strong> Existing systems couldn’t support expansion without sacrificing quality.</li>
 </ul>
-
 <p><em>Example:</em> Crews often ran out of materials mid-project, delaying completion by days, while the owner spent hours chasing overdue invoices.</p>
 
 <h2>💡 The Solution: Mobile-First Digital Infrastructure</h2>
@@ -83,7 +101,6 @@ Business Analyst & Digital Strategy Consultant | Helping Small Businesses Identi
 </ul>
 
 <h3>Phase 2 – Technology Implementation (Month 2-4)</h3>
-<p><strong>Core Stack:</strong></p>
 <ul>
   <li><strong>Mobile Application:</strong> Real-time material logging, client sign-offs, photo documentation, integrated card payments.</li>
   <li><strong>Field Equipment:</strong> Tablets in every truck with wireless printers for on-site receipts and expense tracking.</li>
@@ -149,14 +166,6 @@ Business Analyst & Digital Strategy Consultant | Helping Small Businesses Identi
   </tbody>
 </table>
 
-<h3>Operational & Growth Impact</h3>
-<ul>
-  <li>Immediate AR reduction with on-site card payments.</li>
-  <li>Material cost savings through real-time tracking.</li>
-  <li>Owner transitioned from hands-on operator to strategic leader.</li>
-  <li>Professional differentiation and accelerated referrals through improved client experience.</li>
-</ul>
-
 <h2 class="mt-5">📊 Charts & Infographic</h2>
 
 <div class="chart-container">
@@ -171,6 +180,8 @@ Business Analyst & Digital Strategy Consultant | Helping Small Businesses Identi
   Infographic Placeholder – Replace with Custom Design
 </div>
 
+</main>
+
 <script>
 const revenueCtx = document.getElementById('revenueLineChart').getContext('2d');
 const revenueChart = new Chart(revenueCtx, {
@@ -180,8 +191,8 @@ const revenueChart = new Chart(revenueCtx, {
         datasets: [{
             label: 'Revenue ($M)',
             data: [1.5, 2.2, 3.0, 3.5, 4.0],
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: '#FFD700',
+            backgroundColor: 'rgba(255, 215, 0, 0.2)',
             tension: 0.3,
             fill: true,
             pointRadius: 5
@@ -190,10 +201,13 @@ const revenueChart = new Chart(revenueCtx, {
     options: {
         responsive: true,
         plugins: {
-            legend: { display: true, position: 'top' },
-            title: { display: true, text: 'Revenue Growth Over Two Seasons' }
+            legend: { display: true, position: 'top', labels: { color: '#333' } },
+            title: { display: true, text: 'Revenue Growth Over Two Seasons', color: '#333' }
         },
-        scales: { y: { beginAtZero: true } }
+        scales: { 
+            y: { beginAtZero: true, ticks: { color: '#333' } },
+            x: { ticks: { color: '#333' } }
+        }
     }
 });
 
@@ -205,26 +219,26 @@ const arChart = new Chart(arCtx, {
         datasets: [{
             label: 'Before',
             data: [100, 100, 10],
-            backgroundColor: 'rgba(255, 99, 132, 0.7)'
+            backgroundColor: '#9CAF88'
         },{
             label: 'After',
             data: [50, 80, 45],
-            backgroundColor: 'rgba(54, 162, 235, 0.7)'
+            backgroundColor: '#6B8E5A'
         }]
     },
     options: {
         responsive: true,
         plugins: {
-            legend: { position: 'top' },
-            title: { display: true, text: 'Operational Impact Metrics' }
+            legend: { position: 'top', labels: { color: '#333' } },
+            title: { display: true, text: 'Operational Impact Metrics', color: '#333' }
         },
-        scales: { y: { beginAtZero: true } }
+        scales: { 
+            y: { beginAtZero: true, ticks: { color: '#333' } },
+            x: { ticks: { color: '#333' } }
+        }
     }
 });
 </script>
 
- <footer>
-    <p>&copy; 2025 DGS Consulting | <a href="/case-studies/">Back to Case Studies</a></p>
-  </footer>
 </body>
-</html>
+</html
