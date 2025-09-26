@@ -20,6 +20,7 @@
       color: inherit;
     }
 
+    /* Hero Header */
     .case-header {
       position: relative;
       background: linear-gradient(135deg, #9CAF88, #6B8E5A);
@@ -39,6 +40,7 @@
       opacity: 0.9;
     }
 
+    /* Content Container */
     .case-content {
       max-width: 900px;
       margin: 2rem auto;
@@ -48,6 +50,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
+    /* Sections */
     .intro-section {
       padding: 3rem 2rem;
     }
@@ -56,11 +59,13 @@
       margin-bottom: 1.5rem;
     }
 
+    /* Two-column layout for visuals */
     .two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       align-items: start;
+      padding: 2rem;
     }
     .two-column img {
       width: 100%;
@@ -68,6 +73,7 @@
       object-fit: cover;
     }
 
+    /* Problem & Solution styling */
     .problem, .solution {
       padding: 3rem 2rem;
     }
@@ -85,6 +91,7 @@
       color: #2d3748;
     }
 
+    /* Bullet Points */
     .bullet-points {
       list-style: none;
       padding-left: 0;
@@ -103,6 +110,7 @@
       font-weight: bold;
     }
 
+    /* Results Section */
     .results-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -129,6 +137,7 @@
       font-size: 1.1rem;
     }
 
+    /* Quote Styling */
     .quote {
       margin: 3rem 2rem;
       background: #f7fafc;
@@ -153,6 +162,7 @@
       opacity: 0.7;
     }
 
+    /* Before & After Table */
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
@@ -168,74 +178,10 @@
       font-weight: 600;
     }
 
-    .lessons, .cta-section, #contact {
-      padding: 3rem 2rem;
-    }
+    /* Lessons Section */
     .lessons {
+      padding: 3rem 2rem;
       background: white;
-    }
-    .cta-section {
-      background: linear-gradient(135deg, #6B8E5A, #9CAF88);
-      color: white;
-      text-align: center;
-    }
-    .cta-section .cta-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .cta-section .cta-text {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-    .cta-section .cta-button {
-      display: inline-block;
-      background: #6B8E5A;
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .cta-section .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(107, 142, 90, 0.3);
-    }
-
-    #contact {
-      background: #f7fafc;
-    }
-    #contact form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    #contact label {
-      font-weight: 600;
-    }
-    #contact input, #contact textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #cbd5e0;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    #contact button {
-      background: #6B8E5A;
-      color: white;
-      border: none;
-      padding: 1rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    #contact button:hover {
-      background: #557145;
     }
 
     @media (max-width: 768px) {
@@ -259,8 +205,8 @@
       <p>His team of seven technicians spent nearly as much time filling out paperwork and updating systems as they did fixing vehicles. “We’re not a tech company,” Mike said. “I just want my guys fixing cars, not playing secretary.”</p>
     </section>
 
-    <!-- Optional visual / photo to break the page -->
-    <section class="intro-section two-column">
+    <!-- Visuals Section -->
+    <section class="two-column">
       <div>
         <img src="asset/auto-shop-before.jpg" alt="Auto shop in operation (before)">
       </div>
@@ -358,40 +304,10 @@
         <li>The hidden costs of inefficiency are almost always greater than they appear.</li>
       </ul>
     </section>
-
-    <!-- Contact Form -->
-    <section id="contact">
-      <h2 class="section-title" style="text-align:center;">Talk to Us</h2>
-      <form action="https://formspree.io/f/mwprpdwk" method="POST">
-        <label>
-          Your Email:
-          <input type="email" name="email" placeholder="you@example.com" required>
-        </label>
-        <label>
-          Your Message:
-          <textarea name="message" placeholder="Describe your business challenge..." required></textarea>
-        </label>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <h2 class="cta-title">Ready to Find Your Hidden $20K?</h2>
-      <p class="cta-text">Don’t let inefficiencies bleed your profits another year.<br>Book a consultation and let’s uncover your opportunities.</p>
-      <a href="#contact" class="cta-button">Schedule a Free Consultation</a>
-    </section>
-
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Smooth scroll
-      document.querySelector('.cta-button').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-      });
-
       // Animate result cards
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
