@@ -15,12 +15,7 @@
       background: #f4f4f4;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Hero Header */
+    /* Header */
     .case-header {
       position: relative;
       background: linear-gradient(135deg, #9CAF88, #6B8E5A);
@@ -31,7 +26,7 @@
     .case-header h1 {
       margin: 0;
       font-size: 2.8rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .case-header .subhead {
@@ -40,7 +35,7 @@
       opacity: 0.9;
     }
 
-    /* Content Container */
+    /* Main container */
     .case-content {
       max-width: 900px;
       margin: 2rem auto;
@@ -50,36 +45,15 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    /* Sections */
-    .intro-section {
+    /* Section base */
+    section {
       padding: 3rem 2rem;
     }
 
-    .intro-section p {
-      margin-bottom: 1.5rem;
-    }
-
-    /* Two-column layout for visuals */
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
-      padding: 2rem;
-    }
-    .two-column img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    /* Problem & Solution styling */
-    .problem, .solution {
-      padding: 3rem 2rem;
-    }
     .problem {
       background: #fff5f5;
     }
+
     .solution {
       background: #f0fff4;
     }
@@ -110,12 +84,12 @@
       font-weight: bold;
     }
 
-    /* Results Section */
+    /* Results */
     .results-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
       gap: 1.5rem;
-      padding: 2rem;
+      padding-top: 1rem;
     }
     .result-card {
       background: linear-gradient(135deg, #9CAF88, #6B8E5A);
@@ -137,7 +111,7 @@
       font-size: 1.1rem;
     }
 
-    /* Quote Styling */
+    /* Quote */
     .quote {
       margin: 3rem 2rem;
       background: #f7fafc;
@@ -166,7 +140,7 @@
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 2rem 0;
+      margin-top: 2rem;
     }
     .comparison-table th, .comparison-table td {
       border: 1px solid #e2e8f0;
@@ -178,79 +152,73 @@
       font-weight: 600;
     }
 
-    /* Lessons Section */
+    /* Lessons */
     .lessons {
       padding: 3rem 2rem;
       background: white;
     }
 
     @media (max-width: 768px) {
-      .two-column {
+      .results-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Hero / Header -->
+  <!-- Hero -->
   <div class="case-header">
     <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
     <div class="subhead">A real-world case study in operational efficiency and system integration</div>
   </div>
 
+  <!-- Case Study Content -->
   <div class="case-content">
-    <!-- Introduction / Context -->
-    <section class="intro-section">
-      <p>When I first met <strong>Mike</strong>, owner of a busy auto shop in Ottawa, he was exhausted. The shop was bustling — cars lined up outside, calls pouring in — yet behind the scenes, chaos reigned.</p>
-      <p>His team of seven technicians spent nearly as much time filling out paperwork and updating systems as they did fixing vehicles. “We’re not a tech company,” Mike said. “I just want my guys fixing cars, not playing secretary.”</p>
-    </section>
 
-    <!-- Visuals Section -->
-    <section class="two-column">
-      <div>
-        <img src="asset/auto-shop-before.jpg" alt="Auto shop in operation (before)">
-      </div>
-      <div>
-        <img src="asset/auto-shop-after.jpg" alt="Auto shop streamlined (after)">
-      </div>
+    <!-- Introduction -->
+    <section>
+      <p>When I first met <strong>Mike</strong>, the owner of a busy auto repair shop in Ottawa, he was on the verge of burnout. His shop had a strong reputation and a steady flow of customers, yet Mike felt like he was drowning in chaos. He was working long hours, often late into the evening, and still couldn’t seem to get ahead.</p>
+      <p>“It feels like I spend more time babysitting systems than growing my business,” Mike told me. His seven technicians were doing great work in the bays, but behind the scenes, inefficiency was quietly draining profits.</p>
     </section>
 
     <!-- Problem -->
     <section class="problem">
       <h2 class="section-title">The Hidden Money Drain</h2>
-      <p>The techs were finishing jobs, then spending <strong>15–20 minutes</strong> updating three disconnected systems:</p>
+      <p>At first glance, everything looked fine. The shop was full, bills were paid, and customers were happy. But once we dug deeper, the real issue emerged: the techs were finishing jobs only to spend <strong>15–20 minutes</strong> manually updating three disconnected systems:</p>
       <ul class="bullet-points">
-        <li>A scheduling board that was always out of sync</li>
-        <li>An inventory system requiring manual updates</li>
-        <li>An invoicing tool that didn’t interface with either</li>
+        <li>A scheduling tool that constantly fell out of sync</li>
+        <li>An inventory tracker requiring manual adjustments</li>
+        <li>An invoicing platform that didn’t integrate with either</li>
       </ul>
-      <p>With <strong>8–10 jobs per day</strong>, that meant over <strong>120 hours per month</strong> were eaten up by redundant data entry — essentially a full-time salary squandered on administrative tasks.</p>
-      <p>Delays piled up, morale dipped, and Mike felt like he was always one step behind.</p>
+      <p>Multiply that by <strong>8–10 jobs a day</strong> and seven employees, and the numbers became staggering. Over <strong>120 payroll hours each month</strong> were wasted on administrative work — the equivalent of a full-time salary spent on redundant data entry.</p>
+      <p>Worse, these inefficiencies weren’t just costing money. They were slowing down job turnover, frustrating staff, and reducing the shop’s capacity to serve more customers.</p>
     </section>
 
     <!-- Solution -->
     <section class="solution">
-      <h2 class="section-title">The Simple Fix That Changed Everything</h2>
-      <p>We approached the problem in three clear phases — minimizing disruption while gaining maximum impact:</p>
+      <h2 class="section-title">A Simple Fix With Big Impact</h2>
+      <p>We approached this project with a clear philosophy: <em>don’t disrupt what’s working — enhance it.</em> The goal wasn’t to reinvent Mike’s business, but to remove the friction points holding it back.</p>
+      <p>Our process unfolded in three phases:</p>
       <ul class="bullet-points">
-        <li><strong>Workflow Mapping:</strong> Shadowed the team for two days to document every step from check-in to invoice.</li>
-        <li><strong>Smart Tool Selection:</strong> Chose a system that mirrored their real-world workflow, not forced them into new habits.</li>
-        <li><strong>Painless Training:</strong> Delivered a two-hour hands-on session that got immediate buy-in — techs saw the benefit instantly.</li>
+        <li><strong>Observation & Mapping:</strong> We shadowed the team for two full days, documenting every step of the workflow from vehicle check-in to final invoicing. This gave us a true, ground-level understanding of where time was being lost.</li>
+        <li><strong>Smart Tool Selection:</strong> Rather than jumping to expensive “all-in-one” software, we carefully evaluated options and chose a solution that integrated seamlessly with the shop’s existing systems.</li>
+        <li><strong>Hands-On Training:</strong> A short, two-hour interactive session got the entire team aligned and comfortable with the new tools. No lengthy manuals, no over-complication — just practical, relevant training.</li>
       </ul>
-      <p>The result: jobs close with a few clicks, inventory updates automatically, and invoices and payments sync seamlessly.</p>
+      <p>The end result was a streamlined process where jobs closed with just a few clicks, inventory updated automatically, and invoicing happened in real time. For the technicians, it felt almost invisible — like the paperwork had just… disappeared.</p>
     </section>
 
     <!-- Results -->
     <section>
-      <h2 class="section-title">The Results Speak for Themselves</h2>
+      <h2 class="section-title">The Results</h2>
+      <p>The changes weren’t just felt — they were measured. Within 30 days of implementation, Mike’s shop saw dramatic improvements across the board.</p>
       <div class="results-grid">
         <div class="result-card">
           <div class="result-number">2–3</div>
-          <div class="result-text">Hours saved weekly per tech</div>
+          <div class="result-text">Hours saved weekly per technician</div>
         </div>
         <div class="result-card">
           <div class="result-number">$1–2K</div>
-          <div class="result-text">Operating costs cut monthly</div>
+          <div class="result-text">Monthly operating costs reduced</div>
         </div>
         <div class="result-card">
           <div class="result-number">$10–20K</div>
@@ -259,14 +227,14 @@
       </div>
 
       <div class="quote">
-        “They thought this would just slow us down. Now everybody actually gets to fix cars instead of filling out forms.”
-        <div class="author">— Shop Staff</div>
+        “I honestly didn’t believe the numbers at first. Now my team gets to focus on fixing cars, and I finally have my evenings back.”
+        <div class="author">— Mike, Shop Owner</div>
       </div>
     </section>
 
-    <!-- Before & After Table -->
-    <section class="intro-section">
-      <h2 class="section-title">Before &amp; After</h2>
+    <!-- Before & After -->
+    <section>
+      <h2 class="section-title">Before &amp; After Snapshot</h2>
       <table class="comparison-table">
         <thead>
           <tr>
@@ -280,35 +248,37 @@
             <td>1 unified platform</td>
           </tr>
           <tr>
-            <td>15–20 minutes per job on admin</td>
-            <td>2–3 clicks to finalize job</td>
+            <td>15–20 minutes of admin per job</td>
+            <td>Jobs closed in under 2 minutes</td>
           </tr>
           <tr>
-            <td>Technicians overworked with paperwork</td>
-            <td>Focused purely on repairs</td>
+            <td>Technicians frustrated with paperwork</td>
+            <td>Techs fully focused on repairs</td>
           </tr>
           <tr>
-            <td>$1–2K monthly lost in payroll</td>
-            <td>Cost savings reinvested into growth</td>
+            <td>$1–2K monthly wasted on inefficiency</td>
+            <td>Savings reinvested in growth</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- Lessons Learned -->
+    <!-- Lessons -->
     <section class="lessons">
-      <h2 class="section-title">Key Lessons for Small Businesses</h2>
+      <h2 class="section-title">Key Lessons for Other Businesses</h2>
+      <p>This case study isn’t just about one auto shop — it highlights a pattern seen across many small businesses:</p>
       <ul class="bullet-points">
-        <li>Technology only works when aligned with human workflows.</li>
-        <li>Small, focused changes yield better adoption than giant overhauls.</li>
-        <li>The hidden costs of inefficiency are almost always greater than they appear.</li>
+        <li><strong>Technology should work for you, not against you.</strong> Fancy tools are worthless if your team won’t use them.</li>
+        <li><strong>Small changes compound quickly.</strong> Saving just a few minutes per task can lead to tens of thousands of dollars annually.</li>
+        <li><strong>Observe before you act.</strong> Understanding the reality of day-to-day operations is critical before selecting systems or tools.</li>
       </ul>
+      <p>For Mike, these lessons meant less stress, happier employees, and a healthier bottom line. For other business owners, they serve as a roadmap to uncovering hidden profit that’s been there all along.</p>
     </section>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Animate result cards
+      // Animate results on scroll
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
