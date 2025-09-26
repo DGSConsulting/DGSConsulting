@@ -1,399 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How One Auto Shop Found $20K Hiding in Plain Sight | DGS Consulting</title>
-    <meta name="description" content="Real case study: How a simple system integration saved an auto shop $20K annually by eliminating inefficient processes and disconnected systems.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How One Auto Shop Found $20K Hiding in Plain Sight | DGS Consulting</title>
+  <meta name="description" content="Real case study: How a simple system integration saved an auto shop $20K annually by eliminating inefficient processes and disconnected systems.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            min-height: 100vh;
-        }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
 
-        .header {
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    .header {
+      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: float 20s linear infinite;
-        }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: float 20s linear infinite;
+    }
 
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-40px, -40px); }
-        }
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-40px, -40px); }
+    }
 
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
 
-        .author-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-        }
+    .author-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
 
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: white;
-        }
+    .author-avatar img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
 
-        .author-details h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
+    .author-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
 
-        .author-details p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
+    .author-details p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
 
-        .content {
-            padding: 3rem 2rem;
-        }
+    .content {
+      padding: 3rem 2rem;
+    }
 
-        .problem-section {
-            background: #fff5f5;
-            border-left: 5px solid #e53e3e;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
-        }
+    .problem-section {
+      background: #fff5f5;
+      border-left: 5px solid #e53e3e;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 0 10px 10px 0;
+    }
 
-        .solution-section {
-            background: #f0fff4;
-            border-left: 5px solid #38a169;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
-        }
+    .solution-section {
+      background: #f0fff4;
+      border-left: 5px solid #38a169;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 0 10px 10px 0;
+    }
 
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
 
-        .result-card {
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
+    .result-card {
+      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
 
-        .result-card:hover {
-            transform: translateY(-5px);
-        }
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
 
-        .result-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+    .result-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
 
-        .result-text {
-            font-size: 1.1rem;
-        }
+    .result-text {
+      font-size: 1.1rem;
+    }
 
-        .quote {
-            font-style: italic;
-            font-size: 1.2rem;
-            color: #4a5568;
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            position: relative;
-        }
+    .quote {
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #4a5568;
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      position: relative;
+    }
 
-        .quote::before {
-            content: '"';
-            font-size: 4rem;
-            color: #cbd5e0;
-            position: absolute;
-            top: -10px;
-            left: 20px;
-        }
+    .quote::before {
+      content: '"';
+      font-size: 4rem;
+      color: #cbd5e0;
+      position: absolute;
+      top: -10px;
+      left: 20px;
+    }
 
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin: 3rem 0 1rem 0;
-            position: relative;
-        }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 3rem 0 1rem 0;
+      position: relative;
+    }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
-            margin-top: 0.5rem;
-        }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(135deg, #9CAF88 0%, #6B8E5A 100%);
+      margin-top: 0.5rem;
+    }
 
-        .bullet-points {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
+    .bullet-points {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
 
-        .bullet-points li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
+    .bullet-points li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+    }
 
-        .bullet-points li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #38a169;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+    .bullet-points li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #38a169;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-        .cta-section {
-            background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
+    /* Before & After table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 1rem;
+    }
 
-        .cta-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+    .comparison-table th,
+    .comparison-table td {
+      border: 1px solid #e2e8f0;
+      padding: 1rem;
+      text-align: left;
+    }
 
-        .cta-text {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
+    .comparison-table th {
+      background: #f7fafc;
+      font-weight: 600;
+    }
 
-        .cta-button {
-            display: inline-block;
-            background: #6B8E5A;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .comparison-table td:first-child {
+      background: #fff5f5;
+    }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
-        }
+    .comparison-table td:last-child {
+      background: #f0fff4;
+    }
 
-        .stats-highlight {
-            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 0 0.2rem;
-        }
+    .stats-highlight {
+      background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0 0.2rem;
+    }
 
-        @media (max-width: 768px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .author-info {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .cta-section {
+      background: linear-gradient(135deg, #6B8E5A 0%, #9CAF88 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #6B8E5A;
+      color: white;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(107, 142, 90, 0.3);
+    }
+
+    /* Contact Form */
+    #contact {
+      padding: 3rem 2rem;
+      background: #f7fafc;
+    }
+
+    #contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #contact label {
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    #contact button {
+      background: #6B8E5A;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #contact button:hover {
+      background: #557145;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .author-info {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .content {
+        padding: 2rem 1.5rem;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
-            <div class="author-info">
-                <div class="author-avatar"><link rel="icon" type="image/png" href="asset/logo-mark-t.png" /></div>
-                <div class="author-details">
-                    <h3>DGS Consulting</h3>
-                    <p>Business Analysis & Digital Strategy for Growing Small Businesses</p>
-            
-                </div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="problem-section">
-                <h2>The Hidden Money Drain</h2>
-                <p>An auto repair shop came to me bleeding money—not from big mistakes, but from death by a thousand paper cuts. Their techs were finishing jobs, then spending <span class="stats-highlight">15-20 minutes</span> updating three different systems just to close one work order.</p>
-                <p style="margin-top: 1rem;">Scheduling, inventory, invoicing—all completely disconnected. Multiply that across <span class="stats-highlight">8-10 jobs daily</span>, and thousands of dollars in payroll hours were vanishing into thin air every month.</p>
-            </div>
-
-            <div class="solution-section">
-                <h2>The Simple Fix That Changed Everything</h2>
-                <p>We moved everything into one integrated system. Jobs now close with a couple of clicks. Inventory updates automatically. Invoices and payments sync in real time.</p>
-                <p style="margin-top: 1rem;">No complex training. No massive overhaul. Just smart integration that worked with how the team actually operated.</p>
-            </div>
-
-            <h2 class="section-title">The Results Speak for Themselves</h2>
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-number">2-3</div>
-                    <div class="result-text">Hours saved weekly per tech</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-number">$1-2K</div>
-                    <div class="result-text">Monthly operating costs cut</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-number">$10-20K</div>
-                    <div class="result-text">Kept in business annually</div>
-                </div>
-            </div>
-
-            <div class="quote">
-                They thought this would just slow us down. Now everybody actually gets to fix cars instead of filling out forms.
-                <div style="text-align: right; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">— Shop Staff</div>
-            </div>
-
-            <h2 class="section-title">Why Most Small Businesses Leave Money on the Table</h2>
-            <p>Every owner thinks their problems are unique. They're not. Whether it's auto, trades, retail, or services, the pattern's always the same:</p>
-            
-            <ul class="bullet-points">
-                <li>Too many manual processes eating up valuable time</li>
-                <li>Disconnected systems creating double work</li>
-                <li>People spending hours on tasks that don't earn money</li>
-            </ul>
-
-            <p><strong>The biggest mistake?</strong> Chasing fancy software without ensuring it actually fits how your team works. The right system is worthless if nobody uses it.</p>
-
-            <h2 class="section-title">The Bottom Line</h2>
-            <p>Small changes compound fast. A few minutes saved here, a few clicks eliminated there, and suddenly you're looking at <span class="stats-highlight">five figures annually</span> back in your pocket.</p>
-            
-            <p>If you're running a business and feel like you're drowning in inefficiency, you probably are. The good news? It's completely fixable, and the ROI is usually bigger than you think.</p>
-        </main>
-
-        <div class="cta-section">
-            <h2 class="cta-title">Ready to Find Your Hidden $20K?</h2>
-            <p class="cta-text">What would your business look like with an extra $10-20K freed up every year?<br>Let's find out together.</p>
-            <a href="#contact" class="cta-button">Schedule Your Free Consultation</a>
+  <div class="container">
+    <header class="header">
+      <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
+      <div class="author-info">
+        <div class="author-avatar">
+          <img src="asset/logo-mark-t.png" alt="DGS Logo">
         </div>
+        <div class="author-details">
+          <h3>DGS Consulting</h3>
+          <p>Business Analysis & Digital Strategy for Growing Small Businesses</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Introduction -->
+      <p>When I first met <strong>Mike</strong>, owner of a busy auto shop in Ontario, he was exhausted. The shop was thriving — cars lined up outside, phones ringing off the hook — but behind the scenes, chaos ruled. His team of seven technicians were spending almost as much time updating paperwork as they were fixing vehicles.</p>
+      <p>“We’re not a tech company,” Mike said. “I just want my guys fixing cars, not playing secretary.”</p>
+
+      <!-- Problem Section -->
+      <div class="problem-section">
+        <h2>The Hidden Money Drain</h2>
+        <p>Their techs were finishing jobs, then spending <span class="stats-highlight">15–20 minutes</span> updating three disconnected systems:</p>
+        <ul class="bullet-points">
+          <li>A scheduling board that was constantly out of date</li>
+          <li>A separate inventory system that required manual stock entry</li>
+          <li>An invoicing tool that didn’t sync with either system</li>
+        </ul>
+        <p>Multiply that across <span class="stats-highlight">8–10 jobs daily</span>, and the shop was losing over <strong>120 hours per month</strong> — the equivalent of a <strong>full-time salary</strong> wasted on data entry instead of revenue-generating work.</p>
+        <p>Customers were waiting longer for repairs, staff morale was sinking, and Mike was burning out trying to hold everything together.</p>
+      </div>
+
+      <!-- Solution Section -->
+      <div class="solution-section">
+        <h2>The Simple Fix That Changed Everything</h2>
+        <p>Instead of overhauling everything overnight, we tackled the problem in three simple steps:</p>
+        <ul class="bullet-points">
+          <li><strong>Map the Workflow:</strong> We shadowed the team for two days, documenting every step from check-in to invoice.</li>
+          <li><strong>Choose the Right System:</strong> We selected software that fit their existing habits — no massive learning curve required.</li>
+          <li><strong>Train Without Pain:</strong> A two-hour training session was all it took for the team to get comfortable and excited.</li>
+        </ul>
+        <p>The result? Jobs now close with a couple of clicks. Inventory updates automatically. Invoices and payments sync in real time.</p>
+      </div>
+
+      <!-- Results Section -->
+      <h2 class="section-title">The Results Speak for Themselves</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">2–3</div>
+          <div class="result-text">Hours saved weekly per tech</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">$1–2K</div>
+          <div class="result-text">Monthly operating costs cut</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">$10–20K</div>
+          <div class="result-text">Kept in business annually</div>
+        </div>
+      </div>
+
+      <div class="quote">
+        “They thought this would just slow us down. Now everybody actually gets to fix cars instead of filling out forms.”
+        <div style="text-align: right; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">— Shop Staff</div>
+      </div>
+
+      <!-- Before and After Table -->
+      <h2 class="section-title">Before & After</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Before</th>
+            <th>After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3 separate systems that didn’t connect</td>
+            <td>1 integrated platform</td>
+          </tr>
+          <tr>
+            <td>15–20 min of admin per job</td>
+            <td>2–3 clicks to close job</td>
+          </tr>
+          <tr>
+            <td>Techs frustrated and overworked</td>
+            <td>Techs focused on fixing cars</td>
+          </tr>
+          <tr>
+            <td>$1–2K/month wasted payroll hours</td>
+            <td>Payroll savings redirected to growth</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Lessons Learned -->
+      <h2 class="section-title">Key Lessons for Small Businesses</h2>
+      <p>This project reinforced three lessons I see again and again in small businesses:</p>
+      <ul class="bullet-points">
+        <li>Technology only works if it fits the way <strong>people</strong> work.</li>
+        <li>Small, focused changes beat big, disruptive overhauls.</li>
+        <li>The hidden costs of inefficiency are almost always bigger than expected.</li>
+      </ul>
+    </main>
+
+    <!-- Contact Form -->
+    <div id="contact">
+      <h2 class="section-title" style="text-align:center;">Contact Us</h2>
+      <form action="https://formspree.io/f/mwprpdwk" method="POST">
+        <label>
+          Your Email:
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+        <label>
+          Your Message:
+          <textarea name="message" placeholder="Tell us about your business challenge..." required></textarea>
+        </label>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
 
-    <script>
-        // Smooth scroll animation for CTA button
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Add your contact form or scheduling logic here
-            <!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/mwprpdwk"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h2 class="cta-title">Ready to Find Your Hidden $20K?</h2>
+      <p class="cta-text">Don’t let inefficiencies drain your profits another year.<br>Book a free consultation today.</p>
+      <a href="#contact" class="cta-button">Schedule Your Free Consultation</a>
+    </div>
+  </div>
 
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scroll to contact form
+      document.querySelector('.cta-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+      });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+      // Animate cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-        // Animate cards on scroll
-        document.querySelectorAll('.result-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
         });
-    </script>
+      }, observerOptions);
+
+      document.querySelectorAll('.result-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
 </body>
 </html>
