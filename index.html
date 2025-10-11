@@ -3,468 +3,306 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DGS Consulting | Growth & Strategy</title>
+  <title>DGS Consulting | Process & Tech Optimization for Small Business</title>
   <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --primary: #3A6B35;
+      --light: #f7f9f8;
+      --dark: #1e1e1e;
+      --accent: #5B8C51;
     }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fff;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { line-height: 1.6; color: var(--dark); background: #fff; }
 
-    /* Navbar */
+    /* Nav */
     nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 40px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       z-index: 1000;
     }
-    nav img {
-      height: 40px;
-    }
+    nav img { height: 45px; }
     nav a {
-      margin-left: 20px;
       text-decoration: none;
-      color: #333;
-      font-weight: 600;
+      color: var(--dark);
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    nav a:hover {
-      color: #4A7C59;
-    }
+    nav a:hover { color: var(--primary); }
+
+    section { padding: 100px 20px; }
+    h1, h2, h3 { text-align: center; margin-bottom: 25px; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
 
     /* Hero */
     .hero {
-      position: relative;
-      height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('asset/hero-bg.jpg') center/cover;
+      color: white;
       text-align: center;
-      overflow: hidden;
-      color: #fff;
+      padding: 160px 20px;
     }
-    .hero-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 120%;
-      background: linear-gradient(135deg, #4A7C59 0%, #A8D5BA 100%);
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      transform: translateY(0);
-      transition: transform 0.2s ease-out;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-    }
-    .hero-logo {
-      width: 100px;
-      margin-bottom: 20px;
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
-    }
+    .hero img { height: 80px; margin-bottom: 20px; }
+    .hero h1 { font-size: 3rem; margin-bottom: 15px; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
-    /* Sections */
-    section {
-      padding: 90px 20px;
-      max-width: 1200px;
+    /* Tools */
+    .tools { background: var(--light); }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: #2e3e2f;
-    }
-
-    /* Tools Section */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
     .tool-card {
-      background: #F6F9F6;
-      padding: 30px;
-      text-align: center;
+      background: white;
+      padding: 40px 20px;
       border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
-    .tool-card:hover { transform: translateY(-8px); }
-    .tool-icon {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+    .tool-card:hover { transform: translateY(-6px); }
+    .tool-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+    .tool-card h3 { margin-bottom: 10px; }
+    .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
     .tool-btn {
       display: inline-block;
-      background: #4A7C59;
-      color: #fff;
+      background: var(--primary);
+      color: white;
       padding: 10px 20px;
-      border-radius: 25px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
-      margin-top: 15px;
       transition: background 0.3s ease;
     }
-    .tool-btn:hover { background: #3a6549; }
+    .tool-btn:hover { background: var(--accent); }
 
     /* KPI Dashboard */
-    .kpi-dashboard { 
-      background: #F6F9F6;
+    .kpi-dashboard { background: white; text-align: center; }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 40px auto 0;
     }
-    .kpi-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-      gap: 30px; 
-      max-width: 1000px; 
-      margin: 0 auto; 
+    .kpi-card {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
-    .kpi-card { 
-      background: #ffffff; 
-      border-radius: 20px; 
-      padding: 30px; 
-      text-align: center; 
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-      transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    }
-    .kpi-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(107,142,90,0.15);
-    }
-    .kpi-value { 
-      font-size: 2rem; 
-      font-weight: 700; 
-      color: #4A7C59; 
-      margin-bottom: 5px; 
-    }
+    .kpi-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .kpi-value { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
     .kpi-sub { font-size: 0.9rem; color: #555; }
 
-    /* Process Section */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    .process-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-    .process-card:hover { transform: translateY(-8px); }
-    .icon { font-size: 2rem; margin-bottom: 15px; }
-
     /* Case Studies */
-    .case-grid {
+    .case-studies { background: var(--light); }
+    .case-study-card {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    /* Testimonials */
+    .testimonials { background: white; }
+    .testimonial-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    .case-card {
-      background: #F6F9F6;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-    .case-card:hover { transform: translateY(-8px); }
-    .btn-primary {
-      display: inline-block;
-      background: #4A7C59;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 15px;
-    }
-    .btn-primary:hover { background: #3a6549; }
-
-    /* Testimonials */
     .testimonial-card {
-      background: #ffffff;
+      background: var(--light);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      position: relative;
     }
-    .testimonial-card:hover { transform: translateY(-8px); }
-    .quote-icon { font-size: 3rem; color: #4A7C59; }
-    .testimonial-text { font-style: italic; margin: 20px 0; }
-    .author-info { font-weight: 600; }
+    .testimonial-card::before {
+      content: "“";
+      font-size: 4rem;
+      position: absolute;
+      top: -10px; left: 15px;
+      color: var(--accent);
+    }
+    .testimonial-card p { margin-bottom: 15px; font-style: italic; }
+    .testimonial-card span { font-weight: 600; }
 
     /* Contact */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      width: 100%;
-    }
-    button {
-      background: #4A7C59;
-      color: #fff;
-      padding: 12px;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover { background: #3a6549; }
-
-    /* Footer */
-    footer {
+    .contact {
+      background: var(--primary);
+      color: white;
       text-align: center;
-      padding: 20px;
-      background: #f4f4f4;
-      margin-top: 40px;
+      padding: 80px 20px;
     }
+    .contact h2 { color: white; }
+    .contact p { max-width: 600px; margin: 0 auto 30px; }
+    .contact a {
+      background: white;
+      color: var(--primary);
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .contact a:hover { background: #eaeaea; }
 
-    /* Fade-in */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; background: #fafafa; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Nav -->
   <nav>
     <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
     <div>
-      <a href="#tools-section">Tools</a>
-      <a href="#kpi-dashboard">KPI</a>
-      <a href="#process">How We Help</a>
-      <a href="#case-studies">Case Studies</a>
+      <a href="#tools">Tools</a>
+      <a href="#kpi">Results</a>
+      <a href="#case">Case Studies</a>
       <a href="#testimonials">Testimonials</a>
-      <a href="#strategy-call">Contact</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero fade-in">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo" class="hero-logo">
-      <h1>Unlock Your Business Growth Potential</h1>
-      <p>Identify bottlenecks. Optimize processes. Scale sustainably.</p>
-      <a href="#tools-section" class="btn-primary">Explore Our Tools</a>
-    </div>
+  <section class="hero">
+    <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+    <h1>Growth Through Clarity</h1>
+    <p>We help small businesses remove growth bottlenecks, optimize processes, and unlock measurable results.</p>
   </section>
 
   <!-- Tools -->
-  <section id="tools-section" class="fade-in">
-    <h2>Powerful Tools for Business Growth</h2>
-    <div class="tools-grid">
+  <section id="tools" class="tools">
+    <h2>Our Tools</h2>
+    <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Powerful, simple solutions designed to help you scale efficiently.</p>
+    <div class="tool-grid">
       <div class="tool-card">
-        <div class="tool-icon">📊</div>
+        <i class="fa-solid fa-chart-line"></i>
         <h3>ROI Calculator</h3>
-        <p>Discover your growth potential with data-driven projections.</p>
+        <p>Instantly calculate the financial impact of your improvements.</p>
         <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="tool-btn">Try Now</a>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">🧾</div>
+        <i class="fa-solid fa-gears"></i>
         <h3>Process Documentation</h3>
-        <p>Streamline and standardize operations with ease.</p>
+        <p>Document workflows and SOPs effortlessly.</p>
         <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
+      </div>
+      <div class="tool-card">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        <h3>Business Audit</h3>
+        <p>Identify bottlenecks and growth opportunities.</p>
+        <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
       </div>
     </div>
   </section>
 
   <!-- KPI Dashboard -->
-  <section id="kpi-dashboard" class="kpi-dashboard fade-in">
+  <section id="kpi" class="kpi-dashboard">
     <h2>KPI Dashboard</h2>
-    <p style="text-align:center; max-width: 600px; margin: 0 auto 50px;">
-      Here’s a snapshot of the kind of measurable results we help businesses achieve.
-    </p>
+    <p>What success looks like when your business runs at its best.</p>
     <div class="kpi-grid">
       <div class="kpi-card">
         <h3>📈 Revenue Growth</h3>
         <p class="kpi-value" data-target="23">0%</p>
-        <p class="kpi-sub">Quarterly Growth</p>
+        <p class="kpi-sub">Average quarterly increase after implementation.</p>
       </div>
       <div class="kpi-card">
         <h3>🎯 Lead Conversion</h3>
         <p class="kpi-value" data-target="18">0%</p>
-        <p class="kpi-sub">Conversion Rate</p>
+        <p class="kpi-sub">Conversion improvement through optimized workflows.</p>
       </div>
       <div class="kpi-card">
         <h3>⚙️ Process Efficiency</h3>
         <p class="kpi-value" data-target="35">0%</p>
-        <p class="kpi-sub">Workflow Improvement</p>
+        <p class="kpi-sub">Boost in task completion speed.</p>
       </div>
       <div class="kpi-card">
         <h3>💰 Cost Savings</h3>
         <p class="kpi-value" data-target="12400">$0</p>
-        <p class="kpi-sub">Annual Savings</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section id="process" class="fade-in">
-    <h2>How We Help Growing Businesses</h2>
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="icon">🔍</div>
-        <h4>Analyze</h4>
-        <p>Identify inefficiencies, risks, and untapped growth opportunities.</p>
-      </div>
-      <div class="process-card">
-        <div class="icon">📝</div>
-        <h4>Plan</h4>
-        <p>Develop a clear, actionable roadmap aligned with your goals.</p>
-      </div>
-      <div class="process-card">
-        <div class="icon">⚙️</div>
-        <h4>Implement</h4>
-        <p>Apply solutions that optimize workflows and efficiency.</p>
-      </div>
-      <div class="process-card">
-        <div class="icon">📈</div>
-        <h4>Measure</h4>
-        <p>Track results, adjust strategies, and maximize ROI.</p>
+        <p class="kpi-sub">Average annual savings per client.</p>
       </div>
     </div>
   </section>
 
   <!-- Case Studies -->
-  <section id="case-studies" class="fade-in">
-    <h2>Case Studies</h2>
-    <div class="case-grid">
-      <div class="case-card">
-        <h4>Auto Shop Transformation</h4>
-        <p>Streamlined workflows and improved profitability by 20%.</p>
-        <a href="https://dgsconsulting.github.io/Auto-Shop-Case-Study/" target="_blank" class="btn-primary">View Full Case Study</a>
-      </div>
-      <div class="case-card">
-        <h4>Consulting Firm Efficiency Boost</h4>
-        <p>Redesigned systems, reduced project time by 15%.</p>
-        <a href="https://dgsconsulting.github.io/Office-Operations-Case-Study/" target="_blank" class="btn-primary">View Full Case Study</a>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:30px;">
-      <a href="https://dgsconsulting.github.io/All-Case-Studies/" target="_blank" class="btn-primary">See All Case Studies</a>
+  <section id="case" class="case-studies">
+    <h2>Case Study: From Grassroots to Growth</h2>
+    <div class="case-study-card">
+      <p>A small auto shop struggling with manual workflows reduced their processing time by 40% and increased lead conversions by 22% using our tools and methods.</p>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials" class="fade-in">
+  <section id="testimonials" class="testimonials">
     <h2>What Business Leaders Say</h2>
-    <div class="tools-grid">
+    <div class="testimonial-grid">
       <div class="testimonial-card">
-        <div class="quote-icon">“</div>
-        <div class="testimonial-text">
-          "Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and offered actionable insights that added real value to the business. If I ever started a company, Darren would be my first hire."
-        </div>
-        <div class="author-info">Norm Zenglein, MBA — Schulich School of Business</div>
+        <p>"Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... If I ever started a company, Darren would be my first hire."</p>
+        <span>— Norm Zenglein, MBA<br>Account Executive, Schulich School of Business</span>
       </div>
       <div class="testimonial-card">
-        <div class="quote-icon">“</div>
-        <div class="testimonial-text">
-          "I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. He brings a solid understanding of small business dynamics and offers insights that are both strategic and highly actionable."
-        </div>
-        <div class="author-info">Bakir Ghunaim — Founder of Social Stuff</div>
+        <p>"I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. Darren is incredibly reliable, always delivering thoughtful analysis."</p>
+        <span>— Bakir Ghunaim<br>Founder of Social Stuff | Business Strategist</span>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="strategy-call" class="fade-in">
-    <h2>Schedule a Free Strategy Call</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Tell us about your business and goals" rows="6" required></textarea>
-      <button type="submit">Book My Strategy Call</button>
-    </form>
+  <section id="contact" class="contact">
+    <h2>Ready to Unlock Your Growth?</h2>
+    <p>Let’s identify and remove your biggest bottlenecks — so your business can grow faster, smarter, and stronger.</p>
+    <a href="mailto:darrengsnook@gmail.com">Book a Consultation</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 DGS Consulting. All rights reserved.</p>
-    <div>
-      <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a> |
-      <a href="http://dgsconsulting.solutions/" target="_blank">Website</a>
-    </div>
+    © 2025 DGS Consulting. All rights reserved.
   </footer>
 
   <script>
-    // Parallax Hero
-    const heroBg = document.querySelector('.hero-bg');
-    window.addEventListener('scroll', () => {
-      const scroll = window.scrollY;
-      heroBg.style.transform = `translateY(${scroll * 0.3}px)`;
-    });
-
-    // Fade-in observer
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.fade-in').forEach(sec => observer.observe(sec));
-
-    // KPI Count-up
+    // Animate KPI counters
     const counters = document.querySelectorAll('.kpi-value');
-    const countObserver = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
           const target = +el.getAttribute('data-target');
-          const isMoney = el.textContent.includes('$');
           let count = 0;
-          const increment = target / 60;
-          const updateCount = () => {
+          const increment = target / 80;
+          const timer = setInterval(() => {
             count += increment;
-            if (count < target) {
-              el.textContent = isMoney ? `$${Math.floor(count)}` : `${Math.floor(count)}%`;
-              requestAnimationFrame(updateCount);
+            if (target === 12400) {
+              el.textContent = '$' + Math.floor(count);
             } else {
-              el.textContent = isMoney ? `$${target.toLocaleString()}` : `${target}%`;
+              el.textContent = Math.floor(count) + '%';
             }
-          };
-          updateCount();
-          countObserver.unobserve(el);
+            if (count >= target) {
+              clearInterval(timer);
+              el.textContent = target === 12400 ? '$' + target : target + '%';
+            }
+          }, 15);
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.6 });
-    counters.forEach(c => countObserver.observe(c));
+
+    counters.forEach(counter => observer.observe(counter));
   </script>
 </body>
 </html>
