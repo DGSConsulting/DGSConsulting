@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DGS Consulting | Process & Tech Optimization for Small Business</title>
+  <title>DGS Consulting | Growth Through Clarity</title>
   <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
@@ -45,12 +45,26 @@
 
     /* Hero */
     .hero {
+      position: relative;
       background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('asset/hero-bg.jpg') center/cover;
       color: white;
       text-align: center;
       padding: 160px 20px;
+      overflow: hidden;
     }
-    .hero img { height: 80px; margin-bottom: 20px; }
+    .hero-bg-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.05; /* faded logo */
+      z-index: 0;
+      width: 300px;
+      height: auto;
+    }
+    .hero-bg-logo img { width: 100%; height: auto; }
+    .hero img { height: 80px; margin-bottom: 20px; position: relative; z-index: 1; }
+    .hero h1, .hero p { position: relative; z-index: 1; }
     .hero h1 { font-size: 3rem; margin-bottom: 15px; }
     .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
@@ -72,16 +86,17 @@
       transition: transform 0.3s ease;
     }
     .tool-card:hover { transform: translateY(-6px); }
-    .tool-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+    .tool-card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
     .tool-card h3 { margin-bottom: 10px; }
     .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
     .tool-btn {
       display: inline-block;
       background: var(--primary);
       color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border-radius: 8px;
       text-decoration: none;
+      font-weight: 600;
       transition: background 0.3s ease;
     }
     .tool-btn:hover { background: var(--accent); }
@@ -182,6 +197,9 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-bg-logo">
+      <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+    </div>
     <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
     <h1>Growth Through Clarity</h1>
     <p>We help small businesses remove growth bottlenecks, optimize processes, and unlock measurable results.</p>
@@ -245,64 +263,56 @@
   <section id="case" class="case-studies">
     <h2>Case Study: From Grassroots to Growth</h2>
     <div class="case-study-card">
-      <p>A small auto shop struggling with manual workflows reduced their processing time by 40% and increased lead conversions by 22% using our tools and methods.</p>
+      <p>A small auto shop struggling with manual workflows reduced their processing time by 20%, increased sales by 15%, and created a replicable system for growth—all within 6 months using DGS Consulting's audit and optimization framework.</p>
     </div>
   </section>
 
   <!-- Testimonials -->
   <section id="testimonials" class="testimonials">
     <h2>What Business Leaders Say</h2>
+    <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Real feedback from executives and business partners</p>
     <div class="testimonial-grid">
       <div class="testimonial-card">
-        <p>"Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... If I ever started a company, Darren would be my first hire."</p>
-        <span>— Norm Zenglein, MBA<br>Account Executive, Schulich School of Business</span>
+        <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and was able to offer actionable insights that added real value to the business. If I ever started a company, Darren would be my first hire.</p>
+        <span>NZ – Norm Zenglein, MBA | Account Executive, Schulich School of Business</span>
       </div>
       <div class="testimonial-card">
-        <p>"I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. Darren is incredibly reliable, always delivering thoughtful analysis."</p>
-        <span>— Bakir Ghunaim<br>Founder of Social Stuff | Business Strategist</span>
+        <p>I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. He brings a solid understanding of small business dynamics and offers insights that are both strategic and highly actionable. Darren is incredibly reliable, always delivering thoughtful analysis.</p>
+        <span>BG – Bakir Ghunaim | Founder of Social Stuff | Business Strategist</span>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="contact">
-    <h2>Ready to Unlock Your Growth?</h2>
-    <p>Let’s identify and remove your biggest bottlenecks — so your business can grow faster, smarter, and stronger.</p>
-    <a href="mailto:darrengsnook@gmail.com">Book a Consultation</a>
+    <h2>Contact Us</h2>
+    <p>Schedule a free consultation or get in touch to learn how we can help your business grow.</p>
+    <a href="mailto:DGSConsult@consultant.com">Email Us</a>
+    <a href="tel:+12892220511">Call Us</a>
   </section>
 
   <footer>
-    © 2025 DGS Consulting. All rights reserved.
+    &copy; 2025 DGS Consulting
   </footer>
 
   <script>
-    // Animate KPI counters
+    // KPI animation
     const counters = document.querySelectorAll('.kpi-value');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = +el.getAttribute('data-target');
-          let count = 0;
-          const increment = target / 80;
-          const timer = setInterval(() => {
-            count += increment;
-            if (target === 12400) {
-              el.textContent = '$' + Math.floor(count);
-            } else {
-              el.textContent = Math.floor(count) + '%';
-            }
-            if (count >= target) {
-              clearInterval(timer);
-              el.textContent = target === 12400 ? '$' + target : target + '%';
-            }
-          }, 15);
-          observer.unobserve(el);
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText.replace('$','').replace('%','');
+        const increment = target / 200;
+        if(current < target){
+          counter.innerText = Math.ceil(current + increment) + (counter.getAttribute('data-target') >= 1000 ? "$" : "%");
+          setTimeout(updateCount, 10);
+        } else {
+          counter.innerText = target + (counter.getAttribute('data-target') >= 1000 ? "$" : "%");
         }
-      });
-    }, { threshold: 0.6 });
-
-    counters.forEach(counter => observer.observe(counter));
+      };
+      updateCount();
+    });
   </script>
+
 </body>
 </html>
