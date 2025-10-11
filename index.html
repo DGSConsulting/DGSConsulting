@@ -40,18 +40,18 @@
     }
     nav a:hover { color: var(--primary); }
 
-    section { padding: 100px 20px; }
+    section { padding: 120px 20px; }
     h1, h2, h3 { text-align: center; margin-bottom: 25px; }
-    h1 { font-size: 2.5rem; }
+    h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
 
     /* Hero */
     .hero {
       position: relative;
-      background: linear-gradient(to bottom, rgba(30,50,20,0.85), rgba(30,50,20,0.85)), url('asset/hero-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(to bottom, rgba(30,50,20,0.9), rgba(30,50,20,0.9)), url('asset/hero-bg.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 160px 20px;
+      padding: 180px 20px;
       overflow: hidden;
     }
     .hero img { height: 80px; margin-bottom: 20px; }
@@ -76,7 +76,7 @@
       transition: transform 0.3s ease;
     }
     .tool-card:hover { transform: translateY(-6px); }
-    .tool-card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; }
+    .tool-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
     .tool-card h3 { margin-bottom: 10px; }
     .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
     .tool-btn {
@@ -122,6 +122,8 @@
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
+    .case-study-card h3 a { color: var(--primary); text-decoration: none; }
+    .case-study-card h3 a:hover { text-decoration: underline; }
 
     /* Testimonials */
     .testimonials { background: var(--lighter); }
@@ -146,14 +148,14 @@
       color: var(--accent);
     }
     .testimonial-card p { margin-bottom: 15px; font-style: italic; }
-    .testimonial-card span { font-weight: 600; }
+    .testimonial-card span { font-weight: 600; display:block; }
 
     /* Contact */
     .contact {
       background: var(--primary);
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
     }
     .contact h2 { color: white; }
     .contact p { max-width: 600px; margin: 0 auto 30px; }
@@ -209,31 +211,32 @@
       <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
     </div>
     <div class="tool-card">
-      <i class="fa-solid fa-magnifying-glass-chart"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
       <h3>Business Audit</h3>
-      <p>Identify bottlenecks and growth opportunities.</p>
+      <p>Identify bottlenecks and growth opportunities in minutes.</p>
       <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
     </div>
   </div>
 </section>
 
 <section id="kpi" class="kpi-dashboard">
-  <h2>Example of Success</h2>
+  <h2>KPI Dashboard Example</h2>
   <div class="kpi-grid">
     <div class="kpi-card">
-      <h3>Efficiency</h3>
-      <p class="kpi-value" data-target="85">0%</p>
-      <p class="kpi-sub">Tasks streamlined and automated</p>
+      <div class="kpi-value" data-target="85">0%</div>
+      <div class="kpi-sub">Efficiency</div>
     </div>
     <div class="kpi-card">
-      <h3>Cost Savings</h3>
-      <p class="kpi-value" data-target="24000">0$</p>
-      <p class="kpi-sub">Operational cost savings in 6 months</p>
+      <div class="kpi-value" data-target="12">0</div>
+      <div class="kpi-sub">Tasks</div>
     </div>
     <div class="kpi-card">
-      <h3>Projects Completed</h3>
-      <p class="kpi-value" data-target="5">0</p>
-      <p class="kpi-sub">Successful growth projects</p>
+      <div class="kpi-value" data-target="24000">0$</div>
+      <div class="kpi-sub">Savings</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" data-target="5">0</div>
+      <div class="kpi-sub">Projects</div>
     </div>
   </div>
 </section>
@@ -241,14 +244,16 @@
 <section id="case" class="case-studies">
   <h2>Case Study</h2>
   <div class="case-study-card">
-    <h3>Auto Shop Growth Optimization</h3>
+    <h3>
+      <a href="/case-studies/Auto-Shop.html" target="_blank">Auto Shop Growth Optimization</a>
+    </h3>
     <p>Implemented process standardization, improved workflow efficiency by 20%, increased sales by 15%, and created a replicable system for growth—all within 6 months using DGS Consulting's audit and optimization framework.</p>
   </div>
 </section>
 
 <section id="testimonials" class="testimonials">
   <h2>What Business Leaders Say</h2>
-  <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Real feedback from executives and business partners</p>
+  <p style="text-align:center; max-width:700px; margin:0 auto 40px;">Real feedback from executives and business partners</p>
   <div class="testimonial-grid">
     <div class="testimonial-card">
       <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and was able to offer actionable insights that added real value to the business. If I ever started a company, Darren would be my first hire.</p>
@@ -294,3 +299,4 @@
 
 </body>
 </html>
+
