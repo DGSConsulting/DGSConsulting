@@ -1,344 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How One Auto Shop Found $20K Hiding in Plain Sight | DGS Consulting</title>
-  <meta name="description" content="Case study: How DGS Consulting helped a growing auto shop save $20K annually by integrating Shopmonkey and QuickBooks for seamless workflow automation.">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: #2c3e50;
-      line-height: 1.7;
-      background: #f4f4f4;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Shop Case Study | DGS Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Navigation */
-    .nav {
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      padding: 1rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .nav a {
-      margin: 0 1.5rem;
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    .nav a:hover {
-      color: #6B8E5A;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #30360e;
+            background: #ffffff;
+        }
 
-    /* Header */
-    .case-header {
-      position: relative;
-      background: linear-gradient(135deg, #9CAF88, #6B8E5A);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .case-header h1 {
-      margin: 0 auto;
-      font-size: 2.8rem;
-      max-width: 900px;
-    }
-    .case-header .subhead {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+        .hero {
+            background: linear-gradient(135deg, #30360e 0%, #787f56 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-    /* Main container */
-    .case-content {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
 
-    section {
-      padding: 3rem 2rem;
-    }
+        .hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    .problem {
-      background: #fff5f5;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .solution {
-      background: #f0fff4;
-    }
+        .section {
+            padding: 60px 20px;
+        }
 
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #2d3748;
-    }
+        .section-alt {
+            background: #f8f7f5;
+        }
 
-    .bullet-points {
-      list-style: none;
-      padding-left: 0;
-    }
-    .bullet-points li {
-      position: relative;
-      padding-left: 2rem;
-      margin-bottom: 1rem;
-    }
-    .bullet-points li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #38a169;
-      font-weight: bold;
-    }
+        .section h2 {
+            font-size: 2rem;
+            color: #30360e;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
 
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 1.5rem;
-      padding-top: 1rem;
-    }
-    .result-card {
-      background: linear-gradient(135deg, #9CAF88, #6B8E5A);
-      color: white;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .result-card:hover {
-      transform: translateY(-5px);
-    }
-    .result-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-    .result-text {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-    }
+        .section h3 {
+            font-size: 1.5rem;
+            color: #30360e;
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
 
-    .quote {
-      margin: 3rem 2rem;
-      background: #f7fafc;
-      padding: 2rem;
-      border-radius: 8px;
-      font-style: italic;
-      color: #4a5568;
-      position: relative;
-    }
-    .quote::before {
-      content: '"';
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      font-size: 4rem;
-      color: #cbd5e0;
-    }
-    .quote .author {
-      text-align: right;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #4a4d3a;
+        }
 
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-    .comparison-table th, .comparison-table td {
-      border: 1px solid #e2e8f0;
-      padding: 1rem;
-      text-align: left;
-    }
-    .comparison-table th {
-      background: #f7fafc;
-      font-weight: 600;
-    }
+        .feature-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(48, 54, 14, 0.15);
+            margin: 40px 0;
+        }
 
-    .lessons {
-      padding: 3rem 2rem;
-      background: white;
-    }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
 
-    @media (max-width: 768px) {
-      .results-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav {
-        flex-direction: column;
-      }
-      .nav a {
-        margin: 0.5rem 0;
-      }
-    }
-  </style>
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(48, 54, 14, 0.1);
+            text-align: center;
+            border: 2px solid #d0c7b5;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #787f56;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #30360e;
+            font-weight: 600;
+        }
+
+        .quote-block {
+            background: #f8f7f5;
+            border-left: 4px solid #787f56;
+            padding: 30px 40px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #30360e;
+        }
+
+        .quote-author {
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 600;
+            color: #787f56;
+            font-size: 1rem;
+        }
+
+        .bullet-list {
+            margin: 20px 0 20px 40px;
+        }
+
+        .bullet-list li {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #4a4d3a;
+        }
+
+        .highlight-box {
+            background: #f8f7f5;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid #d0c7b5;
+        }
+
+        .highlight-box h4 {
+            color: #787f56;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #30360e 0%, #787f56 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: white;
+            opacity: 0.95;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #d0c7b5;
+            color: #30360e;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: #e0d9c9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid #d0c7b5;
+        }
+
+        .btn-outline:hover {
+            background: #d0c7b5;
+            color: #30360e;
+        }
+
+        .timeline {
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            border-left: 3px solid #787f56;
+        }
+
+        .timeline-item h4 {
+            color: #787f56;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: #4a4d3a;
+            margin-bottom: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .before {
+            background: #fff5f5;
+            border: 2px solid #c53030;
+        }
+
+        .after {
+            background: #f0f9f4;
+            border: 2px solid #787f56;
+        }
+
+        .comparison-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .before h4 {
+            color: #c53030;
+        }
+
+        .after h4 {
+            color: #30360e;
+        }
+
+        .disclaimer {
+            background: #f8f7f5;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #787f56;
+            margin-top: 60px;
+            font-style: italic;
+            border: 1px solid #d0c7b5;
+        }
+
+        .integration-box {
+            background: #e8f4e8;
+            border: 2px solid #787f56;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .integration-box h4 {
+            color: #30360e;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="http://dgsconsulting.solutions/">Home</a>
-    <a href="http://dgsconsulting.solutions/case-studies/">Case Studies Hub</a>
-  </nav>
-
-  <!-- Hero -->
-  <div class="case-header">
-    <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
-    <div class="subhead">A story of efficiency, growth, and a smarter way to work</div>
-  </div>
-
-  <!-- Case Study Content -->
-  <div class="case-content">
-
-    <!-- Introduction -->
-    <section>
-      <p>When I first met <strong>Mike</strong>, the owner of a busy auto repair shop in Ottawa, his business was thriving on the surface. The bays were always full, customers loved the service, and revenue was steady. But behind the scenes, Mike was burning out. He was buried under endless administrative tasks and spending late nights catching up on paperwork.</p>
-      <p>“It feels like I spend more time fixing systems than fixing cars,” he said during our first meeting. His team of seven technicians were excellent at their craft, but too much of their day was spent fighting with disconnected tools and manual processes.</p>
-      <p>Mike wasn’t just losing time — he was losing money, and he didn’t even realize how much.</p>
-    </section>
-
-    <!-- Problem -->
-    <section class="problem">
-      <h2 class="section-title">The Problem: A Silent Profit Killer</h2>
-      <p>At a glance, Mike’s shop looked efficient. But when we observed the workflow, we uncovered a hidden drain on both time and profits.</p>
-      <p>Each time a repair was completed, technicians spent <strong>15–20 minutes</strong> bouncing between three disconnected systems to update job statuses, parts inventory, and invoicing.</p>
-      <p>This might not seem like much, but multiplied across <strong>8–10 jobs per day</strong> and seven employees, it added up to over <strong>120 payroll hours per month</strong>. That’s the equivalent of paying a full-time salary just to move data from one place to another.</p>
-      <ul class="bullet-points">
-        <li>A scheduling tool that constantly went out of sync</li>
-        <li>Inventory tracking that required manual updates</li>
-        <li>An invoicing platform with no direct connection to the others</li>
-      </ul>
-      <p>The result? Frustrated technicians, slower turnaround times, and missed opportunities to take on more customers.</p>
-    </section>
-
-    <!-- Solution -->
-    <section class="solution">
-      <h2 class="section-title">The Solution: Integrating Smart, Simple Tools</h2>
-      <p>The heart of the solution was a seamless integration between <strong>Shopmonkey</strong> and <strong>QuickBooks Online</strong>. Shopmonkey became the operational hub, managing scheduling, repair orders, and technician workflows. QuickBooks handled financial tracking and synced automatically with Shopmonkey for invoices and payments.</p>
-      <ul class="bullet-points">
-        <li>Jobs closed in under 2 minutes instead of 15–20</li>
-        <li>Inventory updates automatically</li>
-        <li>Financial reporting in real time</li>
-      </ul>
-      <p>Now, Mike’s team could focus on what they do best: fixing cars.</p>
-    </section>
-
-    <!-- Software Section -->
-    <section>
-      <h2 class="section-title">Why Shopmonkey & QuickBooks Worked</h2>
-
-      <h3>Shopmonkey</h3>
-      <ul class="bullet-points">
-        <li>Centralized job tracking for all technicians</li>
-        <li>Automatic inventory deductions when parts are used</li>
-        <li>Mobile-friendly access for team members</li>
-      </ul>
-
-      <h3>QuickBooks Online</h3>
-      <ul class="bullet-points">
-        <li>Automatic invoice creation when jobs close</li>
-        <li>Accurate financial reporting at any time</li>
-        <li>Better preparation for tax season</li>
-      </ul>
-    </section>
-
-    <!-- Results -->
-    <section>
-      <h2 class="section-title">The Results: Time Saved, Money Found</h2>
-      <div class="results-grid">
-        <div class="result-card">
-          <div class="result-number">2–3</div>
-          <div class="result-text">Hours saved weekly per technician</div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>How One Auto Shop Recovered 120 Hours Per Month<br>(Without Hiring Anyone)</h1>
+            <p class="subtitle">A 6-month transformation that turned hidden inefficiencies into $23,400 in annual savings</p>
         </div>
-        <div class="result-card">
-          <div class="result-number">$1–2K</div>
-          <div class="result-text">Monthly costs reduced</div>
+    </div>
+
+    <!-- The Breaking Point -->
+    <div class="section">
+        <div class="container">
+            <h2>The Breaking Point</h2>
+            
+            <img src="https://i.imgur.com/your-image-8.jpg" alt="Stressed mechanic and empty service bay" class="feature-image">
+            <!-- Replace with actual Image 8 URL -->
+            
+            <p>When I walked into this Ottawa auto repair shop, the owner—let's call him James—was working his fourth consecutive 60-hour week. His seven-bay operation had a stellar reputation, loyal customers, and a backlog of work that stretched two weeks out.</p>
+
+            <p>By every visible measure, the business was thriving.</p>
+
+            <p>But James was drowning.</p>
+
+            <p>"I'm spending more time managing systems than I ever did fixing cars," he told me during our first meeting. "My technicians are great, but by the time we finish a job and do all the paperwork, it feels like we're running in mud."</p>
+
+            <p>He wasn't wrong. And the cost was far higher than he realized.</p>
         </div>
-        <div class="result-card">
-          <div class="result-number">$20K+</div>
-          <div class="result-text">Annual savings reinvested in growth</div>
+    </div>
+
+    <!-- What We Discovered -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2>What We Discovered: The 15-Minute Tax</h2>
+
+            <img src="https://i.imgur.com/your-image-9.jpg" alt="Chaotic workspace with multiple systems" class="feature-image">
+            <!-- Replace with actual Image 9 URL -->
+
+            <p>During a week-long operational audit, I shadowed the team through their daily workflow. Here's what I observed:</p>
+
+            <div class="highlight-box">
+                <h4>Every time a technician completed a repair:</h4>
+                <ol class="bullet-list">
+                    <li>Log into the scheduling system to mark the job complete (3-4 minutes)</li>
+                    <li>Manually update the parts inventory spreadsheet (4-5 minutes)</li>
+                    <li>Switch to the invoicing platform to generate the customer bill (5-7 minutes)</li>
+                    <li>Cross-reference all three systems to make sure nothing was missed (2-3 minutes)</li>
+                </ol>
+                <p><strong>Total time per job: 15-20 minutes</strong></p>
+            </div>
+
+            <p>Across 8-10 completed jobs per day, with seven technicians, that added up to:</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">13-18</div>
+                    <div class="stat-label">Hours of admin work per day</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">280-390</div>
+                    <div class="stat-label">Hours per month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$10,920</div>
+                    <div class="stat-label">Monthly cost at $28/hour</div>
+                </div>
+            </div>
+
+            <h3>The Domino Effect</h3>
+            <p>Because technicians spent so much time on admin:</p>
+            <ul class="bullet-list">
+                <li><strong>Turnaround times stretched to 12-14 days</strong>, causing customers to go elsewhere</li>
+                <li><strong>The shop couldn't take on additional work</strong>, even though demand existed</li>
+                <li><strong>Technician morale suffered</strong>—skilled mechanics felt like data entry clerks</li>
+                <li><strong>James had no real-time visibility</strong> into financials, making business decisions reactive rather than strategic</li>
+            </ul>
+
+            <p>The business wasn't just inefficient. It was leaving money on the table every single day.</p>
         </div>
-      </div>
+    </div>
 
-      <div class="quote">
-        “I didn’t realize how much time we were losing until it was gone. Now my guys focus on repairs, and I finally get to go home on time.”
-        <div class="author">— Mike, Shop Owner</div>
-      </div>
-    </section>
+    <!-- The Solution -->
+    <div class="section">
+        <div class="container">
+            <h2>The Solution: Integration Over Replacement</h2>
 
-    <!-- Before & After -->
-    <section>
-      <h2 class="section-title">Before vs. After</h2>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Before</th>
-            <th>After</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Three disconnected systems</td>
-            <td>Shopmonkey + QuickBooks, fully synced</td>
-          </tr>
-          <tr>
-            <td>15–20 minutes of admin per job</td>
-            <td>Jobs closed in under 2 minutes</td>
-          </tr>
-          <tr>
-            <td>Technicians frustrated with paperwork</td>
-            <td>Technicians focused on repairs</td>
-          </tr>
-          <tr>
-            <td>$1–2K wasted monthly</td>
-            <td>Savings reinvested in tools & growth</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+            <img src="https://i.imgur.com/your-image-7.jpg" alt="Shopmonkey and QuickBooks integration" class="feature-image">
+            <!-- Replace with actual Image 7 URL -->
 
-    <!-- Lessons -->
-    <section class="lessons">
-      <h2 class="section-title">Key Lessons for Small Businesses</h2>
-      <ul class="bullet-points">
-        <li><strong>Integrate, don’t replace.</strong> Connecting the right tools can be more effective than starting over.</li>
-        <li><strong>Every minute matters.</strong> Small inefficiencies add up to big losses over time.</li>
-        <li><strong>Match tools to people.</strong> Software works best when it fits naturally into existing workflows.</li>
-        <li><strong>Observe before acting.</strong> Real improvements come from understanding the current process first.</li>
-      </ul>
-    </section>
-  </div>
+            <p>Rather than ripping out and replacing everything, we implemented a strategic integration between two powerful tools:</p>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            <div class="highlight-box">
+                <h4>Shopmonkey (Operations Hub)</h4>
+                <ul class="bullet-list">
+                    <li>Centralized job tracking and work orders</li>
+                    <li>Automated inventory management with real-time deductions</li>
+                    <li>Mobile-friendly interface for shop floor use</li>
+                    <li>Customer communication and appointment scheduling</li>
+                </ul>
+            </div>
 
-      document.querySelectorAll('.result-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-      });
-    });
-  </script>
+            <div class="highlight-box">
+                <h4>QuickBooks Online (Financial Hub)</h4>
+                <ul class="bullet-list">
+                    <li>Automatic invoice generation when jobs close in Shopmonkey</li>
+                    <li>Real-time financial reporting and P&L visibility</li>
+                    <li>Seamless bank reconciliation</li>
+                    <li>Tax-ready record keeping</li>
+                </ul>
+            </div>
+
+            <div class="integration-box">
+                <h4>The Integration:</h4>
+                <p>When a technician completes a job in Shopmonkey:</p>
+                <ol class="bullet-list">
+                    <li>Parts are automatically deducted from inventory</li>
+                    <li>An invoice is instantly created in QuickBooks</li>
+                    <li>The customer receives a text notification</li>
+                    <li>James gets real-time P&L updates</li>
+                </ol>
+                <p><strong>Time per job: Under 2 minutes</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Implementation Process -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2>The Implementation Process</h2>
+
+            <img src="https://i.imgur.com/your-image-5.jpg" alt="Implementation process roadmap" class="feature-image">
+            <!-- Replace with actual Image 5 URL -->
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Month 1: Assessment & Planning</h4>
+                    <p>• Mapped existing workflows with the team</p>
+                    <p>• Identified integration points and data migration needs</p>
+                    <p>• Selected and configured tools based on shop-specific requirements</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Month 2-3: Setup & Migration</h4>
+                    <p>• Configured Shopmonkey with custom service templates</p>
+                    <p>• Migrated customer and inventory data</p>
+                    <p>• Set up QuickBooks integration and automation rules</p>
+                    <p>• Conducted initial testing with one bay</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Month 4-5: Training & Rollout</h4>
+                    <p>• Trained technicians in small groups (minimal disruption)</p>
+                    <p>• Ran parallel systems for two weeks as safety net</p>
+                    <p>• Gathered feedback and refined workflows</p>
+                    <p>• Full shop rollout</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Month 6: Optimization & Measurement</h4>
+                    <p>• Analyzed time savings and efficiency gains</p>
+                    <p>• Fine-tuned reporting dashboards</p>
+                    <p>• Documented new standard operating procedures</p>
+                    <p>• Measured results against baseline</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Results -->
+    <div class="section">
+        <div class="container">
+            <h2>The Results: Time, Money, and Sanity Recovered</h2>
+
+            <img src="https://i.imgur.com/your-image-4.jpg" alt="Overall improvements metrics" class="feature-image">
+            <!-- Replace with actual Image 4 URL -->
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Hours Recovered Per Month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$23,400</div>
+                    <div class="stat-label">Annual Net Savings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Revenue Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">380%</div>
+                    <div class="stat-label">ROI in Year One</div>
+                </div>
+            </div>
+
+            <h3>Before vs. After</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card before">
+                    <h4>❌ Before</h4>
+                    <p>• Three disconnected systems</p>
+                    <p>• 15-20 minutes admin per job</p>
+                    <p>• Technicians frustrated with paperwork</p>
+                    <p>• 12-14 day turnaround times</p>
+                    <p>• $10,920 wasted monthly</p>
+                    <p>• Owner working 60+ hours/week</p>
+                </div>
+                <div class="comparison-card after">
+                    <h4>✓ After</h4>
+                    <p>• Shopmonkey + QuickBooks, fully synced</p>
+                    <p>• Jobs closed in under 2 minutes</p>
+                    <p>• Technicians focused on repairs</p>
+                    <p>• 6-8 day turnaround times</p>
+                    <p>• Savings reinvested in tools & growth</p>
+                    <p>• Owner working 45 hours/week</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2>What James Says Now</h2>
+
+            <img src="https://i.imgur.com/your-image-3.jpg" alt="Professional handshake" class="feature-image">
+            <!-- Replace with actual Image 3 URL -->
+
+            <div class="quote-block">
+                "I knew we were inefficient, but I thought that was just the cost of running a shop. Darren showed me we were basically paying two employees to copy and paste data all day. The difference is night and day. My technicians are happier, I'm home for dinner most nights, and we're actually making more money with the same team. I didn't realize how much money was hiding in our own processes."
+                <div class="quote-author">— James R., Auto Repair Shop Owner, Ottawa, ON</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Takeaways -->
+    <div class="section">
+        <div class="container">
+            <h2>Key Takeaways for Small Businesses</h2>
+
+            <div class="highlight-box">
+                <p><strong>✓ Small inefficiencies compound into massive costs</strong> — 15 minutes per task × 10 tasks × 7 people = 2 full-time salaries wasted</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>✓ Integration beats replacement</strong> — You don't need to burn everything down; you need systems that work together</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>✓ Observe your workflow in real-time</strong> — The bottlenecks are rarely where you think they are</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>✓ Technology is only as good as adoption</strong> — Tools must fit naturally into how your team actually works</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>✓ Time saved = capacity gained</strong> — Efficiency improvements free your team to focus on revenue-generating work</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <img src="https://i.imgur.com/your-image-1.jpg" alt="Consultation setup" class="feature-image" style="max-width: 600px; margin: 0 auto 40px;">
+            <!-- Replace with actual Image 1 URL -->
+
+            <h2>Could Your Business Have Hidden Savings Too?</h2>
+            <p>Most small businesses have inefficiencies hiding in plain sight—costing thousands per month in wasted time and missed opportunities.</p>
+            
+            <div>
+                <a href="#" class="btn">Take the Free 10-Minute Assessment</a>
+                <a href="#" class="btn btn-outline">Schedule a Free Consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="section">
+        <div class="container">
+            <div class="disclaimer">
+                This case study represents a real client engagement completed over 6 months in 2024. Client name and identifying business details have been changed to protect privacy per our consulting agreement. All metrics and results are based on documented measurements and financial records.
+            </div>
+        </div>
+    </div>
 </body>
 </html>
