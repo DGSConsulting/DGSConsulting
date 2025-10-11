@@ -46,7 +46,7 @@
     /* Hero */
     .hero {
       position: relative;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('asset/hero-bg.jpg') center/cover;
+      background: linear-gradient(to bottom, rgba(90,140,70,0.3), rgba(90,140,70,0.2)), url('asset/hero-bg.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
       padding: 160px 20px;
@@ -57,7 +57,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      opacity: 0.05; /* faded logo */
+      opacity: 0.05;
       z-index: 0;
       width: 300px;
       height: auto;
@@ -86,7 +86,7 @@
       transition: transform 0.3s ease;
     }
     .tool-card:hover { transform: translateY(-6px); }
-    .tool-card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+    .tool-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
     .tool-card h3 { margin-bottom: 10px; }
     .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
     .tool-btn {
@@ -102,7 +102,7 @@
     .tool-btn:hover { background: var(--accent); }
 
     /* KPI Dashboard */
-    .kpi-dashboard { background: white; text-align: center; }
+    .kpi-dashboard { background: white; text-align: center; padding-top:60px; }
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -174,6 +174,8 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      margin: 0 10px;
+      display: inline-block;
       transition: background 0.3s ease;
     }
     .contact a:hover { background: #eaeaea; }
@@ -189,7 +191,7 @@
     <div>
       <a href="#tools">Tools</a>
       <a href="#kpi">Results</a>
-      <a href="#case">Case Studies</a>
+      <a href="#case">Case Study</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </div>
@@ -247,23 +249,24 @@
         <p class="kpi-sub">Conversion improvement through optimized workflows.</p>
       </div>
       <div class="kpi-card">
-        <h3>⚙️ Process Efficiency</h3>
-        <p class="kpi-value" data-target="35">0%</p>
-        <p class="kpi-sub">Boost in task completion speed.</p>
+        <h3>⚡ Efficiency</h3>
+        <p class="kpi-value" data-target="85">0%</p>
+        <p class="kpi-sub">Percentage of tasks streamlined and automated.</p>
       </div>
       <div class="kpi-card">
         <h3>💰 Cost Savings</h3>
-        <p class="kpi-value" data-target="12400">$0</p>
-        <p class="kpi-sub">Average annual savings per client.</p>
+        <p class="kpi-value" data-target="24000">0$</p>
+        <p class="kpi-sub">Savings in operational costs in the first 6 months.</p>
       </div>
     </div>
   </section>
 
-  <!-- Case Studies -->
+  <!-- Case Study -->
   <section id="case" class="case-studies">
-    <h2>Case Study: From Grassroots to Growth</h2>
+    <h2>Case Study</h2>
     <div class="case-study-card">
-      <p>A small auto shop struggling with manual workflows reduced their processing time by 20%, increased sales by 15%, and created a replicable system for growth—all within 6 months using DGS Consulting's audit and optimization framework.</p>
+      <h3>Auto Shop Growth Optimization</h3>
+      <p>Implemented process standardization, improved workflow efficiency by 20%, increased sales by 15%, and created a replicable system for growth—all within 6 months using DGS Consulting's audit and optimization framework.</p>
     </div>
   </section>
 
@@ -304,15 +307,14 @@
         const current = +counter.innerText.replace('$','').replace('%','');
         const increment = target / 200;
         if(current < target){
-          counter.innerText = Math.ceil(current + increment) + (counter.getAttribute('data-target') >= 1000 ? "$" : "%");
+          counter.innerText = Math.ceil(current + increment) + (target >= 1000 ? "$" : "%");
           setTimeout(updateCount, 10);
         } else {
-          counter.innerText = target + (counter.getAttribute('data-target') >= 1000 ? "$" : "%");
+          counter.innerText = target + (target >= 1000 ? "$" : "%");
         }
       };
       updateCount();
     });
   </script>
-
 </body>
 </html>
