@@ -73,13 +73,30 @@
             color: #4a4d3a;
         }
 
+        /* Image placeholder styling */
         .feature-image {
             width: 100%;
             max-width: 100%;
-            height: auto;
+            height: 400px;
+            background: #d0c7b5;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(48, 54, 14, 0.15);
             margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #30360e;
+            text-align: center;
+            padding: 20px;
+            font-weight: 600;
+        }
+
+        /* When you add real images, replace the class above with this: */
+        .feature-image.real {
+            background: none;
+            height: auto;
+            font-size: 0;
         }
 
         .stats-grid {
@@ -302,6 +319,10 @@
             .stat-card {
                 padding: 20px;
             }
+
+            .feature-image {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -319,8 +340,9 @@
         <div class="container">
             <h2>The Breaking Point</h2>
             
-            <img src="https://i.imgur.com/your-image-8.jpg" alt="Stressed mechanic and empty service bay" class="feature-image">
-            <!-- Replace with actual Image 8 URL -->
+            <div class="feature-image real">
+                <img src="images/FrustratedTech&Emptybay.png" alt="Frustrated technician and empty service bay" style="width:100%; height:auto; border-radius:12px;">
+            </div>
             
             <p>When I walked into this Ottawa auto repair shop, the owner—let's call him James—was working his fourth consecutive 60-hour week. His seven-bay operation had a stellar reputation, loyal customers, and a backlog of work that stretched two weeks out.</p>
 
@@ -339,8 +361,10 @@
         <div class="container">
             <h2>What We Discovered: The 15-Minute Tax</h2>
 
-            <img src="https://i.imgur.com/your-image-9.jpg" alt="Chaotic workspace with multiple systems" class="feature-image">
-            <!-- Replace with actual Image 9 URL -->
+            <div class="feature-image">
+                📸 Image 9: Chaotic workspace with multiple computer screens
+                <!-- To add real image: <img src="images/chaotic-workspace.jpg" alt="Chaotic workspace with multiple systems" style="width:100%; height:auto; border-radius:12px;"> -->
+            </div>
 
             <p>During a week-long operational audit, I shadowed the team through their daily workflow. Here's what I observed:</p>
 
@@ -390,8 +414,10 @@
         <div class="container">
             <h2>The Solution: Integration Over Replacement</h2>
 
-            <img src="https://i.imgur.com/your-image-7.jpg" alt="Shopmonkey and QuickBooks integration" class="feature-image">
-            <!-- Replace with actual Image 7 URL -->
+            <div class="feature-image">
+                📸 Image 7: Shopmonkey + QuickBooks integration diagram
+                <!-- To add real image: <img src="images/shopmonkey-quickbooks.jpg" alt="Shopmonkey and QuickBooks integration" style="width:100%; height:auto; border-radius:12px;"> -->
+            </div>
 
             <p>Rather than ripping out and replacing everything, we implemented a strategic integration between two powerful tools:</p>
 
@@ -434,8 +460,10 @@
         <div class="container">
             <h2>The Implementation Process</h2>
 
-            <img src="https://i.imgur.com/your-image-5.jpg" alt="Implementation process roadmap" class="feature-image">
-            <!-- Replace with actual Image 5 URL -->
+            <div class="feature-image">
+                📸 Image 5: 4-step process roadmap icons
+                <!-- To add real image: <img src="images/process-roadmap.jpg" alt="Implementation process roadmap" style="width:100%; height:auto; border-radius:12px;"> -->
+            </div>
 
             <div class="timeline">
                 <div class="timeline-item">
@@ -477,8 +505,10 @@
         <div class="container">
             <h2>The Results: Time, Money, and Sanity Recovered</h2>
 
-            <img src="https://i.imgur.com/your-image-4.jpg" alt="Overall improvements metrics" class="feature-image">
-            <!-- Replace with actual Image 4 URL -->
+            <div class="feature-image">
+                📸 Image 4: Results metrics cards (your custom branded graphic)
+                <!-- To add real image: <img src="images/results-metrics.jpg" alt="Overall improvements metrics" style="width:100%; height:auto; border-radius:12px;"> -->
+            </div>
 
             <div class="stats-grid">
                 <div class="stat-card">
@@ -528,8 +558,10 @@
         <div class="container">
             <h2>What James Says Now</h2>
 
-            <img src="https://i.imgur.com/your-image-3.jpg" alt="Professional handshake" class="feature-image">
-            <!-- Replace with actual Image 3 URL -->
+            <div class="feature-image" style="height: 250px;">
+                📸 Image 3: Professional handshake (optional - can remove)
+                <!-- To add real image: <img src="images/handshake.jpg" alt="Professional handshake" style="width:100%; height:auto; border-radius:12px;"> -->
+            </div>
 
             <div class="quote-block">
                 "I knew we were inefficient, but I thought that was just the cost of running a shop. Darren showed me we were basically paying two employees to copy and paste data all day. The difference is night and day. My technicians are happier, I'm home for dinner most nights, and we're actually making more money with the same team. I didn't realize how much money was hiding in our own processes."
@@ -568,15 +600,17 @@
     <!-- CTA Section -->
     <div class="cta-section">
         <div class="container">
-            <img src="https://i.imgur.com/your-image-1.jpg" alt="Consultation setup" class="feature-image" style="max-width: 600px; margin: 0 auto 40px;">
-            <!-- Replace with actual Image 1 URL -->
+            <div class="feature-image" style="max-width: 600px; margin: 0 auto 40px; height: 300px;">
+                📸 Image 1: Clean desk with laptop and coffee (consultation vibe)
+                <!-- To add real image: <img src="images/consultation-desk.jpg" alt="Consultation setup" style="width:100%; height:auto; border-radius:12px;"> -->
+            </div>
 
             <h2>Could Your Business Have Hidden Savings Too?</h2>
             <p>Most small businesses have inefficiencies hiding in plain sight—costing thousands per month in wasted time and missed opportunities.</p>
             
             <div>
-                <a href="#" class="btn">Take the Free 10-Minute Assessment</a>
-                <a href="#" class="btn btn-outline">Schedule a Free Consultation</a>
+                <a href="https://dgsconsulting.solutions/#assessment" class="btn">Take the Free 10-Minute Assessment</a>
+                <a href="https://dgsconsulting.solutions/#contact" class="btn btn-outline">Schedule a Free Consultation</a>
             </div>
         </div>
     </div>
