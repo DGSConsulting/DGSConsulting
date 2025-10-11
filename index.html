@@ -9,18 +9,20 @@
   <style>
     :root {
       --primary: #3A6B35;
-      --light: #f7f9f8;
-      --dark: #1e1e1e;
       --accent: #5B8C51;
+      --light: #f7f9f8;
+      --lighter: #edf5ec;
+      --dark: #1e1e1e;
+      --white: #ffffff;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { line-height: 1.6; color: var(--dark); background: #fff; }
 
-    /* Nav */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { line-height: 1.6; color: var(--dark); background: var(--white); }
+
     nav {
       position: sticky;
       top: 0;
-      background: white;
+      background: var(--white);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -69,7 +71,7 @@
     .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
     /* Tools */
-    .tools { background: var(--light); }
+    .tools { background: var(--lighter); }
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -78,7 +80,7 @@
       margin: 0 auto;
     }
     .tool-card {
-      background: white;
+      background: var(--white);
       padding: 40px 20px;
       border-radius: 15px;
       text-align: center;
@@ -86,7 +88,7 @@
       transition: transform 0.3s ease;
     }
     .tool-card:hover { transform: translateY(-6px); }
-    .tool-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
+    .tool-card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
     .tool-card h3 { margin-bottom: 10px; }
     .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
     .tool-btn {
@@ -102,7 +104,7 @@
     .tool-btn:hover { background: var(--accent); }
 
     /* KPI Dashboard */
-    .kpi-dashboard { background: white; text-align: center; padding-top:60px; }
+    .kpi-dashboard { background: var(--light); text-align: center; padding-top:60px; }
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -111,7 +113,7 @@
       margin: 40px auto 0;
     }
     .kpi-card {
-      background: var(--light);
+      background: var(--lighter);
       border-radius: 20px;
       padding: 30px;
       text-align: center;
@@ -122,19 +124,19 @@
     .kpi-sub { font-size: 0.9rem; color: #555; }
 
     /* Case Studies */
-    .case-studies { background: var(--light); }
+    .case-studies { background: var(--white); }
     .case-study-card {
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
       padding: 30px;
-      background: white;
+      background: var(--lighter);
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     /* Testimonials */
-    .testimonials { background: white; }
+    .testimonials { background: var(--lighter); }
     .testimonial-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -143,7 +145,7 @@
       margin: 0 auto;
     }
     .testimonial-card {
-      background: var(--light);
+      background: var(--white);
       padding: 30px;
       border-radius: 15px;
       position: relative;
@@ -185,136 +187,124 @@
 </head>
 <body>
 
-  <!-- Nav -->
-  <nav>
+<nav>
+  <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+  <div>
+    <a href="#tools">Tools</a>
+    <a href="#kpi">Results</a>
+    <a href="#case">Case Study</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-logo">
     <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
-    <div>
-      <a href="#tools">Tools</a>
-      <a href="#kpi">Results</a>
-      <a href="#case">Case Study</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
+  </div>
+  <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+  <h1>Growth Through Clarity</h1>
+  <p>We help small businesses remove growth bottlenecks, optimize processes, and unlock measurable results.</p>
+</section>
+
+<section id="tools" class="tools">
+  <h2>Our Tools</h2>
+  <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Powerful, simple solutions designed to help you scale efficiently.</p>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>ROI Calculator</h3>
+      <p>Instantly calculate the financial impact of your improvements.</p>
+      <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="tool-btn">Try Now</a>
     </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg-logo">
-      <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+    <div class="tool-card">
+      <i class="fa-solid fa-gears"></i>
+      <h3>Process Documentation</h3>
+      <p>Document workflows and SOPs effortlessly.</p>
+      <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
     </div>
-    <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
-    <h1>Growth Through Clarity</h1>
-    <p>We help small businesses remove growth bottlenecks, optimize processes, and unlock measurable results.</p>
-  </section>
-
-  <!-- Tools -->
-  <section id="tools" class="tools">
-    <h2>Our Tools</h2>
-    <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Powerful, simple solutions designed to help you scale efficiently.</p>
-    <div class="tool-grid">
-      <div class="tool-card">
-        <i class="fa-solid fa-chart-line"></i>
-        <h3>ROI Calculator</h3>
-        <p>Instantly calculate the financial impact of your improvements.</p>
-        <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="tool-btn">Try Now</a>
-      </div>
-      <div class="tool-card">
-        <i class="fa-solid fa-gears"></i>
-        <h3>Process Documentation</h3>
-        <p>Document workflows and SOPs effortlessly.</p>
-        <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
-      </div>
-      <div class="tool-card">
-        <i class="fa-solid fa-magnifying-glass-chart"></i>
-        <h3>Business Audit</h3>
-        <p>Identify bottlenecks and growth opportunities.</p>
-        <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
-      </div>
+    <div class="tool-card">
+      <i class="fa-solid fa-magnifying-glass-chart"></i>
+      <h3>Business Audit</h3>
+      <p>Identify bottlenecks and growth opportunities.</p>
+      <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- KPI Dashboard -->
-  <section id="kpi" class="kpi-dashboard">
-    <h2>KPI Dashboard</h2>
-    <p>What success looks like when your business runs at its best.</p>
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <h3>📈 Revenue Growth</h3>
-        <p class="kpi-value" data-target="23">0%</p>
-        <p class="kpi-sub">Average quarterly increase after implementation.</p>
-      </div>
-      <div class="kpi-card">
-        <h3>🎯 Lead Conversion</h3>
-        <p class="kpi-value" data-target="18">0%</p>
-        <p class="kpi-sub">Conversion improvement through optimized workflows.</p>
-      </div>
-      <div class="kpi-card">
-        <h3>⚡ Efficiency</h3>
-        <p class="kpi-value" data-target="85">0%</p>
-        <p class="kpi-sub">Percentage of tasks streamlined and automated.</p>
-      </div>
-      <div class="kpi-card">
-        <h3>💰 Cost Savings</h3>
-        <p class="kpi-value" data-target="24000">0$</p>
-        <p class="kpi-sub">Savings in operational costs in the first 6 months.</p>
-      </div>
+<section id="kpi" class="kpi-dashboard">
+  <h2>Example of Success</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <h3>Efficiency</h3>
+      <p class="kpi-value" data-target="85">0%</p>
+      <p class="kpi-sub">Tasks streamlined and automated</p>
     </div>
-  </section>
-
-  <!-- Case Study -->
-  <section id="case" class="case-studies">
-    <h2>Case Study</h2>
-    <div class="case-study-card">
-      <h3>Auto Shop Growth Optimization</h3>
-      <p>Implemented process standardization, improved workflow efficiency by 20%, increased sales by 15%, and created a replicable system for growth—all within 6 months using DGS Consulting's audit and optimization framework.</p>
+    <div class="kpi-card">
+      <h3>Cost Savings</h3>
+      <p class="kpi-value" data-target="24000">0$</p>
+      <p class="kpi-sub">Operational cost savings in 6 months</p>
     </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="testimonials">
-    <h2>What Business Leaders Say</h2>
-    <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Real feedback from executives and business partners</p>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and was able to offer actionable insights that added real value to the business. If I ever started a company, Darren would be my first hire.</p>
-        <span>NZ – Norm Zenglein, MBA | Account Executive, Schulich School of Business</span>
-      </div>
-      <div class="testimonial-card">
-        <p>I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. He brings a solid understanding of small business dynamics and offers insights that are both strategic and highly actionable. Darren is incredibly reliable, always delivering thoughtful analysis.</p>
-        <span>BG – Bakir Ghunaim | Founder of Social Stuff | Business Strategist</span>
-      </div>
+    <div class="kpi-card">
+      <h3>Projects Completed</h3>
+      <p class="kpi-value" data-target="5">0</p>
+      <p class="kpi-sub">Successful growth projects</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Schedule a free consultation or get in touch to learn how we can help your business grow.</p>
-    <a href="mailto:DGSConsult@consultant.com">Email Us</a>
-    <a href="tel:+12892220511">Call Us</a>
-  </section>
+<section id="case" class="case-studies">
+  <h2>Case Study</h2>
+  <div class="case-study-card">
+    <h3>Auto Shop Growth Optimization</h3>
+    <p>Implemented process standardization, improved workflow efficiency by 20%, increased sales by 15%, and created a replicable system for growth—all within 6 months using DGS Consulting's audit and optimization framework.</p>
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 DGS Consulting
-  </footer>
+<section id="testimonials" class="testimonials">
+  <h2>What Business Leaders Say</h2>
+  <p style="text-align:center; max-width:600px; margin:0 auto 40px;">Real feedback from executives and business partners</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and was able to offer actionable insights that added real value to the business. If I ever started a company, Darren would be my first hire.</p>
+      <span>NZ – Norm Zenglein, MBA | Account Executive, Schulich School of Business</span>
+    </div>
+    <div class="testimonial-card">
+      <p>I've worked with Darren across multiple client projects, and he's consistently impressed me with his deep expertise as a business analyst. He brings a solid understanding of small business dynamics and offers insights that are both strategic and highly actionable. Darren is incredibly reliable, always delivering thoughtful analysis.</p>
+      <span>BG – Bakir Ghunaim | Founder of Social Stuff | Business Strategist</span>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // KPI animation
-    const counters = document.querySelectorAll('.kpi-value');
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText.replace('$','').replace('%','');
-        const increment = target / 200;
-        if(current < target){
-          counter.innerText = Math.ceil(current + increment) + (target >= 1000 ? "$" : "%");
-          setTimeout(updateCount, 10);
-        } else {
-          counter.innerText = target + (target >= 1000 ? "$" : "%");
-        }
-      };
-      updateCount();
-    });
-  </script>
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Schedule a free consultation or get in touch to learn how we can help your business grow.</p>
+  <a href="mailto:DGSConsult@consultant.com">Email Us</a>
+  <a href="tel:+12892220511">Call Us</a>
+</section>
+
+<footer>
+  &copy; 2025 DGS Consulting
+</footer>
+
+<script>
+  // KPI animation
+  const counters = document.querySelectorAll('.kpi-value');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const current = +counter.innerText.replace('$','').replace('%','');
+      const increment = target / 100;
+      if(current < target){
+        counter.innerText = Math.ceil(current + increment) + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
+      }
+    }
+    updateCount();
+  });
+</script>
+
 </body>
 </html>
