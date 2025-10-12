@@ -25,11 +25,27 @@
             text-align: center;
         }
 
+        .hero-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-logo {
+            width: 80px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
         .hero h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 20px;
             line-height: 1.2;
+            text-align: left;
+            margin: 0;
         }
 
         .hero .subtitle {
@@ -297,6 +313,10 @@
             .hero h1 {
                 font-size: 1.8rem;
             }
+
+            .hero-logo {
+                width: 80px;
+            }
             
             .section h2 {
                 font-size: 1.6rem;
@@ -320,6 +340,7 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="container">
+            <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" class="hero-logo">
             <h1>How One Auto Shop Recovered 120 Hours Per Month<br>(Without Hiring Anyone)</h1>
             <p class="subtitle">A 6-month transformation that turned hidden inefficiencies into $23,400 in annual savings</p>
         </div>
