@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DGS Consulting |Process & Tech Optimization for Small Businesses </title>
+  <title>DGS Consulting | Process & Tech Optimization for Small Businesses</title>
   <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta name="description" content="DGS Consulting helps small business owners streamline operations, cut tool waste, and make better decisions through practical process and tech optimization.">
   <style>
     :root {
       --primary: #1E293B;
@@ -31,6 +32,12 @@
       z-index: 1000;
     }
     nav img { height: 45px; }
+    nav span {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-left: 10px;
+    }
     nav a {
       text-decoration: none;
       color: var(--dark);
@@ -48,7 +55,7 @@
     /* Hero */
     .hero {
       position: relative;
-      background: linear-gradient(#1E293B), url('asset/hero-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(#1E293B, #1E293B), url('asset/hero-bg.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
       padding: 180px 20px;
@@ -56,7 +63,18 @@
     }
     .hero img { height: 80px; margin-bottom: 20px; }
     .hero h1 { font-size: 3rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 25px; }
+    .tool-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .tool-btn:hover { background: var(--primary); }
 
     /* Tools */
     .tools { background: var(--lighter); }
@@ -79,17 +97,6 @@
     .tool-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
     .tool-card h3 { margin-bottom: 10px; }
     .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
-    .tool-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .tool-btn:hover { background: var(--accent); }
 
     /* KPI Dashboard */
     .kpi-dashboard { background: var(--light); text-align: center; padding-top:60px; }
@@ -178,7 +185,10 @@
 <body>
 
 <nav>
-  <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+  <div style="display:flex; align-items:center;">
+    <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
+    <span>Process & Tech Optimization for Small Business</span>
+  </div>
   <div>
     <a href="#tools">Tools</a>
     <a href="#kpi">Results</a>
@@ -191,32 +201,32 @@
 <section class="hero">
   <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
   <h1>Clarity over complexity.</h1>
-  <p>We help small business owners reclaim time and profit by fixing the systems they already use & not adding more tools.</p>
+  <p>We help small business owners reclaim time and profit by fixing the systems they already use — not adding more tools.</p>
   <a href="#tools" class="tool-btn">See How</a>
 </section>
 
 <section id="tools" class="tools">
   <h2>Get Quick Wins</h2>
   <p style="text-align:center; max-width:600px; margin:0 auto 40px;">
-Three quick, practical tools to help you reclaim time, reduce waste, and refocus your team — without adding another subscription.
-</p>
+    Three quick, practical tools to help you reclaim time, reduce waste, and refocus your team — without adding another subscription.
+  </p>
   <div class="tool-grid">
     <div class="tool-card">
       <i class="fa-solid fa-chart-line"></i>
       <h3>KPI Clarity Tool</h3>
-      <p>Focus on the 3 metrics that actually move profit.</p>
+      <p>Focus your attention where profit actually moves.</p>
       <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="tool-btn">Learn More</a>
     </div>
     <div class="tool-card">
       <i class="fa-solid fa-gears"></i>
       <h3>Process Clarity Tool</h3>
-      <p>Document what’s working. Before you automate it.</p>
+      <p>Document what’s working before you automate it.</p>
       <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
     </div>
     <div class="tool-card">
       <i class="fa-solid fa-magnifying-glass"></i>
       <h3>Business Audit</h3>
-      <p>Identify bottlenecks and growth opportunities in minutes.</p>
+      <p>Spot bottlenecks and waste in minutes.</p>
       <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
     </div>
   </div>
@@ -225,8 +235,8 @@ Three quick, practical tools to help you reclaim time, reduce waste, and refocus
 <section id="kpi" class="kpi-dashboard">
   <h2>KPI Dashboard Example</h2>
   <p style="text-align:center; max-width:600px; margin:0 auto 20px;">
-Every DGS engagement starts with data clarity. Here’s how your key metrics might look once your systems are aligned.
-</p>
+    Every DGS engagement starts with data clarity. Here’s how your key metrics might look once your systems are aligned.
+  </p>
   <div class="kpi-grid">
     <div class="kpi-card">
       <div class="kpi-value" data-target="85">0%</div>
@@ -250,18 +260,22 @@ Every DGS engagement starts with data clarity. Here’s how your key metrics mig
 <section id="case" class="case-studies">
   <h2>Case Study</h2>
   <div class="case-study-card">
-   <h3><a href="/case-studies/Auto-Shop.html" target="_blank">From Chaos to Clarity: Auto Shop Case Study</a></h3>
-<p>In six months, standardized processes cut task overlap by 20%, increased sales by 15%, and gave the owner full operational visibility.</p>
+    <h3>
+      <a href="/case-studies/Auto-Shop.html" target="_blank">
+        From Chaos to Clarity: Auto Shop Case Study
+      </a>
+    </h3>
+    <p>In six months, standardized processes cut task overlap by 20%, increased sales by 15%, and gave the owner full operational visibility.</p>
     <a href="/case-studies/Auto-Shop.html" target="_blank" class="tool-btn">Read the Full Case</a>
   </div>
 </section>
 
 <section id="testimonials" class="testimonials">
   <h2>What Clients and Partners Say</h2>
-  <p style="text-align:center; max-width:700px; margin:0 auto 40px;">Real feedback from executives and business partners</p>
+  <p style="text-align:center; max-width:700px; margin:0 auto 40px;">Real feedback from executives and business partners.</p>
   <div class="testimonial-grid">
     <div class="testimonial-card">
-      <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and was able to offer actionable insights that added real value to the business. If I ever started a company, Darren would be my first hire.</p>
+      <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and offered actionable insights that added real value. If I ever started a company, Darren would be my first hire.</p>
       <span>NZ - Norm Zenglein, MBA, Account Executive, Schulich School of Business</span>
     </div>
     <div class="testimonial-card">
@@ -273,11 +287,11 @@ Every DGS engagement starts with data clarity. Here’s how your key metrics mig
 
 <section id="contact" class="contact">
   <h2>Let’s simplify your systems.</h2>
-<p>Ready to see where your tools are costing you time and profit? Start with the $99 Tech Stack Red Flag Audit — fast, practical, and focused on measurable wins.</p>
-<a href="https://dgsconsulting.github.io/Services-List/" target="_blank">View Services</a>
-<a href="mailto:DGSConsult@consultant.com">Email Us</a>
-<a href="tel:+12892220511">Call Us</a>
-<a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
+  <p>Ready to see where your tools are costing you time and profit? Start with the $99 Tech Stack Red Flag Audit — fast, practical, and focused on measurable wins.</p>
+  <a href="https://dgsconsulting.github.io/Services-List/" target="_blank">View Services</a>
+  <a href="mailto:DGSConsult@consultant.com">Email Us</a>
+  <a href="tel:+12892220511">Call Us</a>
+  <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
 </section>
 
 <footer>
@@ -285,7 +299,6 @@ Every DGS engagement starts with data clarity. Here’s how your key metrics mig
 </footer>
 
 <script>
-  // KPI counter animation
   const counters = document.querySelectorAll('.kpi-value');
   counters.forEach(counter => {
     const updateCount = () => {
@@ -305,4 +318,3 @@ Every DGS engagement starts with data clarity. Here’s how your key metrics mig
 
 </body>
 </html>
-
