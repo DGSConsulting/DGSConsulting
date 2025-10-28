@@ -1,233 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="../asset/logo-mark-t.png" />
-  <title>Case Study | Auto Shop Optimization | DGS Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+  <title>DGS Consulting | Case Studies</title>
   <style>
-    /* DGS Case Study Template */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --primary: #1E293B;
+      --accent: #06B6D4;
+      --light: #F9FAFB;
+      --lighter: #FFFFFF;
+      --dark: #1e1e1e;
+      --white: #ffffff;
     }
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: #1e293b;
-      line-height: 1.7;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { line-height: 1.6; color: var(--dark); background: var(--light); }
 
     header {
-      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+      background: var(--primary);
       color: white;
       text-align: center;
-      padding: 4rem 2rem 3rem 2rem;
-      position: relative;
-      overflow: hidden;
+      padding: 100px 20px 60px 20px;
     }
 
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: float 20s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-40px, -40px); }
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
 
     nav {
-      margin-top: 1rem;
-      position: relative;
-      z-index: 1;
+      margin-top: 20px;
     }
 
     nav a {
-      color: white;
       text-decoration: none;
-      padding: 0.7rem 1.5rem;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
+      color: var(--white);
+      margin: 0 15px;
       font-weight: 500;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      transition: color 0.3s;
     }
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
+    nav a:hover { color: var(--accent); }
 
     main {
-      max-width: 900px;
-      margin: 3rem auto;
-      background: white;
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
     }
 
-    h2 {
-      color: #1e40af;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      margin-top: 2rem;
+    .case-study-card {
+      background: var(--lighter);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      text-align: center;
     }
 
-    p {
-      margin-bottom: 1.2rem;
-      color: #334155;
-      font-size: 1.1rem;
+    .case-study-card:hover { transform: translateY(-6px); }
+
+    .case-study-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .case-study-card h3 {
+      font-size: 1.5rem;
+      margin: 20px 0 10px 0;
+      color: var(--primary);
+    }
+
+    .case-study-card h3 a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .case-study-card h3 a:hover { color: var(--accent); }
+
+    .case-study-card p {
+      font-size: 1rem;
+      padding: 0 20px;
+      margin-bottom: 15px;
+      color: #4a5568;
     }
 
     .metrics {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin: 1.5rem 0;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .metrics span {
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-      color: white;
-      padding: 0.5rem 1rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 8px 15px;
       border-radius: 20px;
       font-size: 0.9rem;
       font-weight: 500;
     }
 
-    .category {
-      display: inline-block;
-      background: #f1f5f9;
-      color: #475569;
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      border: 1px solid #e2e8f0;
+    .metrics .highlight {
+      background: var(--accent);
     }
 
-    blockquote {
-      font-size: 1.1rem;
-      color: #475569;
-      background: #f8fafc;
-      border-left: 4px solid #2563eb;
-      padding: 1rem 1.5rem;
-      margin: 2rem 0;
-      border-radius: 5px;
+    .read-time {
+      font-size: 0.9rem;
       font-style: italic;
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .cta a:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
+      margin-bottom: 20px;
+      color: #555;
     }
 
     footer {
-      background: #1e293b;
-      color: white;
       text-align: center;
-      padding: 2rem;
-      margin-top: 4rem;
+      padding: 30px 20px;
+      background: var(--lighter);
+      color: #666;
     }
 
     @media (max-width: 768px) {
-      main {
-        padding: 2rem;
-        margin: 2rem 1rem;
-      }
+      header h1 { font-size: 2.5rem; }
+      header p { font-size: 1.1rem; }
+    }
 
-      header h1 {
-        font-size: 2rem;
-      }
+    @media (max-width: 480px) {
+      main { grid-template-columns: 1fr; gap: 20px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>How One Auto Shop Found $20K Hiding in Plain Sight</h1>
-    <p>Optimizing operations without adding complexity</p>
+    <h1>Case Studies</h1>
+    <p>Real examples of how DGS Consulting helps businesses streamline and grow.</p>
     <nav>
-      <a href="/case-studies.html">← Back to Case Studies</a>
+      <a href="/">Home</a>
     </nav>
   </header>
 
   <main>
-    <div class="category">Automotive</div>
-
-    <p><strong>Client Type:</strong> Mid-sized independent auto repair shop</p>
-
-    <h2>Challenge</h2>
-    <p>Disjointed systems and manual tracking meant the owner was losing visibility into job progress and payroll accuracy. Despite strong sales, profit margins were shrinking — and no one could pinpoint why.</p>
-
-    <h2>Approach</h2>
-    <p>DGS Consulting audited their workflow across scheduling, invoicing, and payroll systems. By identifying redundant data entry and non-billable admin time, we built a simplified system map and introduced automation where it mattered most.</p>
-
-    <h2>Results</h2>
-    <div class="metrics">
-      <span>2–3 hrs saved weekly per tech</span>
-      <span>$10–20K annual recovery</span>
-      <span>$1–2K monthly cost reduction</span>
+    <div class="case-study-card">
+      <img src="asset/case-autoshop.jpg" alt="Auto Shop Case Study">
+      <h3><a href="/case-studies/Auto-Shop.html">How One Auto Shop Found $20K Hiding in Plain Sight</a></h3>
+      <p>Simple system integration eliminated inefficient processes and disconnected systems, saving this auto repair shop thousands in wasted payroll hours every month.</p>
+      <div class="metrics">
+        <span>2-3 hours saved weekly per tech</span>
+        <span class="highlight">$10-20K annually recovered</span>
+        <span>$1-2K monthly cost reduction</span>
+      </div>
+      <div class="read-time">5 min read</div>
     </div>
 
-    <blockquote>
-      “I thought I needed new software — turns out I just needed a better process. Darren made it simple, and the numbers speak for themselves.”
-    </blockquote>
-
-    <h2>Key Takeaway</h2>
-    <p>You don’t always need new tools to solve operational problems. Streamlining existing systems can unlock hidden profit and free your team to focus on what matters — the work itself.</p>
-
-    <div class="cta">
-      <a href="/">Book Your $99 Tech Stack Audit</a>
+    <div class="case-study-card">
+      <img src="asset/case-landscaping.jpg" alt="Landscaping Case Study">
+      <h3><a href="/case-studies/Grassroots-to-Growth.html">From Grassroots to Growth</a></h3>
+      <p>How mobile-first digital infrastructure and strategic process optimization transformed a traditional landscaping contractor into a market leader in just two seasons.</p>
+      <div class="metrics">
+        <span class="highlight">167% revenue growth</span>
+        <span>$1.5M → $4.0M in 24 months</span>
+        <span>50% reduction in receivables</span>
+        <span>350% increase in referrals</span>
+      </div>
+      <div class="read-time">8 min read</div>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 DGS Consulting | Process & Tech Optimization for Small Businesses</p>
+    &copy; 2025 DGS Consulting
   </footer>
 </body>
 </html>
-
