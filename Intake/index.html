@@ -1,127 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DGS Consulting | Intake Form</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-enter { opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
-    .fade-enter.show { opacity: 1; transform: translateY(0); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGS Consulting | Intake Form</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Floating labels */
+  .input-wrapper { position: relative; margin-top: 1.5rem; }
+  .input-wrapper input,
+  .input-wrapper textarea {
+    width: 100%;
+    padding: 1rem 0.75rem 0.25rem 0.75rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 0.75rem;
+    outline: none;
+    transition: all 0.3s;
+    box-shadow: inset 0 0 0 rgba(59,130,246,0);
+  }
+  .input-wrapper input:focus,
+  .input-wrapper textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: inset 0 0 6px rgba(59,130,246,0.2);
+  }
+  .input-wrapper label {
+    position: absolute;
+    top: 1rem; left: 0.75rem;
+    color: #64748b; font-size: 0.875rem;
+    pointer-events: none; transition: all 0.2s;
+    background-color: white; padding: 0 0.25rem;
+  }
+  .input-wrapper input:focus + label,
+  .input-wrapper input:not(:placeholder-shown) + label,
+  .input-wrapper textarea:focus + label,
+  .input-wrapper textarea:not(:placeholder-shown) + label {
+    top: -0.5rem; left: 0.5rem; font-size: 0.75rem; color: #3b82f6;
+  }
+
+  /* Toggle chips */
+  .toggle-chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.5rem 1rem; border: 2px solid #cbd5e1; border-radius: 9999px;
+    cursor: pointer; font-weight: 500; transition: all 0.3s; margin-bottom: 0.5rem;
+    transform: scale(1); user-select: none;
+  }
+  .toggle-chip input { display: none; }
+  .toggle-chip input:checked + span {
+    background-color: #3b82f6; color: white; border-color: #3b82f6;
+    transform: scale(1.05);
+  }
+  .toggle-chip:hover { border-color: #3b82f6; }
+
+  /* Submit button animation */
+  button[type="submit"] {
+    transition: all 0.3s;
+  }
+  button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59,130,246,0.3);
+  }
+  button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(59,130,246,0.2);
+  }
+
+  /* Fade in message */
+  .fade-enter { opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-enter.show { opacity: 1; transform: translateY(0); }
+
+  /* Success pop */
+  .success-message div { transform: scale(0.95); transition: transform 0.4s ease; }
+  .success-message.show div { transform: scale(1); }
+
+  /* Error */
+  #errorMessage { color: #dc2626; font-weight: 500; margin-top: 0.5rem; }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
 <main class="max-w-2xl mx-auto px-6 py-12">
   <h1 class="text-3xl font-bold text-center mb-8">Get Started with DGS Consulting</h1>
 
-  <!-- Formspree Form -->
-  <form id="intakeForm" class="space-y-6 bg-white p-6 rounded-2xl shadow-md"
-        action="https://formspree.io/f/xnnobjqg" method="POST">
-    
-    <div>
-      <label class="block mb-1 font-medium">Company Name *</label>
-      <input name="companyName" required class="w-full border rounded-lg p-2" />
+  <form id="intakeForm" class="space-y-6 bg-white p-6 rounded-2xl shadow-md" method="POST" action="https://formspree.io/f/xnnobjqg">
+    <div class="input-wrapper">
+      <input type="text" name="companyName" placeholder=" " required>
+      <label>Company Name *</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="text" name="industry" placeholder=" ">
+      <label>Industry</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="text" name="teamSize" placeholder=" ">
+      <label>Team Size</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="url" name="website" placeholder=" ">
+      <label>Website</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="text" name="fullName" placeholder=" " required>
+      <label>Full Name *</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="text" name="role" placeholder=" ">
+      <label>Role / Title</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="email" name="email" placeholder=" " required>
+      <label>Email *</label>
     </div>
 
+    <!-- Toggle chips -->
     <div>
-      <label class="block mb-1 font-medium">Industry</label>
-      <input name="industry" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Team Size</label>
-      <input name="teamSize" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Website</label>
-      <input name="website" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Full Name *</label>
-      <input name="fullName" required class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Role / Title</label>
-      <input name="role" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Email *</label>
-      <input name="email" type="email" required class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Number of Tools</label>
-      <input name="toolCount" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">List of Tools</label>
-      <textarea name="toolList" rows="3" class="w-full border rounded-lg p-2"></textarea>
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Monthly Spend</label>
-      <input name="monthlySpend" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Primary Pain Points</label>
-      <div class="space-y-2">
-        <label><input type="checkbox" name="painPoints[]" value="redundant-tools" /> Redundant Tools</label>
-        <label><input type="checkbox" name="painPoints[]" value="context-switching" /> Context Switching</label>
-        <label><input type="checkbox" name="painPoints[]" value="manual-tasks" /> Manual Tasks</label>
-        <label><input type="checkbox" name="painPoints[]" value="other" /> Other</label>
+      <label class="block mb-2 font-medium">Primary Pain Points</label>
+      <div class="flex flex-wrap gap-2">
+        <label class="toggle-chip"><input type="checkbox" name="painPoints[]" value="redundant-tools"><span>Redundant Tools</span></label>
+        <label class="toggle-chip"><input type="checkbox" name="painPoints[]" value="context-switching"><span>Context Switching</span></label>
+        <label class="toggle-chip"><input type="checkbox" name="painPoints[]" value="manual-tasks"><span>Manual Tasks</span></label>
+        <label class="toggle-chip"><input type="checkbox" name="painPoints[]" value="other"><span>Other</span></label>
       </div>
     </div>
 
-    <div>
-      <label class="block mb-1 font-medium">Biggest Pain Point</label>
-      <input name="biggestPain" class="w-full border rounded-lg p-2" />
+    <div class="input-wrapper">
+      <textarea name="successLooks" rows="3" placeholder=" "></textarea>
+      <label>What does success look like?</label>
+    </div>
+    <div class="input-wrapper">
+      <textarea name="additional" rows="3" placeholder=" "></textarea>
+      <label>Additional Notes</label>
     </div>
 
-    <div>
-      <label class="block mb-1 font-medium">What does success look like?</label>
-      <textarea name="successLooks" rows="3" class="w-full border rounded-lg p-2"></textarea>
-    </div>
+    <div id="errorMessage" class="hidden"></div>
 
-    <div>
-      <label class="block mb-1 font-medium">Timeline</label>
-      <input name="timeline" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Audit Type</label>
-      <input name="auditType" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Budget</label>
-      <input name="budget" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Decision Maker?</label>
-      <input name="decisionMaker" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Additional Notes</label>
-      <textarea name="additional" rows="3" class="w-full border rounded-lg p-2"></textarea>
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">How did you hear about us?</label>
-      <input name="hearAbout" class="w-full border rounded-lg p-2" />
-    </div>
-
-    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition w-full">
-      Submit
-    </button>
+    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold w-full">Submit</button>
   </form>
 
   <div class="success-message hidden text-center mt-10 fade-enter">
@@ -135,7 +147,6 @@
   </div>
 </main>
 
-<!-- Footer -->
 <footer class="text-center text-sm text-gray-500 py-8 bg-white mt-12 shadow-inner">
   <p>© 2025 DGS Consulting. All rights reserved.</p>
   <p class="mt-1"><a href="/" class="hover:text-blue-600 transition">Home</a> | <a href="/case-studies/" class="hover:text-blue-600 transition">Case Studies</a> | <a href="/files/solo-arborist.html" class="hover:text-blue-600 transition">Resources</a> | <a href="/intake/" class="text-blue-600 font-semibold">Get Started</a></p>
@@ -145,27 +156,38 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('intakeForm');
   const successMessage = document.querySelector('.success-message');
+  const errorMessage = document.getElementById('errorMessage');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    errorMessage.classList.add('hidden'); errorMessage.textContent = '';
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...'; submitBtn.disabled = true;
+
     const formData = new FormData(form);
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
+    try {
+      const response = await fetch(form.action, {
+        method: "POST", body: formData, headers: { "Accept": "application/json" }
+      });
+
       if (response.ok) {
-        form.reset();
-        form.classList.add('hidden');
+        form.reset(); form.classList.add('hidden');
         successMessage.classList.remove('hidden');
         requestAnimationFrame(() => successMessage.classList.add('show'));
       } else {
-        response.json().then(data => alert(data.error || "Oops! There was a problem."));
+        const data = await response.json();
+        errorMessage.textContent = data.error || "Something went wrong.";
+        errorMessage.classList.remove('hidden');
       }
-    })
-    .catch(() => alert("Network error — please try again."));
+    } catch (error) {
+      errorMessage.textContent = "Network error — please try again.";
+      errorMessage.classList.remove('hidden');
+    } finally {
+      submitBtn.textContent = originalText; submitBtn.disabled = false;
+    }
   });
 });
 </script>
