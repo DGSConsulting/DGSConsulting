@@ -1,205 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DGS Consulting | Process & Tech Optimization for Small Businesses</title>
-  <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <meta name="description" content="DGS Consulting helps small business owners streamline operations, cut tool waste, and make better decisions through practical process and tech optimization.">
-  <style>
-    :root {
-      --primary: #1E293B;
-      --accent: #06B6D4;
-      --light: #F9FAFB;
-      --lighter: #FFFFFF;
-      --dark: #1e1e1e;
-      --white: #ffffff;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { line-height: 1.6; color: var(--dark); background: var(--white); }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DGS Consulting | Process & Tech Optimization for Small Businesses</title>
+<link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<meta name="description" content="DGS Consulting helps small business owners streamline operations, cut tool waste, and make better decisions through practical process and tech optimization.">
+<style>
+:root {
+  --primary: #1E293B;
+  --accent: #06B6D4;
+  --light: #F9FAFB;
+  --lighter: #FFFFFF;
+  --dark: #1e1e1e;
+  --white: #ffffff;
+}
 
-    nav {
-      position: sticky; top: 0;
-      background: var(--white);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05); z-index: 1000;
-    }
-    nav img { height: 45px; }
-    nav span { font-weight: 600; font-size: 0.9rem; color: var(--primary); margin-left: 10px; }
-    nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: color 0.3s; }
-    nav a:hover { color: var(--primary); }
+/* ---------- GLOBAL ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+body { line-height: 1.6; color: var(--dark); background: var(--white); }
 
-    section { padding: 120px 20px; }
-    h1, h2, h3 { text-align: center; margin-bottom: 25px; }
-    h1 { font-size: 3rem; } h2 { font-size: 2rem; }
+/* ---------- NAVBAR ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+nav img { height: 45px; }
+nav span { font-weight: 600; font-size: 0.9rem; color: var(--primary); margin-left: 10px; }
+nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: color 0.3s; }
+nav a:hover { color: var(--primary); }
 
-    /* Hero */
-    .hero {
-      position: relative;
-      background: linear-gradient(#1E293B, #1E293B), url('asset/hero-bg.jpg') center/cover no-repeat;
-      color: white; text-align: center; padding: 180px 20px; overflow: hidden;
-    }
-    .hero img { height: 80px; margin-bottom: 20px; }
-    .hero h1 { font-size: 3rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 25px; }
-    .tool-btn {
-      display: inline-block; background: var(--accent); color: white;
-      padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600;
-      transition: background 0.3s ease; cursor: pointer;
-    }
-    .tool-btn:hover { background: var(--primary); }
+/* Dropdown */
+.dropdown { position: relative; }
+.dropdown-content { display: none; position: absolute; top:100%; left:0; background:white; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; min-width:220px; z-index:500; }
+.dropdown-content a { display:block; padding:10px 15px; color: var(--dark); text-decoration:none; }
+.dropdown-content a:hover { background: var(--light); }
 
-    /* Tools */
-    .tools { background: var(--lighter); }
-    .tool-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px; max-width: 1000px; margin: 0 auto;
-    }
-    .tool-card {
-      background: var(--white); padding: 40px 20px; border-radius: 15px;
-      text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-    .tool-card:hover { transform: translateY(-6px); }
-    .tool-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
-    .tool-card h3 { margin-bottom: 10px; }
-    .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
+/* Hamburger button */
+#navToggle { display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; }
 
-    /* KPI Dashboard */
-    .kpi-dashboard { background: var(--light); text-align: center; padding-top:60px; }
-    .kpi-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px; max-width: 1000px; margin: 40px auto 0;
-    }
-    .kpi-card {
-      background: var(--lighter); border-radius: 20px; padding: 30px;
-      text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-    .kpi-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
-    .kpi-value { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
-    .kpi-sub { font-size: 0.9rem; color: #555; }
+/* ---------- SECTIONS ---------- */
+section { padding: 120px 20px; }
+h1, h2, h3 { text-align: center; margin-bottom: 25px; }
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
 
-    /* Case Studies */
-    .case-studies { background: var(--white); }
-    .case-study-card {
-      max-width: 800px; margin: 0 auto; text-align: center;
-      padding: 30px; background: var(--lighter); border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-    .case-study-card h3 a { color: var(--primary); text-decoration: none; }
-    .case-study-card h3 a:hover { text-decoration: underline; }
+/* Hero */
+.hero {
+  position: relative;
+  background: linear-gradient(#1E293B, #1E293B), url('asset/hero-bg.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 180px 20px;
+}
+.hero img { height: 80px; margin-bottom: 20px; }
+.hero h1 { font-size: 3rem; margin-bottom: 15px; }
+.hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 25px; }
+.tool-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.tool-btn:hover { background: var(--primary); }
 
-    /* Testimonials */
-    .testimonials { background: var(--lighter); }
-    .testimonial-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px; max-width: 1000px; margin: 0 auto;
-    }
-    .testimonial-card {
-      background: var(--white); padding: 30px; border-radius: 15px; position: relative;
-    }
-    .testimonial-card::before {
-      content: "“"; font-size: 4rem; position: absolute; top: -10px; left: 15px; color: var(--accent);
-    }
-    .testimonial-card p { margin-bottom: 15px; font-style: italic; }
-    .testimonial-card span { font-weight: 600; display:block; }
+/* Tools */
+.tools { background: var(--lighter); }
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.tool-card {
+  background: var(--white);
+  padding: 40px 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.tool-card:hover { transform: translateY(-6px); }
+.tool-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
+.tool-card h3 { margin-bottom: 10px; }
+.tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
 
-    /* Contact */
-    .contact {
-      background: var(--primary); color: white; text-align: center; padding: 100px 20px;
-    }
-    .contact h2 { color: white; }
-    .contact p { max-width: 600px; margin: 0 auto 30px; }
-    .contact a {
-      background: white; color: var(--primary); padding: 15px 30px; border-radius: 8px;
-      text-decoration: none; font-weight: 600; margin: 0 10px; display: inline-block;
-      transition: background 0.3s ease;
-    }
-    .contact a:hover { background: #eaeaea; }
+/* KPI Dashboard */
+.kpi-dashboard { background: var(--light); text-align: center; padding-top:60px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1000px; margin: 40px auto 0; }
+.kpi-card { background: var(--lighter); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+.kpi-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+.kpi-value { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+.kpi-sub { font-size: 0.9rem; color: #555; }
 
-    footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; background: #fafafa; }
+/* Case Studies */
+.case-studies { background: var(--white); }
+.case-study-card { max-width: 800px; margin: 0 auto; text-align: center; padding: 30px; background: var(--lighter); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.case-study-card h3 a { color: var(--primary); text-decoration: none; }
+.case-study-card h3 a:hover { text-decoration: underline; }
 
-    /* Modal */
-    .modal { display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.6); }
-    .modal-content { background-color: #fff; margin:10% auto; padding:30px; border-radius:12px; max-width:400px; position:relative; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.2); }
-    .modal-content input { width:90%; padding:10px; margin:10px 0; border-radius:6px; border:1px solid #ccc; }
-    .modal-content button { width:95%; margin-top:10px; }
-    .close { position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; }
-  </style>
+/* Testimonials */
+.testimonials { background: var(--lighter); }
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+.testimonial-card { background: var(--white); padding: 30px; border-radius: 15px; position: relative; }
+.testimonial-card::before { content: "“"; font-size: 4rem; position: absolute; top: -10px; left: 15px; color: var(--accent); }
+.testimonial-card p { margin-bottom: 15px; font-style: italic; }
+.testimonial-card span { font-weight: 600; display:block; }
+
+/* Contact */
+.contact { background: var(--primary); color: white; text-align: center; padding: 100px 20px; }
+.contact h2 { color: white; }
+.contact p { max-width: 600px; margin: 0 auto 30px; }
+.contact a {
+  background: white;
+  color: var(--primary);
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 10px;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+.contact a:hover { background: #eaeaea; }
+
+footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; background: #fafafa; }
+
+/* Responsive */
+@media(max-width:768px){
+  #navToggle { display:block; }
+  #navLinks { display:none; flex-direction:column; position:absolute; top:60px; right:0; background:white; padding:15px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+  #navLinks a { margin:10px 0; }
+  .dropdown-content { position: relative; box-shadow:none; border-radius:0; min-width:auto; }
+}
+</style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
-  <div style="display:flex; align-items:center;">
+  <a href="/index.html">
     <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
-    <span>Process & Tech Optimization for Small Business</span>
-  </div>
-  <div>
-    <a href="#" class="cta-nav">Get Started</a>
+  </a>
+  <button id="navToggle">&#9776;</button>
+  <div id="navLinks">
+    <a href="/index.html">Home</a>
+    <div class="dropdown">
+      <a href="/Services/index.html">Services &#9662;</a>
+      <div class="dropdown-content">
+        <a href="/Services/Tech-Stack-Audit.html">Tech Stack Red Flag Audit</a>
+        <a href="/Services/Quick-Win.html">Quick Win Toolkit</a>
+        <a href="/Services/Full-Diagnosis.html">Full Diagnosis</a>
+        <a href="/Services/Complete-Transformation.html">Complete Transformation</a>
+      </div>
+    </div>
+    <a href="/case-studies/index.html">Case Studies</a>
     <a href="#tools">Tools</a>
-    <a href="#case">Case Study</a>
-    <a href="#contact">Contact</a>
+    <a href="/Intake/index.html">Contact</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
   <h1>Clarity over complexity.</h1>
   <p>We help small business owners reclaim time and profit by fixing the systems they already use — not adding more tools.</p>
-  <a href="#" class="tool-btn cta-nav">Get Started</a>
+  <a href="#tools" class="tool-btn">See How</a>
 </section>
 
+<!-- TOOLS -->
 <section id="tools" class="tools">
   <h2>Get Quick Wins</h2>
   <p style="text-align:center; max-width:600px; margin:0 auto 40px;">
-    Three practical tools to help you reclaim time, reduce waste, and refocus your team.
+    Three quick, practical tools to help you reclaim time, reduce waste, and refocus your team — without adding another subscription.
   </p>
   <div class="tool-grid">
     <div class="tool-card">
       <i class="fa-solid fa-chart-line"></i>
       <h3>KPI Clarity Tool</h3>
       <p>Focus your attention where profit actually moves.</p>
-      <a href="#" class="tool-btn cta-nav">Book Audit</a>
+      <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="tool-btn">Learn More</a>
     </div>
     <div class="tool-card">
       <i class="fa-solid fa-gears"></i>
       <h3>Process Clarity Tool</h3>
       <p>Document what’s working before you automate it.</p>
-      <a href="#" class="tool-btn cta-nav">Book Audit</a>
+      <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
     </div>
     <div class="tool-card">
       <i class="fa-solid fa-magnifying-glass"></i>
       <h3>Business Audit</h3>
       <p>Spot bottlenecks and waste in minutes.</p>
-      <a href="#" class="tool-btn cta-nav">Book Audit</a>
+      <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
     </div>
   </div>
 </section>
 
+<!-- KPI DASHBOARD -->
 <section id="kpi" class="kpi-dashboard">
   <h2>KPI Dashboard Example</h2>
   <p style="text-align:center; max-width:600px; margin:0 auto 20px;">
     Every DGS engagement starts with data clarity. Here’s how your key metrics might look once your systems are aligned.
   </p>
   <div class="kpi-grid">
-    <div class="kpi-card"><div class="kpi-value" data-target="85">0%</div><div class="kpi-sub">Efficiency</div></div>
-    <div class="kpi-card"><div class="kpi-value" data-target="12">0</div><div class="kpi-sub">Tasks</div></div>
-    <div class="kpi-card"><div class="kpi-value" data-target="24000">0$</div><div class="kpi-sub">Savings</div></div>
-    <div class="kpi-card"><div class="kpi-value" data-target="5">0</div><div class="kpi-sub">Projects</div></div>
+    <div class="kpi-card">
+      <div class="kpi-value" data-target="85">0%</div>
+      <div class="kpi-sub">Efficiency</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" data-target="12">0</div>
+      <div class="kpi-sub">Tasks</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" data-target="24000">0$</div>
+      <div class="kpi-sub">Savings</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" data-target="5">0</div>
+      <div class="kpi-sub">Projects</div>
+    </div>
   </div>
 </section>
 
+<!-- CASE STUDIES -->
 <section id="case" class="case-studies">
   <h2>Case Study</h2>
   <div class="case-study-card">
     <h3><a href="/case-studies/Auto-Shop.html" target="_blank">From Chaos to Clarity: Auto Shop Case Study</a></h3>
     <p>In six months, standardized processes cut task overlap by 20%, increased sales by 15%, and gave the owner full operational visibility.</p>
-    <a href="/case-studies/Auto-Shop.html" target="_blank" class="tool-btn cta-nav">Read Case</a>
+    <a href="/case-studies/Auto-Shop.html" target="_blank" class="tool-btn">Read the Full Case</a>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section id="testimonials" class="testimonials">
   <h2>What Clients and Partners Say</h2>
   <p style="text-align:center; max-width:700px; margin:0 auto 40px;">Real feedback from executives and business partners.</p>
@@ -215,11 +261,12 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="contact">
   <h2>Let’s simplify your systems.</h2>
   <p>Ready to see where your tools are costing you time and profit? Start with the $99 Tech Stack Red Flag Audit — fast, practical, and focused on measurable wins.</p>
-  <a href="#" class="cta-nav">Get Started</a>
-  <a href="Services/index.html">View Services</a>
+  <a href="/Intake/index.html" class="cta-nav">Get Started</a>
+  <a href="/Services/index.html">View Services</a>
   <a href="mailto:DGSConsult@consultant.com">Email Us</a>
   <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
 </section>
@@ -228,63 +275,38 @@
   &copy; 2025 DGS Consulting | "Clarity over complexity." | Founded by Darren Snook | Ottawa, ON
 </footer>
 
-<!-- Modal -->
-<div id="auditModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>$99 Tech Stack Red Flag Audit</h2>
-    <p>Schedule your audit and see where your tools are costing you time and profit.</p>
-    <form id="auditForm">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="company" placeholder="Company Name" required>
-      <button type="submit" class="tool-btn">Book Audit</button>
-    </form>
-    <p id="formMsg" style="margin-top:10px;color:green;"></p>
-  </div>
-</div>
-
 <script>
-  // KPI counter
-  const counters = document.querySelectorAll('.kpi-value');
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      let current = +counter.innerText.replace(/\$|%/g,'');
-      const increment = target / 100;
-      if(current < target){
-        counter.innerText = Math.ceil(current + increment) + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
-        setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
-      }
+// KPI animation
+const counters = document.querySelectorAll('.kpi-value');
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    let current = +counter.innerText.replace(/\$|%/g,'');
+    const increment = target / 100;
+    if(current < target){
+      counter.innerText = Math.ceil(current + increment) + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
+      setTimeout(updateCount, 20);
+    } else {
+      counter.innerText = target + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
     }
-    updateCount();
-  });
+  }
+  updateCount();
+});
 
-  // Modal logic
-  const modal = document.getElementById("auditModal");
-  const btns = document.querySelectorAll(".cta-nav");
-  const span = document.getElementsByClassName("close")[0];
-  const form = document.getElementById("auditForm");
-  const msg = document.getElementById("formMsg");
+// Hamburger toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  if(navLinks.style.display === "flex") navLinks.style.display = "none";
+  else navLinks.style.display = "flex";
+});
 
-  btns.forEach(btn => {
-    btn.addEventListener("click", function(e){
-      e.preventDefault();
-      modal.style.display = "block";
-    });
-  });
-
-  span.onclick = function() { modal.style.display = "none"; }
-  window.onclick = function(event) { if(event.target == modal) modal.style.display = "none"; }
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    msg.innerText = "Thanks! Your audit request has been received. We’ll be in touch shortly.";
-    form.reset();
-    setTimeout(() => { modal.style.display = "none"; msg.innerText=""; }, 4000);
-  });
+// Dropdown hover
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(drop => {
+  drop.addEventListener('mouseenter', () => drop.querySelector('.dropdown-content').style.display = 'block');
+  drop.addEventListener('mouseleave', () => drop.querySelector('.dropdown-content').style.display = 'none');
+});
 </script>
 
 </body>
