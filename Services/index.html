@@ -4,18 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DGS Consulting | Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --primary: #1E293B;
   --accent: #06B6D4;
   --light: #F9FAFB;
   --lighter: #FFFFFF;
-  --dark: #1e1e1e;
-  --white: #ffffff;
+  --dark: #0F172A;
   --radius: 1rem;
 }
 
 /* ---------- GLOBAL ---------- */
+html { scroll-behavior: smooth; }
 body {
   font-family: "Inter", Arial, sans-serif;
   background: var(--light);
@@ -24,54 +25,48 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  color: var(--primary);
-  font-weight: 700;
-}
-
-button { cursor: pointer; }
+h1, h2, h3 { font-weight: 700; margin-top: 0; color: var(--primary); }
+p { color: rgba(30, 41, 59, 0.85); margin: 0 0 1rem; }
+button { cursor: pointer; font-family: inherit; }
 
 /* ---------- HERO ---------- */
 .hero {
   background: var(--lighter);
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 4rem;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  max-width: 600px;
+  max-width: 620px;
   margin: 0 auto 2rem;
-  color: var(--primary);
-  opacity: 0.85;
 }
 
 .hero .cta {
   background: var(--accent);
-  color: var(--white);
+  color: var(--lighter);
   border: none;
   border-radius: var(--radius);
-  padding: 0.8rem 1.6rem;
-  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.05rem;
   font-weight: 600;
   transition: background 0.3s ease;
 }
-
-.hero .cta:hover { background: #0891b2; }
+.hero .cta:hover { background: #0891b2; transform: translateY(-2px); }
 
 /* ---------- JOURNEY SECTION ---------- */
 .journey {
   background: var(--light);
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 5rem;
 }
 
 .journey h2 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-bottom: 0.5rem;
 }
 
@@ -84,14 +79,13 @@ button { cursor: pointer; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
   gap: 1.5rem;
 }
 
 .step {
   background: var(--lighter);
   border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(30,41,59,0.12);
+  box-shadow: 0 2px 6px rgba(30,41,59,0.1);
   padding: 2rem 1.5rem;
   flex: 1 1 300px;
   max-width: 320px;
@@ -111,14 +105,14 @@ button { cursor: pointer; }
 
 .step button {
   background: var(--accent);
-  color: var(--white);
+  color: var(--lighter);
   border: none;
   border-radius: 0.5rem;
   padding: 0.6rem 1.25rem;
   font-weight: 600;
-  transition: background 0.25s ease;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
-.step button:hover { background: #0891b2; }
+.step button:hover { background: #0891b2; transform: translateY(-2px); }
 
 /* ---------- MODAL ---------- */
 .modal {
@@ -139,7 +133,7 @@ button { cursor: pointer; }
   border-radius: var(--radius);
   padding: 2rem;
   width: 90%;
-  max-width: 500px;
+  max-width: 480px;
   box-shadow: 0 6px 18px rgba(30,41,59,0.25);
   position: relative;
   animation: fadeIn 0.3s ease;
@@ -171,7 +165,7 @@ button { cursor: pointer; }
 
 .modal-content button[type="submit"] {
   background: var(--accent);
-  color: var(--white);
+  color: var(--lighter);
   border: none;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
@@ -205,10 +199,54 @@ button { cursor: pointer; }
   opacity: 0.8;
   margin-bottom: 1rem;
 }
+.confirmation button {
+  background: var(--accent);
+  color: var(--lighter);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.confirmation button:hover { background: #0891b2; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: var(--dark);
+  color: var(--lighter);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+footer h3 {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  color: var(--lighter);
+}
+
+footer p {
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-links {
+  margin-top: 1rem;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 0.75rem;
+  transition: color 0.3s;
+}
+footer a:hover { color: #22d3ee; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
   .journey-steps { flex-direction: column; align-items: center; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
 }
 </style>
 </head>
@@ -253,6 +291,19 @@ button { cursor: pointer; }
   </div>
 </section>
 
+<!-- ---------- FOOTER ---------- -->
+<footer>
+  <h3>DGS Consulting</h3>
+  <p>Helping business owners reclaim time and profit by simplifying their systems — not adding more tools.</p>
+  <div class="footer-links">
+    <a href="/index.html">Home</a>
+    <a href="/Services/index.html">Services</a>
+    <a href="/case-studies/index.html">Case Studies</a>
+    <a href="/Intake/index.html">Contact</a>
+  </div>
+  <p style="margin-top:1.5rem; font-size:0.9rem;">© 2025 DGS Consulting. All rights reserved.</p>
+</footer>
+
 <!-- ---------- MODAL FORM ---------- -->
 <div class="modal" id="formModal">
   <div class="modal-content" id="modalContent">
@@ -277,7 +328,6 @@ button { cursor: pointer; }
       </form>
     </div>
 
-    <!-- Confirmation Section -->
     <div class="confirmation" id="confirmationSection" style="display:none;">
       <h4>✅ Thank you!</h4>
       <p>Your message has been sent successfully.</p>
@@ -288,7 +338,6 @@ button { cursor: pointer; }
 </div>
 
 <script>
-// Handle modal open / close
 const buttons = document.querySelectorAll('[data-service]');
 const modal = document.getElementById('formModal');
 const modalContent = document.getElementById('modalContent');
@@ -313,7 +362,6 @@ function closeModalFn() { modal.classList.remove('active'); }
 closeModalBtn.addEventListener('click', closeModalFn);
 window.addEventListener('click', e => { if (e.target === modal) closeModalFn(); });
 
-// Handle form submission with Formspree + confirmation UX
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
@@ -332,7 +380,7 @@ form.addEventListener('submit', async (e) => {
     } else {
       alert('Something went wrong. Please try again.');
     }
-  } catch (error) {
+  } catch {
     alert('Error sending message. Please check your connection.');
   }
 });
