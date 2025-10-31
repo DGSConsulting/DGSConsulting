@@ -9,6 +9,9 @@
 :root {
   --primary: #1E293B;
   --accent: #06B6D4;
+  --green: #10B981;
+  --amber: #F59E0B;
+  --red: #EF4444;
   --light: #F9FAFB;
   --lighter: #FFFFFF;
   --dark: #0F172A;
@@ -17,32 +20,16 @@
 
 /* ---------- GLOBAL ---------- */
 html { scroll-behavior: smooth; }
-body { font-family: "Inter", Arial, sans-serif; background: var(--light); color: var(--primary); margin: 0; line-height: 1.6; }
-h1,h2,h3 { font-weight: 700; margin-top: 0; color: var(--primary); }
-p { color: rgba(30, 41, 59, 0.85); margin: 0 0 1rem; }
-button { cursor: pointer; font-family: inherit; }
-
-/* ---------- NAV ---------- */
-nav {
-  position: sticky;
-  top: 0;
-  background: var(--lighter);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  z-index: 1000;
-}
-nav img { height: 45px; }
-nav a {
-  text-decoration: none;
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--light);
   color: var(--primary);
-  margin-left: 1.5rem;
-  font-weight: 500;
-  transition: color 0.3s;
+  margin: 0;
+  line-height: 1.6;
 }
-nav a:hover { color: var(--accent); }
+h1, h2, h3 { font-weight: 700; margin-top: 0; color: var(--primary); }
+p { color: rgba(30,41,59,0.85); margin: 0 0 1rem; }
+button { cursor: pointer; font-family: inherit; }
 
 /* ---------- HERO ---------- */
 .hero {
@@ -50,7 +37,6 @@ nav a:hover { color: var(--accent); }
   text-align: center;
   padding: 5rem 2rem 4rem;
 }
-.hero img { height: 80px; margin-bottom: 20px; }
 .hero h1 { font-size: 2.4rem; margin-bottom: 1rem; }
 .hero p { max-width: 620px; margin: 0 auto 2rem; }
 .hero .cta {
@@ -61,14 +47,19 @@ nav a:hover { color: var(--accent); }
   padding: 0.9rem 1.8rem;
   font-size: 1.05rem;
   font-weight: 600;
-  transition: background 0.3s ease, transform 0.25s ease;
+  transition: background 0.3s ease, transform 0.2s;
 }
 .hero .cta:hover { background: #0891b2; transform: translateY(-2px); }
 
-/* ---------- JOURNEY ---------- */
-.journey { background: var(--light); text-align: center; padding: 4rem 2rem 5rem; }
+/* ---------- JOURNEY SECTION ---------- */
+.journey {
+  background: var(--light);
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+}
 .journey h2 { font-size: 1.9rem; margin-bottom: 0.5rem; }
 .journey p.subtitle { opacity: 0.8; margin-bottom: 3rem; }
+
 .journey-steps {
   display: flex;
   flex-wrap: wrap;
@@ -86,15 +77,12 @@ nav a:hover { color: var(--accent); }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
-.step:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 14px rgba(30,41,59,0.15);
-}
-.step i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; display: block; }
+.step:hover { transform: translateY(-6px); box-shadow: 0 6px 14px rgba(30,41,59,0.15); }
 .step h3 { margin-top: 0.5rem; }
 .step .state { color: var(--accent); font-weight: 600; margin-top: 0.25rem; }
 .step .desc { margin: 0.75rem 0; }
 .step .price { display: block; font-weight: 600; margin-bottom: 1rem; }
+
 .step button {
   background: var(--accent);
   color: var(--lighter);
@@ -106,9 +94,25 @@ nav a:hover { color: var(--accent); }
 }
 .step button:hover { background: #0891b2; transform: translateY(-2px); }
 
+/* Colored borders by step */
+.step[data-color="cyan"] { border-top: 6px solid var(--accent); }
+.step[data-color="green"] { border-top: 6px solid var(--green); }
+.step[data-color="amber"] { border-top: 6px solid var(--amber); }
+.step[data-color="red"] { border-top: 6px solid var(--red); }
+
 /* ---------- MODAL ---------- */
-.modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(30,41,59,0.7); align-items:center; justify-content:center; z-index:999; }
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(30,41,59,0.7);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 .modal.active { display: flex; }
+
 .modal-content {
   background: var(--lighter);
   border-radius: var(--radius);
@@ -118,101 +122,109 @@ nav a:hover { color: var(--accent); }
   box-shadow: 0 6px 18px rgba(30,41,59,0.25);
   position: relative;
   animation: fadeIn 0.3s ease;
-  transform: scale(0.95);
-  transition: transform 0.3s ease;
 }
-.modal.active .modal-content { transform: scale(1); }
-@keyframes fadeIn { from { opacity:0; transform: translateY(15px); } to { opacity:1; transform: translateY(0); } }
-
-.modal-content h3 { margin-top: 0; color: var(--primary); }
-.modal-content label { display: block; margin-bottom:0.75rem; font-weight:600; }
-.modal-content input, .modal-content textarea {
-  width:100%; padding:0.6rem; margin-top:0.25rem; border:1px solid #ccc; border-radius:0.5rem; font-family:inherit; font-size:1rem;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.modal-content button[type="submit"] { background: var(--accent); color: var(--lighter); border:none; padding:0.75rem 1.25rem; border-radius:0.5rem; font-weight:600; transition: background 0.3s; margin-top:1rem; }
-.modal-content button[type="submit"]:hover { background:#0891b2; }
-
-.close-modal { background:none; border:none; font-size:1.5rem; color: var(--accent); position:absolute; top:1rem; right:1rem; cursor:pointer; }
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--accent);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
 
 /* Confirmation */
-.confirmation { text-align:center; padding:2rem 1rem; }
-.confirmation h4 { color: var(--primary); margin-bottom:0.5rem; }
-.confirmation p { opacity:0.8; margin-bottom:1rem; }
-.confirmation button { background: var(--accent); color: var(--lighter); border:none; border-radius:0.5rem; padding:0.6rem 1.25rem; font-weight:600; transition: background 0.3s ease; }
-.confirmation button:hover { background: #0891b2; }
+.confirmation { text-align: center; padding: 2rem 1rem; }
+.confirmation h4 { color: var(--primary); margin-bottom: 0.5rem; }
+.confirmation p { opacity: 0.8; margin-bottom: 1rem; }
 
 /* ---------- FOOTER ---------- */
-footer { background: var(--dark); color: var(--lighter); padding:3rem 2rem; text-align:center; }
-footer img { height:50px; margin-bottom:1rem; }
-footer h3 { margin:0 0 1rem; font-weight:600; color: var(--lighter); }
-footer p { color: rgba(255,255,255,0.75); margin-bottom:0.5rem; }
-footer .footer-links { margin-top:1rem; }
-footer a { color: var(--accent); text-decoration:none; font-weight:500; margin:0 0.75rem; transition: color 0.3s; }
+footer {
+  background: var(--dark);
+  color: var(--lighter);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+footer h3 { margin: 0 0 1rem; font-weight: 600; color: var(--lighter); }
+footer p { color: rgba(255,255,255,0.75); margin-bottom: 0.5rem; }
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 0.75rem;
+  transition: color 0.3s;
+}
 footer a:hover { color: #22d3ee; }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) { .journey-steps { flex-direction: column; align-items:center; } .hero h1 { font-size:2rem; } .hero p { font-size:1rem; } }
+@media (max-width: 768px) {
+  .journey-steps { flex-direction: column; align-items: center; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo">
-  <div>
-    <a href="/index.html">Home</a>
-    <a href="/Services/index.html">Services</a>
-    <a href="/case-studies/index.html">Case Studies</a>
-    <a href="/Intake/index.html">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
+<!-- ---------- HERO ---------- -->
 <section class="hero">
-  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo">
+  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:80px; margin-bottom:20px;">
   <h1>Streamline Your Systems. Reclaim Your Time.</h1>
   <p>Practical, ROI-driven solutions that simplify your business operations — without adding more tools or complexity.</p>
   <button class="cta" data-service="Tech Stack Red Flag Audit">Book Your $99 Audit</button>
 </section>
 
-<!-- CUSTOMER JOURNEY -->
+<!-- ---------- CUSTOMER JOURNEY ---------- -->
 <section class="journey">
   <h2>Your Journey to Freedom</h2>
   <p class="subtitle">Most clients start small, build trust, then transform everything.</p>
+
   <div class="journey-steps">
-    <div class="step">
-      <i class="fa-solid fa-bolt"></i>
-      <h3>1. Quick Win</h3>
-      <p class="state">State: Skeptical</p>
-      <p class="desc">Immediate audits or toolkits to see results fast.</p>
-      <span class="price">$99 – $199</span>
-      <button data-service="Quick Win">Book Your Audit</button>
+    <div class="step" data-color="cyan">
+      <h3>🛠 Tech Stack Red Flag Audit</h3>
+      <p class="state">State: Curious</p>
+      <p class="desc">Identify redundant software and recover wasted spend quickly.</p>
+      <span class="price">$99</span>
+      <button data-service="Tech Stack Red Flag Audit">Book Audit</button>
     </div>
-    <div class="step">
-      <i class="fa-solid fa-stethoscope"></i>
-      <h3>2. Full Diagnosis</h3>
+
+    <div class="step" data-color="green">
+      <h3>⚡ Quick Win Toolkit</h3>
+      <p class="state">State: Skeptical</p>
+      <p class="desc">Instant, low-risk improvement with ready-to-use templates.</p>
+      <span class="price">$199</span>
+      <button data-service="Quick Win">Get Toolkit</button>
+    </div>
+
+    <div class="step" data-color="amber">
+      <h3>🔍 Full Diagnosis</h3>
       <p class="state">State: Acknowledges problem</p>
-      <p class="desc">Discover the scale and cost of inefficiencies in your operation.</p>
-      <span class="price">$250 – $495</span>
+      <p class="desc">Discover inefficiencies and measure the true cost of lost time.</p>
+      <span class="price">$495</span>
       <button data-service="Full Diagnosis">Schedule Audit Call</button>
     </div>
-    <div class="step">
-      <i class="fa-solid fa-cogs"></i>
-      <h3>3. Complete Transformation</h3>
+
+    <div class="step" data-color="red">
+      <h3>🚀 Complete Transformation</h3>
       <p class="state">State: Ready to solve it</p>
-      <p class="desc">Systematic overhaul saving 120+ hours monthly with measurable ROI.</p>
+      <p class="desc">End-to-end systems overhaul for measurable ROI and freedom.</p>
       <span class="price">$4K – $8K+</span>
-      <button data-service="Complete Transformation">Apply for Program</button>
+      <button data-service="Complete Transformation">Apply Now</button>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ---------- FOOTER ---------- -->
 <footer>
-  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo">
+  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:50px; margin-bottom:1rem;">
   <h3>DGS Consulting</h3>
-  <p>Helping business owners reclaim time and profit by simplifying their systems not adding more tools.</p>
-  <div class="footer-links">
+  <p>Helping business owners reclaim time and profit by simplifying their systems — not adding more tools.</p>
+  <div>
     <a href="/index.html">Home</a>
     <a href="/Services/index.html">Services</a>
     <a href="/case-studies/index.html">Case Studies</a>
@@ -221,25 +233,27 @@ footer a:hover { color: #22d3ee; }
   <p style="margin-top:1.5rem; font-size:0.9rem;">© 2025 DGS Consulting. All rights reserved.</p>
 </footer>
 
-<!-- MODAL FORM -->
+<!-- ---------- MODAL FORM ---------- -->
 <div class="modal" id="formModal">
   <div class="modal-content" id="modalContent">
     <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:50px; display:block; margin:0 auto 1rem;">
     <button class="close-modal" aria-label="Close">&times;</button>
 
+    <div id="serviceSummaryContainer" style="margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem; justify-content:center;">
+      <span id="serviceBadge" style="padding:0.4rem 0.8rem; border-radius:0.5rem; color:white; font-weight:600; font-size:0.9rem;"></span>
+      <div id="serviceSummary" style="max-width:300px; text-align:left; color:var(--primary); font-weight:500;"></div>
+    </div>
+
     <div id="formSection">
       <h3>Contact DGS Consulting</h3>
       <form action="https://formspree.io/f/mldopknb" method="POST" id="contactForm">
-        <label>
-          Your Email:
+        <label>Your Email:
           <input type="email" name="email" required>
         </label>
-        <label>
-          Service Interested In:
+        <label>Service Interested In:
           <input type="text" name="service" id="serviceField" readonly>
         </label>
-        <label>
-          Your Message:
+        <label>Your Message:
           <textarea name="message" rows="4" placeholder="Tell us briefly about your systems or goals..."></textarea>
         </label>
         <button type="submit">Send</button>
@@ -256,10 +270,34 @@ footer a:hover { color: #22d3ee; }
 </div>
 
 <script>
-// Modal functionality
+const serviceDetails = {
+  "Tech Stack Red Flag Audit": {
+    description: "Quick audit to uncover redundant software and identify immediate cost-saving opportunities.",
+    color: "#06B6D4",
+    icon: "🛠"
+  },
+  "Quick Win": {
+    description: "Low-risk audits or toolkits that show instant improvements to reclaim time and reduce frustration.",
+    color: "#10B981",
+    icon: "⚡"
+  },
+  "Full Diagnosis": {
+    description: "Comprehensive review of your systems to uncover inefficiencies and hidden costs.",
+    color: "#F59E0B",
+    icon: "🔍"
+  },
+  "Complete Transformation": {
+    description: "Full system overhaul to save 120+ hours monthly with measurable ROI.",
+    color: "#EF4444",
+    icon: "🚀"
+  }
+};
+
 const buttons = document.querySelectorAll('[data-service]');
 const modal = document.getElementById('formModal');
 const serviceField = document.getElementById('serviceField');
+const serviceSummary = document.getElementById('serviceSummary');
+const serviceBadge = document.getElementById('serviceBadge');
 const closeModalBtn = document.querySelector('.close-modal');
 const form = document.getElementById('contactForm');
 const formSection = document.getElementById('formSection');
@@ -269,7 +307,11 @@ const confirmedService = document.getElementById('confirmedService');
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
     const serviceName = btn.getAttribute('data-service');
+    const details = serviceDetails[serviceName] || {};
     serviceField.value = serviceName;
+    serviceSummary.textContent = details.description || "";
+    serviceBadge.textContent = details.icon ? `${details.icon} ${serviceName}` : serviceName;
+    serviceBadge.style.backgroundColor = details.color || "#06B6D4";
     modal.classList.add('active');
     formSection.style.display = 'block';
     confirmationSection.style.display = 'none';
@@ -300,9 +342,5 @@ form.addEventListener('submit', async (e) => {
 });
 </script>
 
-<!-- Font Awesome for icons -->
-<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
-
 </body>
 </html>
-
