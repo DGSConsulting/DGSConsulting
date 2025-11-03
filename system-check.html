@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/logo-icon-t.png" />
+    <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
     <title>Your Systems Aren't Broken — They're Bloated | DGS Consulting</title>
     <meta name="description" content="Fix your systems, not add more tools. Get a free 5-minute audit and discover what's costing you time and money.">
     
@@ -946,7 +946,7 @@
     <nav class="top-nav">
         <div class="nav-content">
             <a href="https://dgsconsulting.solutions/" class="nav-logo">
-                <img src="images/logo-icon-t.png" alt="DGS Consulting">
+                <img src="asset/logo-mark-t.png" alt="DGS Consulting">
                 <span>DGS Consulting</span>
             </a>
             <div class="nav-links">
@@ -1297,7 +1297,6 @@
             
             const overallScore = Math.round((total / 50) * 100);
             
-            // Track score calculation in Google Analytics
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'assessment_scored', {
                     'event_category': 'Assessment',
@@ -1347,7 +1346,6 @@
                 if (results && !results.hasAttribute('data-scrolled')) {
                     results.setAttribute('data-scrolled', 'true');
                     
-                    // Track assessment completion in Google Analytics
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'assessment_completed', {
                             'event_category': 'Assessment',
@@ -1462,7 +1460,6 @@
         function scrollToAssessment() {
             const assessmentSection = document.getElementById('assessment');
             if (assessmentSection) {
-                // Track CTA clicks in Google Analytics
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'cta_clicked', {
                         'event_category': 'Engagement',
@@ -1480,7 +1477,6 @@
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
-                // Track form submission in Google Analytics
                 if (typeof gtag !== 'undefined') {
                     const score = document.getElementById('scoreHiddenOverall').value;
                     gtag('event', 'form_submitted', {
