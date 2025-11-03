@@ -6,7 +6,7 @@
 <meta name="description" content="How one auto shop recovered 120 hours per month and saved $23,400 annually through strategic system integration. Real case study from DGS Consulting.">
 <title>Auto Shop Case Study | DGS Consulting</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {margin: 0; padding: 0; box-sizing: border-box;}
 :root {
   --primary: #1E293B;
   --accent: #06B6D4;
@@ -15,256 +15,82 @@
   --dark: #1e1e1e;
   --white: #ffffff;
 }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: var(--primary);
-  background: var(--lighter);
-}
-/* Header Navigation */
-.top-nav {
-  background: #30360e;
-  padding: 15px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-.top-nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.top-nav .logo {
-  width: 50px;
-  height: auto;
-  filter: brightness(0) invert(1);
-}
-.nav-links { display: flex; gap: 20px; align-items: center; }
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background 0.3s;
-  font-size: 0.95rem;
-}
-.nav-links a:hover { background: rgba(255,255,255,0.1); }
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  color: white;
-  padding: 60px 20px 80px;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 auto 25px;
-  max-width: 900px;
-}
-.hero .subtitle {
-  font-size: 1.3rem;
-  opacity: 0.95;
-  max-width: 750px;
-  margin: 0 auto 30px;
-  font-weight: 400;
-  line-height: 1.5;
-}
-/* Social Share Buttons */
-.share-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-.share-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: rgba(255,255,255,0.2);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.share-btn:hover {
-  background: rgba(255,255,255,0.3);
-  transform: translateY(-2px);
-}
-.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-.section { padding: 60px 20px; }
-.section-alt { background: var(--light); }
-.section h2 { font-size: 2rem; color: var(--primary); margin-bottom: 30px; font-weight: 700; }
-.section h3 { font-size: 1.5rem; color: var(--primary); margin: 30px 0 15px; font-weight: 600; }
-.section p { font-size: 1.1rem; margin-bottom: 20px; color: var(--dark); }
-.feature-image {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  margin: 40px auto;
-  display: block;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(30, 41, 59, 0.15);
-}
-/* Stats & Cards */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin: 40px 0;
-}
-.stat-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(30, 41, 59, 0.1);
-  text-align: center;
-  border: 2px solid var(--light);
-}
-.stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
-.stat-label { font-size: 1rem; color: var(--primary); font-weight: 600; }
-.quote-block {
-  background: var(--light);
-  border-left: 4px solid var(--accent);
-  padding: 30px 40px;
-  margin: 40px 0;
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--primary);
-}
-.quote-author {
-  margin-top: 15px;
-  font-style: normal;
-  font-weight: 600;
-  color: var(--accent);
-  font-size: 1rem;
-}
-.bullet-list { margin: 20px 0 20px 40px; }
-.bullet-list li { margin: 15px 0; font-size: 1.1rem; color: var(--dark); }
-.highlight-box {
-  background: var(--light);
-  border-radius: 12px;
-  padding: 30px;
-  margin: 30px 0;
-  border: 2px solid #e5e7eb;
-}
-.highlight-box h4 { color: var(--accent); font-size: 1.2rem; margin-bottom: 15px; font-weight: 600; }
-.cta-section {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-}
-.cta-section h2 { color: white; font-size: 2.2rem; margin-bottom: 20px; }
-.cta-section p { color: white; opacity: 0.95; font-size: 1.2rem; margin-bottom: 30px; }
-.btn {
-  display: inline-block;
-  padding: 15px 40px;
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s;
-  margin: 10px;
-}
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  background: #0891b2;
-}
-.btn-outline {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-.btn-outline:hover {
-  background: white;
-  color: var(--primary);
-}
-/* Timeline & Comparison */
-.timeline { margin: 40px 0; }
-.timeline-item {
-  margin-bottom: 30px;
-  padding-left: 30px;
-  border-left: 3px solid var(--accent);
-  position: relative;
-}
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -7px;
-  top: 5px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.timeline-item h4 { color: var(--accent); font-size: 1.3rem; margin-bottom: 10px; }
-.timeline-item p { color: var(--dark); margin-bottom: 10px; }
-.comparison-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin: 30px 0;
-}
-.comparison-card { padding: 25px; border-radius: 8px; }
-.before { background: #fff5f5; border: 2px solid #c53030; }
-.after { background: #ecfeff; border: 2px solid var(--accent); }
-.before h4 { color: #c53030; }
-.after h4 { color: var(--primary); }
-.comparison-card ul { list-style: none; padding: 0; }
-.comparison-card li { padding: 8px 0; font-size: 1rem; color: var(--dark); }
-.comparison-card li::before { content: "→ "; font-weight: bold; }
-.disclaimer { background: var(--light); padding: 20px 30px; border-radius: 8px; font-size: 0.9rem; color: #64748b; margin-top: 60px; font-style: italic; border: 1px solid #e5e7eb; }
-.integration-box { background: #ecfeff; border: 2px solid var(--accent); border-radius: 12px; padding: 30px; margin: 30px 0; }
-.integration-box h4 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; font-weight: 600; }
-.challenge-box { background: #fff5e6; border-left: 4px solid #d97706; padding: 25px 30px; margin: 30px 0; border-radius: 8px; }
-.challenge-box h4 { color: #d97706; font-size: 1.2rem; margin-bottom: 12px; font-weight: 600; }
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--accent);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s;
-  opacity: 0;
-  pointer-events: none;
-}
-.back-to-top.visible { opacity: 1; pointer-events: auto; }
-.back-to-top:hover { background: var(--primary); transform: translateY(-5px); }
-footer { background: var(--primary); color: white; padding: 40px 20px; text-align: center; }
-footer p { color: rgba(255,255,255,0.8); margin-bottom: 10px; }
-footer a { color: var(--accent); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-
+body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--primary); background: var(--lighter);}
+.top-nav {background: #30360e; padding: 15px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
+.top-nav .container {display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;}
+.top-nav .logo {width: 50px; height: auto; filter: brightness(0) invert(1);}
+.nav-links {display: flex; gap: 20px; align-items: center;}
+.nav-links a {color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: background 0.3s; font-size: 0.95rem;}
+.nav-links a:hover {background: rgba(255,255,255,0.1);}
+.hero {background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white; padding: 60px 20px 80px; text-align: center;}
+.hero h1 {font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin: 0 auto 25px; max-width: 900px;}
+.hero .subtitle {font-size: 1.3rem; opacity: 0.95; max-width: 750px; margin: 0 auto 30px; font-weight: 400; line-height: 1.5;}
+.share-buttons {display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap;}
+.share-btn {display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.95rem; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.3);}
+.share-btn:hover {background: rgba(255,255,255,0.3); transform: translateY(-2px);}
+.share-btn svg {width: 18px; height: 18px; fill: currentColor;}
+.container {max-width: 900px; margin: 0 auto; padding: 0 20px;}
+.section {padding: 60px 20px;}
+.section-alt {background: var(--light);}
+.section h2 {font-size: 2rem; color: var(--primary); margin-bottom: 30px; font-weight: 700;}
+.section h3 {font-size: 1.5rem; color: var(--primary); margin: 30px 0 15px; font-weight: 600;}
+.section p {font-size: 1.1rem; margin-bottom: 20px; color: var(--dark);}
+.feature-image {width: 100%; max-width: 800px; height: 400px; margin: 40px auto; display: block; border-radius: 12px; box-shadow: 0 10px 40px rgba(30, 41, 59, 0.15);}
+.stats-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;}
+.stat-card {background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(30, 41, 59, 0.1); text-align: center; border: 2px solid var(--light);}
+.stat-number {font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 10px;}
+.stat-label {font-size: 1rem; color: var(--primary); font-weight: 600;}
+.quote-block {background: var(--light); border-left: 4px solid var(--accent); padding: 30px 40px; margin: 40px 0; font-style: italic; font-size: 1.2rem; color: var(--primary);}
+.quote-author {margin-top: 15px; font-style: normal; font-weight: 600; color: var(--accent); font-size: 1rem;}
+.bullet-list {margin: 20px 0 20px 40px;}
+.bullet-list li {margin: 15px 0; font-size: 1.1rem; color: var(--dark);}
+.highlight-box {background: var(--light); border-radius: 12px; padding: 30px; margin: 30px 0; border: 2px solid #e5e7eb;}
+.highlight-box h4 {color: var(--accent); font-size: 1.2rem; margin-bottom: 15px; font-weight: 600;}
+.cta-section {background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white; padding: 80px 20px; text-align: center;}
+.cta-section h2 {color: white; font-size: 2.2rem; margin-bottom: 20px;}
+.cta-section p {color: white; opacity: 0.95; font-size: 1.2rem; margin-bottom: 30px;}
+.btn {display: inline-block; padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; margin: 10px;}
+.btn:hover {transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); background: #0891b2;}
+.btn-outline {background: transparent; color: white; border: 2px solid white;}
+.btn-outline:hover {background: white; color: var(--primary);}
+.timeline {margin: 40px 0;}
+.timeline-item {margin-bottom: 30px; padding-left: 30px; border-left: 3px solid var(--accent); position: relative;}
+.timeline-item::before {content: ''; position: absolute; left: -7px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent);}
+.timeline-item h4 {color: var(--accent); font-size: 1.3rem; margin-bottom: 10px;}
+.timeline-item p {color: var(--dark); margin-bottom: 10px;}
+.comparison-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;}
+.comparison-card {padding: 25px; border-radius: 8px;}
+.before {background: #fff5f5; border: 2px solid #c53030;}
+.after {background: #ecfeff; border: 2px solid var(--accent);}
+.comparison-card h4 {margin-bottom: 15px; font-size: 1.2rem;}
+.before h4 {color: #c53030;}
+.after h4 {color: var(--primary);}
+.comparison-card ul {list-style: none; padding: 0;}
+.comparison-card li {padding: 8px 0; font-size: 1rem; color: var(--dark);}
+.comparison-card li::before {content: "→ "; font-weight: bold;}
+.disclaimer {background: var(--light); padding: 20px 30px; border-radius: 8px; font-size: 0.9rem; color: #64748b; margin-top: 60px; font-style: italic; border: 1px solid #e5e7eb;}
+.integration-box {background: #ecfeff; border: 2px solid var(--accent); border-radius: 12px; padding: 30px; margin: 30px 0;}
+.integration-box h4 {color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; font-weight: 600;}
+.challenge-box {background: #fff5e6; border-left: 4px solid #d97706; padding: 25px 30px; margin: 30px 0; border-radius: 8px;}
+.challenge-box h4 {color: #d97706; font-size: 1.2rem; margin-bottom: 12px; font-weight: 600;}
+.back-to-top {position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; opacity: 0; pointer-events: none;}
+.back-to-top.visible {opacity: 1; pointer-events: auto;}
+.back-to-top:hover {background: var(--primary); transform: translateY(-5px);}
+footer {background: var(--primary); color: white; padding: 40px 20px; text-align: center;}
+footer p {color: rgba(255,255,255,0.8); margin-bottom: 10px;}
+footer a {color: var(--accent); text-decoration: none;}
+footer a:hover {text-decoration: underline;}
 @media (max-width: 768px) {
-  .top-nav .container { flex-direction: column; gap: 15px; }
-  .hero { padding: 50px 20px 60px; }
-  .hero h1 { font-size: 1.9rem; }
-  .hero .subtitle { font-size: 1.1rem; }
-  .share-buttons { flex-direction: column; align-items: center; }
-  .section h2 { font-size: 1.6rem; }
-  .comparison-grid { grid-template-columns: 1fr; }
-  .stat-card { padding: 20px; }
-  .feature-image { height: auto; }
-  .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+.top-nav .container {flex-direction: column; gap: 15px;}
+.hero {padding: 50px 20px 60px;}
+.hero h1 {font-size: 1.9rem;}
+.hero .subtitle {font-size: 1.1rem;}
+.share-buttons {flex-direction: column; align-items: center;}
+.section h2 {font-size: 1.6rem;}
+.comparison-grid {grid-template-columns: 1fr;}
+.stat-card {padding: 20px;}
+.feature-image {height: 300px;}
+.back-to-top {bottom: 20px; right: 20px; width: 45px; height: 45px;}
 }
 </style>
 </head>
@@ -275,10 +101,9 @@ footer a:hover { text-decoration: underline; }
 <div class="container">
 <img src="../asset/logo-mark-t.png" alt="DGS Consulting" class="logo">
 <div class="nav-links">
-<a href="https://dgsconsulting.solutions/">Home</a>
+<a href="/">Home</a>
 <a href="/case-studies/">Case Studies</a>
-<a href="mailto:DGSConsult@consultant.com">Email</a>
-<a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a>
+<a href="/#contact">Contact</a>
 </div>
 </div>
 </nav>
@@ -288,11 +113,13 @@ footer a:hover { text-decoration: underline; }
 <div class="container">
 <h1>How One Auto Shop Recovered 120 Hours Per Month (Without Hiring Anyone)</h1>
 <p class="subtitle">A 6-month transformation that turned hidden inefficiencies into $23,400 in annual savings</p>
-
 <div class="share-buttons">
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dgsconsulting.solutions/case-studies/Auto-Shop.html" target="_blank" class="share-btn">Share on LinkedIn</a>
-<a href="mailto:?subject=Case Study: Auto Shop Efficiency&body=Check out this case study: https://dgsconsulting.solutions/case-studies/Auto-Shop.html" class="share-btn">Email This</a>
-<a href="#" onclick="window.print(); return false;" class="share-btn">Download PDF</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dgsconsulting.solutions/case-studies/Auto-Shop.html" target="_blank" class="share-btn">
+<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> Share on LinkedIn</a>
+<a href="mailto:?subject=Case Study: Auto Shop Efficiency&body=Check out this case study: https://dgsconsulting.solutions/case-studies/Auto-Shop.html" class="share-btn">
+<svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg> Email This</a>
+<a href="#" onclick="window.print(); return false;" class="share-btn">
+<svg viewBox="0 0 24 24"><path d="M14 3v-3h-4v3h-7v5h2.219c.465 3.156 3.219 5.568 6.531 5.931v2.069h-2c-2.761 0-5 2.239-5 5h16c0-2.761-2.239-5-5-5h-2v-2.069c3.312-.363 6.066-2.775 6.531-5.931h2.219v-5h-7zm-12 3h18v1h-18v-1z"/></svg> Download PDF</a>
 </div>
 </div>
 </div>
@@ -301,75 +128,127 @@ footer a:hover { text-decoration: underline; }
 <div class="section">
 <div class="container">
 <h2>The Breaking Point</h2>
-<img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" alt="Frustrated technician in service bay surrounded by paperwork" class="feature-image">
-<p>James's mid-sized auto repair shop had a stellar reputation and backlog, but he was drowning in admin work.</p>
-<p>"I'm spending more time managing systems than I ever did fixing cars," he told me. "My technicians are great, but by the time we finish a job and handle all the paperwork, it feels like we're running in mud."</p>
+<img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" alt="Frustrated technician in service bay" class="feature-image">
+<p>James’s mid-sized auto repair shop had seven skilled technicians and a backlog stretching two weeks, yet he was drowning in admin work. Weekly hours were extreme, and systems weren’t helping.</p>
 </div>
 </div>
 
-<!-- Discovery Section -->
+<!-- Discovery -->
 <div class="section section-alt">
 <div class="container">
 <h2>What We Discovered: The 15-Minute Tax</h2>
-<img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" alt="Desk with multiple computer screens showing different software systems" class="feature-image">
-<p>During a week-long operational audit, I shadowed James's team through their daily workflow. Here's what I observed:</p>
-<ul class="bullet-list">
-<li>Technicians were duplicating work across multiple software systems.</li>
-<li>Every job required 15 extra minutes of admin time due to inefficient workflows.</li>
-<li>Financial reporting was inconsistent and delayed.</li>
-</ul>
+<img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" alt="Desk with multiple computer screens showing software" class="feature-image">
 <div class="highlight-box">
-<h4>Key Insight</h4>
-<p>The combined effect of these inefficiencies was costing James 120 hours per month—equivalent to $23,400 in lost labor and missed billable time.</p>
+<h4>Workflow Per Job:</h4>
+<ol class="bullet-list">
+<li>Manual entry across QuickBooks, ShopMonkey, and spreadsheets</li>
+<li>Double-checking parts orders and invoices</li>
+<li>Follow-up emails for unapproved work orders</li>
+</ol>
+<p><strong>Result:</strong> 120 hours wasted per month (~$23,400 in potential revenue lost annually)</p>
+</div>
+
+<!-- Before/After Table -->
+<div class="comparison-grid">
+<div class="comparison-card before">
+<h4>Before DGS Consulting</h4>
+<ul>
+<li>120 admin hours wasted monthly</li>
+<li>Multiple duplicate entries across platforms</li>
+<li>High risk of missed invoices</li>
+<li>Limited visibility into job progress</li>
+</ul>
+</div>
+<div class="comparison-card after">
+<h4>After DGS Consulting</h4>
+<ul>
+<li>Admin hours cut to <strong>0</strong> for recurring tasks</li>
+<li>All systems integrated via automation</li>
+<li>Invoices automatically synced with QuickBooks</li>
+<li>Dashboard shows real-time job progress</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 
-<!-- Solution Section -->
+<!-- Solution -->
 <div class="section">
 <div class="container">
-<h2>The Solution: Integration Over Replacement</h2>
-<img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/shopmonkey-quickbooks.jpg" alt="Shopmonkey and QuickBooks logos connected with integration arrows" class="feature-image">
-<p>Rather than replacing existing systems, we focused on:</p>
-<ul class="bullet-list">
-<li>Integrating Shopmonkey with QuickBooks to eliminate duplicate entries.</li>
-<li>Automating customer notifications and invoice generation.</li>
-<li>Creating a clear workflow dashboard for all technicians.</li>
-</ul>
+<h2>The Solution</h2>
+<img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/shopmonkey-quickbooks.jpg" alt="ShopMonkey and QuickBooks integration" class="feature-image">
 <div class="integration-box">
-<h4>Results After 6 Months</h4>
+<h4>Implementation Highlights</h4>
 <ul class="bullet-list">
-<li>Recovered 120 admin hours per month.</li>
-<li>Saved $23,400 annually in labor.</li>
-<li>Technicians spent more time on actual repairs, improving customer satisfaction.</li>
-<li>Financial reporting became instantaneous and accurate.</li>
+<li>Integrated ShopMonkey with QuickBooks for seamless billing</li>
+<li>Automated recurring admin tasks to save 3 hours/day</li>
+<li>Created workflow dashboards for all technicians</li>
+<li>Streamlined parts ordering and invoice approvals</li>
 </ul>
 </div>
+
+<div class="quote-block">
+"Before DGS Consulting, I felt like I was constantly catching up. Now I have more time, less stress, and actual visibility into my shop’s performance. Their approach was practical and immediately effective."  
+<div class="quote-author">— James T., Shop Owner</div>
+</div>
 </div>
 </div>
 
-<!-- CTA Section -->
-<div class="cta-section">
-<div class="container">
-<h2>Ready to reclaim lost time in your business?</h2>
-<p>Book a free consultation and let’s uncover hidden inefficiencies costing you thousands.</p>
-<a href="https://dgsconsulting.solutions/Services/index.html" class="btn">Book a Call</a>
-<a href="https://dgsconsulting.github.io/SOP-Designer/" class="btn btn-outline">Explore SOP Templates</a>
-</div>
-</div>
-
-<!-- Disclaimer -->
+<!-- Results -->
 <div class="section section-alt">
 <div class="container">
-<p class="disclaimer">Results may vary depending on business size, workflow, and adoption of recommended practices. This case study reflects the experience of a single client.</p>
+<h2>Results & Impact</h2>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">120</div>
+<div class="stat-label">Hours Saved Per Month</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">$23,400</div>
+<div class="stat-label">Annual Revenue Preserved</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">7</div>
+<div class="stat-label">Technicians Optimized</div>
+</div>
+</div>
+<p>With simple system integrations, James recaptured time and money while improving technician efficiency and customer satisfaction.</p>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+<div class="container">
+<h2>Ready to recover hours and save money?</h2>
+<p>Let DGS Consulting streamline your business operations so you can focus on growth.</p>
+<a href="/#contact" class="btn">Book Your Free Consultation</a>
+<a href="/Services/index.html" class="btn btn-outline">View Our Services</a>
 </div>
 </div>
 
 <!-- Footer -->
 <footer>
-<p>&copy; 2025 DGS Consulting</p>
-<p><a href="https://dgsconsulting.solutions/">Home</a> | <a href="mailto:DGSConsult@consultant.com">Email</a> | <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a></p>
+<p>&copy; 2025 DGS Consulting. All rights reserved.</p>
+<p>Contact: <a href="mailto:DGSConsult@consultant.com">Email</a> | <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a></p>
 </footer>
+
+<script>
+// Back-to-top button
+const backToTop = document.createElement('a');
+backToTop.href = "#";
+backToTop.className = 'back-to-top';
+backToTop.innerHTML = '↑';
+document.body.appendChild(backToTop);
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) backToTop.classList.add('visible');
+  else backToTop.classList.remove('visible');
+});
+backToTop.addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
 
 </body>
 </html>
