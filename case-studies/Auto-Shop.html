@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How one auto shop recovered 120 hours per month and saved $23,400 annually through strategic system integration. Real case study from DGS Consulting.">
 <title>Auto Shop Case Study | DGS Consulting</title>
 <style>
 * {
@@ -11,26 +12,67 @@ padding: 0;
 box-sizing: border-box;
 }
 
+:root {
+  --primary: #1E293B;
+  --accent: #06B6D4;
+  --light: #F9FAFB;
+  --lighter: #FFFFFF;
+  --dark: #1e1e1e;
+  --white: #ffffff;
+}
+
 body {
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 line-height: 1.6;
-color: #30360e;
-background: #ffffff;
+color: var(--primary);
+background: var(--lighter);
+}
+
+/* Header Navigation */
+.top-nav {
+background: #30360e;
+padding: 15px 20px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.top-nav .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.top-nav .logo {
+width: 50px;
+height: auto;
+filter: brightness(0) invert(1);
+}
+
+.nav-links {
+display: flex;
+gap: 20px;
+align-items: center;
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+padding: 8px 16px;
+border-radius: 6px;
+transition: background 0.3s;
+font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+background: rgba(255,255,255,0.1);
 }
 
 .hero {
-background: linear-gradient(135deg, #30360e 0%, #787f56 100%);
+background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
 color: white;
 padding: 60px 20px 80px;
 text-align: center;
-}
-
-.hero-logo {
-width: 100px;
-height: auto;
-margin: 0 auto 40px;
-display: block;
-filter: brightness(0) invert(1);
 }
 
 .hero h1 {
@@ -45,9 +87,44 @@ max-width: 900px;
 font-size: 1.3rem;
 opacity: 0.95;
 max-width: 750px;
-margin: 0 auto;
+margin: 0 auto 30px;
 font-weight: 400;
 line-height: 1.5;
+}
+
+/* Social Share Buttons */
+.share-buttons {
+display: flex;
+gap: 15px;
+justify-content: center;
+margin-top: 30px;
+flex-wrap: wrap;
+}
+
+.share-btn {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+padding: 10px 20px;
+background: rgba(255,255,255,0.2);
+color: white;
+text-decoration: none;
+border-radius: 6px;
+font-weight: 500;
+font-size: 0.95rem;
+transition: all 0.3s;
+border: 1px solid rgba(255,255,255,0.3);
+}
+
+.share-btn:hover {
+background: rgba(255,255,255,0.3);
+transform: translateY(-2px);
+}
+
+.share-btn svg {
+width: 18px;
+height: 18px;
+fill: currentColor;
 }
 
 .container {
@@ -61,19 +138,19 @@ padding: 60px 20px;
 }
 
 .section-alt {
-background: #f8f7f5;
+background: var(--light);
 }
 
 .section h2 {
 font-size: 2rem;
-color: #30360e;
+color: var(--primary);
 margin-bottom: 30px;
 font-weight: 700;
 }
 
 .section h3 {
 font-size: 1.5rem;
-color: #30360e;
+color: var(--primary);
 margin: 30px 0 15px;
 font-weight: 600;
 }
@@ -81,23 +158,26 @@ font-weight: 600;
 .section p {
 font-size: 1.1rem;
 margin-bottom: 20px;
-color: #4a4d3a;
+color: var(--dark);
 }
 
 .feature-image {
 width: 100%;
 max-width: 800px;
-height: auto;
+height: 400px;
 margin: 40px auto;
 display: block;
-}
-
-.feature-image img {
-width: 100%;
-height: auto;
+background: var(--light);
 border-radius: 12px;
-box-shadow: 0 10px 40px rgba(48, 54, 14, 0.15);
-display: block;
+box-shadow: 0 10px 40px rgba(30, 41, 59, 0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--accent);
+font-size: 1.1rem;
+font-weight: 500;
+text-align: center;
+padding: 20px;
 }
 
 .stats-grid {
@@ -111,39 +191,39 @@ margin: 40px 0;
 background: white;
 padding: 30px;
 border-radius: 12px;
-box-shadow: 0 4px 20px rgba(48, 54, 14, 0.1);
+box-shadow: 0 4px 20px rgba(30, 41, 59, 0.1);
 text-align: center;
-border: 2px solid #d0c7b5;
+border: 2px solid var(--light);
 }
 
 .stat-number {
 font-size: 2.5rem;
 font-weight: 700;
-color: #787f56;
+color: var(--accent);
 margin-bottom: 10px;
 }
 
 .stat-label {
 font-size: 1rem;
-color: #30360e;
+color: var(--primary);
 font-weight: 600;
 }
 
 .quote-block {
-background: #f8f7f5;
-border-left: 4px solid #787f56;
+background: var(--light);
+border-left: 4px solid var(--accent);
 padding: 30px 40px;
 margin: 40px 0;
 font-style: italic;
 font-size: 1.2rem;
-color: #30360e;
+color: var(--primary);
 }
 
 .quote-author {
 margin-top: 15px;
 font-style: normal;
 font-weight: 600;
-color: #787f56;
+color: var(--accent);
 font-size: 1rem;
 }
 
@@ -154,26 +234,26 @@ margin: 20px 0 20px 40px;
 .bullet-list li {
 margin: 15px 0;
 font-size: 1.1rem;
-color: #4a4d3a;
+color: var(--dark);
 }
 
 .highlight-box {
-background: #f8f7f5;
+background: var(--light);
 border-radius: 12px;
 padding: 30px;
 margin: 30px 0;
-border: 2px solid #d0c7b5;
+border: 2px solid #e5e7eb;
 }
 
 .highlight-box h4 {
-color: #787f56;
+color: var(--accent);
 font-size: 1.2rem;
 margin-bottom: 15px;
 font-weight: 600;
 }
 
 .cta-section {
-background: linear-gradient(135deg, #30360e 0%, #787f56 100%);
+background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
 color: white;
 padding: 80px 20px;
 text-align: center;
@@ -195,8 +275,8 @@ margin-bottom: 30px;
 .btn {
 display: inline-block;
 padding: 15px 40px;
-background: #d0c7b5;
-color: #30360e;
+background: var(--accent);
+color: white;
 text-decoration: none;
 border-radius: 8px;
 font-weight: 600;
@@ -208,18 +288,18 @@ margin: 10px;
 .btn:hover {
 transform: translateY(-2px);
 box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-background: #e0d9c9;
+background: #0891b2;
 }
 
 .btn-outline {
 background: transparent;
 color: white;
-border: 2px solid #d0c7b5;
+border: 2px solid white;
 }
 
 .btn-outline:hover {
-background: #d0c7b5;
-color: #30360e;
+background: white;
+color: var(--primary);
 }
 
 .timeline {
@@ -229,17 +309,29 @@ margin: 40px 0;
 .timeline-item {
 margin-bottom: 30px;
 padding-left: 30px;
-border-left: 3px solid #787f56;
+border-left: 3px solid var(--accent);
+position: relative;
+}
+
+.timeline-item::before {
+content: '';
+position: absolute;
+left: -7px;
+top: 5px;
+width: 11px;
+height: 11px;
+border-radius: 50%;
+background: var(--accent);
 }
 
 .timeline-item h4 {
-color: #787f56;
+color: var(--accent);
 font-size: 1.3rem;
 margin-bottom: 10px;
 }
 
 .timeline-item p {
-color: #4a4d3a;
+color: var(--dark);
 margin-bottom: 10px;
 }
 
@@ -261,8 +353,8 @@ border: 2px solid #c53030;
 }
 
 .after {
-background: #f0f9f4;
-border: 2px solid #787f56;
+background: #ecfeff;
+border: 2px solid var(--accent);
 }
 
 .comparison-card h4 {
@@ -275,43 +367,125 @@ color: #c53030;
 }
 
 .after h4 {
-color: #30360e;
+color: var(--primary);
+}
+
+.comparison-card ul {
+list-style: none;
+padding: 0;
+}
+
+.comparison-card li {
+padding: 8px 0;
+font-size: 1rem;
+color: var(--dark);
+}
+
+.comparison-card li::before {
+content: "→ ";
+font-weight: bold;
 }
 
 .disclaimer {
-background: #f8f7f5;
+background: var(--light);
 padding: 20px 30px;
 border-radius: 8px;
 font-size: 0.9rem;
-color: #787f56;
+color: #64748b;
 margin-top: 60px;
 font-style: italic;
-border: 1px solid #d0c7b5;
+border: 1px solid #e5e7eb;
 }
 
 .integration-box {
-background: #e8f4e8;
-border: 2px solid #787f56;
+background: #ecfeff;
+border: 2px solid var(--accent);
 border-radius: 12px;
 padding: 30px;
 margin: 30px 0;
 }
 
 .integration-box h4 {
-color: #30360e;
+color: var(--primary);
 font-size: 1.2rem;
 margin-bottom: 15px;
 font-weight: 600;
 }
 
-@media (max-width: 768px) {
-.hero {
-padding: 50px 20px 60px;
+.challenge-box {
+background: #fff5e6;
+border-left: 4px solid #d97706;
+padding: 25px 30px;
+margin: 30px 0;
+border-radius: 8px;
 }
 
-.hero-logo {
-width: 70px;
-margin-bottom: 30px;
+.challenge-box h4 {
+color: #d97706;
+font-size: 1.2rem;
+margin-bottom: 12px;
+font-weight: 600;
+}
+
+.back-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background: var(--accent);
+color: white;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+font-size: 1.5rem;
+box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+transition: all 0.3s;
+opacity: 0;
+pointer-events: none;
+}
+
+.back-to-top.visible {
+opacity: 1;
+pointer-events: auto;
+}
+
+.back-to-top:hover {
+background: var(--primary);
+transform: translateY(-5px);
+}
+
+footer {
+background: var(--primary);
+color: white;
+padding: 40px 20px;
+text-align: center;
+}
+
+footer p {
+color: rgba(255,255,255,0.8);
+margin-bottom: 10px;
+}
+
+footer a {
+color: var(--accent);
+text-decoration: none;
+}
+
+footer a:hover {
+text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+.top-nav .container {
+flex-direction: column;
+gap: 15px;
+}
+
+.hero {
+padding: 50px 20px 60px;
 }
 
 .hero h1 {
@@ -320,6 +494,11 @@ font-size: 1.9rem;
 
 .hero .subtitle {
 font-size: 1.1rem;
+}
+
+.share-buttons {
+flex-direction: column;
+align-items: center;
 }
 
 .section h2 {
@@ -335,18 +514,53 @@ padding: 20px;
 }
 
 .feature-image {
-height: auto;
+height: 300px;
+font-size: 0.95rem;
+}
+
+.back-to-top {
+bottom: 20px;
+right: 20px;
+width: 45px;
+height: 45px;
 }
 }
 </style>
 </head>
 <body>
+<!-- Top Navigation -->
+<nav class="top-nav">
+<div class="container">
+<img src="../asset/logo-mark-t.png" alt="DGS Consulting" class="logo">
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/case-studies/">Case Studies</a>
+<a href="/#contact">Contact</a>
+</div>
+</div>
+</nav>
+
 <!-- Hero Section -->
 <div class="hero">
 <div class="container">
-<img src="../asset/logo-mark-t.png" alt="DGS Consulting" class="hero-logo">
 <h1>How One Auto Shop Recovered 120 Hours Per Month (Without Hiring Anyone)</h1>
 <p class="subtitle">A 6-month transformation that turned hidden inefficiencies into $23,400 in annual savings</p>
+
+<!-- Social Share Buttons -->
+<div class="share-buttons">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dgsconsulting.solutions/case-studies/Auto-Shop.html" target="_blank" class="share-btn" title="Share on LinkedIn">
+<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+Share on LinkedIn
+</a>
+<a href="mailto:?subject=Case Study: Auto Shop Efficiency&body=I thought you'd find this case study interesting: https://dgsconsulting.solutions/case-studies/Auto-Shop.html" class="share-btn" title="Share via Email">
+<svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+Email This
+</a>
+<a href="#" onclick="window.print(); return false;" class="share-btn" title="Download PDF">
+<svg viewBox="0 0 24 24"><path d="M14 3v-3h-4v3h-7v5h2.219c.465 3.156 3.219 5.568 6.531 5.931v2.069h-2c-2.761 0-5 2.239-5 5h16c0-2.761-2.239-5-5-5h-2v-2.069c3.312-.363 6.066-2.775 6.531-5.931h2.219v-5h-7zm-12 3h18v1h-18v-1z"/></svg>
+Download PDF
+</a>
+</div>
 </div>
 </div>
 
@@ -354,13 +568,13 @@ height: auto;
 <div class="section">
 <div class="container">
 <h2>The Breaking Point</h2>
-<div class="feature-image real">
-<img src="images/frustrated-tech-empty-bay.jpg" alt="Frustrated technician and empty service bay">
+<div class="feature-image">
+Frustrated technician in service bay surrounded by paperwork
 </div>
-<p>When I walked into this mid-sized auto repair shop in Eastern Canada, the owner—let's call him James—was working his fourth consecutive 60-hour week. His  multi-bay operation with 5-10 technicians had a stellar reputation, loyal customers, and a backlog of work that stretched two weeks out.</p>
+<p>When James and I first connected, his mid-sized auto repair shop in Eastern Canada was working his fourth consecutive 60-hour week. His multi-bay operation with seven skilled technicians had a stellar reputation, loyal customers, and a backlog of work that stretched two weeks out.</p>
 <p>By every visible measure, the business was thriving.</p>
 <p>But James was drowning.</p>
-<p>"I'm spending more time managing systems than I ever did fixing cars," he told me. "My technicians are great, but by the time we finish a job and do all the paperwork, it feels like we're running in mud."</p>
+<p>"I'm spending more time managing systems than I ever did fixing cars," he told me during our initial call. "My technicians are great at their work, but by the time we finish a job and handle all the paperwork, it feels like we're running in mud."</p>
 <p>He wasn't wrong. And the cost was far higher than he realized.</p>
 </div>
 </div>
@@ -369,10 +583,10 @@ height: auto;
 <div class="section section-alt">
 <div class="container">
 <h2>What We Discovered: The 15-Minute Tax</h2>
-<div class="feature-image real">
-<img src="images/chaotic-workspace.jpg" alt="Chaotic workspace with multiple systems">
+<div class="feature-image">
+Desk with multiple computer screens showing different software systems
 </div>
-<p>During a week-long operational audit, I shadowed the team through their daily workflow. Here's what I observed:</p>
+<p>During a week-long operational audit, I shadowed James's team through their daily workflow. Here's what I observed:</p>
 <div class="highlight-box">
 <h4>Every time a technician completed a repair:</h4>
 <ol class="bullet-list">
@@ -413,10 +627,10 @@ height: auto;
 <div class="section">
 <div class="container">
 <h2>The Solution: Integration Over Replacement</h2>
-<div class="feature-image real">
-<img src="images/shopmonkey-quickbooks.jpg" alt="Shopmonkey and QuickBooks integration">
+<div class="feature-image">
+Shopmonkey and QuickBooks logos connected with integration arrows
 </div>
-<p>Rather than ripping out and replacing everything, we implemented a strategic integration between two powerful tools:</p>
+<p>Rather than ripping out and replacing everything—which James initially feared would disrupt operations—we took a different approach: strategic integration between two powerful tools already proven in the automotive industry.</p>
 <div class="highlight-box">
 <h4>Shopmonkey (Operations Hub)</h4>
 <ul class="bullet-list">
@@ -429,22 +643,157 @@ height: auto;
 <div class="highlight-box">
 <h4>QuickBooks Online (Financial Hub)</h4>
 <ul class="bullet-list">
-<li>Automatic invoice generation when jobs close in Shopmonkey</li>
-<li>Real-time financial reporting and P&L visibility</li>
+<li>Invoice creation triggered automatically when jobs close in Shopmonkey</li>
+<li>Real-time financial reporting and profit-loss visibility</li>
 <li>Seamless bank reconciliation</li>
 <li>Tax-ready record keeping</li>
 </ul>
 </div>
 <div class="integration-box">
-<h4>The Integration:</h4>
+<h4>The Integration Magic:</h4>
+<p>When a technician marks a job done in Shopmonkey:</p>
 <ol class="bullet-list">
 <li>Parts are automatically deducted from inventory</li>
-<li>An invoice is instantly created in QuickBooks</li>
-<li>The customer receives a text notification</li>
-<li>James gets real-time P&L updates</li>
+<li>An invoice creates itself in QuickBooks</li>
+<li>The customer receives a text notification their car is ready</li>
+<li>James sees updated profit-loss numbers in real-time</li>
 </ol>
 <p><strong>Time per job: Under 2 minutes</strong></p>
 </div>
+</div>
+</div>
+
+<!-- Implementation Journey -->
+<div class="section section-alt">
+<div class="container">
+<h2>The Implementation Journey</h2>
+<p>Every transformation has its challenges. Here's what actually happened:</p>
+
+<div class="challenge-box">
+<h4>Week 1-2: The Resistance</h4>
+<p>Two senior technicians were skeptical. "Another system to learn?" one asked during training. I got it—they'd been burned before by clunky software that promised efficiency but delivered frustration.</p>
+<p>We addressed this by having them test-drive Shopmonkey on non-critical jobs first, building confidence before full rollout.</p>
+</div>
+
+<div class="timeline">
+<div class="timeline-item">
+<h4>Weeks 3-4: System Setup & Data Migration</h4>
+<p>We migrated customer records, historical job data, and inventory lists. This was tedious but crucial—bad data in means bad results out.</p>
+<p>James and I worked evenings to avoid disrupting daily operations.</p>
+</div>
+
+<div class="timeline-item">
+<h4>Weeks 5-6: Team Training & Adjustment</h4>
+<p>Hands-on training with each technician. We learned that Sarah, one of the younger techs, picked it up instantly and became our internal champion, helping others troubleshoot.</p>
+<p>The learning curve was steeper for two techs who weren't as comfortable with mobile devices, but within 10 days everyone was proficient.</p>
+</div>
+
+<div class="timeline-item">
+<h4>Weeks 7-8: Go-Live & Optimization</h4>
+<p>We ran both old and new systems in parallel for two weeks to catch any gaps. Found a few workflow tweaks needed (like customizing invoice templates and adjusting inventory reorder points).</p>
+<p>By week 8, the old systems were shut down completely.</p>
+</div>
+
+<div class="timeline-item">
+<h4>Weeks 9-24: Monitoring & Refinement</h4>
+<p>Monthly check-ins to review metrics, address questions, and optimize workflows. The real magic happened here—as confidence grew, the team suggested improvements we hadn't thought of.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Results Section -->
+<div class="section">
+<div class="container">
+<h2>The Results: From Chaos to Clarity</h2>
+
+<div class="comparison-grid">
+<div class="comparison-card before">
+<h4>Before DGS</h4>
+<ul>
+<li>15-20 minutes admin per job</li>
+<li>280-390 hours wasted monthly</li>
+<li>12-14 day turnaround times</li>
+<li>No real-time financial visibility</li>
+<li>Techs frustrated with paperwork</li>
+<li>Missed upsell opportunities</li>
+</ul>
+</div>
+<div class="comparison-card after">
+<h4>After DGS</h4>
+<ul>
+<li>Under 2 minutes per job</li>
+<li>120+ hours recovered monthly</li>
+<li>7-9 day turnaround times</li>
+<li>Live dashboard James checks daily</li>
+<li>Techs focused on repairs</li>
+<li>22% increase in service add-ons</li>
+</ul>
+</div>
+</div>
+
+<h3>By the Numbers</h3>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">120+</div>
+<div class="stat-label">Hours Saved Per Month</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">$23,400</div>
+<div class="stat-label">Annual Labor Savings</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">40%</div>
+<div class="stat-label">Faster Turnaround</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">22%</div>
+<div class="stat-label">Increase in Add-On Services</div>
+</div>
+</div>
+
+<div class="quote-block">
+"We went from drowning in paperwork to actually running a shop again. My technicians are happier—they're doing what they're good at instead of fighting with spreadsheets. Customers get their cars back faster. And for the first time in years, I can see my numbers in real-time and make smart decisions instead of guessing. This wasn't just an efficiency upgrade—it gave me my life back."
+<div class="quote-author">— James, Shop Owner</div>
+</div>
+
+<h3>The Unexpected Wins</h3>
+<ul class="bullet-list">
+<li><strong>Customer satisfaction jumped</strong> – Faster turnarounds and text notifications reduced phone calls by 30%</li>
+<li><strong>Upsell opportunities surfaced</strong> – When techs had more time with vehicles, they spotted additional service needs worth $18K in the first six months</li>
+<li><strong>James hired strategically</strong> – With labor costs under control and clear financial visibility, he confidently brought on an eighth technician to handle growing demand</li>
+<li><strong>Team retention improved</strong> – Two technicians who were considering leaving stayed because the job became "less annoying"</li>
+</ul>
+</div>
+</div>
+
+<!-- Key Takeaways -->
+<div class="section section-alt">
+<div class="container">
+<h2>Key Takeaways</h2>
+<div class="highlight-box">
+<h4>What Made This Work</h4>
+<ul class="bullet-list">
+<li><strong>We didn't assume technology was the answer</strong> – We audited workflows first to understand the real problem</li>
+<li><strong>Integration beat replacement</strong> – Connecting existing tools was faster, cheaper, and less disruptive than starting from scratch</li>
+<li><strong>Change management mattered</strong> – Getting buy-in from skeptical technicians required patience and proof, not just promises</li>
+<li><strong>Small wins built momentum</strong> – Starting with pilot users and parallel systems reduced risk and built confidence</li>
+<li><strong>Ongoing optimization was essential</strong> – The first 8 weeks got them live; the next 16 weeks made it truly effective</li>
+</ul>
+</div>
+
+<p><strong>The Bottom Line:</strong> James's shop wasn't failing—it was just operating with invisible handcuffs. By streamlining workflows and connecting systems, we unlocked capacity they already had. No additional staff. No major capital investment. Just smarter processes that let skilled people do what they do best.</p>
+</div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+<div class="container">
+<h2>Is Your Business Leaving Money on the Table?</h2>
+<p>If you're working harder but not seeing the results you expect, hidden inefficiencies might be costing you thousands every month.</p>
+<p>Let's uncover what's holding you back.</p>
+<a href="/#contact" class="btn">Get Your Free Efficiency Audit</a>
+<a href="/case-studies/" class="btn btn-outline">See More Case Studies</a>
 </div>
 </div>
 
@@ -452,10 +801,50 @@ height: auto;
 <div class="section">
 <div class="container">
 <div class="disclaimer">
-<strong>Confidentiality Notice:</strong> This case study is based on actual client work performed by DGS Consulting. All client names, business names, specific identifying details, locations, and proprietary information have been anonymized or modified to protect client confidentiality and comply with non-disclosure agreements. The methodologies, results, and outcomes described are representative of actual work performed, but specific figures and timelines may have been adjusted for illustrative purposes. Results are not guaranteed and may vary based on individual business circumstances, existing systems, and implementation approach. Past performance does not guarantee future results.
-                This case study has been reviewed and approved by the client for publication. All details shared with explicit written consent.
+<strong>Confidentiality Notice:</strong> This case study is based on actual client work performed by DGS Consulting. All client names, business names, specific identifying details, locations, and proprietary information have been anonymized or modified to protect client confidentiality and comply with non-disclosure agreements. The methodologies, results, and outcomes described are representative of actual work performed, but specific figures and timelines may have been adjusted for illustrative purposes. Results are not guaranteed and may vary based on individual business circumstances, existing systems, and implementation approach. Past performance does not guarantee future results. This case study has been reviewed and approved by the client for publication with explicit written consent.
 </div>
 </div>
 </div>
+
+<!-- Footer -->
+<footer>
+<p>&copy; 2025 DGS Consulting | Process & Tech Optimization for Small Businesses</p>
+<p><a href="/">Home</a> | <a href="/case-studies/">Case Studies</a> | <a href="/#contact">Contact</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top" id="backToTop">↑</a>
+
+<script>
+// Back to Top Button
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+if (window.scrollY > 300) {
+backToTop.classList.add('visible');
+} else {
+backToTop.classList.remove('visible');
+}
+});
+
+backToTop.addEventListener('click', (e) => {
+e.preventDefault();
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+const href = this.getAttribute('href');
+if (href !== '#' && href !== '#top') {
+e.preventDefault();
+const target = document.querySelector(href);
+if (target) {
+target.scrollIntoView({ behavior: 'smooth' });
+}
+}
+});
+});
+</script>
 </body>
 </html>
