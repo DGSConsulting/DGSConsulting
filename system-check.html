@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
+    <title>Your Systems Aren't Broken — They're Bloated | DGS Consulting</title>
+    <meta name="description" content="Fix your systems, not add more tools. Get a free 5-minute audit and discover what's costing you time and money.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE763J677E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WE763J677E');
+    </script>
+    <style>
+        :root {
+            --primary: #1E293B;
+            --accent: #06B6D4;
+            --light: #F9FAFB;
+            --lighter: #FFFFFF;
+            --success: #10B981;
+            --error: #EF4444;
+            --gray: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--lighter);
+            color: var(--primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background: var(--lighter);
+            border-bottom: 1px solid #E2E8F0;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+        }
+
+        .hero .subheading {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            background: var(--accent);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
+            background: #0891B2;
+        }
+
+        .trust-bar {
+            margin-top: 35px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .trust-bar span {
+            margin: 0 20px;
+            display: inline-block;
+        }
+
+        /* Benchmark Section */
+        .benchmark {
+            background: var(--lighter);
+            padding: 60px 20px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .benchmark-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .benchmark h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .benchmark-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #E2E8F0;
+            transition: all 0.3s ease;
+        }
+
+        .benchmark-card.highlight {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.02) 100%);
+        }
+
+        .benchmark-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .benchmark-card.highlight .benchmark-label {
+            color: var(--accent);
+        }
+
+        .benchmark-score {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .benchmark-card.highlight .benchmark-score {
+            color: var(--accent);
+        }
+
+        .benchmark-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .benchmark-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(6, 182, 212, 0.05);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .benchmark-note strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--light);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .philosophy p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .philosophy .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--lighter);
+            padding: 70px 20px;
+        }
+
+        .problem-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .problem-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .problem-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .problem-header p {
+            font-size: 1.15rem;
+            color: var(--gray);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 4px solid var(--error);
+        }
+
+        .problem-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .problem-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .problem-card .cost {
+            display: block;
+            margin-top: 15px;
+            color: var(--error);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        /* Proof Section */
+        .proof-section {
+            background: var(--light);
+            padding: 70px 20px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .proof-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .proof-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .proof-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .proof-header p {
+            font-size: 1.15rem;
+            color: var(--gray);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .proof-card {
+            background: var(--lighter);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .proof-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .proof-quote {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .proof-author {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .proof-author strong {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .proof-author span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .proof-result {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .proof-cta {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #E2E8F0;
+        }
+
+        .proof-cta p {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Assessment Section */
+        .assessment-section {
+            background: var(--lighter);
+            padding: 80px 20px;
+        }
+
+        .assessment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--lighter);
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(30, 41, 59, 0.1);
+            border: 1px solid #E2E8F0;
+        }
+
+        .assessment-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .assessment-header .step-badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .assessment-header h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .assessment-header p {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .question {
+            margin-bottom: 45px;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .question-number {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .question-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 10px;
+            background: #E2E8F0;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .slider-value {
+            background: var(--accent);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* Results */
+        .results {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.02) 100%);
+            border-radius: 16px;
+            padding: 45px 35px;
+            margin-top: 50px;
+            text-align: center;
+            border: 2px solid rgba(6, 182, 212, 0.15);
+        }
+
+        .results h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .score-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--lighter);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.15);
+            border: 3px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .score-display {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .score-display::after {
+            content: '/100';
+            font-size: 1.3rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .score-label {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .recommendation {
+            background: var(--lighter);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            text-align: left;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .recommendation:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .recommendation h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .recommendation p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .recommendation .client-proof {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--light);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: var(--primary);
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section .subtitle {
+            color: var(--gray);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-form {
+            text-align: left;
+            background: var(--lighter);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--lighter);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group.score-breakdown {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+        }
+
+        .score-breakdown label {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .score-item:last-child {
+            border-bottom: none;
+        }
+
+        .score-item-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .score-item-value {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .score-overall {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .score-overall-label {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .score-overall-value {
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.35);
+            background: #0891B2;
+        }
+
+        .guarantee {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 50px 20px 40px;
+        }
+
+        .footer-brand {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0891B2;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: var(--success);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            display: none;
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subheading {
+                font-size: 1.1rem;
+            }
+
+            .assessment-container {
+                padding: 30px 25px;
+            }
+
+            .score-circle {
+                width: 140px;
+                height: 140px;
+            }
+
+            .score-display {
+                font-size: 3.2rem;
+            }
+
+            .problem-grid, .benchmark-grid, .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .question {
+                padding: 20px;
+            }
+
+            .cta-form {
+                padding: 30px 20px;
+            }
+
+            .trust-bar span {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <a href="https://dgsconsulting.solutions/" class="nav-logo">
+                <img src="asset/logo-mark-t.png" alt="DGS Consulting">
+                <span>DGS Consulting</span>
+            </a>
+            <div class="nav-links">
+                <a href="https://dgsconsulting.solutions/">Home</a>
+                <a href="https://dgsconsulting.solutions/Services/index.html">Services</a>
+                <a href="https://dgsconsulting.solutions/#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🧭 Free 5-Minute Systems Audit</span>
+            <h1>Your Systems Aren't Broken—They're Bloated</h1>
+            <p class="subheading">I help small business owners reclaim time by fixing the systems they already use. No new tools. No jargon. Just clarity.</p>
+            <p class="tagline">— Darren Snook, Systems Clarity Consultant</p>
+            <button class="hero-cta" onclick="scrollToAssessment()">Find What's Costing You Time →</button>
+            <div class="trust-bar">
+                <span>⚡ 5 minutes</span>
+                <span>📊 Instant clarity</span>
+                <span>🎯 Actionable fixes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark Section -->
+    <section class="benchmark">
+        <div class="benchmark-content">
+            <h2>Where Do Most Businesses Actually Stand?</h2>
+            <div class="benchmark-grid">
+                <div class="benchmark-card">
+                    <div class="benchmark-label">Struggling</div>
+                    <div class="benchmark-score">0-40</div>
+                    <p class="benchmark-desc">Drowning in chaos. Systems actively working against you. Every day is firefighting.</p>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-label">Average Business</div>
+                    <div class="benchmark-score">41-60</div>
+                    <p class="benchmark-desc">Getting by, but leaking time and money daily. Growth feels impossible without more hours.</p>
+                </div>
+                <div class="benchmark-card highlight">
+                    <div class="benchmark-label">High Performer</div>
+                    <div class="benchmark-score">61-80</div>
+                    <p class="benchmark-desc">Solid systems. Clear processes. Can scale without breaking. This is where you want to be.</p>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-label">Elite</div>
+                    <div class="benchmark-score">81-100</div>
+                    <p class="benchmark-desc">Everything runs without you. Business is a machine. You work on it, not in it.</p>
+                </div>
+            </div>
+            <div class="benchmark-note">
+                <strong>Reality check:</strong> Most small businesses score 35-55. They're functional, but inefficient. The gap between average and high performer? Usually 3-5 key fixes.
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="philosophy-content">
+            <h2>Simplicity Scales. Complexity Costs.</h2>
+            <p>Most business owners aren't lazy. <strong>They're buried in noise.</strong></p>
+            <p>Every redundant tool costs you twice — in <span class="highlight">money and focus</span>.</p>
+            <p>You don't need a 6-month plan. You need <span class="highlight">6 good weeks</span>.</p>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="problem-content">
+            <div class="problem-header">
+                <h2>Here's What's Really Happening</h2>
+                <p>Most small businesses suffer from the same three problems</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>🔧 Tool Overload</h3>
+                    <p>You're paying for 5+ subscriptions that do overlapping things. Your team wastes hours manually syncing data between them.</p>
+                    <span class="cost">Cost: $200-500/month + 10-15 hours/week</span>
+                </div>
+                <div class="problem-card">
+                    <h3>🌀 Process Chaos</h3>
+                    <p>No one really knows "how we do things here." Every project is reinvented. Every handoff is a gamble.</p>
+                    <span class="cost">Cost: 30-40% longer project cycles</span>
+                </div>
+                <div class="problem-card">
+                    <h3>📊 No Visibility</h3>
+                    <p>You can't see what's working. Important work falls through cracks. You only find problems when clients complain.</p>
+                    <span class="cost">Cost: Lost clients + firefighting stress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section class="proof-section">
+        <div class="proof-content">
+            <div class="proof-header">
+                <h2>This Process Works. Here's Proof.</h2>
+                <p>Real businesses. Real results. No fluff.</p>
+            </div>
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-quote">
+                        "We found $4,700 in savings from unused and under-used software."
+                    </div>
+                    <div class="proof-author">
+                        <strong>Marcus</strong>
+                        <span>Insurance Broker</span>
+                    </div>
+                    <div class="proof-result">💰 $4,700/year saved</div>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-quote">
+                        "I was able to remove 10 hours a week in general admin by automating repetitive tasks."
+                    </div>
+                    <div class="proof-author">
+                        <strong>Eugene</strong>
+                        <span>IT Services</span>
+                    </div>
+                    <div class="proof-result">⏰ 10 hours/week reclaimed</div>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-quote">
+                        "Darren worked with us on improving our SOPs which allowed me to expand to another truck and team."
+                    </div>
+                    <div class="proof-author">
+                        <strong>Armin</strong>
+                        <span>Janitorial Services</span>
+                    </div>
+                    <div class="proof-result">📈 Scaled 2x without chaos</div>
+                </div>
+            </div>
+            <div class="proof-cta">
+                <p><strong>Ready to see what's possible for your business?</strong></p>
+                <button class="hero-cta" onclick="scrollToAssessment()">Take the 5-Minute Assessment →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Tool -->
+    <section class="assessment-section" id="assessment">
+        <div class="assessment-container">
+            <div class="assessment-header">
+                <span class="step-badge">Step 1 → Diagnose</span>
+                <h2>5-Minute Systems Health Check</h2>
+                <p>Be honest that's how we find what's costing you the most</p>
+            </div>
+
+            <div id="assessmentForm">
+                <div class="question">
+                    <div class="question-number">Question 1 of 5</div>
+                    <label class="question-label">How efficient are your daily operations?</label>
+                    <div class="slider-wrapper">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="q1" aria-label="Operational efficiency">
+                        <div class="slider-labels">
+                            <span>Chaotic</span>
+                            <span class="slider-value" id="q1-val">5</span>
+                            <span>Smooth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 2 of 5</div>
+                    <label class="question-label">Do your tools actually talk to each other?</label>
+                    <div class="slider-wrapper">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="q2" aria-label="System integration">
+                        <div class="slider-labels">
+                            <span>Total islands</span>
+                            <span class="slider-value" id="q2-val">5</span>
+                            <span>Fully connected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 3 of 5</div>
+                    <label class="question-label">How much manual, repetitive work happens daily?</label>
+                    <div class="slider-wrapper">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="q3" aria-label="Manual work level">
+                        <div class="slider-labels">
+                            <span>Constant grind</span>
+                            <span class="slider-value" id="q3-val">5</span>
+                            <span>Mostly automated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 4 of 5</div>
+                    <label class="question-label">Does your team know exactly what to do, every time?</label>
+                    <div class="slider-wrapper">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="q4" aria-label="Process clarity">
+                        <div class="slider-labels">
+                            <span>Always guessing</span>
+                            <span class="slider-value" id="q4-val">5</span>
+                            <span>Crystal clear</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 5 of 5</div>
+                    <label class="question-label">Could you double your business without breaking?</label>
+                    <div class="slider-wrapper">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="q5" aria-label="Scalability">
+                        <div class="slider-labels">
+                            <span>Would collapse</span>
+                            <span class="slider-value" id="q5-val">5</span>
+                            <span>Ready to scale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results" id="results">
+                <h3>Your Systems Health Score</h3>
+                <div class="score-circle">
+                    <div class="score-display" id="overallScore">50</div>
+                </div>
+                <p class="score-label" id="scoreLabel">Move the sliders to see where you stand</p>
+                
+                <div class="recommendations-grid" id="recommendations"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Let's Fix What's Broken</h2>
+            <p class="subtitle">Based on your score, I'll create a clear, practical plan to reclaim 10-15 hours per week—starting in the next 30 days.</p>
+            
+            <div class="success-message" id="successMessage">
+                ✓ Got it. Check your email—I'll be in touch within 24 hours with your action plan.
+            </div>
+
+            <form class="cta-form" id="contactForm" action="https://formspree.io/f/mldwklqe" method="POST">
+                <div class="form-group score-breakdown">
+                    <label>Your Systems Health Score 📊</label>
+                    <div class="score-item">
+                        <span class="score-item-label">Operational Efficiency</span>
+                        <span class="score-item-value" id="scoreQ1">5/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-item-label">System Integration</span>
+                        <span class="score-item-value" id="scoreQ2">5/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-item-label">Automation Level</span>
+                        <span class="score-item-value" id="scoreQ3">5/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-item-label">Process Clarity</span>
+                        <span class="score-item-value" id="scoreQ4">5/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-item-label">Scalability</span>
+                        <span class="score-item-value" id="scoreQ5">5/10</span>
+                    </div>
+                    <div class="score-overall">
+                        <span class="score-overall-label">Overall Score</span>
+                        <span class="score-overall-value" id="formScoreDisplay">50/100</span>
+                    </div>
+                </div>
+
+                <input type="hidden" name="score_overall" id="scoreHiddenOverall">
+                <input type="hidden" name="score_breakdown" id="scoreHiddenBreakdown">
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" required placeholder="you@company.com" aria-label="Email">
+                </div>
+                
+                <div class="form-group">
+                    <label>Company Name (Optional)</label>
+                    <input type="text" name="company" placeholder="Your Business" aria-label="Company">
+                </div>
+
+                <div class="form-group">
+                    <label>What's Your Biggest Time Drain Right Now? (Optional)</label>
+                    <textarea name="challenge" placeholder="e.g., Manually copying data between our CRM and project tool every morning..." aria-label="Business challenge"></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="🧭 New Systems Audit - Red Flag Request">
+                <input type="hidden" name="_next" value="https://dgsconsulting.solutions/thank-you">
+                
+                <button type="submit" class="submit-btn">Get My Action Plan →</button>
+                
+                <p class="guarantee">🔒 No fluff. No sales pitch. Just a clear plan.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">
+            <h3>Darren Snook | DGS Consulting</h3>
+            <p>Clarity over complexity.</p>
+        </div>
+        <p style="margin: 20px 0; opacity: 0.8;">Systems Clarity Consultant | Simplify your operations. Reclaim your time.</p>
+        <p>
+            <a href="mailto:DGSConsult@consultant.com">Email</a>
+            <a href="https://www.linkedin.com/company/dgs-consutling/" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/dgsconsult/" target="_blank">Instagram</a>
+        </p>
+        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.7;">© 2025 DGS Consulting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const sliders = ['q1', 'q2', 'q3', 'q4', 'q5'];
+        let scores = {};
+
+        function initSliders() {
+            sliders.forEach(id => {
+                const slider = document.getElementById(id);
+                const valueDisplay = document.getElementById(id + '-val');
+                
+                if (slider && valueDisplay) {
+                    slider.addEventListener('input', function() {
+                        valueDisplay.textContent = slider.value;
+                        updateScore();
+                    });
+                }
+            });
+            
+            updateScore();
+        }
+
+        function updateScore() {
+            let total = 0;
+            let completed = 0;
+            
+            sliders.forEach(id => {
+                const slider = document.getElementById(id);
+                if (slider) {
+                    const value = parseInt(slider.value);
+                    scores[id] = value;
+                    total += value;
+                    if (value !== 5) completed++;
+                }
+            });
+            
+            const overallScore = Math.round((total / 50) * 100);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'assessment_scored', {
+                    'event_category': 'Assessment',
+                    'event_label': 'Score Calculated',
+                    'value': overallScore
+                });
+            }
+            
+            const scoreDisplay = document.getElementById('overallScore');
+            if (scoreDisplay) {
+                scoreDisplay.textContent = overallScore;
+            }
+            
+            const formScoreDisplay = document.getElementById('formScoreDisplay');
+            if (formScoreDisplay) {
+                formScoreDisplay.textContent = overallScore + '/100';
+            }
+            
+            const scoreQ1 = document.getElementById('scoreQ1');
+            const scoreQ2 = document.getElementById('scoreQ2');
+            const scoreQ3 = document.getElementById('scoreQ3');
+            const scoreQ4 = document.getElementById('scoreQ4');
+            const scoreQ5 = document.getElementById('scoreQ5');
+            
+            if (scoreQ1) scoreQ1.textContent = scores.q1 + '/10';
+            if (scoreQ2) scoreQ2.textContent = scores.q2 + '/10';
+            if (scoreQ3) scoreQ3.textContent = scores.q3 + '/10';
+            if (scoreQ4) scoreQ4.textContent = scores.q4 + '/10';
+            if (scoreQ5) scoreQ5.textContent = scores.q5 + '/10';
+            
+            const hiddenOverall = document.getElementById('scoreHiddenOverall');
+            const hiddenBreakdown = document.getElementById('scoreHiddenBreakdown');
+            
+            if (hiddenOverall) {
+                hiddenOverall.value = overallScore + '/100';
+            }
+            
+            if (hiddenBreakdown) {
+                hiddenBreakdown.value = `Efficiency: ${scores.q1}/10 | Integration: ${scores.q2}/10 | Automation: ${scores.q3}/10 | Clarity: ${scores.q4}/10 | Scalability: ${scores.q5}/10`;
+            }
+            
+            updateScoreLabel(overallScore);
+            generateRecommendations(scores, overallScore);
+            
+            if (completed >= 3) {
+                const results = document.getElementById('results');
+                if (results && !results.hasAttribute('data-scrolled')) {
+                    results.setAttribute('data-scrolled', 'true');
+                    
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'assessment_completed', {
+                            'event_category': 'Assessment',
+                            'event_label': 'All Questions Answered'
+                        });
+                    }
+                    
+                    setTimeout(() => {
+                        results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                }
+            }
+        }
+
+        function updateScoreLabel(score) {
+            const label = document.getElementById('scoreLabel');
+            if (!label) return;
+            
+            if (score >= 80) {
+                label.innerHTML = '✓ <strong>Strong foundation.</strong> You\'re ahead of most. Let\'s find the 10-20% still hidden.';
+                label.style.color = '#10B981';
+            } else if (score >= 60) {
+                label.innerHTML = '⚠️ <strong>Solid, but leaking.</strong> A few key fixes could save you 10-15 hours/week.';
+                label.style.color = '#06B6D4';
+            } else if (score >= 40) {
+                label.innerHTML = '🔴 <strong>Real opportunity here.</strong> Your systems are costing you more than you think.';
+                label.style.color = '#64748B';
+            } else {
+                label.innerHTML = '🚨 <strong>Critical drag.</strong> This is why you\'re stuck working in the business, not on it.';
+                label.style.color = '#EF4444';
+            }
+        }
+
+        function generateRecommendations(scores, overall) {
+            const container = document.getElementById('recommendations');
+            if (!container) return;
+            
+            let html = '';
+            let count = 0;
+            
+            if (scores.q1 < 6) {
+                count++;
+                html += `
+                    <div class="recommendation">
+                        <h4>Red Flag #${count}: Process Chaos</h4>
+                        <p>Your operations lack clear structure. We'll map what actually happens (not what should happen) and cut 30-40% of the waste in the first session.</p>
+                        <p class="client-proof">💡 Just like Armin (Janitorial) — improved SOPs led to scaling a second truck without chaos.</p>
+                    </div>
+                `;
+            }
+            
+            if (scores.q2 < 6) {
+                count++;
+                html += `
+                    <div class="recommendation">
+                        <h4>Red Flag #${count}: Disconnected Tools</h4>
+                        <p>Your systems don't talk. That means manual data entry, missed handoffs, and wasted hours. Let's connect what matters.</p>
+                        <p class="client-proof">💡 Just like Marcus (Insurance) — we found $4,700 in unused/under-used software.</p>
+                    </div>
+                `;
+            }
+            
+            if (scores.q3 < 6) {
+                count++;
+                html += `
+                    <div class="recommendation">
+                        <h4>Red Flag #${count}: Manual Grind</h4>
+                        <p>Repetitive work is killing your momentum. We'll automate the top 3-5 tasks in your first 30 days—most clients recover 8-12 hours/week.</p>
+                        <p class="client-proof">💡 Just like Eugene (IT Services) — removed 10 hours/week of admin through automation.</p>
+                    </div>
+                `;
+            }
+            
+            if (scores.q4 < 6) {
+                count++;
+                html += `
+                    <div class="recommendation">
+                        <h4>Red Flag #${count}: No Clear Process</h4>
+                        <p>Your team is guessing. Every project takes longer than it should. Let's document what works so you can scale without chaos.</p>
+                        <p class="client-proof">💡 Clear processes = predictable results. That's how our clients scale.</p>
+                    </div>
+                `;
+            }
+            
+            if (scores.q5 < 6) {
+                count++;
+                html += `
+                    <div class="recommendation">
+                        <h4>Red Flag #${count}: Can't Scale</h4>
+                        <p>Your current setup would break under growth. Let's identify the bottlenecks and build systems that handle 2-3X volume.</p>
+                        <p class="client-proof">💡 Like Armin who scaled to a second truck, or Eugene who freed up 10 hours/week.</p>
+                    </div>
+                `;
+            }
+            
+            if (overall >= 75 && count === 0) {
+                html += `
+                    <div class="recommendation">
+                        <h4>✓ You're Doing Well</h4>
+                        <p>Your systems are solid. Let's find the 10-20% edge most businesses miss—advanced automation, smarter KPIs, and strategic clarity.</p>
+                    </div>
+                `;
+            }
+            
+            if (count === 0 && overall < 75) {
+                html = '<p style="color: var(--gray); text-align: center;">Move the sliders to see what\'s costing you time and money</p>';
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function scrollToAssessment() {
+            const assessmentSection = document.getElementById('assessment');
+            if (assessmentSection) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'cta_clicked', {
+                        'event_category': 'Engagement',
+                        'event_label': 'Scroll to Assessment'
+                    });
+                }
+                
+                assessmentSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                if (typeof gtag !== 'undefined') {
+                    const score = document.getElementById('scoreHiddenOverall').value;
+                    gtag('event', 'form_submitted', {
+                        'event_category': 'Lead Generation',
+                        'event_label': 'Contact Form',
+                        'value': parseInt(score)
+                    });
+                }
+                
+                setTimeout(function() {
+                    const successMsg = document.getElementById('successMessage');
+                    if (successMsg) {
+                        successMsg.classList.add('show');
+                        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSliders);
+        } else {
+            initSliders();
+        }
+    </script>
+</body>
+</html>
