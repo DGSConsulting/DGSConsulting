@@ -13,331 +13,52 @@
       --dark: #1e1e1e;
       --white: #ffffff;
     }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: var(--dark);
-      background: var(--light);
-    }
-
-    /* Top Navigation */
-    .top-nav {
-      background: var(--primary);
-      color: var(--white);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .top-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .top-nav .logo {
-      height: 40px;
-    }
-
-    .top-nav .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: bold;
-      transition: color 0.2s;
-    }
-
-    .top-nav .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    header {
-      background: linear-gradient(135deg, #3A6B35 0%, #5B8C51 100%);
-      color: var(--white);
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0 0 1rem 0;
-      font-size: 2.2rem;
-      line-height: 1.3;
-    }
-
-    .header-stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .stat-box {
-      background: rgba(255,255,255,0.1);
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      backdrop-filter: blur(10px);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: bold;
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    section.content-section {
-      padding: 2rem 1.5rem;
-    }
-
-    h2 {
-      color: #3A6B35;
-      margin-top: 0;
-      padding-top: 2rem;
-      font-size: 1.8rem;
-      border-bottom: 3px solid #edf5ec;
-      padding-bottom: 0.5rem;
-    }
-
-    h3 {
-      color: #5B8C51;
-      margin-top: 1.5rem;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .quote-box {
-      background: #edf5ec;
-      padding: 1.5rem;
-      font-style: italic;
-      border-left: 5px solid #3A6B35;
-      margin: 2rem 0;
-      border-radius: 0 8px 8px 0;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .quote-author {
-      font-weight: bold;
-      font-style: normal;
-      margin-top: 1rem;
-      display: block;
-      color: #3A6B35;
-    }
-
-    .timeline {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-
-    .timeline ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .timeline li {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-      position: relative;
-      border-left: 3px solid #edf5ec;
-    }
-
-    .timeline li:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline li:before {
-      content:'✓';
-      position: absolute;
-      left: -0.8rem;
-      background: #3A6B35;
-      color: var(--white);
-      width: 1.5rem;
-      height: 1.5rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-    }
-
-    .timeline strong {
-      color: #3A6B35;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline .outcome {
-      color: #666;
-      font-size: 0.95rem;
-      margin-top: 0.3rem;
-    }
-
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .metric-card {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-      border-top: 4px solid #3A6B35;
-    }
-
-    .metric-card .number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #3A6B35;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .metric-card .label {
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    .challenge-list, .solution-list {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-
-    .challenge-list li, .solution-list li {
-      margin-bottom: 1rem;
-    }
-
-    .challenge-list li:last-child, .solution-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .highlight-box {
-      background: #edf5ec;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-    }
-
-    .highlight-box h3 {
-      margin-top: 0;
-      color: #3A6B35;
-    }
-
-    footer {
-      background: var(--primary);
-      color: var(--white);
-      padding: 2rem;
-      text-align: center;
-      font-size: .9rem;
-    }
-
-    .cta-section {
-      background: linear-gradient(135deg, #3A6B35 0%, #5B8C51 100%);
-      color: var(--white);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin: 3rem auto;
-      border-radius: 12px;
-    }
-
-    .cta-section h2 {
-      color: var(--white);
-      border: none;
-      padding: 0;
-      margin-bottom: 1rem;
-    }
-
-    .cta-button {
-      background: var(--white);
-      color: #3A6B35;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 0.5rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .cta-button.secondary {
-      background: transparent;
-      border: 2px solid var(--white);
-      color: var(--white);
-    }
-
-    .client-profile {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-    }
-
-    .client-profile strong {
-      color: #3A6B35;
-    }
-
-    .obstacle-card {
-      background: #fff3cd;
-      border-left: 5px solid #ffc107;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .obstacle-card strong {
-      color: #856404;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .image-caption {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: -1rem;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
+    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; line-height:1.6; color:var(--dark); background:#f7f9f8;}
+    header {background: linear-gradient(135deg, #3A6B35 0%, #5B8C51 100%); color:white; padding:3rem 1rem; text-align:center;}
+    header h1 {margin:0 0 1rem 0; font-size:2.2rem; line-height:1.3;}
+    .header-stats {display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:2rem;}
+    .stat-box {background:rgba(255,255,255,0.1); padding:1rem 1.5rem; border-radius:8px; backdrop-filter:blur(10px);}
+    .stat-number {font-size:2rem; font-weight:bold; display:block;}
+    .stat-label {font-size:0.9rem; opacity:0.9;}
+    section {max-width:900px; margin:2rem auto; padding:0 1.5rem; background:var(--white); border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+    section.content-section {padding:2rem 1.5rem;}
+    h2 {color:#3A6B35; margin-top:0; padding-top:2rem; font-size:1.8rem; border-bottom:3px solid #edf5ec; padding-bottom:0.5rem;}
+    h3 {color:#5B8C51; margin-top:1.5rem;}
+    img {max-width:100%; height:auto; border-radius:8px; margin:1.5rem 0; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+    .quote-box {background:#edf5ec; padding:1.5rem; font-style:italic; border-left:5px solid #3A6B35; margin:2rem 0; border-radius:0 8px 8px 0; font-size:1.1rem; line-height:1.8;}
+    .quote-author {font-weight:bold; font-style:normal; margin-top:1rem; display:block; color:#3A6B35;}
+    .timeline {background:#f7f9f8; padding:1.5rem; border-radius:8px; margin:1rem 0;}
+    .timeline ul {list-style:none; padding:0; margin:0;}
+    .timeline li {margin-bottom:1.5rem; padding-left:2rem; position:relative; border-left:3px solid #edf5ec;}
+    .timeline li:last-child {margin-bottom:0;}
+    .timeline li:before {content:'✓'; position:absolute; left:-0.8rem; background:#3A6B35; color:white; width:1.5rem; height:1.5rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem;}
+    .timeline strong {color:#3A6B35; display:block; margin-bottom:0.3rem;}
+    .timeline .outcome {color:#666; font-size:0.95rem; margin-top:0.3rem;}
+    .metrics-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin:2rem 0;}
+    .metric-card {background:#f7f9f8; padding:1.5rem; border-radius:8px; text-align:center; border-top:4px solid #3A6B35;}
+    .metric-card .number {font-size:2.5rem; font-weight:bold; color:#3A6B35; display:block; margin-bottom:0.5rem;}
+    .metric-card .label {color:#666; font-size:0.95rem;}
+    .challenge-list, .solution-list {background:#f7f9f8; padding:1.5rem; border-radius:8px; margin:1rem 0;}
+    .challenge-list li, .solution-list li {margin-bottom:1rem;}
+    .challenge-list li:last-child, .solution-list li:last-child {margin-bottom:0;}
+    .highlight-box {background:#edf5ec; padding:1.5rem; border-radius:8px; margin:1.5rem 0;}
+    .highlight-box h3 {margin-top:0; color:#3A6B35;}
+    footer {background:#3A6B35; color:white; padding:2rem; text-align:center; font-size:.9rem;}
+    .cta-section {background:linear-gradient(135deg, #3A6B35 0%, #5B8C51 100%); color:white; padding:3rem 2rem; text-align:center; margin:3rem auto; border-radius:12px;}
+    .cta-section h2 {color:white; border:none; padding:0; margin-bottom:1rem;}
+    .cta-button {background:white; color:#3A6B35; padding:1rem 2rem; text-decoration:none; border-radius:8px; display:inline-block; margin:0.5rem; font-weight:bold; font-size:1.1rem; transition:transform 0.2s, box-shadow 0.2s;}
+    .cta-button:hover {transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+    .cta-button.secondary {background:transparent; border:2px solid white; color:white;}
+    .client-profile {background:#f7f9f8; padding:1.5rem; border-radius:8px; margin:1.5rem 0;}
+    .client-profile strong {color:#3A6B35;}
+    .obstacle-card {background:#fff3cd; border-left:5px solid #ffc107; padding:1rem; margin:1rem 0; border-radius:0 8px 8px 0;}
+    .obstacle-card strong {color:#856404; display:block; margin-bottom:0.5rem;}
+    .image-caption {text-align:center; font-size:0.9rem; color:#666; margin-top:-1rem; margin-bottom:1.5rem; font-style:italic;}
+    .top-nav {background:var(--white); border-bottom:1px solid #ddd; position:sticky; top:0; z-index:1000;}
+    .top-nav .container {max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0.5rem 1rem;}
+    .top-nav .logo {height:40px;}
+    .top-nav .nav-links a {margin-left:1rem; text-decoration:none; color:var(--dark); font-weight:bold;}
+    .top-nav .nav-links a:hover {color:var(--accent);}
   </style>
 </head>
 <body>
@@ -354,7 +75,6 @@
     </div>
   </nav>
 
-  <!-- Header -->
   <header>
     <h1>How One Solo Arborist Reclaimed 104 Hours Annually & Increased Revenue by $18,000</h1>
     <p style="font-size:1.2rem; margin-top:1rem;">A 2-month operational transformation that eliminated admin overwhelm and restored work-life balance</p>
@@ -374,78 +94,108 @@
     </div>
   </header>
 
-  <!-- Case Study Sections -->
   <section class="content-section">
-    <h2>The Challenge</h2>
-    <ul class="challenge-list">
-      <li>Owner was manually managing all client appointments, invoices, and follow-ups.</li>
-      <li>Lost opportunities due to slow quoting and scheduling.</li>
-      <li>Administrative overload reduced field work and revenue.</li>
-    </ul>
-    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" alt="Chaotic workspace">
-    <div class="image-caption">Before: Overwhelmed administrative setup</div>
+    <h2>The Client</h2>
+    <div class="client-profile">
+      <strong>Industry:</strong> Residential & Commercial Tree Care<br>
+      <strong>Business Age:</strong> 5 years<br>
+      <strong>Annual Revenue:</strong> $120K (pre-engagement)<br>
+      <strong>Service Area:</strong> Mid-sized suburban market<br>
+      <strong>Team Size:</strong> Solo operator with seasonal part-time help
+    </div>
   </section>
 
   <section class="content-section">
-    <h2>The Solution</h2>
-    <ul class="solution-list">
-      <li>Implemented a streamlined SOP for booking, invoicing, and follow-ups.</li>
-      <li>Introduced automation tools to handle routine administrative tasks.</li>
-      <li>Created a priority framework to focus on high-value tasks.</li>
-    </ul>
-    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" alt="Tech setup">
-    <div class="image-caption">After: Simplified, automated workspace</div>
-  </section>
-
-  <section class="content-section">
-    <h2>Implementation Timeline</h2>
-    <div class="timeline">
+    <h2>The Challenge: Buried in Paperwork, Missing Life's Moments</h2>
+    <p>Mike (pseudonym) had built a solid reputation as a skilled arborist over five years. His phone rang regularly, and referrals were steady. But behind the success was a crushing reality: <strong>he was regularly working until 9 PM on administrative tasks</strong>—missing his kids' bedtime routine, skipping family dinners, and feeling perpetually exhausted.</p>
+    <p>The problem wasn't lack of business—it was operational chaos:</p>
+    <div class="challenge-list">
       <ul>
-        <li><strong>Week 1:</strong> Audit of all administrative processes <span class="outcome">(Identified bottlenecks)</span></li>
-        <li><strong>Week 2:</strong> Introduced automation tools and SOPs <span class="outcome">(Reduced manual entry by 40%)</span></li>
-        <li><strong>Week 3:</strong> Owner trained on priority and delegation frameworks <span class="outcome">(Reclaimed 5 hours/week)</span></li>
-        <li><strong>Week 4:</strong> Review and refine processes <span class="outcome">(Full system adoption)</span></li>
+        <li><strong>Scattered communication:</strong> Client requests came via phone, text, email, and even Facebook messages. Follow-ups fell through the cracks, costing him an estimated 3-5 jobs per month.</li>
+        <li><strong>Quote turnaround crisis:</strong> Taking 4-6 days to send quotes meant losing price-sensitive customers to faster competitors. One client told him: "We went with someone else—we needed it done this week."</li>
+        <li><strong>Fragmented tech stack:</strong> He juggled 6 different tools (Excel, Google Calendar, email, handwritten notes, QuickBooks, and a basic CRM he barely used). None of them talked to each other.</li>
+        <li><strong>No scalability:</strong> Every process lived in Mike's head. If he got sick or wanted a vacation, the business ground to a halt.</li>
+        <li><strong>Admin burnout:</strong> Spending 10-12 hours weekly on paperwork instead of billable work—or rest.</li>
       </ul>
     </div>
+    <p><strong>Why this matters in the arborist industry:</strong> Tree care is physically demanding work. Admin exhaustion directly impacts safety. Plus, spring and fall are peak seasons—every day of delay in quoting or scheduling means lost revenue that can't be recovered. Solo operators compete against larger companies with dedicated admin staff, creating an unfair playing field.</p>
+
+    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" alt="Before: Chaotic workflow diagram showing disconnected processes">
+    <p class="image-caption">Before: Client requests scattered across 6+ platforms with no clear handoff points, leading to an average 5-day response time and frequent missed opportunities.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>The Solution: Simplification Through Strategic Systems</h2>
+    <p>Rather than adding more tools, we eliminated complexity. Our approach focused on three pillars:</p>
+
+    <h3>1. Discovery & Diagnosis (Weeks 1-2)</h3>
+    <div class="timeline">
+      <ul>
+        <li>
+          <strong>Weeks 1-2: Comprehensive Audit & Process Mapping</strong>
+          <p>Shadowed operations, interviewed Mike, and mapped all client touchpoints from inquiry to payment.</p>
+          <p class="outcome"><em>Outcome:</em> Identified 7 major bottlenecks and 4 redundant software subscriptions ($1,200/year waste).</p>
+        </li>
+        <li>
+          <strong>Weeks 3-4: SOP Development & Tech Consolidation Strategy</strong>
+          <p>Created standard operating procedures and selected ArboStar + QuickBooks as the core stack.</p>
+          <p class="outcome"><em>Outcome:</em> Reduced tech stack from 6 tools to 2, cutting monthly software costs by $98.</p>
+        </li>
+        <li>
+          <strong>Weeks 5-6: Implementation & Workflow Automation</strong>
+          <p>Migrated data, configured automations for quote generation and client follow-ups, and built templates.</p>
+          <p class="outcome"><em>Outcome:</em> Quote generation time dropped from 45 minutes to 12 minutes per estimate.</p>
+        </li>
+        <li>
+          <strong>Weeks 7-8: Training & Optimization</strong>
+          <p>Hands-on training, troubleshooting, and fine-tuning based on real-world usage.</p>
+          <p class="outcome"><em>Outcome:</em> Mike confidently operating new systems independently within one week.</p>
+        </li>
+      </ul>
+    </div>
+
+    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" alt="After: Streamlined dashboard for quotes and scheduling">
+    <p class="image-caption">After: Streamlined dashboard for quotes and scheduling reduced errors, improved client response time, and reclaimed 10+ hours per month.</p>
   </section>
 
   <section class="content-section">
     <h2>Results</h2>
     <div class="metrics-grid">
       <div class="metric-card">
-        <span class="number">104</span>
-        <span class="label">Hours Saved Per Year</span>
+        <span class="number">104 hrs</span>
+        <span class="label">Time Reclaimed Per Year</span>
       </div>
       <div class="metric-card">
         <span class="number">$18,000</span>
         <span class="label">Additional Revenue</span>
       </div>
       <div class="metric-card">
-        <span class="number">2.5 Weeks</span>
-        <span class="label">Time Reclaimed</span>
+        <span class="number">5 days</span>
+        <span class="label">Average Quote Response Improvement</span>
+      </div>
+      <div class="metric-card">
+        <span class="number">2 Tools</span>
+        <span class="label">Consolidated Tech Stack</span>
       </div>
     </div>
+
     <div class="quote-box">
-      “Before DGS Consulting, I felt like I was drowning in paperwork. Now I finally have space to grow my business and enjoy time off.” 
-      <span class="quote-author">– Arborist Owner</span>
+      "I thought I was efficient, but Darren showed me the real cost of my systems. Now, I can take Friday afternoons off without worrying about lost revenue." 
+      <span class="quote-author">— Mike, Arborist</span>
     </div>
   </section>
 
   <section class="cta-section">
-    <h2>Ready to reclaim your time and increase revenue?</h2>
-    <a href="/#contact" class="cta-button">Book a Consultation</a>
-    <a href="/services" class="cta-button secondary">View Services</a>
+    <h2>Let’s simplify your systems.</h2>
+    <p>Ready to see where your tools are costing you time and profit? Start with the $99 Tech Stack Red Flag Audit — fast, practical, and focused on measurable wins.</p>
+    <a href="/Services/index.html" class="cta-button">See Services</a>
+    <a href="mailto:DGSConsult@consultant.com" class="cta-button secondary">Email Us</a>
+    <a href="https://www.linkedin.com/in/dg-snook/" class="cta-button secondary">LinkedIn</a>
   </section>
 
   <footer>
-    <p><strong>DGS Consulting</strong> — Operational Excellence for Service Businesses</p>
-    <p style="margin-top:1rem; font-size:0.85rem; opacity:0.8;">This case study represents a white-labeled project. Details have been modified to protect client privacy while maintaining result accuracy. Results are specific to this client and may not be typical.</p>
-    <p style="margin-top:1.5rem;">
-      <a href="/#contact" style="color:var(--white); margin:0 1rem;">Contact</a> | 
-      <a href="/services" style="color:var(--white); margin:0 1rem;">Services</a> | 
-      <a href="/case-studies" style="color:var(--white); margin:0 1rem;">Case Studies</a>
-    </p>
-    <p style="margin-top:1rem;">© 2025 DGS Consulting. All rights reserved.</p>
+    © 2025 DGS Consulting | "Clarity over complexity." | Founded by Darren Snook | Ottawa, ON
   </footer>
+
 </body>
 </html>
