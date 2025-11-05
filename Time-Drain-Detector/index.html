@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Drain Detector | DGS Consulting</title>
+  <meta name="description" content="See how many hours your business is losing every week — and how to reclaim them with DGS Consulting." />
+  <link rel="icon" type="image/png" href="../images/logo-icon-t.png" />
+  <style>
+    :root {
+      --primary: #1E293B;
+      --accent: #06B6D4;
+      --bg: #F9FAFB;
+      --white: #ffffff;
+      --text: #1e1e1e;
+      --gray: #6b7280;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header.dgs-header {
+      background: var(--white);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .dgs-header .logo img { height: 36px; }
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 1.25rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      background: linear-gradient(135deg, var(--primary) 0%, #334155 100%);
+      color: var(--white);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 640px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    /* CALCULATOR */
+    .container {
+      max-width: 700px;
+      margin: -2rem auto 3rem;
+      padding: 0 1rem;
+    }
+    .calculator {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow);
+    }
+    .question-group {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 1.5rem;
+    }
+    .question-label {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .question-hint {
+      color: var(--gray);
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    input[type="number"] {
+      flex: 1;
+      padding: 0.75rem;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      transition: border-color 0.2s ease;
+    }
+    input[type="number"]:focus { outline: none; border-color: var(--accent); }
+    .unit { color: var(--gray); font-weight: 500; }
+
+    .rate-section {
+      background: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    /* RESULTS */
+    .results-box {
+      background: linear-gradient(135deg, var(--primary) 0%, #334155 100%);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .results-box.visible { opacity: 1; transform: translateY(0); }
+    .big-number { font-size: 3.5rem; font-weight: 700; margin: 0.5rem 0; line-height: 1; }
+    .cost-number { font-size: 2.5rem; font-weight: 700; color: var(--accent); margin: 0.5rem 0; }
+    .equivalents {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    .equivalent-card {
+      background: var(--white);
+      color: var(--text);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .equivalent-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin: 0.25rem 0; }
+    .benchmark { margin: 1.5rem 0; padding: 1rem; border-radius: 8px; font-size: 0.95rem; }
+    .benchmark.good { background: #d1fae5; border-left: 4px solid var(--accent); }
+    .benchmark.bad { background: #fee2e2; border-left: 4px solid #dc2626; }
+    .benchmark.normal { background: #fef3c7; border-left: 4px solid #d97706; }
+    .insight { background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--accent); }
+
+    /* CTA */
+    .cta-section {
+      background: var(--white);
+      border-radius: 16px;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .cta-section h2 { color: var(--primary); font-size: 2rem; margin-bottom: 1rem; }
+    .cta-section p { color: var(--gray); max-width: 520px; margin: 0 auto 2rem; font-size: 1.05rem; }
+    .cta-button {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(30,41,59,0.3);
+    }
+    .cta-button:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .success-message {
+      display: none;
+      background: #d1fae5;
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .success-message.visible { display: block; }
+
+    /* CONTACT */
+    .contact {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      border-radius: 20px 20px 0 0;
+      margin-top: 4rem;
+    }
+    .contact h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .contact p {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #e5e7eb;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .tool-btn, .contact-link {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .contact-link {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--white);
+    }
+    .tool-btn:hover {
+      background: #0891b2;
+      transform: translateY(-2px);
+    }
+    .contact-link:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      background: var(--bg);
+      padding: 2rem 1rem 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2rem; }
+      .big-number { font-size: 2.5rem; }
+      .cost-number { font-size: 2rem; }
+      .calculator { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="dgs-header">
+  <a href="../index.html" class="logo"><img src="../images/logo-icon-t.png" alt="DGS Consulting" /></a>
+  <nav class="nav-links">
+    <a href="/Business-Audit-Framework/">Systems Health Check</a>
+    <a href="/SOP-Designer/">Process Clarity Tool</a>
+    <a href="/Time-Drain-Detector/">Time Drain Detector</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Time Drain Detector</h1>
+  <p>Discover how many hours your systems are stealing every week — and what that’s really costing your business.</p>
+</section>
+
+<div class="container">
+  <div class="calculator">
+    <div class="question-group">
+      <label class="question-label">1. Manual data entry & admin work</label>
+      <div class="question-hint">Invoices, expenses, data transfer between tools, etc.</div>
+      <div class="input-wrapper"><input type="number" id="admin" min="0" step="0.5" value="0"/><span class="unit">hrs/week</span></div>
+    </div>
+
+    <div class="question-group">
+      <label class="question-label">2. Chasing information or approvals</label>
+      <div class="question-hint">Emails, waiting for sign-offs, tracking documents</div>
+      <div class="input-wrapper"><input type="number" id="approval" min="0" step="0.5" value="0"/><span class="unit">hrs/week</span></div>
+    </div>
+
+    <div class="question-group">
+      <label class="question-label">3. Fighting with tools & systems</label>
+      <div class="question-hint">Crashes, login issues, messy integrations</div>
+      <div class="input-wrapper"><input type="number" id="tools" min="0" step="0.5" value="0"/><span class="unit">hrs/week</span></div>
+    </div>
+
+    <div class="question-group">
+      <label class="question-label">4. Redoing work or fixing mistakes</label>
+      <div class="question-hint">Errors, rework, miscommunication</div>
+      <div class="input-wrapper"><input type="number" id="redo" min="0" step="0.5" value="0"/><span class="unit">hrs/week</span></div>
+    </div>
+
+    <div class="question-group">
+      <label class="question-label">5. Unnecessary meetings</label>
+      <div class="question-hint">Status updates, misaligned calls, coordination overhead</div>
+      <div class="input-wrapper"><input type="number" id="meetings" min="0" step="0.5" value="0"/><span class="unit">hrs/week</span></div>
+    </div>
+
+    <div class="rate-section">
+      <label class="question-label">Your hourly rate (approx.)</label>
+      <div class="input-wrapper"><span class="unit">$</span><input type="number" id="rate" min="0" step="5" value="75"/><span class="unit">/hour</span></div>
+    </div>
+
+    <div id="benchmark"></div>
+
+    <div class="results-box" id="results">
+      <h2>Your Time Drain Analysis</h2>
+      <div>You're losing</div>
+      <div class="big-number" id="totalHours">0</div>
+      <div>hours every week</div>
+      <div style="margin-top: 1.5rem;">Annual cost</div>
+      <div class="cost-number">$<span id="annualCost">0</span></div>
+
+      <div class="equivalents">
+        <div class="equivalent-card"><div class="equivalent-value" id="workdays">0</div><div>workdays/year lost</div></div>
+        <div class="equivalent-card"><div class="equivalent-value" id="vacation">0</div><div>weeks of vacation</div></div>
+        <div class="equivalent-card"><div class="equivalent-value" id="salary">$0</div><div>equivalent salary cost</div></div>
+      </div>
+
+      <div class="insight" id="insight"></div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to Reclaim Your Time?</h2>
+    <p>I’ll personally review your results and send you a custom plan—no generic advice, just clarity and next steps.</p>
+    <div id="successMessage" class="success-message">
+      <h3>✓ Your Plan is On Its Way</h3>
+      <p>Check your inbox within 24 hours for your personalized recovery roadmap.</p>
+    </div>
+
+    <form id="ctaForm" action="https://formspree.io/f/mldoqgyn" method="POST">
+      <input type="hidden" name="total_hours" id="formTotalHours" />
+      <input type="hidden" name="annual_cost" id="formAnnualCost" />
+      <input type="email" name="email" placeholder="your@email.com" required
+        style="width:100%;padding:0.75rem;border:2px solid #d1d5db;border-radius:8px;font-size:1rem;margin-bottom:1rem;">
+      <textarea name="message" rows="3" placeholder="Tell me about your biggest time drain (optional)"
+        style="width:100%;padding:0.75rem;border:2px solid #d1d5db;border-radius:8px;font-size:1rem;margin-bottom:1rem;"></textarea>
+      <button type="submit" class="cta-button">Get Your Custom Recovery Plan</button>
+    </form>
+    <p style="margin-top:1rem;color:#6b7280;font-size:0.9rem;">Typical recovery: 10–15 hours/week within 30 days</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Let’s simplify your systems.</h2>
+  <p>Ready to see where your tools are costing you time and profit? Start with the <strong>$99 Tech Stack Red Flag Audit</strong> — fast, practical, and focused on measurable wins.</p>
+  <div class="contact-links">
+    <a href="/Services/index.html" class="tool-btn">See Services</a>
+    <a href="mailto:DGSConsult@consultant.com" class="contact-link">Email Us</a>
+    <a href="https://www.linkedin.com/in/dg-snook/" target="_blank" class="contact-link">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 DGS Consulting | “Clarity over complexity.” | Founded by Darren Snook | Ottawa, ON
+</footer>
+
+<script>
+  const inputs=['admin','approval','tools','redo','meetings','rate'];
+  inputs.forEach(id=>document.getElementById(id).addEventListener('input',calculate));
+  function calculate(){
+    const v=id=>+document.getElementById(id).value||0;
+    const admin=v('admin'),approval=v('approval'),tools=v('tools'),redo=v('redo'),meetings=v('meetings'),rate=v('rate');
+    const total=admin+approval+tools+redo+meetings,annualCost=Math.round(total*rate*52);
+    const workdays=Math.round((total*52)/8),vacation=(total*52/40).toFixed(1),salaryEquiv=Math.round(annualCost/1000)*1000;
+    document.getElementById('totalHours').textContent=total.toFixed(1);
+    document.getElementById('annualCost').textContent=annualCost.toLocaleString();
+    document.getElementById('workdays').textContent=workdays;
+    document.getElementById('vacation').textContent=vacation;
+    document.getElementById('salary').textContent=salaryEquiv.toLocaleString();
+    const results=document.getElementById('results');if(total>0)results.classList.add('visible');
+    const b=document.getElementById('benchmark');
+    if(total>0){
+      let c='benchmark normal',t='';
+      if(total<5){c='benchmark good';t='<strong>Below average:</strong> Most lose 8–12 hrs/week. You’re doing well!';}
+      else if(total>12){c='benchmark bad';t='<strong>Above average:</strong> Losing more than typical 8–12 hrs/week.';}
+      else{t='<strong>Average range:</strong> Common 8–12 hrs/week inefficiency.';}
+      b.className=c;b.innerHTML=t;
+    }else b.innerHTML='';
+    const i=document.getElementById('insight');
+    if(total>15)i.innerHTML=`<strong>Critical:</strong> ${Math.round((total/40)*100)}% of your week is overhead — 60–80% can be recovered.`;
+    else if(total>8)i.innerHTML=`<strong>Insight:</strong> ${Math.round((total/40)*100)}% of your time is lost — most clients cut this in half.`;
+    else if(total>0)i.innerHTML=`<strong>Good:</strong> Low time drain, but small tweaks free key capacity.`;
+    else i.innerHTML='';
+    document.getElementById('formTotalHours').value=total.toFixed(1);
+    document.getElementById('formAnnualCost').value=annualCost;
+  }
+  document.getElementById('ctaForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const form=e.target,data=new FormData(form);
+    fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(r=>{
+      if(r.ok){document.getElementById('successMessage').classList.add('visible');form.style.display='none';}
+      else alert('Submission issue. Please try again.');
+    }).catch(()=>alert('Network error. Please retry.'));
+  });
+  setTimeout(calculate,100);
+</script>
+
+</body>
+</html>
