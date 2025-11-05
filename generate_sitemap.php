@@ -1,5 +1,7 @@
 <?php
-// Base URL of your site
+// -------------------------
+// Configuration
+// -------------------------
 $base_url = "https://dgsconsulting.solutions";
 
 // Static pages
@@ -17,7 +19,9 @@ $directories_to_scan = [
     "/Resources"    => ["priority" => "0.60", "changefreq" => "monthly"],
 ];
 
-// Function to recursively scan directories
+// -------------------------
+// Functions
+// -------------------------
 function scan_directory_recursive($dir) {
     $all_files = [];
     $full_dir = getcwd() . $dir;
@@ -38,37 +42,47 @@ function scan_directory_recursive($dir) {
     return $all_files;
 }
 
-// Start building XML
+function add_url_xml($path, $base_url, $priority, $changefreq) {
+    $file_path = getcwd() . $path;
+    $lastmod = file_exists($file_path) ? date('c', filemtime($file_path)) : date('c');
+    return "  <url>\n" .
+           "    <loc>{$base_url}{$path}</loc>\n" .
+           "    <lastmod>{$lastmod}</lastmod>\n" .
+           "    <changefreq>{$changefreq}</changefreq>\n" .
+           "    <priority>{$priority}</priority>\n" .
+           "  </url>\n";
+}
+
+// -------------------------
+// Generate sitemap.xml
+// -------------------------
 $output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
 $output .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . PHP_EOL;
 
 // Add static pages
 foreach ($static_pages as $path => $info) {
-    $lastmod = file_exists(getcwd() . $path) ? date('c', filemtime(getcwd() . $path)) : date('c');
-    $output .= "  <url>\n";
-    $output .= "    <loc>{$base_url}{$path}</loc>\n";
-    $output .= "    <lastmod>{$lastmod}</lastmod>\n";
-    $output .= "    <changefreq>{$info['changefreq']}</changefreq>\n";
-    $output .= "    <priority>{$info['priority']}</priority>\n";
-    $output .= "  </url>\n";
+    $output .= add_url_xml($path, $base_url, $info['priority'], $info['changefreq']);
 }
 
-// Add pages from scanned directories
+// Add pages from dynamic directories
 foreach ($directories_to_scan as $dir => $info) {
     $files = scan_directory_recursive($dir);
     foreach ($files as $file) {
-        $lastmod = file_exists(getcwd() . $file) ? date('c', filemtime(getcwd() . $file)) : date('c');
-        $output .= "  <url>\n";
-        $output .= "    <loc>{$base_url}{$file}</loc>\n";
-        $output .= "    <lastmod>{$lastmod}</lastmod>\n";
-        $output .= "    <changefreq>{$info['changefreq']}</changefreq>\n";
-        $output .= "    <priority>{$info['priority']}</priority>\n";
-        $output .= "  </url>\n";
+        $output .= add_url_xml($file, $base_url, $info['priority'], $info['changefreq']);
     }
 }
 
 $output .= '</urlset>' . PHP_EOL;
 
-// Save sitemap.xml locally
+// Save sitemap.xml
 file_put_contents('sitemap.xml', $output);
 echo "sitemap.xml generated successfully!\n";
+
+// -------------------------
+// Commit & Push to GitHub
+// -------------------------
+exec('git add sitemap.xml');
+exec('git commit -m "Update sitemap.xml"');
+exec('git push');
+echo "sitemap.xml committed and pushed to GitHub successfully!\n";
+
