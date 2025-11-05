@@ -1,78 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Home Page -->
-  <url>
-    <loc>https://dgsconsulting.solutions/</loc>
-    <lastmod>2025-09-26T20:19:50+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-  </url>
-
-  <!-- Services -->
-  <url>
-    <loc>https://dgsconsulting.solutions/Services/index.html</loc>
-    <lastmod>2025-11-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Case Studies -->
-  <url>
-    <loc>https://dgsconsulting.solutions/case-studies/Grassroots-to-Growth.html</loc>
-    <lastmod>2025-09-26T20:19:50+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://dgsconsulting.solutions/case-studies/</loc>
-    <lastmod>2025-09-26T20:19:50+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.64</priority>
-  </url>
-
-  <url>
-    <loc>https://dgsconsulting.solutions/case-studies/Auto-Shop.html</loc>
-    <lastmod>2025-09-26T20:19:50+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.51</priority>
-  </url>
-
-  <!-- Tools -->
-  <url>
-    <loc>https://dgsconsulting.solutions/Time-Drain-Detector/index.html</loc>
-    <lastmod>2025-11-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- Resources -->
-  <url>
-    <loc>https://dgsconsulting.solutions/Resources/10-sops.html</loc>
-    <lastmod>2025-11-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-
-  <!-- System Check Page -->
-  <url>
-    <loc>https://dgsconsulting.solutions/system-check.html</loc>
-    <lastmod>2025-11-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-
-  <!-- Thank You Page -->
-  <url>
-    <loc>https://dgsconsulting.solutions/thank-you.html</loc>
-    <lastmod>2025-09-26T20:19:50+00:00</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.40</priority>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  Home Page  -->
+<url>
+<loc>https://dgsconsulting.solutions/</loc>
+<lastmod>2025-09-26T20:19:50+00:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.00</priority>
+</url>
+<!--  Services  -->
+<url>
+<loc>https://dgsconsulting.solutions/Services/index.html</loc>
+<lastmod>2025-11-05T00:00:00+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.85</priority>
+</url>
+<!--  Case Studies  -->
+<url>
+<loc>https://dgsconsulting.solutions/case-studies/Grassroots-to-Growth.html</loc>
+<lastmod>2025-09-26T20:19:50+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://dgsconsulting.solutions/case-studies/</loc>
+<lastmod>2025-09-26T20:19:50+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://dgsconsulting.solutions/case-studies/Auto-Shop.html</loc>
+<lastmod>2025-09-26T20:19:50+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.51</priority>
+</url>
+<!--  Tools  -->
+<url>
+<loc>https://dgsconsulting.solutions/Time-Drain-Detector/index.html</loc>
+<lastmod>2025-11-05T00:00:00+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.70</priority>
+</url>
+<!--  Resources  -->
+<url>
+<loc>https://dgsconsulting.solutions/Resources/10-sops.html</loc>
+<lastmod>2025-11-05T00:00:00+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.60</priority>
+</url>
+<!--  System Check Page  -->
+<url>
+<loc>https://dgsconsulting.solutions/system-check.html</loc>
+<lastmod>2025-11-03T00:00:00+00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.60</priority>
+</url>
+<!--  Thank You Page  -->
+<url>
+<loc>https://dgsconsulting.solutions/thank-you.html</loc>
+<lastmod>2025-09-26T20:19:50+00:00</lastmod>
+<changefreq>never</changefreq>
+<priority>0.40</priority>
+</url>
 </urlset>
