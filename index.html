@@ -32,11 +32,10 @@ nav {
   z-index: 1000;
 }
 nav img { height: 45px; }
-nav span { display:none; } /* hide secondary nav text for simplicity */
+nav span { display:none; }
 nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: color 0.3s; }
 nav a:hover { color: var(--primary); }
 
-/* Hamburger for mobile */
 #navToggle { display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; }
 #navLinks { display:flex; gap:20px; }
 
@@ -51,7 +50,6 @@ h1, h2, h3 { text-align: center; margin-bottom: 25px; }
 h1 { font-size: 3rem; }
 h2 { font-size: 2rem; }
 
-/* Hero */
 .hero { position: relative; background: linear-gradient(#1E293B, #1E293B), url('asset/hero-bg.jpg') center/cover no-repeat; color: white; text-align: center; padding: 180px 20px; overflow: hidden; }
 .hero img { height: 80px; margin-bottom: 20px; }
 .hero h1 { font-size: 3rem; margin-bottom: 15px; }
@@ -59,7 +57,6 @@ h2 { font-size: 2rem; }
 .tool-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; }
 .tool-btn:hover { background: var(--primary); }
 
-/* Tools */
 .tools { background: var(--lighter); }
 .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; }
 .tool-card { background: var(--white); padding: 40px 20px; border-radius: 15px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
@@ -68,7 +65,6 @@ h2 { font-size: 2rem; }
 .tool-card h3 { margin-bottom: 10px; }
 .tool-card p { margin-bottom: 20px; font-size: 0.95rem; }
 
-/* KPI Dashboard */
 .kpi-dashboard { background: var(--light); text-align: center; padding-top:60px; }
 .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1000px; margin: 40px auto 0; }
 .kpi-card { background: var(--lighter); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
@@ -76,21 +72,18 @@ h2 { font-size: 2rem; }
 .kpi-value { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
 .kpi-sub { font-size: 0.9rem; color: #555; }
 
-/* Case Studies */
 .case-studies { background: var(--white); }
 .case-study-card { max-width: 800px; margin: 0 auto; text-align: center; padding: 30px; background: var(--lighter); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
 .case-study-card h3 a { color: var(--primary); text-decoration: none; }
 .case-study-card h3 a:hover { text-decoration: underline; }
 
-/* Testimonials */
 .testimonials { background: var(--lighter); }
 .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
 .testimonial-card { background: var(--white); padding: 30px; border-radius: 15px; position: relative; }
-.testimonial-card::before { content: "“"; font-size: 4rem; position: absolute; top: -10px; left: 15px; color: var(--accent); }
+.testimonial-card::before { content: """; font-size: 4rem; position: absolute; top: -10px; left: 15px; color: var(--accent); }
 .testimonial-card p { margin-bottom: 15px; font-style: italic; }
 .testimonial-card span { font-weight: 600; display:block; }
 
-/* Contact */
 .contact { background: var(--primary); color: white; text-align: center; padding: 100px 20px; }
 .contact h2 { color: white; }
 .contact p { max-width: 600px; margin: 0 auto 30px; }
@@ -114,44 +107,55 @@ footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; back
 <!-- HERO -->
 <section class="hero">
   <img src="asset/logo-mark-t.png" alt="DGS Consulting Logo">
-  <h1>Clarity over complexity.</h1>
-  <p>We help small business owners reclaim time and profit by fixing the systems they already use — not adding more tools.</p>
-  <a href="/Services/index.html" class="tool-btn">See Services</a>
+  <h1>Reclaim 10-15 Hours Every Week</h1>
+  <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">
+    Fix your business systems. Not add more tools.
+  </p>
+  <p style="font-size: 1.1rem; max-width: 650px; margin: 0 auto 10px;">
+    We help small business owners eliminate hidden inefficiencies, cut tool waste, and simplify operations — without adding another subscription.
+  </p>
+  <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin-bottom: 30px;">
+    Trusted by 40+ small business owners • Avg. 12 hours/week reclaimed
+  </p>
+  <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+    <a href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" class="tool-btn" style="background: var(--accent); font-size: 1.05rem; padding: 14px 28px;">Take the 5-Minute Systems Health Check</a>
+    <a href="/Services/index.html" class="tool-btn" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid white;">Explore Services</a>
+  </div>
 </section>
 
 <!-- TOOLS -->
 <section id="tools" class="tools">
-  <h2>Get Quick Wins</h2>
-  <p style="text-align:center; max-width:600px; margin:0 auto 40px;">
-    Three quick, practical tools to help you reclaim time, reduce waste, and refocus your team — without adding another subscription.
+  <h2>Start With Clarity</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto 40px;">
+    Most business owners lose 10-15 hours every week to hidden inefficiencies. These three tools help you find them, fix them, and reclaim your time — without adding another subscription.
   </p>
   <div class="tool-grid">
     <div class="tool-card">
-      <i class="fa-solid fa-chart-line"></i>
-      <h3>KPI Clarity Tool</h3>
-      <p>Focus your attention where profit actually moves.</p>
-      <a href="https://dgsconsulting.github.io/ROI-Calculator-Suite/" target="_blank" class="tool-btn">Learn More</a>
+      <i class="fa-solid fa-clock"></i>
+      <h3>Time Drain Detector</h3>
+      <p>Most business owners lose 10-15 hours every week to hidden inefficiencies. Find yours in minutes — then fix them.</p>
+      <a href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" target="_blank" class="tool-btn">Find Your Time Drains</a>
     </div>
     <div class="tool-card">
       <i class="fa-solid fa-gears"></i>
       <h3>Process Clarity Tool</h3>
-      <p>Document what’s working before you automate it.</p>
-      <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Try Now</a>
+      <p>You can't scale what you can't document. Build clear, repeatable processes that work without you.</p>
+      <a href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" class="tool-btn">Build Your Process</a>
     </div>
     <div class="tool-card">
       <i class="fa-solid fa-magnifying-glass"></i>
       <h3>Business Audit</h3>
-      <p>Spot bottlenecks and waste in minutes.</p>
-      <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Try Now</a>
+      <p>Where are you losing time and money? Get a clear picture of what's working and what's costing you.</p>
+      <a href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" class="tool-btn">Start Your Audit</a>
     </div>
   </div>
 </section>
 
 <!-- KPI DASHBOARD -->
 <section id="kpi" class="kpi-dashboard">
-  <h2>KPI Dashboard Example</h2>
-  <p style="text-align:center; max-width:600px; margin:0 auto 20px;">
-    Every DGS engagement starts with data clarity. Here’s how your key metrics might look once your systems are aligned.
+  <h2>What Success Looks Like</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto 20px;">
+    Every engagement starts with clarity. Here's what happens when your systems actually work for you instead of against you.
   </p>
   <div class="kpi-grid">
     <div class="kpi-card"><div class="kpi-value" data-target="85">0%</div><div class="kpi-sub">Efficiency</div></div>
@@ -163,22 +167,22 @@ footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; back
 
 <!-- CASE STUDY -->
 <section id="case" class="case-studies">
-  <h2>Case Study</h2>
+  <h2>Real Results</h2>
   <div class="case-study-card">
     <h3>
       <a href="/case-studies/Auto-Shop.html" target="_blank">
         From Chaos to Clarity: Auto Shop Case Study
       </a>
     </h3>
-    <p>In six months, standardized processes cut task overlap by 20%, increased sales by 15%, and gave the owner full operational visibility.</p>
-    <a href="/case-studies/Auto-Shop.html" target="_blank" class="tool-btn">Read the Full Case</a>
+    <p>Task overlap was killing efficiency. Sales were stagnant. The owner had no visibility into what was actually happening. In six months, we standardized processes, cut overlap by 20%, increased sales by 15%, and gave the owner complete operational clarity.</p>
+    <a href="/case-studies/Auto-Shop.html" target="_blank" class="tool-btn">Read the Full Story</a>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="testimonials">
-  <h2>What Clients and Partners Say</h2>
-  <p style="text-align:center; max-width:700px; margin:0 auto 40px;">Real feedback from executives and business partners.</p>
+  <h2>What People Say</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto 40px;">Real feedback from executives and business partners who've worked with Darren.</p>
   <div class="testimonial-grid">
     <div class="testimonial-card">
       <p>Darren was instrumental in gathering and analyzing business requirements, translating them into functional specifications... He consistently approached challenges with a strategic mindset and offered actionable insights that added real value. If I ever started a company, Darren would be my first hire.</p>
@@ -193,8 +197,8 @@ footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; back
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-  <h2>Let’s simplify your systems.</h2>
-  <p>Ready to see where your tools are costing you time and profit? Start with the $99 Tech Stack Red Flag Audit — fast, practical, and focused on measurable wins.</p>
+  <h2>Let's simplify your systems.</h2>
+  <p>Ready to see where your tools are costing you time and profit? The $99 Tech Stack Red Flag Audit is a fast, practical way to find measurable wins — usually within the first week.</p>
   <a href="/Services/index.html" class="tool-btn">See Services</a>
   <a href="mailto:DGSConsult@consultant.com">Email Us</a>
   <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
@@ -205,14 +209,12 @@ footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; back
 </footer>
 
 <script>
-// Hamburger toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
   navLinks.style.display = navLinks.style.display === "block" ? "none" : "block";
 });
 
-// KPI animation
 const counters = document.querySelectorAll('.kpi-value');
 counters.forEach(counter => {
   const updateCount = () => {
