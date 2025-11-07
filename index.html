@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T0K5M8P9XP');
-</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DGS Consulting | Process & Tech Optimization for Small Businesses</title>
@@ -93,13 +84,70 @@ h2 { font-size: 2rem; }
 .testimonial-card p { margin-bottom: 15px; font-style: italic; }
 .testimonial-card span { font-weight: 600; display:block; }
 
-.contact { background: var(--primary); color: white; text-align: center; padding: 100px 20px; }
-.contact h2 { color: white; }
-.contact p { max-width: 600px; margin: 0 auto 30px; }
-.contact a { background: white; color: var(--primary); padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 0 10px; display: inline-block; transition: background 0.3s ease; }
-.contact a:hover { background: #eaeaea; }
+.contact { 
+  background: var(--light); 
+  color: var(--dark); 
+  text-align: center; 
+  padding: 100px 20px; 
+}
+.contact h2 { 
+  color: var(--dark); 
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+.contact p { 
+  max-width: 600px; 
+  margin: 0 auto 30px; 
+  color: var(--dark); 
+}
+.contact .contact-buttons { 
+  display: flex; 
+  gap: 15px; 
+  justify-content: center; 
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.contact .contact-buttons a { 
+  background: var(--accent); 
+  color: white; 
+  padding: 12px 25px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: 600; 
+  display: inline-block; 
+  transition: background 0.3s ease;
+}
+.contact .contact-buttons a:hover { 
+  background: var(--primary);
+}
 
-footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; background: #fafafa; }
+footer { 
+  text-align: center; 
+  padding: 30px 20px; 
+  font-size: 0.9rem; 
+  color: #666; 
+  background: #fafafa;
+  border-top: 1px solid #e5e5e5;
+}
+footer p {
+  margin: 5px 0;
+  line-height: 1.8;
+}
+
+@media(max-width: 600px) {
+  .contact .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact .contact-buttons a {
+    width: 100%;
+    max-width: 300px;
+  }
+  footer {
+    font-size: 0.85rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -167,10 +215,10 @@ footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; back
     Every engagement starts with clarity. Here's what happens when your systems actually work for you instead of against you.
   </p>
   <div class="kpi-grid">
-    <div class="kpi-card"><div class="kpi-value" data-target="85">0%</div><div class="kpi-sub">Efficiency</div></div>
-    <div class="kpi-card"><div class="kpi-value" data-target="12">0</div><div class="kpi-sub">Tasks</div></div>
-    <div class="kpi-card"><div class="kpi-value" data-target="24000">0$</div><div class="kpi-sub">Savings</div></div>
-    <div class="kpi-card"><div class="kpi-value" data-target="5">0</div><div class="kpi-sub">Projects</div></div>
+    <div class="kpi-card"><div class="kpi-value" data-target="85" data-suffix="%">0%</div><div class="kpi-sub">Efficiency</div></div>
+    <div class="kpi-card"><div class="kpi-value" data-target="12" data-suffix="">0</div><div class="kpi-sub">Tasks</div></div>
+    <div class="kpi-card"><div class="kpi-value" data-target="24000" data-suffix="$" data-prefix="$">$0</div><div class="kpi-sub">Savings</div></div>
+    <div class="kpi-card"><div class="kpi-value" data-target="5" data-suffix="">0</div><div class="kpi-sub">Projects</div></div>
   </div>
 </section>
 
@@ -206,37 +254,56 @@ footer { text-align: center; padding: 25px; font-size: 0.9rem; color: #666; back
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-  <h2>Let's simplify your systems.</h2>
+  <h2>Let's Simplify Your Systems.</h2>
   <p>Ready to see where your tools are costing you time and profit? The $99 Tech Stack Red Flag Audit is a fast, practical way to find measurable wins — usually within the first week.</p>
-  <a href="/Services/index.html" class="tool-btn">See Services</a>
-  <a href="mailto:DGSConsult@consultant.com">Email Us</a>
-  <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
+  <div class="contact-buttons">
+    <a href="/Services/index.html">See Services</a>
+    <a href="mailto:dgsconsult@consultant.com">Email Us</a>
+    <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  &copy; 2025 DGS Consulting | "Clarity over complexity." | Founded by Darren Snook | Ottawa, ON
+  <p><strong>&copy; 2025 DGS Consulting</strong></p>
+  <p>"Clarity over complexity."</p>
+  <p>Founded by Darren Snook | Ottawa, ON</p>
 </footer>
 
 <script>
+// Navigation toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
   navLinks.style.display = navLinks.style.display === "block" ? "none" : "block";
 });
 
+// KPI Counter Animation - FIXED VERSION
 const counters = document.querySelectorAll('.kpi-value');
 counters.forEach(counter => {
   const updateCount = () => {
     const target = +counter.getAttribute('data-target');
-    let current = +counter.innerText.replace(/\$|%/g,'');
+    const suffix = counter.getAttribute('data-suffix') || '';
+    const prefix = counter.getAttribute('data-prefix') || '';
+    
+    // Extract current number value
+    let currentText = counter.innerText.replace(/\$|%|,/g, '');
+    let current = +currentText || 0;
+    
     const increment = target / 100;
+    
     if(current < target){
-      counter.innerText = Math.ceil(current + increment) + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
+      current = Math.ceil(current + increment);
+      // Format with commas for large numbers
+      const formattedNum = current >= 1000 ? current.toLocaleString() : current;
+      counter.innerText = prefix + formattedNum + suffix;
       setTimeout(updateCount, 20);
     } else {
-      counter.innerText = target + (counter.innerText.includes('$') ? '$' : counter.innerText.includes('%') ? '%' : '');
+      // Final value with proper formatting
+      const formattedTarget = target >= 1000 ? target.toLocaleString() : target;
+      counter.innerText = prefix + formattedTarget + suffix;
     }
-  }
+  };
   updateCount();
 });
 </script>
