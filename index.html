@@ -50,12 +50,29 @@ h1, h2, h3 { text-align: center; margin-bottom: 25px; }
 h1 { font-size: 3rem; }
 h2 { font-size: 2rem; }
 
-.hero { position: relative; background: linear-gradient(#1E293B, #1E293B), url('asset/hero-bg.jpg') center/cover no-repeat; color: white; text-align: center; padding: 180px 20px; overflow: hidden; }
+.hero { 
+  position: relative; 
+  background: #1E293B;
+  color: white; 
+  text-align: center; 
+  padding: 180px 20px; 
+  overflow: hidden; 
+}
 .hero img { height: 80px; margin-bottom: 20px; }
 .hero h1 { font-size: 3rem; margin-bottom: 15px; }
 .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 25px; }
-.tool-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; }
-.tool-btn:hover { background: var(--primary); }
+.tool-btn { 
+  display: inline-block; 
+  background: #06B6D4; 
+  color: white; 
+  padding: 14px 28px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: 600; 
+  transition: background 0.3s ease; 
+  font-size: 1.05rem;
+}
+.tool-btn:hover { background: #1E293B; }
 
 .tools { background: var(--lighter); }
 .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; }
@@ -84,23 +101,23 @@ h2 { font-size: 2rem; }
 .testimonial-card p { margin-bottom: 15px; font-style: italic; }
 .testimonial-card span { font-weight: 600; display:block; }
 
-.contact { 
-  background: var(--light); 
-  color: var(--dark); 
+#contact { 
+  background: #1E293B !important;
+  color: #ffffff !important;
   text-align: center; 
   padding: 100px 20px; 
 }
-.contact h2 { 
-  color: var(--dark); 
+#contact h2 { 
+  color: #ffffff !important;
   font-size: 2rem;
   margin-bottom: 25px;
 }
-.contact p { 
+#contact p { 
   max-width: 600px; 
   margin: 0 auto 30px; 
-  color: var(--dark); 
+  color: #ffffff !important;
 }
-.contact .contact-buttons { 
+.contact-buttons { 
   display: flex; 
   gap: 15px; 
   justify-content: center; 
@@ -108,18 +125,19 @@ h2 { font-size: 2rem; }
   max-width: 700px;
   margin: 0 auto;
 }
-.contact .contact-buttons a { 
-  background: var(--accent); 
-  color: white; 
-  padding: 12px 25px; 
+.contact-buttons a { 
+  background: #06B6D4 !important;
+  color: #ffffff !important;
+  padding: 14px 28px !important;
   border-radius: 8px; 
   text-decoration: none; 
   font-weight: 600; 
   display: inline-block; 
   transition: background 0.3s ease;
+  font-size: 1.05rem !important;
 }
-.contact .contact-buttons a:hover { 
-  background: var(--primary);
+.contact-buttons a:hover { 
+  background: #0891b2 !important;
 }
 
 footer { 
@@ -129,18 +147,20 @@ footer {
   color: #666; 
   background: #fafafa;
   border-top: 1px solid #e5e5e5;
+  max-width: 100%;
+  margin: 0 auto;
 }
 footer p {
-  margin: 5px 0;
+  margin: 0;
   line-height: 1.8;
 }
 
 @media(max-width: 600px) {
-  .contact .contact-buttons {
+  .contact-buttons {
     flex-direction: column;
     align-items: center;
   }
-  .contact .contact-buttons a {
+  .contact-buttons a {
     width: 100%;
     max-width: 300px;
   }
@@ -175,7 +195,7 @@ footer p {
     Trusted by 40+ small business owners • Avg. 12 hours/week reclaimed
   </p>
   <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-    <a href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" class="tool-btn" style="background: var(--accent); font-size: 1.05rem; padding: 14px 28px;">Take the 5-Minute Systems Health Check</a>
+    <a href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" class="tool-btn">Take the 5-Minute Systems Health Check</a>
     <a href="/Services/index.html" class="tool-btn" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid white;">Explore Services</a>
   </div>
 </section>
@@ -253,21 +273,19 @@ footer p {
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Let's Simplify Your Systems.</h2>
-  <p>Ready to see where your tools are costing you time and profit? The $99 Tech Stack Red Flag Audit is a fast, practical way to find measurable wins — usually within the first week.</p>
-  <div class="contact-buttons">
-    <a href="/Services/index.html">See Services</a>
-    <a href="mailto:dgsconsult@consultant.com">Email Us</a>
-    <a href="https://www.linkedin.com/in/dg-snook/" target="_blank">LinkedIn</a>
+<section id="contact" style="background: #1E293B; padding: 100px 20px; text-align: center;">
+  <h2 style="color: white; margin-bottom: 20px;">Let's Simplify Your Systems.</h2>
+  <p style="color: white; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Ready to see where your tools are costing you time and profit? The $99 Tech Stack Red Flag Audit is a fast, practical way to find measurable wins — usually within the first week.</p>
+  <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+    <a href="/Services/index.html" class="tool-btn" style="background: #06B6D4; color: white; padding: 14px 28px; font-size: 1.05rem;">See Services</a>
+    <a href="mailto:dgsconsult@consultant.com" class="tool-btn" style="background: #06B6D4; color: white; padding: 14px 28px; font-size: 1.05rem;">Email Us</a>
+    <a href="https://www.linkedin.com/in/dg-snook/" target="_blank" class="tool-btn" style="background: #06B6D4; color: white; padding: 14px 28px; font-size: 1.05rem;">LinkedIn</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>&copy; 2025 DGS Consulting</strong></p>
-  <p>"Clarity over complexity."</p>
-  <p>Founded by Darren Snook | Ottawa, ON</p>
+  <p>&copy; 2025 DGS Consulting | "Clarity over complexity." | Founded by Darren Snook | Ottawa, ON</p>
 </footer>
 
 <script>
@@ -278,7 +296,7 @@ navToggle.addEventListener('click', () => {
   navLinks.style.display = navLinks.style.display === "block" ? "none" : "block";
 });
 
-// KPI Counter Animation - FIXED VERSION
+// KPI Counter Animation
 const counters = document.querySelectorAll('.kpi-value');
 counters.forEach(counter => {
   const updateCount = () => {
@@ -286,7 +304,6 @@ counters.forEach(counter => {
     const suffix = counter.getAttribute('data-suffix') || '';
     const prefix = counter.getAttribute('data-prefix') || '';
     
-    // Extract current number value
     let currentText = counter.innerText.replace(/\$|%|,/g, '');
     let current = +currentText || 0;
     
@@ -294,12 +311,10 @@ counters.forEach(counter => {
     
     if(current < target){
       current = Math.ceil(current + increment);
-      // Format with commas for large numbers
       const formattedNum = current >= 1000 ? current.toLocaleString() : current;
       counter.innerText = prefix + formattedNum + suffix;
       setTimeout(updateCount, 20);
     } else {
-      // Final value with proper formatting
       const formattedTarget = target >= 1000 ? target.toLocaleString() : target;
       counter.innerText = prefix + formattedTarget + suffix;
     }
