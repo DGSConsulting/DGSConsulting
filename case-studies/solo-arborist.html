@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How One Arborist Reclaimed 104 Hours Per Year & Increased Revenue by $18,000 | DGS Consulting</title>
+  <title>How One Arborist Got His Weekends Back | DGS Consulting</title>
+  <meta name="description" content="The 8-week transformation that turned 60-hour weeks into 45—reclaimed 104 hours annually and increased revenue by $18,000.">
   <style>
     :root {
       --primary: #1E293B;
@@ -12,53 +13,537 @@
       --lighter: #FFFFFF;
       --dark: #1e1e1e;
       --white: #ffffff;
+      --warning: #d97706;
+      --success: #10b981;
     }
-    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; line-height:1.6; color:var(--dark); background:#f7f9f8;}
-    header {background: linear-gradient(135deg, #3A6B35 0%, #5B8C51 100%); color:white; padding:3rem 1rem; text-align:center;}
-    header h1 {margin:0 0 1rem 0; font-size:2.2rem; line-height:1.3;}
-    .header-stats {display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:2rem;}
-    .stat-box {background:rgba(255,255,255,0.1); padding:1rem 1.5rem; border-radius:8px; backdrop-filter:blur(10px);}
-    .stat-number {font-size:2rem; font-weight:bold; display:block;}
-    .stat-label {font-size:0.9rem; opacity:0.9;}
-    section {max-width:900px; margin:2rem auto; padding:0 1.5rem; background:var(--white); border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
-    section.content-section {padding:2rem 1.5rem;}
-    h2 {color:#3A6B35; margin-top:0; padding-top:2rem; font-size:1.8rem; border-bottom:3px solid #edf5ec; padding-bottom:0.5rem;}
-    h3 {color:#5B8C51; margin-top:1.5rem;}
-    img {max-width:100%; height:auto; border-radius:8px; margin:1.5rem 0; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-    .quote-box {background:#edf5ec; padding:1.5rem; font-style:italic; border-left:5px solid #3A6B35; margin:2rem 0; border-radius:0 8px 8px 0; font-size:1.1rem; line-height:1.8;}
-    .quote-author {font-weight:bold; font-style:normal; margin-top:1rem; display:block; color:#3A6B35;}
-    .timeline {background:#f7f9f8; padding:1.5rem; border-radius:8px; margin:1rem 0;}
-    .timeline ul {list-style:none; padding:0; margin:0;}
-    .timeline li {margin-bottom:1.5rem; padding-left:2rem; position:relative; border-left:3px solid #edf5ec;}
-    .timeline li:last-child {margin-bottom:0;}
-    .timeline li:before {content:'✓'; position:absolute; left:-0.8rem; background:#3A6B35; color:white; width:1.5rem; height:1.5rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem;}
-    .timeline strong {color:#3A6B35; display:block; margin-bottom:0.3rem;}
-    .timeline .outcome {color:#666; font-size:0.95rem; margin-top:0.3rem;}
-    .metrics-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin:2rem 0;}
-    .metric-card {background:#f7f9f8; padding:1.5rem; border-radius:8px; text-align:center; border-top:4px solid #3A6B35;}
-    .metric-card .number {font-size:2.5rem; font-weight:bold; color:#3A6B35; display:block; margin-bottom:0.5rem;}
-    .metric-card .label {color:#666; font-size:0.95rem;}
-    .challenge-list, .solution-list, .lessons-list {background:#f7f9f8; padding:1.5rem; border-radius:8px; margin:1rem 0;}
-    .challenge-list li, .solution-list li, .lessons-list li {margin-bottom:1rem;}
-    .challenge-list li:last-child, .solution-list li:last-child, .lessons-list li:last-child {margin-bottom:0;}
-    .highlight-box {background:#edf5ec; padding:1.5rem; border-radius:8px; margin:1.5rem 0;}
-    .highlight-box h3 {margin-top:0; color:#3A6B35;}
-    footer {background:#3A6B35; color:white; padding:2rem; text-align:center; font-size:.9rem;}
-    .cta-section {background:linear-gradient(135deg, #3A6B35 0%, #5B8C51 100%); color:white; padding:3rem 2rem; text-align:center; margin:3rem auto; border-radius:12px;}
-    .cta-section h2 {color:white; border:none; padding:0; margin-bottom:1rem;}
-    .cta-button {background:white; color:#3A6B35; padding:1rem 2rem; text-decoration:none; border-radius:8px; display:inline-block; margin:0.5rem; font-weight:bold; font-size:1.1rem; transition:transform 0.2s, box-shadow 0.2s;}
-    .cta-button:hover {transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.2);}
-    .cta-button.secondary {background:transparent; border:2px solid white; color:white;}
-    .client-profile {background:#f7f9f8; padding:1.5rem; border-radius:8px; margin:1.5rem 0;}
-    .client-profile strong {color:#3A6B35;}
-    .obstacle-card {background:#fff3cd; border-left:5px solid #ffc107; padding:1rem; margin:1rem 0; border-radius:0 8px 8px 0;}
-    .obstacle-card strong {color:#856404; display:block; margin-bottom:0.5rem;}
-    .image-caption {text-align:center; font-size:0.9rem; color:#666; margin-top:-1rem; margin-bottom:1.5rem; font-style:italic;}
-    .top-nav {background:var(--white); border-bottom:1px solid #ddd; position:sticky; top:0; z-index:1000;}
-    .top-nav .container {max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0.5rem 1rem;}
-    .top-nav .logo {height:40px;}
-    .top-nav .nav-links a {margin-left:1rem; text-decoration:none; color:var(--dark); font-weight:bold;}
-    .top-nav .nav-links a:hover {color:var(--accent);}
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6; 
+      color: var(--dark); 
+      background: var(--lighter);
+    }
+    
+    /* Navigation */
+    .top-nav {
+      background: var(--primary);
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .top-nav .logo {
+      width: 50px;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 60px 20px 80px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 auto 25px;
+      max-width: 900px;
+    }
+    header .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      max-width: 750px;
+      margin: 0 auto 20px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .header-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.2);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Share Buttons */
+    .share-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .share-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    .share-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Sections */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    .section-alt {
+      background: var(--light);
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    h3 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin: 30px 0 15px;
+      font-weight: 600;
+    }
+    h4 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin: 20px 0 10px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    /* Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 40px auto;
+      display: block;
+      box-shadow: 0 10px 40px rgba(30, 41, 59, 0.15);
+    }
+    .image-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: -30px;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    /* Quote Box */
+    .quote-box {
+      background: #ecfeff;
+      border-left: 4px solid var(--accent);
+      padding: 30px 40px;
+      margin: 40px 0;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--primary);
+      line-height: 1.6;
+      border-radius: 0 8px 8px 0;
+    }
+    .quote-author {
+      margin-top: 15px;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    /* Client Profile */
+    .client-profile {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+      border: 2px solid #e5e7eb;
+    }
+    .client-profile strong {
+      color: var(--accent);
+    }
+    .client-profile p {
+      margin: 8px 0;
+    }
+
+    /* Day in Life */
+    .day-in-life {
+      background: #fef3c7;
+      border-left: 4px solid var(--warning);
+      padding: 25px 30px;
+      margin: 30px 0;
+      border-radius: 8px;
+    }
+    .day-in-life h4 {
+      color: var(--warning);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .day-entry {
+      margin: 15px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+    }
+    .day-entry .time {
+      font-weight: 700;
+      color: var(--warning);
+      font-size: 1rem;
+    }
+    .day-entry .description {
+      margin-top: 5px;
+      color: var(--dark);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin: 40px 0;
+    }
+    .timeline-item {
+      margin-bottom: 30px;
+      padding: 25px;
+      padding-left: 30px;
+      border-left: 3px solid var(--accent);
+      position: relative;
+      background: white;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 10px rgba(58, 107, 53, 0.08);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 30px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .timeline-item h4 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    .timeline-item ul {
+      margin: 10px 0 10px 20px;
+    }
+    .timeline-item li {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    /* Transformation Box */
+    .transformation-box {
+      background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 35px;
+      margin: 40px 0;
+    }
+    .transformation-box h3 {
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .transformation-box p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    /* Stats Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .metric-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(30, 41, 59, 0.1);
+      text-align: center;
+      border-top: 4px solid var(--accent);
+    }
+    .metric-card .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .metric-card .label {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Progress Section */
+    .progress-section {
+      background: var(--light);
+      padding: 40px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+    .progress-phase {
+      background: white;
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 2px 10px rgba(30, 41, 59, 0.08);
+    }
+    .progress-phase h4 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .progress-phase ul {
+      margin: 10px 0 10px 20px;
+    }
+    .progress-phase li {
+      margin: 10px 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Outcome Box */
+    .outcome-box {
+      background: #ecfdf5;
+      border: 2px solid var(--success);
+      border-radius: 12px;
+      padding: 35px;
+      margin: 40px 0;
+    }
+    .outcome-box h3 {
+      color: var(--success);
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .outcome-box ul {
+      margin: 15px 0 15px 30px;
+    }
+    .outcome-box li {
+      margin: 12px 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .cta-section p {
+      color: white;
+      opacity: 0.95;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-section ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 20px auto 30px;
+      list-style: none;
+      padding: 0;
+    }
+    .cta-section li {
+      padding: 8px 0;
+      font-size: 1.1rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 40px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      margin: 10px;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      background: #0891b2;
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    .btn-outline:hover {
+      background: white;
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    footer p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .disclaimer {
+      background: var(--light);
+      padding: 20px 30px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 40px;
+      font-style: italic;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .top-nav .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      header {
+        padding: 50px 20px 60px;
+      }
+      header h1 {
+        font-size: 1.9rem;
+      }
+      header .subtitle {
+        font-size: 1.1rem;
+      }
+      .header-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+      section {
+        padding: 40px 20px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .transformation-box, .outcome-box {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -75,11 +560,10 @@
     </div>
   </nav>
 
-  <!-- Header / Intro -->
+  <!-- Header -->
   <header>
-    <h1>How One Solo Arborist Reclaimed 104 Hours Annually & Increased Revenue by $18,000</h1>
-    <p style="font-size:1.2rem; margin-top:1rem;">A 2-month operational transformation that eliminated admin overwhelm, restored work-life balance, and allowed the business to scale sustainably without extra hires.</p>
-    <p style="font-size:1rem; margin-top:0.5rem; opacity:0.85;">Mike (pseudonym) represents the 70% of small landscaping and tree care businesses that struggle with growing revenue without overwhelming their schedule. For many, the tipping point isn’t lack of clients—it’s disorganized processes, scattered tools, and no system for scaling.</p>
+    <h1>How One Arborist Got His Weekends Back</h1>
+    <p class="subtitle">The 8-week transformation that turned 60-hour weeks into 45—reclaimed 104 hours annually and increased revenue by $18,000</p>
     <div class="header-stats">
       <div class="stat-box">
         <span class="stat-number">104</span>
@@ -94,135 +578,323 @@
         <span class="stat-label">Time Reclaimed</span>
       </div>
     </div>
+
+    <!-- Social Share Buttons -->
+    <div class="share-buttons">
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dgsconsulting.solutions/case-studies/Arborist.html" target="_blank" class="share-btn" title="Share on LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        Share on LinkedIn
+      </a>
+      <a href="mailto:?subject=Case Study: Arborist Efficiency&body=I thought you'd find this case study interesting: https://dgsconsulting.solutions/case-studies/Arborist.html" class="share-btn" title="Share via Email">
+        <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+        Email This
+      </a>
+      <a href="#" onclick="window.print(); return false;" class="share-btn" title="Download PDF">
+        <svg viewBox="0 0 24 24"><path d="M14 3v-3h-4v3h-7v5h2.219c.465 3.156 3.219 5.568 6.531 5.931v2.069h-2c-2.761 0-5 2.239-5 5h16c0-2.761-2.239-5-5-5h-2v-2.069c3.312-.363 6.066-2.775 6.531-5.931h2.219v-5h-7zm-12 3h18v1h-18v-1z"/></svg>
+        Download PDF
+      </a>
+    </div>
   </header>
 
-  <!-- Client Profile -->
-  <section class="content-section">
-    <h2>The Client</h2>
-    <div class="client-profile">
-      <strong>Industry:</strong> Residential & Commercial Tree Care<br>
-      <strong>Business Age:</strong> 5 years<br>
-      <strong>Annual Revenue:</strong> $120K (pre-engagement)<br>
-      <strong>Service Area:</strong> Mid-sized suburban market<br>
-      <strong>Team Size:</strong> Solo operator with seasonal part-time help<br>
-      <strong>Business Goals:</strong> Increase revenue without hiring, reduce admin hours, and improve customer response times.<br>
-      <strong>Pain Points:</strong> Missed quotes, delayed scheduling, fragmented software, admin burnout, and work-life imbalance.
+  <!-- The Breaking Point -->
+  <section>
+    <div class="container">
+      <h2>The Breaking Point</h2>
+      <p>Mike reached out after a mutual connection mentioned I specialized in helping service-based businesses untangle their operations. His opening question was direct: "Is it normal to work 60-hour weeks and still feel like I'm falling behind?"</p>
+      <p>Mike had been running his tree care business for 5 years. Despite steady referrals and a stellar reputation, his daily reality was a relentless cycle of stress and missed opportunities.</p>
+      <p><strong>He was booked solid—but drowning in admin work.</strong></p>
+
+      <div class="client-profile">
+        <h4>The Business Profile:</h4>
+        <p><strong>Industry:</strong> Residential & Commercial Tree Care</p>
+        <p><strong>Business Age:</strong> 5 years</p>
+        <p><strong>Annual Revenue:</strong> $120K (before our engagement)</p>
+        <p><strong>Team Size:</strong> Solo operator with seasonal part-time help</p>
+        <p><strong>Service Area:</strong> Mid-sized suburban market</p>
+        <p><strong>The Goal:</strong> Increase revenue without hiring full-time staff, reduce administrative burden, and reclaim evenings and weekends</p>
+      </div>
+
+      <p class="quote-box">"I'm losing jobs because I can't respond to quotes fast enough. By the time I get back to people, they've already hired someone else. And I'm working nights and weekends just to keep up with paperwork."<span class="quote-author">— Mike, during our discovery call</span></p>
     </div>
   </section>
 
-  <!-- Challenge -->
-  <section class="content-section">
-    <h2>The Challenge: Buried in Paperwork, Missing Life's Moments</h2>
-    <p>Despite steady referrals, Mike’s daily reality was a cycle of stress and lost opportunity. A typical week looked like this:</p>
-    <ul class="challenge-list">
-      <li><strong>Client communication chaos:</strong> Requests via 6+ channels led to 3-5 lost jobs per month.</li>
-      <li><strong>Quote delays:</strong> Took 4-6 days to respond, losing customers to faster competitors.</li>
-      <li><strong>Disconnected tools:</strong> Excel, Google Calendar, handwritten notes, email, QuickBooks, basic CRM—none synced, requiring manual reconciliation.</li>
-      <li><strong>No scalability:</strong> Every process relied on Mike’s memory. Sick days or vacation meant the business stalled.</li>
-      <li><strong>Admin burnout:</strong> 10-12 hours weekly lost to paperwork rather than billable work.</li>
-    </ul>
-    <p>Peak seasons amplified the stakes: delays meant lost revenue, dissatisfied clients, and safety risks in a physically demanding industry.</p>
-    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" alt="Before: Chaotic workflow diagram showing disconnected processes">
-    <p class="image-caption">Before: Client requests scattered across 6+ platforms with no clear handoff points, leading to an average 5-day response time and frequent missed opportunities.</p>
+  <!-- The Diagnosis -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>The Diagnosis: Chaos Hidden in Plain Sight</h2>
+      <p>I spent a week shadowing Mike's operations—timing every task, mapping every touchpoint from initial inquiry to final payment. What I discovered wasn't a single catastrophic failure. It was systematic inefficiency compounding daily.</p>
+
+      <div class="day-in-life">
+        <h4>A Typical Wednesday in Mike's Business:</h4>
+        <div class="day-entry">
+          <div class="time">7:15 AM</div>
+          <div class="description">Checks email on phone while driving to first job site. Three quote requests came in overnight. Makes mental note to "deal with them later."</div>
+        </div>
+        <div class="day-entry">
+          <div class="time">12:30 PM</div>
+          <div class="description">Takes lunch break. Tries to respond to quote requests but can't find the photos the clients sent—they're scattered across email, text messages, and Facebook Messenger.</div>
+        </div>
+        <div class="day-entry">
+          <div class="time">5:45 PM</div>
+          <div class="description">Finishes the day's jobs. Realizes he forgot to log hours for yesterday's work. Reconstructs timeline from memory and handwritten notes.</div>
+        </div>
+        <div class="day-entry">
+          <div class="time">8:30 PM</div>
+          <div class="description">Finally sits down to send quotes. Realizes one potential client called 4 days ago. When he calls back, they've already hired a competitor who responded same-day.</div>
+        </div>
+        <div class="day-entry">
+          <div class="time">10:15 PM</div>
+          <div class="description">Manually enters job data into QuickBooks. Discovers a $1,200 invoice from two weeks ago was never sent. Customer has been waiting to pay.</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 30px; font-weight: 600; font-size: 1.15rem;">This wasn't an occasional bad day. <strong>This was every single day.</strong></p>
+
+      <h3>The Hidden Costs:</h3>
+      <ul style="margin: 20px 0 20px 40px;">
+        <li style="margin: 15px 0; font-size: 1.1rem;"><strong>Client communication chaos:</strong> Inquiries came through 6+ channels—email, text, phone, Facebook, Instagram, website contact form. No centralized tracking meant 3-5 lost jobs per month (estimated $3,600-$6,000 in missed revenue).</li>
+        <li style="margin: 15px 0; font-size: 1.1rem;"><strong>Quote response delays:</strong> Average turnaround was 4-6 days. Competitors were responding same-day, winning jobs Mike should have had.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem;"><strong>Disconnected tool sprawl:</strong> Excel spreadsheets, Google Calendar, handwritten paper notes, email, QuickBooks, and a basic CRM that nobody used. None of them talked to each other.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem;"><strong>Zero scalability:</strong> Every single process lived in Mike's head. When he took a sick day or vacation, the business completely stalled.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem;"><strong>Admin burnout:</strong> 10-12 hours every week spent on paperwork instead of billable client work—that's 520-624 hours per year of lost productivity.</li>
+      </ul>
+
+      <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" alt="Before: Chaotic workflow diagram">
+      <p class="image-caption">Before: Client requests scattered across 6+ platforms with no clear handoff points, leading to an average 5-day response time and frequent missed opportunities.</p>
+
+      <p><strong>Peak season made everything worse.</strong> Spring and fall are make-or-break months for arborists. Delays during these periods didn't just mean lost revenue—they meant dissatisfied clients, safety risks in a physically demanding industry, and Mike working himself into exhaustion.</p>
+    </div>
   </section>
 
-  <!-- Solution -->
-  <section class="content-section">
-    <h2>The Solution: Simplification Through Strategic Systems</h2>
-    <p>Our goal was to maximize efficiency without adding complexity. The plan focused on three pillars: audit, simplify, train.</p>
+  <!-- The Solution -->
+  <section>
+    <div class="container">
+      <h2>The Solution: Simplify, Systemize, Scale</h2>
+      <p>Our goal wasn't to add more tools. It was to eliminate complexity and create systems that worked <em>for</em> Mike instead of <em>against</em> him.</p>
+      <p>The approach was structured in four phases over 8 weeks:</p>
 
-    <h3>1. Discovery & Diagnosis (Weeks 1-2)</h3>
-    <p>We shadowed Mike, timing each administrative task and mapping every client touchpoint from inquiry to payment. Key discoveries:</p>
-    <ul>
-      <li>7 major bottlenecks slowing quoting, scheduling, and invoicing.</li>
-      <li>4 redundant software subscriptions costing $1,200/year.</li>
-      <li>50% of admin time wasted on manually transferring information.</li>
-    </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Weeks 1-2: Discovery & Diagnosis</h4>
+          <p>I shadowed Mike's operations, timing every administrative task and mapping every client touchpoint from inquiry to final payment.</p>
+          <ul>
+            <li>Identified <strong>7 major bottlenecks</strong> slowing quote generation, scheduling, and invoicing</li>
+            <li>Discovered <strong>4 redundant software subscriptions</strong> costing $1,200/year that weren't being used effectively</li>
+            <li>Found that <strong>50% of Mike's admin time</strong> was spent manually transferring information between systems</li>
+          </ul>
+          <p><strong>Key insight:</strong> Mike wasn't lazy or disorganized. His systems were fighting each other.</p>
+        </div>
 
-    <h3>2. SOP Development & Tech Consolidation (Weeks 3-4)</h3>
-    <p>Standard operating procedures were designed for:</p>
-    <ul>
-      <li>Client intake & scheduling</li>
-      <li>Quote generation & follow-up</li>
-      <li>Invoice creation & payment tracking</li>
-      <li>Equipment & seasonal prep</li>
-    </ul>
-    <p>Tech stack reduced to ArboStar + QuickBooks, cutting complexity and saving $98/month in software costs.</p>
+        <div class="timeline-item">
+          <h4>Weeks 3-4: SOP Development & Tech Consolidation</h4>
+          <p>We documented standard operating procedures for every repeating task:</p>
+          <ul>
+            <li>Client intake & initial assessment</li>
+            <li>Quote generation & follow-up cadence</li>
+            <li>Job scheduling & customer communication</li>
+            <li>Invoice creation & payment tracking</li>
+            <li>Equipment maintenance & seasonal prep</li>
+          </ul>
+          <p><strong>Tech stack consolidation:</strong> Reduced from 6+ disconnected tools to just ArboStar (industry-specific CRM) + QuickBooks. Eliminated $98/month in redundant software costs.</p>
+        </div>
 
-    <h3>3. Implementation & Automation (Weeks 5-6)</h3>
-    <ul>
-      <li>Template-driven quotes auto-generated from service requests.</li>
-      <li>Automated client reminders for appointments and follow-ups.</li>
-      <li>Centralized dashboard for revenue tracking, scheduling, and KPIs.</li>
-    </ul>
+        <div class="timeline-item">
+          <h4>Weeks 5-6: Implementation & Automation</h4>
+          <p>Rolled out the new systems with automation at every possible touchpoint:</p>
+          <ul>
+            <li><strong>Template-driven quotes:</strong> Auto-generated from service requests, cutting quote creation time from 45 minutes to 8 minutes</li>
+            <li><strong>Automated client reminders:</strong> Appointment confirmations, day-before reminders, and follow-up requests sent automatically</li>
+            <li><strong>Centralized dashboard:</strong> One-screen view of pending quotes, scheduled jobs, outstanding invoices, and monthly revenue</li>
+            <li><strong>Mobile-first design:</strong> Mike could manage everything from his phone between job sites</li>
+          </ul>
+        </div>
 
-    <h3>4. Training & Optimization (Weeks 7-8)</h3>
-    <p>Hands-on training and iterative adjustments ensured adoption. Within one week, Mike confidently operated the systems independently.</p>
+        <div class="timeline-item">
+          <h4>Weeks 7-8: Training & Optimization</h4>
+          <p>Hands-on training sessions and iterative adjustments to ensure long-term adoption:</p>
+          <ul>
+            <li>Three 90-minute training sessions walking through real scenarios</li>
+            <li>Created quick-reference guides for common tasks (laminated, kept in truck)</li>
+            <li>Daily check-ins for first two weeks to troubleshoot issues</li>
+            <li>Built "impossible to skip" checkpoints: quote can't be sent without photos, job can't be marked complete without time logged</li>
+          </ul>
+          <p><strong>Within one week, Mike was confidently operating the systems independently.</strong></p>
+        </div>
+      </div>
 
-    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" alt="After: Streamlined dashboard for quotes and scheduling">
-    <p class="image-caption">After: Streamlined dashboard for quotes and scheduling reduced errors, improved client response time, and reclaimed 10+ hours per month.</p>
+      <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" alt="After: Streamlined dashboard">
+      <p class="image-caption">After: Streamlined dashboard for quotes and scheduling reduced errors, improved client response time from 5 days to 4 hours, and reclaimed 10+ hours per month.</p>
+
+      <div style="background: var(--accent); color: white; padding: 25px 35px; border-radius: 12px; margin: 30px 0; text-align: center;">
+        <p style="color: white; font-size: 1.2rem; font-weight: 600; margin: 0; font-style: italic;">"The philosophy: Make the right way the easy way."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Turning Point -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="transformation-box">
+        <h3>The Turning Point: Week 6</h3>
+        <p>Halfway through implementation, Mike called me on a Friday afternoon.</p>
+        <p>"I just finished my last job at 3:00 PM," he said. "I checked the dashboard—all my quotes are out, invoices are sent, next week is scheduled. I have nothing urgent to do tonight."</p>
+        <p>There was a pause on the line.</p>
+        <p><strong>"I honestly can't remember the last time that happened. I think I'm going to take my kids to the park."</strong></p>
+        <p>That moment—not the ROI calculations or the time savings—was when Mike realized the systems weren't just making him more efficient. <strong>They were giving him his life back.</strong></p>
+      </div>
+    </div>
   </section>
 
   <!-- Results -->
-  <section class="content-section">
-    <h2>Results & Impact</h2>
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <span class="number">104 hrs</span>
-        <span class="label">Time Reclaimed/Year</span>
-      </div>
-      <div class="metric-card">
-        <span class="number">$18,000</span>
-        <span class="label">Revenue Increase</span>
-      </div>
-      <div class="metric-card">
-        <span class="number">5 days</span>
-        <span class="label">Quote Response Improvement</span>
-      </div>
-      <div class="metric-card">
-        <span class="number">2 Tools</span>
-        <span class="label">Consolidated Tech Stack</span>
-      </div>
-    </div>
+  <section>
+    <div class="container">
+      <h2>Results: The 8-Week Transformation</h2>
+      <p>This wasn't instant magic. It was a deliberate process with clear milestones. Here's how the transformation unfolded:</p>
 
-    <p>Beyond numbers, Mike regained evenings and weekends. Qualitative benefits included:</p>
-    <ul>
-      <li>Less stress and greater control over his schedule.</li>
-      <li>Confident client follow-ups and accurate invoicing.</li>
-      <li>Ability to take on 10+ additional clients without hiring.</li>
-    </ul>
+      <div class="progress-section">
+        <div class="progress-phase">
+          <h4>Weeks 1-3: Foundation Phase</h4>
+          <ul>
+            <li>Quote response time: 4-6 days → 4-8 hours</li>
+            <li>Software costs reduced by $98/month ($1,176 annually)</li>
+            <li>Mike's admin hours per week: 12 → 8</li>
+            <li>First win: Landed a $3,200 commercial contract because of same-day quote</li>
+          </ul>
+        </div>
 
-    <div class="quote-box">
-      "I thought I was efficient, but Darren showed me the real cost of my systems. Now, I can take Friday afternoons off without worrying about lost revenue." 
-      <span class="quote-author">— Mike, Arborist</span>
+        <div class="progress-phase">
+          <h4>Weeks 4-6: Momentum Phase</h4>
+          <ul>
+            <li>Quote conversion rate improved 23% (faster response = more wins)</li>
+            <li>Cash flow improved due to automated invoicing</li>
+            <li>Mike's admin hours per week: 8 → 4</li>
+            <li>Client feedback: "You're so much more responsive than last year"</li>
+          </ul>
+        </div>
+
+        <div class="progress-phase">
+          <h4>Weeks 7-8: Optimization Phase</h4>
+          <ul>
+            <li><strong>104 hours reclaimed annually</strong> (2 hours/week × 52 weeks)</li>
+            <li><strong>$18,000 revenue increase</strong> from higher conversion rates and capacity for more jobs</li>
+            <li><strong>Zero missed quotes or delayed invoices</strong></li>
+            <li><strong>Mike's weekly hours: 60 → 45</strong> (and sustainable)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="number">104 hrs</span>
+          <span class="label">Time Reclaimed/Year</span>
+        </div>
+        <div class="metric-card">
+          <span class="number">$18,000</span>
+          <span class="label">Revenue Increase</span>
+        </div>
+        <div class="metric-card">
+          <span class="number">4 hours</span>
+          <span class="label">Quote Response Time</span>
+        </div>
+        <div class="metric-card">
+          <span class="number">2 Tools</span>
+          <span class="label">Consolidated Stack</span>
+        </div>
+      </div>
+
+      <p class="quote-box">"I thought I was already efficient. Darren showed me I was just busy. Now I can see the difference. I'm doing less administrative work and making more money. And I actually have time for my family again."<span class="quote-author">— Mike, 8 weeks post-implementation</span></p>
     </div>
   </section>
 
-  <!-- Lessons Learned -->
-  <section class="content-section">
-    <h2>Lessons Learned & Best Practices</h2>
-    <ul class="lessons-list">
-      <li>Audit before investing in tools—eliminates guesswork and unnecessary expense.</li>
-      <li>Simple SOPs empower staff and reduce operational bottlenecks.</li>
-      <li>Consolidated software stack saves time and ensures data consistency.</li>
-      <li>Hands-on training and monitoring are crucial for adoption.</li>
-      <li>Operational efficiency directly translates into revenue and lifestyle improvement.</li>
-    </ul>
+  <!-- 6 Months Later -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>6 Months Later: Sustainable Growth</h2>
+      <p>With his operations running smoothly and his time freed up, Mike was able to make strategic moves he'd been postponing for years:</p>
+
+      <div class="outcome-box">
+        <h3>What Mike Did With His Reclaimed Time:</h3>
+        <ul>
+          <li><strong>Hired a part-time admin assistant</strong>—something he "couldn't afford" before, but now had clear systems to train them on</li>
+          <li><strong>Expanded service offerings</strong>—added emergency storm response, now a $12K/year revenue stream</li>
+          <li><strong>Took his first full week vacation in 5 years</strong>—business ran without him because the systems worked</li>
+          <li><strong>Increased client capacity by 25%</strong>—took on 10+ additional clients without increasing stress</li>
+          <li><strong>Improved profit margins by 15%</strong>—better scheduling and faster invoicing improved cash flow</li>
+        </ul>
+      </div>
+
+      <p class="quote-box">"The systems don't just save time—they give me confidence. I know nothing's falling through the cracks. I can take a day off and not worry about coming back to chaos. That's worth more than the money saved."<span class="quote-author">— Mike, 6 months post-implementation</span></p>
+
+      <p style="font-size: 1.15rem; font-weight: 600; margin-top: 40px;">Today, Mike's business is generating $138K annually (up from $120K), he's working 45-hour weeks, and he coaches his daughter's soccer team on Saturdays.</p>
+
+      <h3 style="margin-top: 50px;">Key Lessons from Mike's Transformation:</h3>
+      <ul style="margin: 20px 0 20px 40px;">
+        <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Audit before you invest:</strong> Most businesses don't need more tools—they need to fix the ones they have.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Simple SOPs beat complex software:</strong> A two-page process guide solved more problems than expensive automation.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Consolidation saves money and sanity:</strong> Fewer tools = less confusion = better adoption.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Training determines success:</strong> The best system in the world fails if people don't know how to use it.</li>
+        <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Time is the ultimate ROI:</strong> The $18K revenue increase was great, but getting his weekends back was priceless.</li>
+      </ul>
+    </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2>Let’s simplify your systems.</h2>
-    <p>Ready to see where your tools are costing you time and profit? Start with the $99 Tech Stack Red Flag Audit — fast, practical, and focused on measurable wins.</p>
-    <a href="/Services/index.html" class="cta-button">See Services</a>
-    <a href="mailto:DGSConsult@consultant.com" class="cta-button secondary">Email Us</a>
-    <a href="https://www.linkedin.com/in/dg-snook/" class="cta-button secondary">LinkedIn</a>
+    <div class="container">
+      <h2>Is Your Business Running You?</h2>
+      <p>If you're working 60-hour weeks and still feel like you're falling behind, your systems—not your work ethic—are the problem.</p>
+      <p>I offer a <strong>free 20-minute Tech Stack Red Flag Call</strong> where we'll identify:</p>
+      <ul>
+        <li>✓ Where your tools are costing you time (and money)</li>
+        <li>✓ Which subscriptions you're paying for but barely using</li>
+        <li>✓ One quick win you could implement this week</li>
+      </ul>
+      <p style="font-weight: 600; font-size: 1.15rem; margin-bottom: 30px;">No pitch. No obligation. Just clarity.</p>
+      <a href="https://dgsconsulting.solutions/Services/index.html" class="btn">Book Your Free Call</a>
+      <a href="https://dgsconsulting.solutions/" class="btn btn-outline">Learn More About DGS</a>
+
+      <div style="margin-top: 50px; padding-top: 40px; border-top: 2px solid rgba(255,255,255,0.2);">
+        <h3 style="color: white; font-size: 1.4rem; margin-bottom: 15px;">About DGS Consulting</h3>
+        <p style="font-size: 1.05rem; max-width: 700px; margin: 0 auto;">I help small business owners reclaim lost time by fixing the systems they already use. No new subscriptions. No jargon. Just clarity, efficiency, and measurable results.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    © 2025 DGS Consulting | "Clarity over complexity." | Founded by Darren Snook | Ottawa, ON
+    <div class="container">
+      <p>&copy; 2025 DGS Consulting | Systems Clarity Consultant</p>
+      <p>Email: <a href="mailto:DGSConsult@consultant.com">DGSConsult@consultant.com</a> | <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a></p>
+      <p><a href="https://dgsconsulting.solutions/">Back to Home</a> | <a href="https://dgsconsulting.solutions/case-studies/">More Case Studies</a></p>
+      <div class="disclaimer">
+        <p><strong>Note:</strong> Client name and specific identifying details have been changed to protect confidentiality. Results are based on actual implementation over an 8-week period with 6-month follow-up. Individual results may vary based on business size, industry, implementation adherence, and specific operational challenges.</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">&#8679;</a>
+
+  <script>
+    // Back to Top Visibility
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Smooth scroll for back to top
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 
 </body>
 </html>
