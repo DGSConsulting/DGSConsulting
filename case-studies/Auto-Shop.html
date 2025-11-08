@@ -19,6 +19,8 @@ box-sizing: border-box;
   --lighter: #FFFFFF;
   --dark: #1e1e1e;
   --white: #ffffff;
+  --warning: #d97706;
+  --success: #10b981;
 }
 
 body {
@@ -155,10 +157,18 @@ margin: 30px 0 15px;
 font-weight: 600;
 }
 
+.section h4 {
+font-size: 1.2rem;
+color: var(--primary);
+margin: 20px 0 10px;
+font-weight: 600;
+}
+
 .section p {
 font-size: 1.1rem;
 margin-bottom: 20px;
 color: var(--dark);
+line-height: 1.8;
 }
 
 .feature-image {
@@ -208,6 +218,7 @@ margin: 40px 0;
 font-style: italic;
 font-size: 1.2rem;
 color: var(--primary);
+line-height: 1.6;
 }
 
 .quote-author {
@@ -226,6 +237,7 @@ margin: 20px 0 20px 40px;
 margin: 15px 0;
 font-size: 1.1rem;
 color: var(--dark);
+line-height: 1.7;
 }
 
 .highlight-box {
@@ -261,6 +273,9 @@ color: white;
 opacity: 0.95;
 font-size: 1.2rem;
 margin-bottom: 30px;
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
 }
 
 .btn {
@@ -299,16 +314,20 @@ margin: 40px 0;
 
 .timeline-item {
 margin-bottom: 30px;
+padding: 25px;
 padding-left: 30px;
 border-left: 3px solid var(--accent);
 position: relative;
+background: white;
+border-radius: 0 8px 8px 0;
+box-shadow: 0 2px 10px rgba(30, 41, 59, 0.08);
 }
 
 .timeline-item::before {
 content: '';
 position: absolute;
 left: -7px;
-top: 5px;
+top: 30px;
 width: 11px;
 height: 11px;
 border-radius: 50%;
@@ -318,63 +337,183 @@ background: var(--accent);
 .timeline-item h4 {
 color: var(--accent);
 font-size: 1.3rem;
-margin-bottom: 10px;
+margin-bottom: 15px;
 }
 
 .timeline-item p {
 color: var(--dark);
 margin-bottom: 10px;
+font-size: 1rem;
 }
 
-.comparison-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 20px;
+.timeline-item ul {
+margin: 10px 0 10px 20px;
+}
+
+.timeline-item li {
+margin: 8px 0;
+color: var(--dark);
+font-size: 1rem;
+}
+
+.day-in-life {
+background: #fef3c7;
+border-left: 4px solid var(--warning);
+padding: 25px 30px;
 margin: 30px 0;
-}
-
-.comparison-card {
-padding: 25px;
 border-radius: 8px;
 }
 
-.before {
-background: #fff5f5;
-border: 2px solid #c53030;
+.day-in-life h4 {
+color: var(--warning);
+font-size: 1.3rem;
+margin-bottom: 20px;
+font-weight: 600;
 }
 
-.after {
-background: #ecfeff;
+.day-entry {
+margin: 15px 0;
+padding: 15px;
+background: white;
+border-radius: 6px;
+}
+
+.day-entry .time {
+font-weight: 700;
+color: var(--warning);
+font-size: 1rem;
+}
+
+.day-entry .description {
+margin-top: 5px;
+color: var(--dark);
+font-size: 1rem;
+line-height: 1.6;
+}
+
+.layer-card {
+background: white;
+padding: 30px;
+margin: 25px 0;
+border-radius: 12px;
 border: 2px solid var(--accent);
+box-shadow: 0 4px 15px rgba(6, 182, 212, 0.1);
 }
 
-.comparison-card h4 {
+.layer-card h4 {
+color: var(--accent);
+font-size: 1.3rem;
 margin-bottom: 15px;
-font-size: 1.2rem;
+display: flex;
+align-items: center;
+gap: 10px;
 }
 
-.before h4 {
-color: #c53030;
+.layer-badge {
+background: var(--accent);
+color: white;
+padding: 4px 12px;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 600;
 }
 
-.after h4 {
+.transformation-box {
+background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+border: 2px solid var(--accent);
+border-radius: 12px;
+padding: 35px;
+margin: 40px 0;
+}
+
+.transformation-box h3 {
 color: var(--primary);
+font-size: 1.6rem;
+margin-bottom: 20px;
+text-align: center;
 }
 
-.comparison-card ul {
-list-style: none;
-padding: 0;
+.transformation-box p {
+font-size: 1.15rem;
+line-height: 1.8;
+color: var(--dark);
+margin-bottom: 15px;
 }
 
-.comparison-card li {
-padding: 8px 0;
+.philosophy-box {
+background: var(--primary);
+color: white;
+padding: 25px 35px;
+border-radius: 12px;
+margin: 30px 0;
+text-align: center;
+}
+
+.philosophy-box p {
+color: white;
+font-size: 1.2rem;
+font-weight: 600;
+margin: 0;
+font-style: italic;
+}
+
+.progress-section {
+background: var(--light);
+padding: 40px;
+border-radius: 12px;
+margin: 40px 0;
+}
+
+.progress-phase {
+background: white;
+padding: 25px;
+margin: 20px 0;
+border-radius: 8px;
+border-left: 4px solid var(--accent);
+box-shadow: 0 2px 10px rgba(30, 41, 59, 0.08);
+}
+
+.progress-phase h4 {
+color: var(--accent);
+font-size: 1.2rem;
+margin-bottom: 15px;
+font-weight: 700;
+}
+
+.progress-phase ul {
+margin: 10px 0 10px 20px;
+}
+
+.progress-phase li {
+margin: 10px 0;
 font-size: 1rem;
 color: var(--dark);
+line-height: 1.6;
 }
 
-.comparison-card li::before {
-content: "→ ";
-font-weight: bold;
+.outcome-box {
+background: #ecfdf5;
+border: 2px solid var(--success);
+border-radius: 12px;
+padding: 35px;
+margin: 40px 0;
+}
+
+.outcome-box h3 {
+color: var(--success);
+font-size: 1.6rem;
+margin-bottom: 20px;
+}
+
+.outcome-box ul {
+margin: 15px 0 15px 30px;
+}
+
+.outcome-box li {
+margin: 12px 0;
+font-size: 1.1rem;
+color: var(--dark);
+line-height: 1.7;
 }
 
 .disclaimer {
@@ -386,36 +525,6 @@ color: #64748b;
 margin-top: 60px;
 font-style: italic;
 border: 1px solid #e5e7eb;
-}
-
-.integration-box {
-background: #ecfeff;
-border: 2px solid var(--accent);
-border-radius: 12px;
-padding: 30px;
-margin: 30px 0;
-}
-
-.integration-box h4 {
-color: var(--primary);
-font-size: 1.2rem;
-margin-bottom: 15px;
-font-weight: 600;
-}
-
-.challenge-box {
-background: #fff5e6;
-border-left: 4px solid #d97706;
-padding: 25px 30px;
-margin: 30px 0;
-border-radius: 8px;
-}
-
-.challenge-box h4 {
-color: #d97706;
-font-size: 1.2rem;
-margin-bottom: 12px;
-font-weight: 600;
 }
 
 .back-to-top {
@@ -492,21 +601,20 @@ flex-direction: column;
 align-items: center;
 }
 
-.section h2 {
-font-size: 1.6rem;
+.section {
+padding: 40px 20px;
 }
 
-.comparison-grid {
-grid-template-columns: 1fr;
+.section h2 {
+font-size: 1.6rem;
 }
 
 .stat-card {
 padding: 20px;
 }
 
-.feature-image {
-height: 300px;
-font-size: 0.95rem;
+.layer-card, .transformation-box, .outcome-box {
+padding: 20px;
 }
 
 .back-to-top {
@@ -535,8 +643,8 @@ height: 45px;
 <!-- Hero Section -->
 <div class="hero">
 <div class="container">
-<h1>How One Auto Shop Recovered 120 Hours Per Month (Without Hiring Anyone)</h1>
-<p class="subtitle">A 6-month transformation that turned hidden inefficiencies into $23,400 in annual savings</p>
+<h1>How One Auto Shop Owner Got His Life Back</h1>
+<p class="subtitle">The 6-month transformation that turned 60-hour weeks into 45—and saved $23,400 in the process</p>
 
 <!-- Social Share Buttons -->
 <div class="share-buttons">
@@ -560,59 +668,149 @@ Download PDF
 <div class="section">
 <div class="container">
 <h2>The Breaking Point</h2>
-<img 
-  src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/frustrated-tech-empty-bay.jpg" 
-  alt="Frustrated technician in service bay surrounded by paperwork" 
-  class="feature-image">
-<p>When James and I first connected, his mid-sized auto repair shop in Eastern Canada was working his fourth consecutive 60-hour week. His multi-bay operation with seven skilled technicians had a stellar reputation, loyal customers, and a backlog of work that stretched two weeks out.</p>
+<p>James reached out after seeing one of my LinkedIn posts about tool sprawl costing SMBs thousands per year. His question was simple: "How do I know if my systems are the problem?"</p>
+<p>When we first connected, his mid-sized auto repair shop in Eastern Canada was in the middle of his fourth consecutive 60-hour week. His multi-bay operation with seven skilled technicians had a stellar reputation, loyal customers, and a backlog of work that stretched two weeks out.</p>
 <p>By every visible measure, the business was thriving.</p>
-<p>But James was drowning.</p>
-<p>"We’re booked solid," he said, "and still, I can’t catch up. I spend more time fixing my own paperwork than the cars."</p>
+<p><strong>But James was drowning.</strong></p>
+<p class="quote-block">"We're booked solid, and still, I can't catch up. I spend more time fixing my own paperwork than the cars."<span class="quote-author">— James, during our first call</span></p>
 </div>
 </div>
 
 <!-- The Diagnosis -->
 <div class="section section-alt">
 <div class="container">
-<h2>The Diagnosis</h2>
-<img 
-  src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/chaotic-workspace.jpg" 
-  alt="Messy auto shop office with papers and tech scattered" 
-  class="feature-image">
-<p>The shop’s management systems were fractured. QuickBooks, Shopmonkey, and a handful of spreadsheets weren’t talking to each other. Important details fell through the cracks:</p>
+<h2>The Diagnosis: A Day in the Life</h2>
+<p>I shadowed James for two full days to understand where the time was really going. What I found wasn't dramatic—it was death by a thousand paper cuts.</p>
+
+<div class="day-in-life">
+<h4>Here's what a typical Tuesday looked like:</h4>
+<div class="day-entry">
+<div class="time">8:47 AM</div>
+<div class="description">Technician finishes an oil change. Writes completion time on a paper ticket. Paper ticket sits on the service desk for three hours before anyone sees it.</div>
+</div>
+<div class="day-entry">
+<div class="time">11:23 AM</div>
+<div class="description">Shop manager manually enters yesterday's tickets into Shopmonkey. Realizes two tickets are missing. Spends 20 minutes texting technicians to reconstruct jobs from memory.</div>
+</div>
+<div class="day-entry">
+<div class="time">2:15 PM</div>
+<div class="description">Office admin tries to invoice completed jobs. QuickBooks doesn't match Shopmonkey records. She spends 40 minutes reconciling discrepancies by hand.</div>
+</div>
+<div class="day-entry">
+<div class="time">4:30 PM</div>
+<div class="description">James discovers a brake job from last week was never invoiced. $890 in revenue sitting in a filing cabinet. Customer already picked up their car five days ago.</div>
+</div>
+</div>
+
+<p style="margin-top: 30px; font-weight: 600; font-size: 1.15rem;">This wasn't happening occasionally. <strong>It was happening every single day.</strong></p>
+
+<p>The shop's management systems were fractured. QuickBooks, Shopmonkey, and a handful of spreadsheets weren't talking to each other. Important details fell through the cracks:</p>
 <ul class="bullet-list">
-<li>Labor hours weren’t tracked properly against jobs</li>
-<li>Invoices were delayed, causing cash flow headaches</li>
-<li>Technicians were spending hours on redundant paperwork</li>
-<li>Shop manager had zero insight into monthly profitability per bay</li>
+<li>Labor hours weren't tracked against jobs in real time—techs reconstructed them from memory hours later</li>
+<li>Invoices were delayed by 2-3 days after job completion, creating constant cash flow pressure</li>
+<li>Technicians were spending 15-20 minutes per job on redundant paperwork across three different systems</li>
+<li>The shop manager had zero visibility into which bays were profitable and which were dragging down margins</li>
 </ul>
-<p>Hours were being lost every day, and no one could see it.</p>
+<p>Hours were being lost every day, and no one could see it. <strong>The inefficiency was invisible until you looked closely.</strong></p>
 </div>
 </div>
 
 <!-- The Solution -->
 <div class="section">
 <div class="container">
-<h2>The Solution</h2>
-<img 
-  src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/case-studies/images/shopmonkey-quickbooks.jpg" 
-  alt="Shopmonkey and QuickBooks integration" 
-  class="feature-image">
-<p>We integrated the shop's core systems and simplified workflows:</p>
-<ul class="bullet-list">
-<li>Connected Shopmonkey and QuickBooks for automatic invoice creation</li>
-<li>Created a unified dashboard for labor tracking and profitability per bay</li>
-<li>Standardized SOPs for incoming repairs, technician updates, and client notifications</li>
-<li>Trained staff on new system workflows, saving 10–15 minutes per job</li>
+<h2>The Solution: The 3-Layer Fix</h2>
+<p>We didn't add new tools. We fixed what was already there.</p>
+<p>My approach was built on three layers, each addressing a different part of the breakdown:</p>
+
+<div class="layer-card">
+<h4><span class="layer-badge">Week 1-2</span> Layer 1: Data Flow</h4>
+<p>We mapped every touchpoint where information was being manually re-entered or lost between systems.</p>
+<ul>
+<li><strong>Built a direct sync</strong> between Shopmonkey job completion and QuickBooks invoice draft creation</li>
+<li><strong>Eliminated paper tickets</strong> by having technicians log time directly in Shopmonkey via tablet</li>
+<li><strong>Result:</strong> Invoices generated within 2 hours of job completion instead of 2-3 days</li>
 </ul>
-<p>The goal: make it impossible to "drop the ball" on any repair and eliminate hidden inefficiencies.</p>
+</div>
+
+<div class="layer-card">
+<h4><span class="layer-badge">Week 3-4</span> Layer 2: Visibility</h4>
+<p>James and his manager were making decisions blind. We created a single-page dashboard that showed:</p>
+<ul>
+<li>Labor hours per bay (updated daily)</li>
+<li>Profitability per technician (calculated weekly)</li>
+<li>Outstanding invoices (real-time tracking)</li>
+<li>Jobs stuck in "awaiting parts" status for more than 3 days</li>
+</ul>
+<p><strong>The shop manager now reviews this dashboard every morning in under 5 minutes</strong>—replacing hours of manual spreadsheet work.</p>
+</div>
+
+<div class="layer-card">
+<h4><span class="layer-badge">Week 5-6</span> Layer 3: Process Standardization</h4>
+<p>Systems only work if people use them. We made adoption inevitable:</p>
+<ul>
+<li>Documented the new workflow in a <strong>2-page visual guide</strong> posted in each bay</li>
+<li>Ran <strong>three 45-minute hands-on training sessions</strong> with technicians (not boring PowerPoints—actual walkthroughs with real jobs)</li>
+<li>Built in <strong>"impossible to skip" checkpoints</strong>: a job can't be marked complete in Shopmonkey without logging time and uploading a photo</li>
+</ul>
+</div>
+
+<div class="philosophy-box">
+<p>The philosophy: Make the right way the easy way.</p>
+</div>
+</div>
+</div>
+
+<!-- The Turning Point -->
+<div class="section section-alt">
+<div class="container">
+<div class="transformation-box">
+<h3>The Turning Point: Week 8</h3>
+<p>Six weeks into implementation, James called me on a Monday morning.</p>
+<p>"I just had my first Monday in two years where I wasn't in panic mode," he said. "I opened the dashboard, saw exactly where we stood, and... it just worked."</p>
+<p>His shop manager reported the same shift: <strong>"I used to spend 8 hours a week chasing down paperwork. Now I spend 45 minutes reviewing the dashboard and the rest of my time actually managing people."</strong></p>
+<p>The system wasn't just saving time. <strong>It was changing how the team worked.</strong></p>
+</div>
 </div>
 </div>
 
 <!-- Results -->
-<div class="section section-alt">
+<div class="section">
 <div class="container">
-<h2>Results</h2>
+<h2>Results: The 6-Month Transformation</h2>
+<p>This wasn't instant magic—it was a process with visible milestones. Here's how the transformation unfolded:</p>
+
+<div class="progress-section">
+<div class="progress-phase">
+<h4>Month 1-2: Foundation Phase</h4>
+<ul>
+<li>Invoice creation time dropped from 3 days to 2 hours</li>
+<li>Paperwork errors reduced by 40%</li>
+<li>James's weekly hours: 60 → 52</li>
+<li>First technician feedback: "This actually makes my job easier"</li>
+</ul>
+</div>
+
+<div class="progress-phase">
+<h4>Month 3-4: Momentum Phase</h4>
+<ul>
+<li>Full team adoption of new workflows (100% compliance)</li>
+<li>Cash flow stabilized due to faster invoicing</li>
+<li>James's weekly hours: 52 → 45</li>
+<li>Shop manager now spending time on growth projects instead of firefighting</li>
+</ul>
+</div>
+
+<div class="progress-phase">
+<h4>Month 5-6: Optimization Phase</h4>
+<ul>
+<li><strong>120 hours per month</strong> saved across entire team</li>
+<li><strong>$23,400 annual savings</strong> from labor efficiency gains</li>
+<li><strong>15% efficiency increase</strong> per bay</li>
+<li><strong>James's weekly hours: 45</strong> (and sustainable)</li>
+</ul>
+</div>
+</div>
+
 <div class="stats-grid">
 <div class="stat-card">
 <div class="stat-number">120</div>
@@ -627,26 +825,63 @@ Download PDF
 <div class="stat-label">Efficiency Increase</div>
 </div>
 </div>
-<p class="quote-block">“I didn’t realize how much time we were wasting until we had these systems in place. Now, I can actually plan my week instead of chasing paperwork.”</p>
-<p class="quote-author">— James, Shop Owner</p>
+
+<p class="quote-block">"I didn't realize how much time we were wasting until we had these systems in place. Now, I can actually plan my week instead of chasing paperwork. The dashboard shows me everything I need to know in 5 minutes."<span class="quote-author">— James, Shop Owner (Month 6)</span></p>
+</div>
+</div>
+
+<!-- 6 Months Later -->
+<div class="section section-alt">
+<div class="container">
+<h2>6 Months Later: Sustainable Growth</h2>
+<p>With his time back and his operations running smoothly, James was able to make moves he'd been "meaning to do" for years:</p>
+
+<div class="outcome-box">
+<h3>What James Did With His Reclaimed Time:</h3>
+<ul>
+<li><strong>Hired a service advisor</strong>—something he'd postponed for 2 years because he "couldn't afford to train someone"</li>
+<li><strong>Launched a customer loyalty program</strong>—now fully trackable in their streamlined system</li>
+<li><strong>Took his first full week of vacation in 4 years</strong>—and the shop ran without him</li>
+<li><strong>Increased profitability by 20%</strong>—same number of bays, better margins</li>
+</ul>
+</div>
+
+<p class="quote-block">"The systems don't just save time. They give me permission to actually grow the business instead of just surviving it. I can see what's working, what's not, and make decisions based on data instead of gut feeling."<span class="quote-author">— James, 9 months post-implementation</span></p>
+
+<p style="font-size: 1.15rem; font-weight: 600; margin-top: 40px;">Today, the shop is running the same number of bays with 20% better margins—and James works sustainable 45-hour weeks.</p>
 </div>
 </div>
 
 <!-- Call to Action -->
 <div class="cta-section">
 <div class="container">
-<h2>Ready to See How This Could Work for Your Business?</h2>
-<p>Whether you’re a multi-bay auto shop or a growing SMB, we help businesses eliminate hidden inefficiencies and save time and money without hiring more staff.</p>
-<a href="https://dgsconsulting.solutions/Services/index.html" class="btn">Explore Our Services</a>
-<a href="https://dgsconsulting.github.io/SOP-Designer/" class="btn btn-outline">View SOP Templates</a>
+<h2>Does This Sound Familiar?</h2>
+<p>If you're running a successful operation but feel like you're drowning in your own systems, let's talk.</p>
+<p>I offer a <strong>free 20-minute Tech Stack Red Flag Call</strong> where we'll identify:</p>
+<ul style="text-align: left; max-width: 600px; margin: 20px auto 30px; list-style: none; padding: 0;">
+<li style="padding: 8px 0; font-size: 1.1rem;">✓ Where your systems are costing you time (and money)</li>
+<li style="padding: 8px 0; font-size: 1.1rem;">✓ Which tools you're paying for but not using effectively</li>
+<li style="padding: 8px 0; font-size: 1.1rem;">✓ One quick win you could implement this week</li>
+</ul>
+<p style="font-weight: 600; font-size: 1.15rem; margin-bottom: 30px;">No pitch. No obligation. Just clarity.</p>
+<a href="https://dgsconsulting.solutions/Services/index.html" class="btn">Book Your Free Call</a>
+<a href="https://dgsconsulting.solutions/" class="btn btn-outline">Learn More About DGS</a>
+
+<div style="margin-top: 50px; padding-top: 40px; border-top: 2px solid rgba(255,255,255,0.2);">
+<h3 style="color: white; font-size: 1.4rem; margin-bottom: 15px;">About DGS Consulting</h3>
+<p style="font-size: 1.05rem; max-width: 700px; margin: 0 auto;">I help small business owners reclaim lost time by fixing the systems they already use. No new subscriptions. No jargon. Just clarity, efficiency, and measurable results.</p>
+</div>
 </div>
 </div>
 
 <!-- Footer -->
 <footer>
-<p>&copy; 2025 DGS Consulting</p>
+<p>&copy; 2025 DGS Consulting | Systems Clarity Consultant</p>
 <p>Email: <a href="mailto:DGSConsult@consultant.com">DGSConsult@consultant.com</a> | <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a></p>
-<p><a href="https://dgsconsulting.solutions/">Back to Home</a></p>
+<p><a href="https://dgsconsulting.solutions/">Back to Home</a> | <a href="https://dgsconsulting.solutions/case-studies/">More Case Studies</a></p>
+<div class="disclaimer">
+<p><strong>Note:</strong> Client name and specific identifying details have been changed to protect confidentiality. Results are based on actual implementation over a 6-month period. Individual results may vary based on business size, implementation adherence, and specific operational challenges.</p>
+</div>
 </footer>
 
 <!-- Back to Top Button -->
@@ -661,6 +896,15 @@ window.addEventListener('scroll', () => {
   } else {
     backToTop.classList.remove('visible');
   }
+});
+
+// Smooth scroll for back to top
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 </script>
 
