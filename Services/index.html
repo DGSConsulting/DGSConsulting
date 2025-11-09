@@ -4,6 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DGS Consulting | Services</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T0K5M8P9XP');
+</script>
+  
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -100,6 +110,34 @@ button { cursor: pointer; font-family: inherit; }
 .step[data-color="amber"] { border-top: 6px solid var(--amber); }
 .step[data-color="red"] { border-top: 6px solid var(--red); }
 
+/* ---------- BUYER JOURNEY SECTION ---------- */
+.buyer-journey {
+  background: var(--lighter);
+  text-align: center;
+  padding: 5rem 2rem;
+  border-top: 1px solid rgba(30,41,59,0.1);
+}
+.buyer-journey h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.buyer-journey p {
+  font-size: 1.1rem;
+  color: rgba(30,41,59,0.8);
+  margin-bottom: 2.5rem;
+}
+.buyer-journey img {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.buyer-journey img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
 /* ---------- MODAL ---------- */
 .modal {
   display: none;
@@ -166,6 +204,7 @@ footer a:hover { color: #22d3ee; }
   .journey-steps { flex-direction: column; align-items: center; }
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
+  .buyer-journey img { max-width: 100%; }
 }
 </style>
 </head>
@@ -216,6 +255,15 @@ footer a:hover { color: #22d3ee; }
       <span class="price">$4K – $8K+</span>
       <button data-service="Complete Transformation">Apply Now</button>
     </div>
+  </div>
+</section>
+
+<!-- ---------- BUYER JOURNEY DIAGRAM ---------- -->
+<section class="buyer-journey">
+  <div style="max-width:950px; margin:0 auto;">
+    <h2>DGS Consulting Buyer’s Journey</h2>
+    <p>Every client moves through five clear stages — from first impression to long-term results.</p>
+    <img src="../asset/DGS-Consulting-Buyers-Journey.png" alt="DGS Consulting Buyer's Journey Diagram">
   </div>
 </section>
 
