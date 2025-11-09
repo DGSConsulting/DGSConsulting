@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DGS Consulting | Services</title>
+<title>Fix Your Systems, Not Add More Tools | DGS Consulting</title>
+<meta name="description" content="Service businesses waste on average of $10K - $50K+ annually on broken systems. We fix them—without new software.">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
@@ -20,373 +21,1076 @@
   --primary: #1E293B;
   --accent: #06B6D4;
   --green: #10B981;
-  --amber: #F59E0B;
   --red: #EF4444;
   --light: #F9FAFB;
   --lighter: #FFFFFF;
-  --dark: #0F172A;
-  --radius: 1rem;
 }
 
-/* ---------- GLOBAL ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   background: var(--light);
   color: var(--primary);
-  margin: 0;
   line-height: 1.6;
 }
-h1, h2, h3 { font-weight: 700; margin-top: 0; color: var(--primary); }
-p { color: rgba(30,41,59,0.85); margin: 0 0 1rem; }
-button { cursor: pointer; font-family: inherit; }
+h1, h2, h3 { font-weight: 700; color: var(--primary); }
 
-/* ---------- HERO ---------- */
-.hero {
-  background: var(--lighter);
-  text-align: center;
-  padding: 5rem 2rem 4rem;
+/* Navigation */
+.top-nav {
+  background: var(--primary);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.hero h1 { font-size: 2.4rem; margin-bottom: 1rem; }
-.hero p { max-width: 620px; margin: 0 auto 2rem; }
-.hero .cta {
-  background: var(--accent);
-  color: var(--lighter);
-  border: none;
-  border-radius: var(--radius);
-  padding: 0.9rem 1.8rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s;
-}
-.hero .cta:hover { background: #0891b2; transform: translateY(-2px); }
-
-/* ---------- JOURNEY SECTION ---------- */
-.journey {
-  background: var(--light);
-  text-align: center;
-  padding: 4rem 2rem 5rem;
-}
-.journey h2 { font-size: 1.9rem; margin-bottom: 0.5rem; }
-.journey p.subtitle { opacity: 0.8; margin-bottom: 3rem; }
-
-.journey-steps {
+.top-nav .container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.step {
-  background: var(--lighter);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(30,41,59,0.1);
-  padding: 2rem 1.5rem;
-  flex: 1 1 300px;
-  max-width: 320px;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+.top-nav .logo {
+  height: 40px;
+  filter: brightness(0) invert(1);
 }
-.step:hover { transform: translateY(-6px); box-shadow: 0 6px 14px rgba(30,41,59,0.15); }
-.step h3 { margin-top: 0.5rem; }
-.step .state { color: var(--accent); font-weight: 600; margin-top: 0.25rem; }
-.step .desc { margin: 0.75rem 0; }
-.step .price { display: block; font-weight: 600; margin-bottom: 1rem; }
-
-.step button {
-  background: var(--accent);
-  color: var(--lighter);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1.25rem;
-  font-weight: 600;
-  transition: background 0.25s ease, transform 0.25s ease;
+.nav-links { display: flex; gap: 20px; }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s;
 }
-.step button:hover { background: #0891b2; transform: translateY(-2px); }
+.nav-links a:hover { background: rgba(255,255,255,0.1); }
 
-/* Colored borders by step */
-.step[data-color="cyan"] { border-top: 6px solid var(--accent); }
-.step[data-color="green"] { border-top: 6px solid var(--green); }
-.step[data-color="amber"] { border-top: 6px solid var(--amber); }
-.step[data-color="red"] { border-top: 6px solid var(--red); }
-
-/* ---------- BUYER JOURNEY SECTION ---------- */
-.buyer-journey {
-  background: var(--lighter);
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  padding: 5rem 2rem 4rem;
   text-align: center;
-  padding: 5rem 2rem;
-  border-top: 1px solid rgba(30,41,59,0.1);
 }
-.buyer-journey h2 {
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero .subhead {
+  font-size: 1.4rem;
+  max-width: 750px;
+  margin: 0 auto 3rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+.hero-cta {
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.hero-note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Problem Agitation */
+.problem-agitate {
+  background: var(--lighter);
+  padding: 5rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.problem-agitate h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.pain-point {
+  background: #FEF2F2;
+  border-left: 4px solid var(--red);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+.pain-point h3 {
+  color: var(--red);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+.pain-point p {
+  font-size: 1.05rem;
+  color: rgba(30,41,59,0.85);
+}
+.cost-highlight {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 3rem;
+}
+.cost-highlight .big-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--red);
+  display: block;
+}
+.cost-highlight p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Segmentation Quiz */
+.quiz-section {
+  background: var(--light);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.quiz-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+.quiz-section .intro {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: rgba(30,41,59,0.8);
+}
+.quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(30,41,59,0.12);
+}
+.quiz-question {
+  display: none;
+  animation: fadeIn 0.4s;
+}
+.quiz-question.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.quiz-question h3 {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.quiz-option {
+  background: var(--light);
+  border: 2px solid #e5e7eb;
+  padding: 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+}
+.quiz-option:hover {
+  border-color: var(--accent);
+  background: #ecfeff;
+  transform: translateX(5px);
+}
+.quiz-option strong {
+  display: block;
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.quiz-option span {
+  color: rgba(30,41,59,0.7);
+  font-size: 0.95rem;
+}
+.quiz-progress {
+  margin-top: 2rem;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.4s;
+}
+
+/* Results */
+.quiz-results {
+  display: none;
+  text-align: center;
+}
+.quiz-results.active { display: block; }
+.quiz-results h3 {
   font-size: 2rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+.recommendation-card {
+  background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  text-align: left;
+  margin: 2rem 0;
+}
+.recommendation-card h4 {
+  font-size: 1.6rem;
   color: var(--primary);
   margin-bottom: 1rem;
 }
-.buyer-journey p {
+.recommendation-card .service-detail {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.recommendation-card .service-detail:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+.recommendation-card .price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 1.5rem 0 1rem;
+}
+.recommendation-card button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
   font-size: 1.1rem;
-  color: rgba(30,41,59,0.8);
-  margin-bottom: 2.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
 }
-.buyer-journey img {
-  max-width: 100%;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.buyer-journey img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+.recommendation-card button:hover {
+  background: #0891b2;
 }
 
-/* ---------- MODAL ---------- */
+/* Social Proof by Segment */
+.segment-proof {
+  background: var(--lighter);
+  padding: 5rem 2rem;
+}
+.segment-proof h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.segment-proof .intro {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: rgba(30,41,59,0.7);
+}
+.proof-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.proof-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(30,41,59,0.1);
+  border-top: 4px solid var(--accent);
+}
+.proof-card .industry {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+.proof-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.proof-card .metrics {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+.proof-card .metrics strong {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+.proof-card .quote {
+  font-style: italic;
+  color: rgba(30,41,59,0.8);
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+.proof-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.proof-card a:hover {
+  text-decoration: underline;
+}
+
+/* How It Actually Works */
+.process-section {
+  background: var(--light);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.process-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+.process-section .intro {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: rgba(30,41,59,0.7);
+}
+.process-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.process-step {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+  align-items: flex-start;
+}
+.step-number {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.step-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.step-content .duration {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.step-content p {
+  color: rgba(30,41,59,0.85);
+  line-height: 1.7;
+}
+
+/* Guarantee */
+.guarantee-section {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.guarantee-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.guarantee-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--green);
+}
+.guarantee-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.guarantee-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Final CTA */
+.final-cta {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.final-cta h2 {
+  color: white;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+.final-cta p {
+  color: white;
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.95;
+}
+.final-cta button {
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.final-cta button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer {
+  background: var(--primary);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+footer p { color: rgba(255,255,255,0.8); margin-bottom: 0.5rem; }
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 0.75rem;
+  font-weight: 500;
+}
+footer a:hover { text-decoration: underline; }
+
+/* Modal */
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(30,41,59,0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30,41,59,0.85);
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 9999;
 }
 .modal.active { display: flex; }
-
 .modal-content {
-  background: var(--lighter);
-  border-radius: var(--radius);
-  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
   width: 90%;
-  max-width: 480px;
-  box-shadow: 0 6px 18px rgba(30,41,59,0.25);
+  max-width: 550px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   position: relative;
-  animation: fadeIn 0.3s ease;
+  animation: slideUp 0.3s;
+  max-height: 90vh;
+  overflow-y: auto;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .close-modal {
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: var(--accent);
+  font-size: 2rem;
+  color: rgba(30,41,59,0.5);
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s;
+}
+.close-modal:hover { color: var(--primary); }
+.modal-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.modal-content form label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.modal-content form input,
+.modal-content form textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: border-color 0.3s;
+}
+.modal-content form input:focus,
+.modal-content form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.modal-content form button {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 1.125rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.modal-content form button:hover {
+  background: #0891b2;
+}
+.confirmation {
+  text-align: center;
+  padding: 2rem;
+}
+.confirmation h4 {
+  font-size: 2rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+.confirmation p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+.confirmation button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.875rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-/* Confirmation */
-.confirmation { text-align: center; padding: 2rem 1rem; }
-.confirmation h4 { color: var(--primary); margin-bottom: 0.5rem; }
-.confirmation p { opacity: 0.8; margin-bottom: 1rem; }
-
-/* ---------- FOOTER ---------- */
-footer {
-  background: var(--dark);
-  color: var(--lighter);
-  padding: 3rem 2rem;
-  text-align: center;
-}
-footer h3 { margin: 0 0 1rem; font-weight: 600; color: var(--lighter); }
-footer p { color: rgba(255,255,255,0.75); margin-bottom: 0.5rem; }
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-  margin: 0 0.75rem;
-  transition: color 0.3s;
-}
-footer a:hover { color: #22d3ee; }
-
-/* ---------- RESPONSIVE ---------- */
+/* Responsive */
 @media (max-width: 768px) {
-  .journey-steps { flex-direction: column; align-items: center; }
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .buyer-journey img { max-width: 100%; }
+  .top-nav .container { flex-direction: column; gap: 15px; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero .subhead { font-size: 1.2rem; }
+  .quiz-container { padding: 2rem 1.5rem; }
+  .process-step { flex-direction: column; }
+  .proof-cards { grid-template-columns: 1fr; }
+  .final-cta h2 { font-size: 2rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- ---------- HERO ---------- -->
+<!-- Navigation -->
+<nav class="top-nav">
+  <div class="container">
+    <img src="../asset/logo-mark-t.png" alt="DGS Consulting" class="logo">
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../Services/index.html">Services</a>
+      <a href="../case-studies/index.html">Case Studies</a>
+      <a href="../Intake/index.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
 <section class="hero">
-  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:80px; margin-bottom:20px;">
-  <h1>Streamline Your Systems. Reclaim Your Time.</h1>
-  <p>Practical, ROI-driven solutions that simplify your business operations — without adding more tools or complexity.</p>
-  <button class="cta" data-service="Tech Stack Red Flag Audit">Book Your $99 Audit</button>
+  <h1>Your Systems Are Costing You on average $10k - $50k Every Year</h1>
+  <p class="subhead">Most service businesses waste thousands on redundant tools, unbilled hours, and admin chaos. We fix it—without adding more software.</p>
+  <button class="hero-cta" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">
+    Find Out What You're Losing →
+  </button>
+  <p class="hero-note">Free assessment • No credit card • 2-minute quiz</p>
 </section>
 
-<!-- ---------- CUSTOMER JOURNEY ---------- -->
-<section class="journey">
-  <h2>Your Journey to Freedom</h2>
-  <p class="subtitle">Most clients start small, build trust, then transform everything.</p>
+<!-- Problem Agitation -->
+<section class="problem-agitate">
+  <h2>Here's What's Actually Happening</h2>
+  
+  <div class="pain-point">
+    <h3>You're Paying for Tools You Don't Use</h3>
+    <p>Average small business has 6-10 software subscriptions. At least 3 are redundant or underutilized. That's $200-$400/month disappearing—$2,400-$4,800/year.</p>
+  </div>
 
-  <div class="journey-steps">
-    <div class="step" data-color="cyan">
-      <h3>🛠 Tech Stack Red Flag Audit</h3>
-      <p class="state">State: Curious</p>
-      <p class="desc">Identify redundant software and recover wasted spend quickly.</p>
-      <span class="price">$99</span>
-      <button data-service="Tech Stack Red Flag Audit">Book Audit</button>
+  <div class="pain-point">
+    <h3>You're Losing Billable Hours</h3>
+    <p>Incomplete timesheets, delayed invoicing, manual data entry. Typical business loses 10-15 hours/week to broken processes. At $75/hr, that's $39K-$58K annually in unbilled or wasted time.</p>
+  </div>
+
+  <div class="pain-point">
+    <h3>You're the Single Point of Failure</h3>
+    <p>Can't take vacation. Can't get sick. Every decision requires you. Your business isn't scaling—it's just getting more chaotic. The cost? Burnout, missed opportunities, and stunted growth.</p>
+  </div>
+
+  <div class="cost-highlight">
+    <span class="big-number">$50K+</span>
+    <p><strong>That's the average annual cost of broken systems.</strong><br>And it compounds every year you don't fix it.</p>
+  </div>
+</section>
+
+<!-- Segmentation Quiz -->
+<section class="quiz-section" id="quiz">
+  <h2>What's YOUR Systems Costing You?</h2>
+  <p class="intro">Answer 3 quick questions and get a personalized recommendation</p>
+  
+  <div class="quiz-container">
+    <div class="quiz-question active" data-question="1">
+      <h3>What's your annual revenue?</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="under500k">
+          <strong>Under $500K</strong>
+          <span>Solo or very small team</span>
+        </div>
+        <div class="quiz-option" data-value="500k-2m">
+          <strong>$500K - $2M</strong>
+          <span>Growing team, hitting scale issues</span>
+        </div>
+        <div class="quiz-option" data-value="over2m">
+          <strong>Over $2M</strong>
+          <span>Established, need systems overhaul</span>
+        </div>
+      </div>
     </div>
 
-    <div class="step" data-color="green">
-      <h3>⚡ Quick Win Toolkit</h3>
-      <p class="state">State: Skeptical</p>
-      <p class="desc">Instant, low-risk improvement with ready-to-use templates.</p>
-      <span class="price">$199</span>
-      <button data-service="Quick Win">Get Toolkit</button>
+    <div class="quiz-question" data-question="2">
+      <h3>What's your biggest pain point right now?</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="waste">
+          <strong>Wasting Money</strong>
+          <span>Paying for tools I'm not sure I need</span>
+        </div>
+        <div class="quiz-option" data-value="chaos">
+          <strong>Daily Chaos</strong>
+          <span>Scheduling conflicts, missed invoices, constant firefighting</span>
+        </div>
+        <div class="quiz-option" data-value="bottleneck">
+          <strong>I'm the Bottleneck</strong>
+          <span>Can't scale because everything requires me</span>
+        </div>
+      </div>
     </div>
 
-    <div class="step" data-color="amber">
-      <h3>🔍 Full Diagnosis</h3>
-      <p class="state">State: Acknowledges problem</p>
-      <p class="desc">Discover inefficiencies and measure the true cost of lost time.</p>
-      <span class="price">$495</span>
-      <button data-service="Full Diagnosis">Schedule Audit Call</button>
+    <div class="quiz-question" data-question="3">
+      <h3>How fast do you need results?</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="exploring">
+          <strong>Just Exploring</strong>
+          <span>Want to understand what's possible</span>
+        </div>
+        <div class="quiz-option" data-value="soon">
+          <strong>Within 30 Days</strong>
+          <span>Need to fix this before it gets worse</span>
+        </div>
+        <div class="quiz-option" data-value="urgent">
+          <strong>Urgent</strong>
+          <span>This is affecting revenue/quality of life</span>
+        </div>
+      </div>
     </div>
 
-    <div class="step" data-color="red">
-      <h3>🚀 Complete Transformation</h3>
-      <p class="state">State: Ready to solve it</p>
-      <p class="desc">End-to-end systems overhaul for measurable ROI and freedom.</p>
-      <span class="price">$4K – $8K+</span>
-      <button data-service="Complete Transformation">Apply Now</button>
+    <div class="quiz-results">
+      <h3>✓ Here's Your Recommendation</h3>
+      <div class="recommendation-card" id="recommendationCard">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar" id="progressBar"></div>
     </div>
   </div>
 </section>
 
-<!-- ---------- BUYER JOURNEY DIAGRAM ---------- -->
-<section class="buyer-journey">
-  <div style="max-width:950px; margin:0 auto;">
-    <h2>DGS Consulting Buyer's Journey</h2>
-    <p>Every client moves through five clear stages — from first impression to long-term results.</p>
-    <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/asset/DGS-Consulting-Buyers-Journey.png" alt="DGS Consulting Buyer's Journey Diagram">
+<!-- Social Proof by Segment -->
+<section class="segment-proof">
+  <h2>Real Results from Businesses Like Yours</h2>
+  <p class="intro">Every client started where you are—overwhelmed by chaos, unsure where to start.</p>
+  
+  <div class="proof-cards">
+    <div class="proof-card">
+      <div class="industry">Auto Repair</div>
+      <h3>How James Got His Life Back</h3>
+      <div class="metrics">
+        <strong>120 Hours/Month Saved</strong>
+        <span>$23,400 Annual Savings</span>
+      </div>
+      <p class="quote">"I didn't realize how much time we were wasting until we had these systems in place. Now, I can actually plan my week instead of chasing paperwork."</p>
+      <a href="../case-studies/Auto-Shop.html">Read Full Story →</a>
+    </div>
+
+    <div class="proof-card">
+      <div class="industry">Tree Care</div>
+      <h3>How Mike Scaled Without Hiring</h3>
+      <div class="metrics">
+        <strong>104 Hours/Year Reclaimed</strong>
+        <span>$18,000 Revenue Increase</span>
+      </div>
+      <p class="quote">"I thought I was already efficient. Darren showed me I was just busy. Now I'm doing less administrative work and making more money."</p>
+      <a href="../case-studies/Arborist.html">Read Full Story →</a>
+    </div>
+
+    <div class="proof-card">
+      <div class="industry">Landscaping</div>
+      <h3>How Mark Scaled to $4M</h3>
+      <div class="metrics">
+        <strong>167% Revenue Growth</strong>
+        <span>$1.5M → $4M in 18 Months</span>
+      </div>
+      <p class="quote">"DGS Consulting gave me back control of my business and my life. For the first time in seven years, I have systems I can trust."</p>
+      <a href="../case-studies/Landscaping.html">Read Full Story →</a>
+    </div>
   </div>
 </section>
 
-<!-- ---------- FOOTER ---------- -->
+<!-- How It Actually Works -->
+<section class="process-section">
+  <h2>How We Actually Fix This</h2>
+  <p class="intro">No fluff. No theory. Just practical systems that work.</p>
+  
+  <div class="process-timeline">
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Audit Everything</h3>
+        <p class="duration">Week 1-2</p>
+        <p>We shadow your operations, time every task, map every workflow. Identify exactly where money and time disappear. You get a prioritized list of what to fix first—no guesswork.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3>Cut the Waste</h3>
+        <p class="duration">Week 3-4</p>
+        <p>Eliminate redundant tools. Document tribal knowledge. Create SOPs for repeating tasks. Most clients save $200-400/month just by canceling subscriptions they don't need.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3>Connect What Stays</h3>
+        <p class="duration">Week 5-6</p>
+        <p>Automate data flow between your existing tools. No more manual entry. No more version conflicts. Your systems actually talk to each other.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h3>Train & Transfer</h3>
+        <p class="duration">Week 7-8</p>
+        <p>Hands-on training for your team. Build accountability checkpoints. Make sure the systems stick. You own everything no vendor lock-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantee -->
+<section class="guarantee-section">
+  <div class="guarantee-content">
+    <h2>Our Guarantee</h2>
+    <p>If we don't identify at least <strong>$2,000/year in waste</strong> during your audit, you don't pay.</p>
+    <p>If you're not satisfied after the first session of any package, we'll refund 50% of your investment—no questions asked.</p>
+    <div style="margin-top: 2rem;">
+      <span class="guarantee-badge">100% Risk-Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2>Stop Losing on average $10-$50K Every Year</h2>
+  <p>Take the 2-minute assessment and get your personalized recommendation.</p>
+  <button onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">
+    Get Your Free Assessment
+  </button>
+</section>
+
+<!-- Footer -->
 <footer>
-  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:50px; margin-bottom:1rem;">
-  <h3>DGS Consulting</h3>
+  <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:50px; margin-bottom:1rem; filter: brightness(0) invert(1);">
+  <h3 style="color: white; margin-bottom: 1rem;">DGS Consulting</h3>
   <p>"Clarity over complexity." | Founded by Darren Snook | Ottawa, ON</p>
-  <div>
-    <a href="/index.html">Home</a>
-    <a href="/Services/index.html">Services</a>
-    <a href="/case-studies/index.html">Case Studies</a>
-    <a href="/Intake/index.html">Contact</a>
+  <div style="margin: 1.5rem 0;">
+    <a href="../index.html">Home</a>
+    <a href="../Services/index.html">Services</a>
+    <a href="../case-studies/index.html">Case Studies</a>
+    <a href="../Intake/index.html">Contact</a>
   </div>
   <p style="margin-top:1.5rem; font-size:0.9rem;">© 2025 DGS Consulting. All rights reserved.</p>
+  <p style="font-size:0.9rem; margin-top:0.5rem;">
+    Email: <a href="mailto:DGSConsult@consultant.com">DGSConsult@consultant.com</a> | 
+    <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a>
+  </p>
 </footer>
 
-<!-- ---------- MODAL FORM ---------- -->
+<!-- Modal -->
 <div class="modal" id="formModal">
-  <div class="modal-content" id="modalContent">
-    <img src="../asset/logo-mark-t.png" alt="DGS Consulting Logo" style="height:50px; display:block; margin:0 auto 1rem;">
-    <button class="close-modal" aria-label="Close">&times;</button>
-
-    <div id="serviceSummaryContainer" style="margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem; justify-content:center;">
-      <span id="serviceBadge" style="padding:0.4rem 0.8rem; border-radius:0.5rem; color:white; font-weight:600; font-size:0.9rem;"></span>
-      <div id="serviceSummary" style="max-width:300px; text-align:left; color:var(--primary); font-weight:500;"></div>
-    </div>
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
 
     <div id="formSection">
-      <h3>Contact DGS Consulting</h3>
+      <img src="../asset/logo-mark-t.png" alt="DGS Consulting" style="height:50px; display:block; margin:0 auto 1.5rem;">
+      <h3>Let's Get Started</h3>
       <form action="https://formspree.io/f/mldopknb" method="POST" id="contactForm">
+        <label>Your Name:
+          <input type="text" name="name" required>
+        </label>
         <label>Your Email:
           <input type="email" name="email" required>
         </label>
-        <label>Service Interested In:
+        <label>Phone (optional):
+          <input type="tel" name="phone">
+        </label>
+        <label>Recommended Service:
           <input type="text" name="service" id="serviceField" readonly>
         </label>
-        <label>Your Message:
-          <textarea name="message" rows="4" placeholder="Tell us briefly about your systems or goals..."></textarea>
+        <input type="hidden" name="quiz_results" id="quizResults">
+        <label>Tell us about your biggest challenge:
+          <textarea name="message" rows="4" placeholder="What's causing the most pain right now?" required></textarea>
         </label>
-        <button type="submit">Send</button>
+        <button type="submit">Send My Assessment</button>
       </form>
     </div>
 
     <div class="confirmation" id="confirmationSection" style="display:none;">
-      <h4>✅ Thank you!</h4>
-      <p>Your message has been sent successfully.</p>
-      <p>We’ll review your note and follow up soon to schedule your <strong><span id="confirmedService"></span></strong> session.</p>
+      <h4>✅ Assessment Sent!</h4>
+      <p>We'll review your answers and email you within 24 hours with next steps.</p>
+      <p style="font-size: 0.95rem; color: rgba(30,41,59,0.7);">Check your inbox (and spam folder) for confirmation.</p>
       <button onclick="closeModalFn()">Close</button>
     </div>
   </div>
 </div>
 
 <script>
-const serviceDetails = {
-  "Tech Stack Red Flag Audit": {
-    description: "Quick audit to uncover redundant software and identify immediate cost-saving opportunities.",
-    color: "#06B6D4",
-    icon: "🛠"
-  },
-  "Quick Win": {
-    description: "Low-risk audits or toolkits that show instant improvements to reclaim time and reduce frustration.",
-    color: "#10B981",
-    icon: "⚡"
-  },
-  "Full Diagnosis": {
-    description: "Comprehensive review of your systems to uncover inefficiencies and hidden costs.",
-    color: "#F59E0B",
-    icon: "🔍"
-  },
-  "Complete Transformation": {
-    description: "Full system overhaul to save 120+ hours monthly with measurable ROI.",
-    color: "#EF4444",
-    icon: "🚀"
-  }
+// Quiz Logic
+let quizData = {
+  revenue: null,
+  pain: null,
+  urgency: null
 };
 
-const buttons = document.querySelectorAll('[data-service]');
+const questions = document.querySelectorAll('.quiz-question');
+const progressBar = document.getElementById('progressBar');
+let currentQuestion = 1;
+
+document.querySelectorAll('.quiz-option').forEach(option => {
+  option.addEventListener('click', function() {
+    const questionNum = parseInt(this.closest('.quiz-question').dataset.question);
+    const value = this.dataset.value;
+    
+    // Store answer
+    if (questionNum === 1) quizData.revenue = value;
+    if (questionNum === 2) quizData.pain = value;
+    if (questionNum === 3) quizData.urgency = value;
+    
+    // Update progress
+    progressBar.style.width = (questionNum / 3 * 100) + '%';
+    
+    // Move to next question or show results
+    if (questionNum < 3) {
+      questions[questionNum - 1].classList.remove('active');
+      questions[questionNum].classList.add('active');
+      currentQuestion++;
+    } else {
+      // Show results
+      showResults();
+    }
+  });
+});
+
+function showResults() {
+  questions[2].classList.remove('active');
+  document.querySelector('.quiz-results').classList.add('active');
+  
+  // Determine recommendation
+  const recommendation = getRecommendation(quizData);
+  
+  // Populate recommendation card
+  const card = document.getElementById('recommendationCard');
+  card.innerHTML = `
+    <h4>${recommendation.title}</h4>
+    <p>${recommendation.description}</p>
+    ${recommendation.includes.map(item => `<div class="service-detail">${item}</div>`).join('')}
+    <div class="price">${recommendation.price}</div>
+    <button onclick="openModal('${recommendation.service}')">${recommendation.cta}</button>
+  `;
+}
+
+function getRecommendation(data) {
+  // Logic for recommendation
+  const { revenue, pain, urgency } = data;
+  
+  // Quick wins for exploring or small businesses
+  if (urgency === 'exploring' || revenue === 'under500k') {
+    return {
+      title: 'Start with Tech Stack Audit',
+      description: 'Perfect for understanding exactly what you\'re losing before committing to anything bigger.',
+      includes: [
+        '90-minute deep-dive audit',
+        '10-page analysis with specific recommendations',
+        'ROI calculator showing potential savings',
+        'Find $2,000+ in waste or you don\'t pay'
+      ],
+      price: '$99',
+      cta: 'Book Your Audit',
+      service: 'Tech Stack Red Flag Audit'
+    };
+  }
+  
+  // Power Sessions for mid-size with moderate urgency
+  if (revenue === '500k-2m' && (urgency === 'soon' || pain === 'chaos')) {
+    return {
+      title: 'Power Sessions Package',
+      description: 'Best for businesses hitting growth pains. Quick wins with measurable ROI in 3 weeks.',
+      includes: [
+        'Three 2-hour implementation sessions',
+        'Custom SOPs and templates',
+        '30 days of email support',
+        'Typical result: 10-15 hours/month saved'
+      ],
+      price: '$1,997',
+      cta: 'Get Started',
+      service: 'Power Sessions Package'
+    };
+  }
+  
+  // Complete transformation for larger or urgent cases
+  if (revenue === 'over2m' || urgency === 'urgent' || pain === 'bottleneck') {
+    return {
+      title: 'Complete Systems Transformation',
+      description: 'Full operational overhaul. For businesses ready to scale or experiencing serious pain.',
+      includes: [
+        'Complete audit of all systems',
+        'Custom workflow documentation',
+        'Technology integration & automation',
+        'Team training and 90 days support',
+        'Typical result: 120+ hours/month saved, $18K-24K revenue increase'
+      ],
+      price: '$4K-$8K',
+      cta: 'Apply Now',
+      service: 'Complete Systems Transformation'
+    };
+  }
+  
+  // Default to Power Sessions
+  return {
+    title: 'Power Sessions Package',
+    description: 'Our most popular option. Quick wins with measurable ROI.',
+    includes: [
+      'Three 2-hour implementation sessions',
+      'Custom SOPs and templates',
+      '30 days of email support',
+      'Typical result: 10-15 hours/month saved'
+    ],
+    price: '$1,997',
+    cta: 'Get Started',
+    service: 'Power Sessions Package'
+  };
+}
+
+// Modal functionality
 const modal = document.getElementById('formModal');
 const serviceField = document.getElementById('serviceField');
-const serviceSummary = document.getElementById('serviceSummary');
-const serviceBadge = document.getElementById('serviceBadge');
+const quizResultsField = document.getElementById('quizResults');
 const closeModalBtn = document.querySelector('.close-modal');
 const form = document.getElementById('contactForm');
 const formSection = document.getElementById('formSection');
 const confirmationSection = document.getElementById('confirmationSection');
-const confirmedService = document.getElementById('confirmedService');
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const serviceName = btn.getAttribute('data-service');
-    const details = serviceDetails[serviceName] || {};
-    serviceField.value = serviceName;
-    serviceSummary.textContent = details.description || "";
-    serviceBadge.textContent = details.icon ? `${details.icon} ${serviceName}` : serviceName;
-    serviceBadge.style.backgroundColor = details.color || "#06B6D4";
-    modal.classList.add('active');
-    formSection.style.display = 'block';
-    confirmationSection.style.display = 'none';
-  });
+function openModal(service) {
+  serviceField.value = service;
+  quizResultsField.value = JSON.stringify(quizData);
+  modal.classList.add('active');
+  formSection.style.display = 'block';
+  confirmationSection.style.display = 'none';
+}
+
+function closeModalFn() {
+  modal.classList.remove('active');
+  form.reset();
+}
+
+closeModalBtn.addEventListener('click', closeModalFn);
+window.addEventListener('click', e => {
+  if (e.target === modal) closeModalFn();
 });
 
-function closeModalFn() { modal.classList.remove('active'); }
-closeModalBtn.addEventListener('click', closeModalFn);
-window.addEventListener('click', e => { if (e.target === modal) closeModalFn(); });
-
+// Form submission
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
-  const serviceName = data.get('service');
+  
   try {
     const response = await fetch(form.action, {
       method: form.method,
       body: data,
       headers: { 'Accept': 'application/json' }
     });
+    
     if (response.ok) {
-      form.reset();
-      confirmedService.textContent = serviceName;
       formSection.style.display = 'none';
       confirmationSection.style.display = 'block';
-    } else { alert('Something went wrong. Please try again.'); }
-  } catch { alert('Error sending message. Please check your connection.'); }
+      
+      // Track conversion
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'G-T0K5M8P9XP',
+          'event_category': 'Lead',
+          'event_label': data.get('service')
+        });
+      }
+    } else {
+      alert('Something went wrong. Please email us directly at DGSConsult@consultant.com');
+    }
+  } catch {
+    alert('Error sending message. Please email us at DGSConsult@consultant.com');
+  }
 });
 </script>
 
