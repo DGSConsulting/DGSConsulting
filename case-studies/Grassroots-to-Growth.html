@@ -3,93 +3,561 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DGS Consulting | Case Study</title>
+<title>How One Landscaping Company Scaled to $4M | DGS Consulting</title>
+<meta name="description" content="The 18-month transformation that took a landscaping company from $1.5M to $4M—167% revenue growth through operational clarity.">
 <style>
   :root {
     --primary: #1E293B;
     --accent: #06B6D4;
     --light: #F9FAFB;
     --lighter: #FFFFFF;
-    --success: #10B981;
+    --dark: #1e1e1e;
+    --white: #ffffff;
+    --warning: #d97706;
+    --success: #10b981;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
 
-  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--light); color: var(--primary); line-height:1.6; }
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background: var(--lighter);
+  }
 
   /* Top Navigation */
   .top-nav {
-    background: var(--lighter);
-    border-bottom: 1px solid #ddd;
+    background: var(--primary);
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
-    top:0;
-    z-index:1000;
+    top: 0;
+    z-index: 1000;
   }
   .top-nav .container {
-    max-width:1200px;
-    margin:0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .top-nav .logo { height:40px; }
-  .top-nav .nav-links a {
-    margin-left:1rem;
-    text-decoration:none;
-    color: var(--primary);
-    font-weight:bold;
+  .top-nav .logo {
+    width: 50px;
+    height: auto;
+    filter: brightness(0) invert(1);
   }
-  .top-nav .nav-links a:hover { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.3s;
+    font-size: 0.95rem;
+  }
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.1);
+  }
 
-  /* Header */
+  /* Hero */
   header {
-    text-align:center;
-    padding:3rem 2rem 2rem 2rem;
-    background: var(--primary);
-    color: var(--lighter);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    text-align: center;
   }
-  header h1 { font-size:2.5rem; margin-bottom:0.5rem; }
-  header p { font-size:1.1rem; margin-bottom:1.5rem; }
-  .header-stats { display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-top:20px; }
-  .stat-box { background: var(--accent); padding:15px 20px; border-radius:8px; color:white; min-width:120px; text-align:center; }
-  .stat-number { font-size:1.5em; font-weight:bold; display:block; }
-  .stat-label { display:block; margin-top:5px; font-weight:500; }
+  header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 auto 25px;
+    max-width: 900px;
+  }
+  header .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    max-width: 750px;
+    margin: 0 auto 20px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .header-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
 
-  /* Content Section */
-  .content-section { max-width:900px; margin:40px auto; padding:0 20px; }
-  h2 { color: var(--primary); margin-bottom:10px; }
-  ul { padding-left:20px; margin-bottom:20px; }
-  .highlight-box, .quote-box, .phase-box { background: var(--lighter); padding:20px; margin:20px 0; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-  .phase-box h4 { margin-bottom:5px; }
+  /* Share Buttons */
+  .share-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .share-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+  }
+  .share-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
 
-  /* Metrics Grid */
-  .metrics-grid { display:flex; flex-wrap:wrap; gap:15px; margin:20px 0; }
-  .metric-card { background: var(--accent); color:white; flex:1 1 120px; text-align:center; padding:15px; border-radius:8px; }
-  .metric-card .number { font-size:1.5em; font-weight:bold; display:block; }
-  .metric-card .label { display:block; margin-top:5px; font-weight:500; }
+  /* Sections */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  section {
+    padding: 60px 20px;
+  }
+  .section-alt {
+    background: var(--light);
+  }
+  h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  h3 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin: 30px 0 15px;
+    font-weight: 600;
+  }
+  h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 40px auto;
+    display: block;
+    box-shadow: 0 10px 40px rgba(30, 41, 59, 0.15);
+  }
+  .image-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+
+  /* Quote Box */
+  .quote-box {
+    background: #ecfeff;
+    border-left: 4px solid var(--accent);
+    padding: 30px 40px;
+    margin: 40px 0;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--primary);
+    line-height: 1.6;
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-author {
+    margin-top: 15px;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  /* Client Profile */
+  .client-profile {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 30px 0;
+    border: 2px solid #e5e7eb;
+  }
+  .client-profile strong {
+    color: var(--accent);
+  }
+  .client-profile p {
+    margin: 8px 0;
+  }
+
+  /* Day in Life */
+  .day-in-life {
+    background: #fef3c7;
+    border-left: 4px solid var(--warning);
+    padding: 25px 30px;
+    margin: 30px 0;
+    border-radius: 8px;
+  }
+  .day-in-life h4 {
+    color: var(--warning);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .day-entry {
+    margin: 15px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 6px;
+  }
+  .day-entry .time {
+    font-weight: 700;
+    color: var(--warning);
+    font-size: 1rem;
+  }
+  .day-entry .description {
+    margin-top: 5px;
+    color: var(--dark);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Phase Cards */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+  }
+  .phase-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.1);
+  }
+  .phase-number {
+    background: var(--accent);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  .phase-card h4 {
+    color: var(--accent);
+    margin-bottom: 15px;
+  }
+  .phase-card ul {
+    margin: 10px 0 0 20px;
+  }
+  .phase-card li {
+    margin: 8px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Transformation Box */
+  .transformation-box {
+    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 35px;
+    margin: 40px 0;
+  }
+  .transformation-box h3 {
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .transformation-box p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  /* Stats Grid */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+  }
+  .metric-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(30, 41, 59, 0.1);
+    text-align: center;
+    border-top: 4px solid var(--accent);
+  }
+  .metric-card .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .metric-card .label {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* Progress Timeline */
+  .progress-timeline {
+    margin: 40px 0;
+  }
+  .timeline-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    padding-left: 30px;
+    border-left: 3px solid var(--accent);
+    position: relative;
+    background: white;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 10px rgba(30, 41, 59, 0.08);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 30px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .timeline-item h4 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  .timeline-item ul {
+    margin: 10px 0 10px 20px;
+  }
+  .timeline-item li {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+
+  /* Outcome Box */
+  .outcome-box {
+    background: #ecfdf5;
+    border: 2px solid var(--success);
+    border-radius: 12px;
+    padding: 35px;
+    margin: 40px 0;
+  }
+  .outcome-box h3 {
+    color: var(--success);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  .outcome-box ul {
+    margin: 15px 0 15px 30px;
+  }
+  .outcome-box li {
+    margin: 12px 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
 
   /* CTA Section */
-  .cta-section { text-align:center; margin:40px 0; }
-  .cta-button { display:inline-block; padding:12px 20px; margin:10px; border-radius:6px; background: var(--accent); color:white; text-decoration:none; font-weight:500; }
-  .cta-button.secondary { background: var(--success); }
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .cta-section h2 {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  .cta-section p {
+    color: white;
+    opacity: 0.95;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-section ul {
+    text-align: left;
+    max-width: 600px;
+    margin: 20px auto 30px;
+    list-style: none;
+    padding: 0;
+  }
+  .cta-section li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    margin: 10px;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: #0891b2;
+  }
+  .btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  .btn-outline:hover {
+    background: white;
+    color: var(--primary);
+  }
 
   /* Footer */
   footer {
     background: var(--primary);
-    color:white;
-    text-align:center;
-    padding:20px;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
   }
-  footer a { color:#06B6D4; text-decoration:underline; margin:0 0.3rem; }
+  footer p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 10px;
+  }
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  .disclaimer {
+    background: var(--light);
+    padding: 20px 30px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 40px;
+    font-style: italic;
+    border: 1px solid #e5e7eb;
+  }
 
-  /* Workflow Diagram */
-  .workflow-step:hover { cursor:pointer; opacity:0.8; }
-  .tooltip { position:absolute; background: var(--primary); color:white; padding:5px 10px; border-radius:4px; font-size:12px; pointer-events:none; opacity:0; transition:opacity 0.2s; }
+  /* Back to Top */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .back-to-top:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+  }
 
-  @media (max-width:768px){
-    header h1 { font-size:2rem; }
-    .header-stats { flex-direction:column; }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .top-nav .container {
+      flex-direction: column;
+      gap: 15px;
+    }
+    header {
+      padding: 50px 20px 60px;
+    }
+    header h1 {
+      font-size: 1.9rem;
+    }
+    header .subtitle {
+      font-size: 1.1rem;
+    }
+    .header-stats {
+      flex-direction: column;
+      align-items: center;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    .transformation-box, .outcome-box {
+      padding: 20px;
+    }
+    .phase-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
@@ -107,94 +575,164 @@
   </div>
 </nav>
 
+<!-- Header -->
 <header>
-  <h1>167% Revenue Growth in Two Seasons</h1>
-  <p>How DGS Consulting helped a landscaping company scale operations and increase revenue from $1.5M to $4M</p>
+  <h1>How One Landscaping Company Scaled from $1.5M to $4M</h1>
+  <p class="subtitle">The 18-month transformation that delivered 167% revenue growth through operational clarity—not more staff</p>
   <div class="header-stats">
-    <div class="stat-box"><span class="stat-number">167%</span><span class="stat-label">Revenue Growth</span></div>
-    <div class="stat-box"><span class="stat-number">35%</span><span class="stat-label">Efficiency Improvement</span></div>
-    <div class="stat-box"><span class="stat-number">2x</span><span class="stat-label">Team Productivity</span></div>
+    <div class="stat-box">
+      <span class="stat-number">167%</span>
+      <span class="stat-label">Revenue Growth</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">35%</span>
+      <span class="stat-label">Time Savings</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">2x</span>
+      <span class="stat-label">Team Productivity</span>
+    </div>
+  </div>
+
+  <!-- Social Share Buttons -->
+  <div class="share-buttons">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://dgsconsulting.solutions/case-studies/Landscaping.html" target="_blank" class="share-btn" title="Share on LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      Share on LinkedIn
+    </a>
+    <a href="mailto:?subject=Case Study: Landscaping Growth&body=I thought you'd find this case study interesting: https://dgsconsulting.solutions/case-studies/Landscaping.html" class="share-btn" title="Share via Email">
+      <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+      Email This
+    </a>
+    <a href="#" onclick="window.print(); return false;" class="share-btn" title="Download PDF">
+      <svg viewBox="0 0 24 24"><path d="M14 3v-3h-4v3h-7v5h2.219c.465 3.156 3.219 5.568 6.531 5.931v2.069h-2c-2.761 0-5 2.239-5 5h16c0-2.761-2.239-5-5-5h-2v-2.069c3.312-.363 6.066-2.775 6.531-5.931h2.219v-5h-7zm-12 3h18v1h-18v-1z"/></svg>
+      Download PDF
+    </a>
   </div>
 </header>
 
-<section class="content-section">
-  <h2>Client Overview</h2>
-  <p><strong>Industry:</strong> Landscaping & Grounds Maintenance</p>
-  <p><strong>Revenue Before Engagement:</strong> $1.5M</p>
-  <p><strong>Team Size:</strong> 22 field staff, 3 office staff</p>
-  <p><strong>Challenge:</strong> Disorganized scheduling, inconsistent invoicing, and limited reporting made scaling difficult.</p>
+<!-- The Breaking Point -->
+<section>
+  <div class="container">
+    <h2>The Breaking Point</h2>
+    <p>Mark reached out to me after a referral from his accountant. His opening statement was blunt: "We're making more money than ever, but I feel like we're constantly one mistake away from disaster."</p>
+    <p>His landscaping company had grown from a 3-person crew to a 25-person operation over 7 years. Revenue had climbed from $400K to $1.5M. By all external measures, the business was thriving.</p>
+    <p><strong>But internally, it was held together with duct tape and hope.</strong></p>
 
-  <h2>Challenges</h2>
-  <ul>
-    <li>Poor scheduling and routing caused overlapping jobs and lost billable hours.</li>
-    <li>Manual invoicing and paper-based workflows slowed billing and caused errors.</li>
-    <li>Lack of visibility into team performance, job costs, and inventory.</li>
-    <li>Inconsistent client communication led to lower customer satisfaction.</li>
-    <li>Management struggled to make decisions due to scattered data.</li>
-  </ul>
+    <div class="client-profile">
+      <h4>The Business Profile:</h4>
+      <p><strong>Industry:</strong> Commercial & Residential Landscaping</p>
+      <p><strong>Years in Business:</strong> 7 years</p>
+      <p><strong>Annual Revenue:</strong> $1.5M (before our engagement)</p>
+      <p><strong>Team Size:</strong> 22 field staff, 3 office staff</p>
+      <p><strong>Service Area:</strong> Mid-sized metro area with 50+ mile radius</p>
+      <p><strong>The Goal:</strong> Scale to $3M+ without chaos, improve margins, and give the owner his life back</p>
+    </div>
 
-  <h2>Our Approach</h2>
-  <ul>
-    <li>Conducted a full operational audit, mapping every workflow from sales to billing.</li>
-    <li>Introduced a mobile-friendly scheduling and time-tracking solution to eliminate overlaps and optimize routes.</li>
-    <li>Standardized SOPs for recurring tasks, ensuring consistency across crews.</li>
-    <li>Set up dashboards for real-time job performance, revenue tracking, and inventory management.</li>
-    <li>Trained staff and management on new tools, processes, and accountability measures.</li>
-  </ul>
-
-  <div class="highlight-box">
-    <h3>Key Insight</h3>
-    <p>By simplifying processes and digitizing operations, we reduced wasted time by 35% and improved invoicing accuracy to nearly 100%, unlocking the capacity to take on more clients without adding staff.</p>
-  </div>
-
-  <h2>Implementation Phases</h2>
-  <div class="phase-box">
-    <h4>Phase 1: Workflow Audit & SOP Creation</h4>
-    <p>We mapped out all recurring tasks, identified bottlenecks, and created 12 SOPs for scheduling, invoicing, client communication, and equipment maintenance.</p>
-  </div>
-  <div class="phase-box">
-    <h4>Phase 2: Technology Integration</h4>
-    <p>Implemented a cloud-based scheduling app and mobile tracking for field teams, reducing overlap and eliminating double-bookings.</p>
-  </div>
-  <div class="phase-box">
-    <h4>Phase 3: Training & Adoption</h4>
-    <p>Conducted two rounds of hands-on staff training, along with weekly check-ins for the first 6 weeks to ensure adherence to new processes.</p>
-  </div>
-  <div class="phase-box">
-    <h4>Phase 4: Performance Monitoring & Continuous Improvement</h4>
-    <p>Set up KPIs and dashboards for management to track revenue per job, crew efficiency, and client satisfaction. Tweaks were applied monthly for continuous gains.</p>
-  </div>
-
-  <h2>Results</h2>
-  <div class="metrics-grid">
-    <div class="metric-card"><span class="number">167%</span><span class="label">Revenue Growth</span></div>
-    <div class="metric-card"><span class="number">35%</span><span class="label">Time Savings</span></div>
-    <div class="metric-card"><span class="number">2x</span><span class="label">Team Productivity</span></div>
-    <div class="metric-card"><span class="number">98%</span><span class="label">Invoicing Accuracy</span></div>
-    <div class="metric-card"><span class="number">+25</span><span class="label">New Clients Served</span></div>
-  </div>
-
-  <h2>Client Feedback</h2>
-  <div class="quote-box">
-    <p>"DGS Consulting completely transformed our operations. For the first time, we have visibility into every job, our teams communicate effectively, and our revenue has grown faster than we imagined."</p>
-    <span>— Mark R., Owner</span>
-  </div>
-
-  <div class="cta-section">
-    <h2>Ready to Scale Your Business?</h2>
-    <a href="https://dgsconsulting.solutions/Services/index.html" class="cta-button">Book a Consultation</a>
-    <a href="https://dgsconsulting.github.io/SOP-Designer/" class="cta-button secondary">Explore SOP Templates</a>
-  </div>
-
-  <div class="confidentiality-notice">
-    <strong>Confidentiality Notice:</strong>
-    <p>The information in this case study is the property of DGS Consulting and its client. All client data has been anonymized or shared with consent. Unauthorized use or distribution is prohibited.</p>
+    <p class="quote-box">"I can't take a vacation. I can't get sick. If I'm not there, jobs get double-booked, invoices don't go out, and clients get angry. I'm the single point of failure for a million-and-a-half-dollar business. That's not a business—that's a job I can't quit."<span class="quote-author">— Mark, during our discovery meeting</span></p>
   </div>
 </section>
 
-<footer>
-  <p>© 2025 DGS Consulting. <a href="https://dgsconsulting.solutions/">Home</a> | <a href="https://dgsconsulting.solutions/Services/index.html">Services</a> | <a href="https://dgsconsulting.github.io/SOP-Designer/">SOP Designer</a> | <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a> | <a href="mailto:DGSConsult@consultant.com">Email</a></p>
-</footer>
+<!-- The Diagnosis -->
+<section class="section-alt">
+  <div class="container">
+    <h2>The Diagnosis: Growth Without Systems</h2>
+    <p>I spent three weeks embedded with Mark's operation—riding with crews, sitting in on office meetings, shadowing the owner through his 70-hour weeks. What I discovered wasn't incompetence. It was a business that had outgrown every system it started with.</p>
 
-</body>
-</html>
+    <div class="day-in-life">
+      <h4>A Typical Tuesday at Peak Season:</h4>
+      <div class="day-entry">
+        <div class="time">6:15 AM</div>
+        <div class="description">Mark arrives at the yard. Three crews need their day assignments. He checks a whiteboard, his phone notes, and two different paper lists to figure out who goes where.</div>
+      </div>
+      <div class="day-entry">
+        <div class="time">8:45 AM</div>
+        <div class="description">Crew 2 calls—they arrived at a property but there's no equipment. The mower they need is with Crew 3 across town. Mark spends 45 minutes reorganizing the day's routes.</div>
+      </div>
+      <div class="day-entry">
+        <div class="time">11:20 AM</div>
+        <div class="description">A client calls angry—they were scheduled for today but no crew showed up. Mark checks three different calendars and discovers a double-booking. Apologizes profusely, promises to come personally that afternoon.</div>
+      </div>
+      <div class="day-entry">
+        <div class="time">2:30 PM</div>
+        <div class="description">Office manager interrupts Mark (who's now on a job site himself)—she can't find the pricing for a quote from two weeks ago. It's in a notebook...somewhere.</div>
+      </div>
+      <div class="day-entry">
+        <div class="time">7:15 PM</div>
+        <div class="description">Mark finally sits down to do invoicing. Half the crew time sheets are incomplete or illegible. He estimates hours from memory. Knows he's leaving money on the table but doesn't have time to chase it down.</div>
+      </div>
+      <div class="day-entry">
+        <div class="time">9:45 PM</div>
+        <div class="description">Finishes updating QuickBooks. Realizes tomorrow's crew assignments aren't set. Stays until 11:00 PM planning the next day.</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 30px; font-weight: 600; font-size: 1.15rem;">This wasn't an unusually bad day. <strong>This was every single day, April through October.</strong></p>
+
+    <h3>The Hidden Costs of Chaos:</h3>
+    <ul style="margin: 20px 0 20px 40px;">
+      <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Scheduling disasters:</strong> Overlapping jobs and poor routing wasted 6-8 hours per crew per week—that's $180K+ annually in lost productivity.</li>
+      <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Manual invoicing errors:</strong> Incomplete time sheets meant an estimated $50K in unbilled hours every year.</li>
+      <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Zero visibility:</strong> Mark couldn't tell which jobs were profitable, which crews were efficient, or whether they had the right equipment without physically checking.</li>
+      <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Inconsistent client communication:</strong> No system for follow-ups or appointment reminders led to 15-20% no-show rates and lower customer satisfaction.</li>
+      <li style="margin: 15px 0; font-size: 1.1rem; line-height: 1.7;"><strong>Owner bottleneck:</strong> Every decision, every quote, every schedule change required Mark. The business couldn't scale beyond his personal capacity.</li>
+    </ul>
+
+    <p><strong>The breaking point:</strong> Mark missed his daughter's high school graduation because of a scheduling emergency. That's when he called his accountant asking for help.</p>
+  </div>
+</section>
+
+<!-- The Solution -->
+<section>
+  <div class="container">
+    <h2>The Solution: Systems That Scale</h2>
+    <p>Our goal wasn't to digitize chaos—it was to eliminate it. We needed to build systems that could handle $4M in revenue without requiring Mark to work 80-hour weeks.</p>
+    <p>The approach was structured in four phases over 18 months:</p>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-number">1</div>
+        <h4>Workflow Audit & SOP Creation</h4>
+        <p><strong>Months 1-3</strong></p>
+        <p>We mapped every recurring task and identified bottlenecks:</p>
+        <ul>
+          <li>Created 12 standardized operating procedures covering scheduling, equipment checkout, time tracking, client communication, and invoicing</li>
+          <li>Documented "tribal knowledge" that lived only in Mark's head</li>
+          <li>Identified $1,200/month in redundant software subscriptions</li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-number">2</div>
+        <h4>Technology Integration</h4>
+        <p><strong>Months 4-6</strong></p>
+        <p>Implemented mobile-first scheduling and tracking:</p>
+        <ul>
+          <li>Rolled out industry-specific CRM with GPS routing optimization</li>
+          <li>Connected time tracking directly to QuickBooks for automated invoicing</li>
+          <li>Built dashboards showing real-time job status, crew locations, and equipment availability</li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-number">3</div>
+        <h4>Training & Adoption</h4>
+        <p><strong>Months 7-12</strong></p>
+        <p>Ensured the team actually used the new systems:</p>
+        <ul>
+          <li>Two rounds of hands-on training for all staff</li>
+          <li>Weekly check-ins for first 6 weeks to troubleshoot issues</li>
+          <li>Built accountability measures: can't clock out without logging time, can't mark job complete without photos</li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-number">4</div>
+        <h4>Performance Monitoring</h4>
+        <p><strong>Months 13-18</strong></p>
+        <p>Continuous improvement through data:</p>
+        <ul>
+          <li>Set up KPIs for revenue per job, crew efficiency, and client satisfaction</li>
+          <li>Monthly reviews to identify optimization opportunities</li>
+          <li>Trained office manager to run weekly operations without Mark's input</li>
+        </ul
