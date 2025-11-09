@@ -4,45 +4,103 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DGS Consulting | Partner Network</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #1E293B;
       --accent: #06B6D4;
       --light: #F8FAFC;
+      --white: #FFFFFF;
     }
+
     body {
+      margin: 0;
       font-family: 'Inter', sans-serif;
       color: var(--primary);
-      background: #FFFFFF;
-      margin: 0;
-      padding: 0;
+      background: var(--white);
       line-height: 1.6;
     }
+
+    h1, h2, h3 { font-weight: 700; margin-bottom: 15px; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; color: var(--accent); }
+    p { color: #334155; margin-bottom: 18px; }
+
+    a { text-decoration: none; color: var(--accent); }
+
+    /* Hero */
+    .partner-hero {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 160px 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partner-hero img {
+      height: 70px;
+      margin-bottom: 25px;
+    }
+
+    .partner-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .partner-hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+    }
+
+    .partner-hero a.cta {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .partner-hero a.cta:hover { background: #0891b2; }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb a { color: rgba(255,255,255,0.7); }
+    .breadcrumb a:hover { color: white; }
+
+    /* Content */
     section {
       padding: 80px 20px;
       max-width: 960px;
       margin: 0 auto;
     }
-    h1, h2, h3 {
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    h1 { font-size: 2rem; }
-    h2 { color: var(--accent); margin-top: 40px; }
-    p { margin-bottom: 18px; color: #334155; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
-    .cta {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
       margin-top: 20px;
     }
+
+    .card {
+      background: var(--light);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
     form {
       background: var(--light);
       padding: 24px;
@@ -50,11 +108,13 @@
       border: 1px solid #e2e8f0;
       margin-top: 30px;
     }
+
     label {
       display: block;
       margin-bottom: 12px;
       font-weight: 600;
     }
+
     input, textarea {
       width: 100%;
       padding: 10px;
@@ -63,6 +123,7 @@
       border-radius: 6px;
       font-family: inherit;
     }
+
     button {
       background: var(--accent);
       color: #fff;
@@ -71,103 +132,153 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
+      margin-top: 10px;
     }
+
     button:hover { background: #0891b2; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
+
+    /* Footer CTA */
+    .partner-footer-cta {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
     }
-    .card {
-      background: var(--light);
-      border-radius: 10px;
-      padding: 20px;
-      border-left: 4px solid var(--accent);
+
+    .partner-footer-cta h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .partner-footer-cta p {
+      max-width: 650px;
+      margin: 0 auto 35px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .partner-footer-cta a {
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+
+    .partner-footer-cta a:hover { background: #0891b2; }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: #666;
+      background: #fafafa;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    footer a {
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 8px;
     }
   </style>
 </head>
 
 <body>
-  <section id="partner-network">
-    <h1>Partner With DGS Consulting</h1>
-    <p>
-      I built DGS Consulting to help business owners get operational clarity — less tech bloat, fewer manual errors, more time back.
-      The best referrals come from people who already have their clients’ trust: accountants, web designers, HR consultants, ops advisors, and business owners who see the mess firsthand.
-    </p>
 
-    <h2>Why Partner</h2>
-    <p>
-      You bring clients clarity by connecting them to a solution that works. We handle everything — from audit to delivery — and you get rewarded for the introduction.
-    </p>
+  <!-- HERO / BREADCRUMB HEADER -->
+  <section class="partner-hero">
+    <div class="breadcrumb">
+      <a href="/index.html">Home</a> › <a href="/Partners/index.html"><strong>Partners</strong></a>
+    </div>
+    <img src="/asset/logo-mark-t.png" alt="DGS Consulting Logo">
+    <h1>Join the DGS Partner Network</h1>
+    <p>Help your clients cut waste, streamline their systems, and reclaim real hours every week. You make the introduction — we handle the rest. Simple, transparent, profitable.</p>
+    <a href="#partner-network" class="cta">Join the Network</a>
+  </section>
+
+  <!-- PARTNER CONTENT -->
+  <section id="partner-network">
+    <h2>Why Partner With Us</h2>
+    <p>We work with people who already have client trust — accountants, designers, HR consultants, ops advisors, and business owners who see inefficiencies firsthand. When you connect them with us, you help fix the root problem — and you get paid for the impact.</p>
 
     <div class="grid">
       <div class="card">
-        <h3>01 — Red Flag Audit</h3>
-        <p>
-          A 60-minute system diagnostic that identifies wasted time, tool overlap, and workflow breakdowns.
-          <br><strong>Referral reward: 10%</strong> of the project fee.
-        </p>
+        <h3>Red Flag Audit</h3>
+        <p>60-minute diagnostic session that uncovers wasted time, tool overlap, and workflow friction.<br><strong>Referral reward: 10%</strong></p>
       </div>
-
       <div class="card">
-        <h3>02 — Power Session</h3>
-        <p>
-          Our core engagement: 1-day strategy session + implementation roadmap. Designed for measurable change.
-          <br><strong>Referral reward: 15%</strong> of the session fee.
-        </p>
+        <h3>Power Session</h3>
+        <p>Our core engagement: deep-dive strategy + implementation roadmap with measurable ROI.<br><strong>Referral reward: 15%</strong></p>
       </div>
-
       <div class="card">
-        <h3>03 — Retained Ops Support</h3>
-        <p>
-          Quarterly KPI reviews and continuous process improvement.
-          <br><strong>Referral reward: 15%</strong> of first-month fee.
-        </p>
+        <h3>Ongoing Ops Support</h3>
+        <p>Quarterly KPI reviews and system optimization for retained clients.<br><strong>Referral reward: 15%</strong></p>
       </div>
     </div>
 
     <h2>What You Get</h2>
     <ul>
-      <li>Clear structure and payout transparency — no small print.</li>
-      <li>Access to case studies and referral templates you can send in under a minute.</li>
-      <li>Quarterly performance summaries so you can see which introductions closed.</li>
+      <li>Clear structure, no fine print — you always know your payout.</li>
+      <li>Access to shareable case studies, intro templates, and referral assets.</li>
+      <li>Quarterly performance summaries for transparency.</li>
       <li>Priority scheduling for your own clients if they need DGS support.</li>
     </ul>
 
     <h2>Our Promise</h2>
-    <p>
-      Every referral gets handled personally. No upselling. No unnecessary tools. Just clear systems that make teams more efficient.
-      You look good for connecting them. They thank you for the time you helped them get back.
-    </p>
+    <p>We don’t upsell, overbuild, or sell software. We fix the mess that costs time and clarity. Your reputation stays protected because every referral gets handled personally — and the results speak for themselves.</p>
 
-    <h2>Join the Network</h2>
-    <p>Use the form below — once approved, you’ll get your personal referral link and resource kit.</p>
+    <h2>Join the Partner Network</h2>
+    <p>Fill out the quick form below. We’ll review your info, send your personal referral link, and give you access to our private Partner Resource Kit.</p>
 
-    <!-- Integrated Form -->
+    <!-- Partner Form -->
     <form action="https://formspree.io/f/mvgdprqg" method="POST">
       <label>
         Your Name:
-        <input type="text" name="name" required>
+        <input type="text" name="name" required />
       </label>
       <label>
         Your Email:
-        <input type="email" name="email" required>
+        <input type="email" name="email" required />
       </label>
       <label>
         Your Business / Role:
-        <input type="text" name="business">
+        <input type="text" name="business" />
       </label>
       <label>
-        Why you’re a good fit:
+        Why You’re a Good Fit:
         <textarea name="message" rows="4" placeholder="Tell us who you help and how you see DGS fitting in."></textarea>
       </label>
       <button type="submit">Join the Partner Network</button>
     </form>
 
     <p style="margin-top:20px; font-size:0.9rem; color:#64748b;">
-      We respond within 2 business days. Approved partners get full access to our referral guide, one-pager PDF, and link tracking dashboard.
+      We respond within 2 business days. Approved partners get full access to the Partner Deck, case studies, and referral link tracking.
     </p>
   </section>
+
+  <!-- FOOTER CTA -->
+  <section class="partner-footer-cta">
+    <h2>Let’s Build Better Businesses Together</h2>
+    <p>Strong partnerships create stronger small businesses. If you’re the kind of professional who values efficiency, clarity, and results — we’ll work well together.</p>
+    <a href="#partner-network">Apply to Partner</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      &copy; 2025 DGS Consulting | "Clarity over complexity." | 
+      <a href="/index.html">Home</a> |
+      <a href="/Services/index.html">Services</a> |
+      <a href="/Partners/index.html">Partners</a> |
+      <a href="mailto:dgsconsult@consultant.com">Contact</a>
+    </p>
+  </footer>
+
 </body>
 </html>
