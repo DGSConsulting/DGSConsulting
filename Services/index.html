@@ -455,7 +455,7 @@ function computeRecommendation({ revenue, pain, urgency }) {
     return { title: 'Power Sessions — quick, high-value fixes', includes: ['2×2-hour implementation sessions','Custom SOPs & templates','30 days email support'], price: '$1,997', cta: 'Book Power Sessions', service: 'Power Sessions Package' };
   }
   if(urgency === 'exploring' || revenue === 'under500k') {
-    return { title: 'Tech Stack Red Flag Audit', includes: ['90-minute deep dive','10-page prioritized list','ROI estimate and next steps'], price: 'Free (Normally $250)', cta: 'Claim Free Audit', service: 'Tech Stack Red Flag Audit' };
+    return { title: 'Tech Stack Red Flag Audit', includes: ['90-minute deep dive','1 page prioritized list','ROI estimate and next steps'], price: 'Free (Normally $250)', cta: 'Claim Free Audit', service: 'Tech Stack Red Flag Audit' };
   }
   if(revenue === '500k-2m' && (urgency === 'soon' || pain === 'chaos')) {
     return { title: 'Power Sessions Package', includes: ['Three 2-hour implementation sessions','Custom SOPs & templates','30 days email support'], price: '$1,997', cta: 'Get Started', service: 'Power Sessions Package' };
