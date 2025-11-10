@@ -1,242 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="asset/logo-mark-t.png" />
-  <title>DGS Consulting | Case Studies</title>
-  <style>
-    /* Case Studies Hub - Aligned with DGS Homepage */
-    :root {
-      --primary: #1E293B;
-      --accent: #06B6D4;
-      --light: #F9FAFB;
-      --lighter: #FFFFFF;
-      --dark: #1e1e1e;
-      --white: #ffffff;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DGS Consulting — Case Studies</title>
+<meta name="description" content="Real results from DGS Consulting — how we simplified systems, reclaimed time, and increased revenue for small service businesses." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="asset/logo-mark-t.png">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<!-- Google tag (optional) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T0K5M8P9XP');
+</script>
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      min-height: 100vh;
-    }
+<style>
+:root{
+  --bg:#fbfdfe;
+  --ink:#0f1724;
+  --accent:#06B6D4;
+  --accent-700:#0891b2;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --radius:12px;
+  --maxw:1200px;
+  --pad:20px;
+  --focus: 3px solid rgba(6,182,212,0.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 
-    /* Top Navigation */
-    .top-nav {
-      background: var(--white);
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .top-nav .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 1rem;
-    }
-    .top-nav .logo {height: 40px;}
-    .top-nav .nav-links a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: bold;
-    }
-    .top-nav .nav-links a:hover {color: var(--accent);}
+/* Header / Nav */
+.header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92));backdrop-filter:blur(4px);box-shadow:0 8px 24px rgba(2,6,23,0.04)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto;padding:14px var(--pad)}
+.logo{height:44px}
+.nav{display:flex;gap:14px;align-items:center}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:10px;font-size:0.95rem}
+.nav a:hover{background:rgba(6,182,212,0.06);color:var(--accent-700)}
+.book-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-      color: white;
-      padding: 4rem 2rem 3rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: float 20s linear infinite;
-    }
-    @keyframes float {0% {transform: translate(0, 0);} 100% {transform: translate(-40px, -40px);}}
-    header h1 {font-size: 3rem; font-weight: 700; margin-bottom: 1rem; position: relative; z-index: 1;}
-    header p {font-size: 1.2rem; opacity: 0.95; margin-bottom: 2rem; position: relative; z-index: 1;}
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 0.8rem 2rem;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
+/* Responsive nav toggle */
+.nav-toggle{display:none;background:none;border:0;font-size:20px;cursor:pointer}
+@media (max-width:880px){
+  .nav{display:none;position:absolute;right:14px;top:66px;background:var(--card);flex-direction:column;gap:8px;padding:12px;border-radius:10px;box-shadow:0 12px 40px rgba(2,6,23,0.08)}
+  .nav-toggle{display:block}
+}
 
-    /* Main Grid */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
+/* Hero */
+.hero{background:linear-gradient(135deg,#0f172a 0%, #0b5b7d 100%);color:white;padding:56px 0 36px;position:relative;overflow:hidden}
+.hero .container{display:flex;flex-direction:column;gap:12px}
+.hero h1{font-size:1.9rem;margin:0 0 6px;font-weight:700}
+.hero p{color:rgba(255,255,255,0.92);margin:0 0 12px}
+.hero .cta{display:inline-block;background:white;color:var(--ink);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    article {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    article::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    }
-    article:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    }
-    article h2 a {
-      color: #1e293b;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 700;
-      transition: color 0.3s ease;
-    }
-    article h2 a:hover {color: #2563eb;}
-    article p {color: #334155; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.7;}
-    .metrics {display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem;}
-    .metrics span {background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500;}
-    .metrics .highlight {background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);}
-    .category {display: inline-block; background: #f1f5f9; color: #475569; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; border: 1px solid #e2e8f0;}
-    .read-time {color: #64748b; font-size: 0.9rem; font-style: italic; margin-top: 1rem;}
+/* Page layout */
+.main{max-width:var(--maxw);margin:28px auto;padding:0 var(--pad)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
 
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 2rem;
-    }
-    footer a {color: #06B6D4; text-decoration: underline; margin: 0 0.3rem;}
+/* Card */
+.card{background:var(--card);border-radius:14px;padding:22px;box-shadow:0 14px 40px rgba(2,6,23,0.06);position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s}
+.card::before{content:'';position:absolute;left:0;top:0;width:100%;height:6px;background:linear-gradient(90deg,var(--accent-700),var(--accent));border-top-left-radius:14px;border-top-right-radius:14px}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(2,6,23,0.12)}
+.category{display:inline-block;background:#f1f5f9;color:#475569;padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.82rem;margin-bottom:12px;border:1px solid #e2e8f0}
+.card h2{margin:0 0 10px;font-size:1.25rem}
+.card p{color:var(--muted);line-height:1.6;margin-bottom:12px}
+.metrics{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.metric{background:linear-gradient(90deg,var(--accent-700),var(--accent));color:white;padding:8px 12px;border-radius:999px;font-weight:700;font-size:0.9rem}
+.metric.muted{background:#0f1724;color:white;}
 
-    @media (max-width: 768px) {
-      header {padding: 3rem 1.5rem 2rem 1.5rem;}
-      header h1 {font-size: 2.5rem;}
-      header p {font-size: 1.1rem;}
-      main {grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1.5rem;}
-      article {padding: 2rem;}
-      .metrics {justify-content: center;}
-    }
+/* Read time */
+.read-time{color:var(--muted);font-size:0.9rem;margin-top:10px}
 
-    @media (max-width: 480px) {
-      header h1 {font-size: 2rem;}
-      article h2 a {font-size: 1.3rem;}
-      .metrics span {font-size: 0.8rem; padding: 0.4rem 0.8rem;}
-    }
-  </style>
+/* CTA area */
+.cta-strip{background:linear-gradient(90deg,var(--ink),rgba(6,182,212,0.06));color:white;padding:36px 0;border-radius:12px;margin:28px 0}
+.cta-strip .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cta-strip h3{margin:0;font-size:1.15rem}
+.cta-strip a{background:white;color:var(--ink);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+/* Footer */
+.footer{background:var(--ink);color:white;padding:28px 0;text-align:center}
+.footer a{color:var(--accent);text-decoration:none}
+
+/* Responsive tweaks */
+@media (max-width:920px){
+  .hero h1{font-size:1.6rem}
+  .grid{grid-template-columns:1fr}
+  .cta-strip .inner{flex-direction:column;align-items:center}
+}
+</style>
 </head>
 <body>
 
-  <!-- Top Navigation -->
-  <nav class="top-nav">
-    <div class="container">
-      <img src="https://raw.githubusercontent.com/DGSConsulting/DGSConsulting/main/asset/logo-mark-t.png" alt="DGS Consulting" class="logo">
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/case-studies/">Case Studies</a>
-        <a href="/#contact">Contact</a>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner container">
+      <a href="/index.html" aria-label="DGS home">
+        <img src="asset/logo-mark-t.png" alt="DGS Consulting logo" class="logo">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">☰</button>
+
+      <nav id="mainNav" class="nav" aria-label="Primary navigation">
+        <a href="/index.html">Home</a>
+        <a href="/Services/index.html">Services</a>
+        <a href="/case-studies/index.html">Case Studies</a>
+        <a class="book-btn" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <div class="container">
+        <h1>Case Studies</h1>
+        <p>Real examples: where practical systems work replaced busywork and reclaimed time, cash, and focus.</p>
+        <a class="cta" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book a short consult</a>
       </div>
     </div>
-  </nav>
-
-  <header>
-    <h1>Case Studies</h1>
-    <p>Real examples of how DGS Consulting simplifies, streamlines, and scales small businesses.</p>
-    <nav>
-      <a href="/">Home</a>
-    </nav>
   </header>
 
-  <main>
-    <article>
-      <div class="category">Automotive</div>
-      <h2><a href="/case-studies/Auto-Shop.html">How One Auto Shop Found $20K Hiding in Plain Sight</a></h2>
-      <p>System integration and clearer processes cut wasted payroll time and uncovered thousands in missed revenue opportunities — no new software required.</p>
-      <div class="metrics">
-        <span>2–3 hrs saved weekly per tech</span>
-        <span class="highlight">$10–20K annual recovery</span>
-        <span>$1–2K monthly cost reduction</span>
-      </div>
-      <div class="read-time">5 min read</div>
-    </article>
+  <!-- Main content -->
+  <main class="main container" role="main">
+    <section class="grid" aria-label="Case studies list">
 
-    <article>
-      <div class="category">Landscaping</div>
-      <h2><a href="/case-studies/Grassroots-to-Growth.html">From Grassroots to Growth</a></h2>
-      <p>Mobile-first systems and optimized workflows turned a small contractor into a regional leader — driving consistent growth, faster cash flow, and stronger referrals.</p>
-      <div class="metrics">
-        <span class="highlight">167% revenue growth</span>
-        <span>$1.5M → $4.0M in 24 months</span>
-        <span>50% faster receivables</span>
-        <span>350% increase in referrals</span>
-      </div>
-      <div class="read-time">8 min read</div>
-    </article>
+      <article class="card" aria-labelledby="t1">
+        <div class="category">Automotive</div>
+        <h2 id="t1"><a href="/case-studies/Auto-Shop.html">How One Auto Shop Found $20K Hiding in Plain Sight</a></h2>
+        <p>We mapped workflows, removed duplication, and fixed invoice flow. The result: fewer missed charges, clearer scheduling, and measurable payroll savings. All without adding new subscriptions.</p>
+        <div class="metrics" aria-hidden="false">
+          <div class="metric">2–3 hrs saved / tech / week</div>
+          <div class="metric metric-muted">$10–20K annual recovery</div>
+          <div class="metric">$1–2K monthly cost reduction</div>
+        </div>
+        <div class="read-time">5 min read</div>
+      </article>
 
-    <article>
-      <div class="category">Tree Care</div>
-      <h2><a href="/case-studies/solo-arborist.html">How One Solo Arborist Reclaimed 104 Hours & $18K Revenue</a></h2>
-      <p>Two months of operational transformation eliminated admin overwhelm, streamlined client management, and restored work-life balance for a solo operator.</p>
-      <div class="metrics">
-        <span>104 hrs/year reclaimed</span>
-        <span class="highlight">$18K additional revenue</span>
-        <span>2.5 weeks time regained</span>
-        <span>6 → 2 tools consolidated</span>
+      <article class="card" aria-labelledby="t2">
+        <div class="category">Landscaping</div>
+        <h2 id="t2"><a href="/case-studies/Grassroots-to-Growth.html">From Grassroots to Growth</a></h2>
+        <p>Mobile-first scheduling and predictable quoting increased capacity while keeping headcount steady — resulting in faster cash flow and a clear pathway to scale.</p>
+        <div class="metrics">
+          <div class="metric">167% revenue growth</div>
+          <div class="metric">$1.5M → $4.0M</div>
+          <div class="metric">50% faster receivables</div>
+        </div>
+        <div class="read-time">8 min read</div>
+      </article>
+
+      <article class="card" aria-labelledby="t3">
+        <div class="category">Tree Care</div>
+        <h2 id="t3"><a href="/case-studies/solo-arborist.html">How One Solo Arborist Reclaimed 104 Hours & $18K</a></h2>
+        <p>We simplified client intake, consolidated tools, and documented field SOPs. The owner regained time, reduced admin, and captured missed revenue.</p>
+        <div class="metrics">
+          <div class="metric">104 hrs / year reclaimed</div>
+          <div class="metric metric-muted">$18K additional revenue</div>
+          <div class="metric">6→2 tools consolidated</div>
+        </div>
+        <div class="read-time">7 min read</div>
+      </article>
+
+      <!-- Add more cards below as needed; same markup -->
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta-strip" aria-label="Call to action">
+      <div class="container inner">
+        <div>
+          <h3>Want results like these?</h3>
+          <p style="margin:6px 0;color:rgba(255,255,255,0.92)">Book a short consultation and we'll show you the single highest-impact fix for your business.</p>
+        </div>
+        <div>
+          <a href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book a Consultation</a>
+        </div>
       </div>
-      <div class="read-time">7 min read</div>
-    </article>
+    </section>
   </main>
 
-  <footer>
-    <p>Let’s simplify your systems. Start with a <a href="/Services/index.html">Tech Stack Red Flag Audit</a> today.</p>
-    <p>
-      <a href="mailto:DGSConsult@consultant.com">Email Us</a> | 
-      <a href="https://www.linkedin.com/in/dg-snook/">LinkedIn</a> | 
-      <a href="/">Home</a>
-    </p>
-    <p>&copy; 2025 DGS Consulting | "Clarity over complexity." | Founded by Darren Snook | Ottawa, ON</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin:6px 0">Start with a Tech Stack Red Flag Audit — a focused review that finds waste and shows a quick win.</p>
+      <p style="margin:6px 0">
+        <a href="mailto:DGSConsult@consultant.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/dg-snook/" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="/index.html">Home</a>
+      </p>
+      <p style="margin-top:10px;opacity:0.9">&copy; 2025 DGS Consulting • Clarity over complexity • Darren Snook</p>
+    </div>
   </footer>
 
+<script>
+/* Nav toggle for small screens */
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+if(navToggle){
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    if(mainNav.style.display === 'flex') {
+      mainNav.style.display = 'none';
+    } else {
+      mainNav.style.display = 'flex';
+      mainNav.style.flexDirection = 'column';
+    }
+  });
+}
+</script>
 </body>
 </html>
-
