@@ -1,714 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tech Stack Profit Leak Diagnostic | DGS Consulting</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGS Consulting | Tech Stack Profit Leak Diagnostic</title>
 
-  <!-- jsPDF for PDF export -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- DGS Consulting Colors -->
+<style>
+:root {
+  --bg: #fbfdfe;
+  --ink: #0f1724;
+  --accent: #06B6D4;
+  --accent-700: #0891b2;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --font: 'Inter', sans-serif;
+}
 
-  <style>
-    :root{
-      --bg: #fbfdfe;
-      --ink: #0f1724;
-      --accent: #06B6D4;
-      --accent-700: #0891b2;
-      --muted: #6b7280;
-      --card: #ffffff;
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  margin: 0;
+  padding: 0;
+}
 
-      --radius: 12px;
-      --max-w: 920px;
-    }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, var(--bg), #eef7fb);
-      color:var(--ink);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:28px;
-    }
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
 
-    .wrap{
-      max-width:var(--max-w);
-      margin:0 auto;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:0 20px 40px rgba(7,22,34,0.06);
-      overflow:hidden;
-    }
+h1,h2,h3 { margin: 0 0 15px 0; }
 
-    .header{
-      background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(8,145,178,0.12));
-      padding:44px 40px;
-      text-align:center;
-    }
-    .brand{
-      font-weight:700;
-      letter-spacing:1px;
-      color:var(--ink);
-      font-size:20px;
-      margin-bottom:6px;
-    }
-    .title{
-      font-size:26px;
-      color:var(--ink);
-      margin:6px 0;
-    }
-    .subtitle{
-      color:var(--muted);
-      margin-top:8px;
-      font-size:14px;
-    }
+button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+}
+button:hover {
+  background: var(--accent-700);
+}
 
-    /* progress */
-    .progress-wrap{padding:18px 40px;background:transparent}
-    .progress{
-      height:10px;
-      background:#e6f7f9;
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .progress > i{
-      display:block;
-      height:100%;
-      width:0%;
-      background:linear-gradient(90deg,var(--accent),var(--accent-700));
-      transition:width .35s ease;
-    }
-    .step-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px;padding:0 2px}
+.progress-container {
+  background: #e5e7eb;
+  border-radius: 12px;
+  height: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.3s;
+}
 
-    .content{padding:36px 40px}
-    .section{display:none;animation:fade .32s ease both}
-    .section.active{display:block}
-    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.completion-percent {
+  font-size: 0.85rem;
+  color: var(--muted);
+  float: right;
+  margin-top: -20px;
+}
 
-    .section h2{color:var(--ink);margin:0 0 8px;font-size:20px}
-    .section p{color:var(--muted);margin:0 0 18px;font-size:14px}
+.form-section {
+  display: none;
+}
+.form-section.active {
+  display: block;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-    }
-    .full{grid-column:1/-1}
+#errorMessage {
+  color: red;
+  display: none;
+  margin-bottom: 10px;
+}
 
-    label{display:block;font-weight:600;color:var(--ink);margin-bottom:6px;font-size:14px}
-    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea{
-      width:100%;
-      padding:12px 14px;
-      border:1px solid #e6eef1;
-      border-radius:10px;
-      font-size:14px;
-      color:var(--ink);
-      background:transparent;
-    }
-    textarea{min-height:100px;resize:vertical}
+#loadingScreen {
+  display: none;
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 200px;
+  z-index: 9999;
+}
+</style>
 
-    .checkbox-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .checkbox-item{
-      display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:#fbfeff;border:1px solid #f0fbfc;cursor:pointer
-    }
-    .checkbox-item input{width:18px;height:18px}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T0K5M8P9XP');
+</script>
 
-    .buttons{display:flex;gap:12px;margin-top:22px}
-    .btn{
-      padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700;font-size:14px;
-    }
-    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-700));color:white;flex:1}
-    .btn-quiet{background:transparent;border:1px solid #e6eef1;color:var(--ink);min-width:110px;border-radius:10px}
-
-    .muted{color:var(--muted);font-size:13px}
-
-    .stats{
-      display:flex;gap:12px;justify-content:center;margin:18px 0 0;flex-wrap:wrap
-    }
-    .stat{background:linear-gradient(180deg, #f8feff, #fbfeff);padding:12px;border-radius:10px;text-align:center;min-width:120px}
-    .stat .num{font-weight:800;color:var(--accent-700);font-size:18px}
-    .stat .lbl{font-size:12px;color:var(--muted)}
-
-    .error{background:#fff1f2;border:1px solid #fee2e2;color:#7f1d1d;padding:10px;border-radius:8px;margin-bottom:12px;display:none}
-    .loading{display:none;text-align:center;padding:18px}
-
-    /* success screen */
-    .success{
-      text-align:center;padding:26px;border-radius:10px;background:linear-gradient(180deg,#f8fffb,#ffffff);
-    }
-    .success h3{margin:10px 0;color:var(--ink)}
-    .download-btn{display:inline-block;margin-top:14px;padding:12px 20px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-700));color:#fff;border:none;cursor:pointer;font-weight:700}
-
-    @media (max-width:880px){
-      .grid{grid-template-columns:1fr}
-      .checkbox-grid{grid-template-columns:1fr}
-      .content{padding:20px}
-      .header{padding:28px 20px}
-      .progress-wrap{padding:10px 20px}
-    }
-  </style>
+<!-- jsPDF CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <div class="wrap" role="main" aria-labelledby="page-title">
-    <header class="header">
-      <div class="brand">DGS</div>
-      <div id="page-title" class="title">Tech Stack Profit Leak Diagnostic</div>
-      <div class="subtitle">Discover where $5K–$15K is hiding in your software subscriptions</div>
 
-      <div class="stats" style="margin-top:18px">
-        <div class="stat"><div class="num">$14K</div><div class="lbl">Avg Annual Savings</div></div>
-        <div class="stat"><div class="num">38 hrs</div><div class="lbl">Hours Recovered / Month</div></div>
-        <div class="stat"><div class="num">10 min</div><div class="lbl">To complete</div></div>
-      </div>
-    </header>
+<div class="container card">
+  <h1>Tech Stack Profit Leak Diagnostic</h1>
+  <p>Welcome! This diagnostic helps identify where your business is losing money and time in software subscriptions.</p>
 
-    <div class="progress-wrap" aria-hidden="true">
-      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-        <i id="progressFill"></i>
-      </div>
-      <div class="step-labels" id="stepLabels">
-        <span>Welcome</span>
-        <span>Company</span>
-        <span>Tech Stack</span>
-        <span>Pain Points</span>
-        <span>Goals</span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="error" id="errorBox" role="alert"></div>
-
-      <form id="diagnosticForm" class="form" method="POST" action="https://api.web3forms.com/submit" novalidate>
-        <!-- hidden web3forms fields -->
-        <input type="hidden" name="access_key" value="b3ed6b32-0242-4b95-b984-0932ebd57b51">
-        <input type="hidden" name="subject" value="New Tech Stack Diagnostic Submission">
-        <input type="hidden" name="from_name" value="DGS Consulting Website">
-        <!-- optional: set email reply-to by including 'email' field -->
-
-        <!-- SECTION 1: Welcome -->
-        <section class="section active" data-section="1">
-          <h2>Welcome 👋</h2>
-          <p>Quick diagnostic to uncover wasted spend and slow manual work. This takes about 8–12 minutes. Ready?</p>
-
-          <div style="margin-top:16px">
-            <button type="button" class="btn btn-primary" onclick="goNext()">Start Diagnostic →</button>
-          </div>
-        </section>
-
-        <!-- SECTION 2: Company Info -->
-        <section class="section" data-section="2" aria-hidden="true">
-          <h2>Company Information</h2>
-          <p class="muted">Tell us about your business</p>
-
-          <div class="grid" style="margin-top:8px">
-            <div>
-              <label for="companyName">Company Name <span style="color:#ef4444">*</span></label>
-              <input id="companyName" name="companyName" type="text" required>
-            </div>
-            <div>
-              <label for="yourName">Your Name <span style="color:#ef4444">*</span></label>
-              <input id="yourName" name="yourName" type="text" required>
-            </div>
-
-            <div>
-              <label for="role">Your Role <span style="color:#ef4444">*</span></label>
-              <input id="role" name="role" type="text" placeholder="Founder, Operations, etc." required>
-            </div>
-            <div>
-              <label for="email">Work Email <span style="color:#ef4444">*</span></label>
-              <input id="email" name="email" type="email" required>
-            </div>
-
-            <div>
-              <label for="phone">Phone (optional)</label>
-              <input id="phone" name="phone" type="tel">
-            </div>
-            <div>
-              <label for="industry">Industry / Niche <span style="color:#ef4444">*</span></label>
-              <input id="industry" name="industry" type="text" placeholder="e.g., SaaS, Agency" required>
-            </div>
-
-            <div>
-              <label for="revenue">Annual Revenue Range <span style="color:#ef4444">*</span></label>
-              <select id="revenue" name="revenue" required>
-                <option value="">Select range...</option>
-                <option value="under100k">Under $100K</option>
-                <option value="100k-250k">$100K - $250K</option>
-                <option value="250k-500k">$250K - $500K</option>
-                <option value="500k-1m">$500K - $1M</option>
-                <option value="1m-5m">$1M - $5M</option>
-                <option value="5m+">$5M+</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="teamSize">Team Size <span style="color:#ef4444">*</span></label>
-              <input id="teamSize" name="teamSize" type="number" min="1" required>
-            </div>
-
-            <div>
-              <label for="activeUsers">How many people use software daily? <span style="color:#ef4444">*</span></label>
-              <input id="activeUsers" name="activeUsers" type="number" min="0" required>
-            </div>
-          </div>
-
-          <div class="buttons">
-            <button type="button" class="btn btn-quiet" onclick="goPrev()">← Back</button>
-            <button type="button" class="btn btn-primary" onclick="goNext()">Next →</button>
-          </div>
-        </section>
-
-        <!-- SECTION 3: Current Tech Stack -->
-        <section class="section" data-section="3" aria-hidden="true">
-          <h2>Your Current Tech Stack</h2>
-          <p class="muted">List the software you pay for — estimates are fine.</p>
-
-          <div class="grid" style="margin-top:8px">
-            <div class="full">
-              <label for="crmTools">CRM & Sales Tools</label>
-              <textarea id="crmTools" name="crmTools" placeholder="e.g., HubSpot - $800/mo - 8 users"></textarea>
-            </div>
-
-            <div class="full">
-              <label for="pmTools">Project Management Tools</label>
-              <textarea id="pmTools" name="pmTools" placeholder="e.g., ClickUp - $152/mo - 8 users"></textarea>
-            </div>
-
-            <div>
-              <label for="commTools">Communication (Email, Chat, Video)</label>
-              <textarea id="commTools" name="commTools" placeholder="e.g., Google Workspace - $96/mo"></textarea>
-            </div>
-
-            <div>
-              <label for="marketingTools">Marketing & Automation</label>
-              <textarea id="marketingTools" name="marketingTools" placeholder="e.g., Mailchimp - $200/mo"></textarea>
-            </div>
-
-            <div>
-              <label for="paymentTools">Payments & Invoicing</label>
-              <textarea id="paymentTools" name="paymentTools" placeholder="e.g., QuickBooks - $80/mo"></textarea>
-            </div>
-
-            <div>
-              <label for="storageTools">File Storage & Docs</label>
-              <textarea id="storageTools" name="storageTools" placeholder="e.g., Google Drive"></textarea>
-            </div>
-
-            <div class="full">
-              <label for="otherTools">Other Tools</label>
-              <textarea id="otherTools" name="otherTools" placeholder="Any other subscriptions"></textarea>
-            </div>
-
-            <div>
-              <label for="monthlySpend">Approx. Total Monthly Software Spend <span style="color:#ef4444">*</span></label>
-              <select id="monthlySpend" name="monthlySpend" required>
-                <option value="">Select range...</option>
-                <option value="under500">Under $500/month</option>
-                <option value="500-1000">$500 - $1,000/month</option>
-                <option value="1000-2500">$1,000 - $2,500/month</option>
-                <option value="2500-5000">$2,500 - $5,000/month</option>
-                <option value="5000-10000">$5,000 - $10,000/month</option>
-                <option value="10000+">$10,000+/month</option>
-                <option value="unknown">I don't know</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="buttons">
-            <button type="button" class="btn btn-quiet" onclick="goPrev()">← Back</button>
-            <button type="button" class="btn btn-primary" onclick="goNext()">Next →</button>
-          </div>
-        </section>
-
-        <!-- SECTION 4: Pain Points -->
-        <section class="section" data-section="4" aria-hidden="true">
-          <h2>Where Are You Losing Time & Money?</h2>
-          <p class="muted">Tell us your biggest friction points</p>
-
-          <div style="margin-top:8px">
-            <label for="frustrations">Top 3 frustrations <span style="color:#ef4444">*</span></label>
-            <textarea id="frustrations" name="frustrations" required placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
-
-            <label style="margin-top:12px">Which tasks take longer than they should? (check all that apply)</label>
-            <div class="checkbox-grid" style="margin-top:8px">
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="data-entry"> Manually entering data</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="searching"> Searching across tools</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="onboarding"> Client onboarding</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="invoicing"> Invoicing & payments</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="communication"> Team coordination</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="reporting"> Report generation</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="scheduling"> Scheduling</label>
-              <label class="checkbox-item"><input type="checkbox" name="timewasters" value="files"> File collaboration</label>
-            </div>
-
-            <label style="margin-top:12px" for="hoursWasted">Approx hours wasted per week <span style="color:#ef4444">*</span></label>
-            <select id="hoursWasted" name="hoursWasted" required>
-              <option value="">Select range...</option>
-              <option value="1-5">1-5</option>
-              <option value="5-10">5-10</option>
-              <option value="10-20">10-20</option>
-              <option value="20-30">20-30</option>
-              <option value="30-40">30-40</option>
-              <option value="40+">40+</option>
-              <option value="unsure">Not sure</option>
-            </select>
-
-            <label style="margin-top:12px" for="underutilized">Tools you suspect are underutilized</label>
-            <textarea id="underutilized" name="underutilized" placeholder="e.g., We're on premium but only use basics"></textarea>
-          </div>
-
-          <div class="buttons">
-            <button type="button" class="btn btn-quiet" onclick="goPrev()">← Back</button>
-            <button type="button" class="btn btn-primary" onclick="goNext()">Next →</button>
-          </div>
-        </section>
-
-        <!-- SECTION 5: Goals & Submit -->
-        <section class="section" data-section="5" aria-hidden="true">
-          <h2>Your Goals & Implementation</h2>
-          <p class="muted">Help us understand what success looks like</p>
-
-          <div class="grid" style="margin-top:8px">
-            <div class="full">
-              <label for="desiredOutcome">#1 desired outcome <span style="color:#ef4444">*</span></label>
-              <textarea id="desiredOutcome" name="desiredOutcome" required placeholder="e.g., Cut costs by $500/month, save 10 hours/week"></textarea>
-            </div>
-
-            <div>
-              <label for="decisionMaker">Who approves changes? <span style="color:#ef4444">*</span></label>
-              <select id="decisionMaker" name="decisionMaker" required>
-                <option value="">Select...</option>
-                <option value="just-me">Just me</option>
-                <option value="me-plus-one">Me + 1</option>
-                <option value="small-team">Small team (2-3)</option>
-                <option value="broader">Broader approval</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="timeline">Timeline for implementing improvements <span style="color:#ef4444">*</span></label>
-              <select id="timeline" name="timeline" required>
-                <option value="">Select...</option>
-                <option value="immediate">Immediate (30 days)</option>
-                <option value="short-term">Short (1-3 months)</option>
-                <option value="mid-term">Mid (3-6 months)</option>
-                <option value="long-term">6+ months</option>
-                <option value="exploratory">Exploratory</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="implementationSupport">Interested in implementation support?</label>
-              <select id="implementationSupport" name="implementationSupport">
-                <option value="">Select...</option>
-                <option value="dfy">Yes - Done For You</option>
-                <option value="maybe">Maybe - see report</option>
-                <option value="diy">No - DIY</option>
-              </select>
-            </div>
-
-            <div class="full">
-              <label for="questions">Any specific questions or concerns?</label>
-              <textarea id="questions" name="questions"></textarea>
-            </div>
-          </div>
-
-          <div class="buttons">
-            <button type="button" class="btn btn-quiet" onclick="goPrev()">← Back</button>
-            <button type="button" class="btn btn-primary" onclick="handleSubmit()">Submit Diagnostic →</button>
-          </div>
-        </section>
-
-        <!-- Success / Thank you -->
-        <section class="section" data-section="success" aria-hidden="true">
-          <div class="success">
-            <div style="font-size:36px">🎉</div>
-            <h3>Thanks — we received your submission</h3>
-            <p class="muted">You'll get a payment link and instructions by email shortly. After payment we begin analysis and deliver your diagnostic within 48 hours.</p>
-
-            <button id="downloadBtn" class="download-btn" onclick="downloadPDF()">📄 Download your submission (PDF)</button>
-
-            <div style="margin-top:14px" class="muted">Questions? Email us at <a href="mailto:dgsconsult@consulting.com">dgsconsult@consulting.com</a></div>
-          </div>
-        </section>
-      </form>
-
-      <div class="loading" id="loading" aria-hidden="true">Submitting... please wait.</div>
-    </div>
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar"></div>
   </div>
 
-  <script>
-    /* Multi-section + validation + web3forms + PDF generation (jsPDF) */
-    (function(){
-      const form = document.getElementById('diagnosticForm');
-      const progressFill = document.getElementById('progressFill');
-      const errorBox = document.getElementById('errorBox');
-      const loading = document.getElementById('loading');
-      const totalSections = 5;
-      let current = 1; // 1..5, 'success' is handled separately
+  <div id="errorMessage"></div>
 
-      // helper: show section by number or 'success'
-      function showSection(n){
-        // hide all
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        if(n === 'success'){
-          const el = document.querySelector('[data-section="success"]');
-          if(el) el.classList.add('active');
-          updateProgress(100);
-          window.scrollTo({top:0,behavior:'smooth'});
-          return;
-        }
-        const el = document.querySelector(`.section[data-section="${n}"]`);
-        if(el) el.classList.add('active');
-        updateProgress(Math.round((n / totalSections) * 100));
-        window.scrollTo({top:0,behavior:'smooth'});
-      }
+  <form id="diagnosticForm">
+    <!-- Section 1 -->
+    <div class="form-section active" data-section="1">
+      <h2>Section 1: Business Overview <span class="completion-percent">0%</span></h2>
+      <label>Business Name <input type="text" name="business_name" required></label><br><br>
+      <label>Email <input type="email" name="email" required></label><br><br>
+      <button type="button" onclick="nextSection()">Next</button>
+    </div>
 
-      function updateProgress(val){
-        if(typeof val === 'number') progressFill.style.width = val + '%';
-      }
+    <!-- Section 2 -->
+    <div class="form-section" data-section="2">
+      <h2>Section 2: Software Usage <span class="completion-percent">0%</span></h2>
+      <label>Number of software subscriptions <input type="number" name="software_count" required></label><br><br>
+      <label>Most used software <input type="text" name="most_used_software" required></label><br><br>
+      <button type="button" onclick="prevSection()">Back</button>
+      <button type="button" onclick="nextSection()">Next</button>
+    </div>
 
-      // validation for visible section
-      function validateSection(n){
-        errorBox.style.display = 'none';
-        const section = document.querySelector(`.section[data-section="${n}"]`);
-        if(!section) return true;
-        // required fields within section
-        const required = Array.from(section.querySelectorAll('[required]'));
-        for(const el of required){
-          if(el.type === 'checkbox'){
-            // grouped checkboxes handled via name group
-            const name = el.name;
-            const any = Array.from(section.querySelectorAll(`input[name="${name}"]:checked`)).length > 0;
-            if(!any){
-              showError('Please complete all required fields.');
-              el.focus();
-              return false;
-            }
-          } else if(el.tagName === 'SELECT' || el.type !== 'checkbox'){
-            if(!String(el.value).trim()){
-              el.style.borderColor = '#ef4444';
-              el.focus();
-              showError('Please complete all required fields.');
-              return false;
-            } else {
-              el.style.borderColor = '';
-            }
-          }
-        }
-        return true;
-      }
+    <!-- Section 3 -->
+    <div class="form-section" data-section="3">
+      <h2>Section 3: Productivity Issues <span class="completion-percent">0%</span></h2>
+      <label>Time wasted per week <input type="text" name="time_wasted" required></label><br><br>
+      <label>Biggest bottleneck <input type="text" name="bottleneck" required></label><br><br>
+      <button type="button" onclick="prevSection()">Back</button>
+      <button type="button" onclick="nextSection()">Next</button>
+    </div>
 
-      function showError(msg){
-        errorBox.textContent = msg;
-        errorBox.style.display = 'block';
-        setTimeout(()=> errorBox.style.display='none',5000);
-      }
+    <!-- Section 4 -->
+    <div class="form-section" data-section="4">
+      <h2>Section 4: Cost Assessment <span class="completion-percent">0%</span></h2>
+      <label>Monthly software spend <input type="number" name="monthly_spend" required></label><br><br>
+      <label>Unused subscriptions <input type="text" name="unused_subscriptions" required></label><br><br>
+      <button type="button" onclick="prevSection()">Back</button>
+      <button type="button" onclick="nextSection()">Next</button>
+    </div>
 
-      window.goNext = function(){
-        if(!validateSection(current)) return;
-        if(current < totalSections){
-          current++;
-          showSection(current);
-        }
-      };
+    <!-- Section 5 -->
+    <div class="form-section" data-section="5">
+      <h2>Section 5: Goals <span class="completion-percent">0%</span></h2>
+      <label>Top 3 software goals <input type="text" name="software_goals" required></label><br><br>
+      <label>Additional notes <textarea name="notes"></textarea></label><br><br>
+      <button type="button" onclick="prevSection()">Back</button>
+      <button type="button" onclick="nextSection()">Submit</button>
+    </div>
 
-      window.goPrev = function(){
-        if(current > 1){
-          current--;
-          showSection(current);
-        }
-      };
+    <!-- Success Section -->
+    <div class="form-section" data-section="success">
+      <h2>Thank you!</h2>
+      <p>Your diagnostic has been submitted successfully. Check your PDF download.</p>
+    </div>
+  </form>
+</div>
 
-      // collect form data into object
-      function collectData(){
-        const fd = new FormData(form);
-        const data = {};
-        for(const [k,v] of fd.entries()){
-          // aggregate multiple same-named fields into arrays
-          if(data[k]){
-            if(Array.isArray(data[k])) data[k].push(v);
-            else data[k] = [data[k], v];
-          } else {
-            data[k] = v;
-          }
-        }
-        // ensure timewasters aggregated (checkboxes)
-        const tw = Array.from(form.querySelectorAll('input[name="timewasters"]:checked')).map(i=>i.value);
-        data.timewasters = tw;
-        return data;
-      }
+<div id="loadingScreen">Submitting...</div>
 
-      // submission handler
-      window.handleSubmit = async function(){
-        if(!validateSection(current)) return;
+<script>
+// Sections
+let currentSection = 1;
+const totalSections = 5;
 
-        const data = collectData();
-        // basic contact validation
-        if(!data.email){ showError('Please include your email so we can send the report.'); return; }
+// Update Progress
+function updateProgress(){
+  const sections = document.querySelectorAll('.form-section[data-section]');
+  let filledFields=0, totalFields=0;
+  sections.forEach(sec=>{
+    const req = sec.querySelectorAll('[required]');
+    req.forEach(f=>{
+      totalFields++;
+      if(f.type==='checkbox' && f.checked) filledFields++;
+      else if(f.value.trim()!=='') filledFields++;
+    });
+  });
+  const percent=Math.round((filledFields/totalFields)*100);
+  document.getElementById('progressBar').style.width = percent + '%';
+}
 
-        // show loading state
-        loading.style.display = 'block';
-        form.style.display = 'none';
+// Track Analytics
+function trackSectionEvent(action){
+  gtag('event', 'diagnostic_section', {
+    'event_category': 'Diagnostic',
+    'event_action': action,
+    'event_label': 'Section ' + currentSection
+  });
+}
 
-        try{
-          // send to Web3Forms
-          const action = form.getAttribute('action');
-          const body = new FormData();
-          // include access_key and other hidden fields already present in form
-          const hidden = form.querySelectorAll('input[type="hidden"]');
-          hidden.forEach(h=> body.append(h.name,h.value));
-          // append all data
-          for(const [k,v] of Object.entries(data)){
-            if(Array.isArray(v)){
-              v.forEach(item => body.append(k, item));
-            } else {
-              body.append(k, v);
-            }
-          }
+// Show Section
+function showSection(sectionNum){
+  document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));
+  const target=document.querySelector(`.form-section[data-section="${sectionNum}"]`);
+  if(target) target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateSectionCompletion(sectionNum);
+  trackSectionEvent('view');
+}
 
-          const resp = await fetch(action, {
-            method: 'POST',
-            body
-          });
+// Validate Current Section
+function validateCurrentSection(){
+  const currentEl=document.querySelector(`[data-section="${currentSection}"]`);
+  const requiredFields=currentEl.querySelectorAll('[required]');
+  let valid=true;
+  requiredFields.forEach(f=>{
+    if(f.type==='checkbox'){
+      const checkboxes=currentEl.querySelectorAll(`input[name="${f.name}"]`);
+      if(!Array.from(checkboxes).some(cb=>cb.checked)) valid=false;
+    } else if(!f.value.trim()) valid=false;
+  });
+  if(!valid) showError('Please fill in all required fields');
+  return valid;
+}
 
-          if(!resp.ok){
-            throw new Error('Submission failed: ' + resp.status);
-          }
+// Navigation
+function nextSection(){
+  if(!validateCurrentSection()) return;
+  trackSectionEvent('next');
+  if(currentSection<totalSections) currentSection++;
+  else submitForm();
+  showSection(currentSection);
+  updateProgress();
+}
+function prevSection(){
+  if(currentSection>1){
+    trackSectionEvent('back');
+    currentSection--;
+    showSection(currentSection);
+    updateProgress();
+  }
+}
 
-          // store for PDF generation
-          sessionStorage.setItem('diagnosticData', JSON.stringify(data));
+// Error Handling
+function showError(msg){
+  const e=document.getElementById('errorMessage');
+  e.textContent=msg;
+  e.style.display='block';
+  setTimeout(()=>{e.style.display='none';},5000);
+}
 
-          // show success
-          loading.style.display = 'none';
-          showSection('success');
+// Section Completion Percent
+function updateSectionCompletion(sectionNumber){
+  const section=document.querySelector(`.form-section[data-section="${sectionNumber}"]`);
+  const requiredFields=section.querySelectorAll('[required]');
+  if(requiredFields.length===0) return;
+  let filled=0;
+  requiredFields.forEach(f=>{
+    if(f.type==='checkbox'){if(f.checked) filled++;}
+    else if(f.value.trim()!=='') filled++;
+  });
+  const percent=Math.round((filled/requiredFields.length)*100);
+  section.querySelector('.completion-percent').textContent=percent+'%';
+  updateProgress();
+}
 
-        } catch(err){
-          console.error(err);
-          loading.style.display = 'none';
-          form.style.display = 'block';
-          showError('There was an error submitting the form. Please try again or email dgsconsult@consulting.com');
-        }
-      };
+// Listen to Inputs
+document.querySelectorAll('#diagnosticForm [required]').forEach(f=>{
+  f.addEventListener('input',()=>updateSectionCompletion(f.closest('.form-section').dataset.section));
+});
 
-      // PDF generation
-      window.downloadPDF = function(){
-        const raw = sessionStorage.getItem('diagnosticData') || '{}';
-        const data = JSON.parse(raw);
-        if(!Object.keys(data).length){
-          showError('No submission data available to generate PDF.');
-          return;
-        }
+// PDF generation
+function downloadPDF(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const formData = new FormData(document.getElementById('diagnosticForm'));
+  let y=10;
+  formData.forEach((value,key)=>{
+    doc.text(`${key}: ${value}`, 10, y);
+    y+=10;
+  });
+  doc.save('diagnostic.pdf');
+}
 
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF({ unit:'pt', format:'a4' });
-        const margin = 40;
-        const pageWidth = doc.internal.pageSize.getWidth();
-        let y = 60;
-        const lineHeight = 14;
-        const maxWidth = pageWidth - margin*2;
+// Submit Form
+function submitForm(){
+  const form=document.getElementById('diagnosticForm');
+  const loading=document.getElementById('loadingScreen');
+  loading.style.display='block';
+  const formData=new FormData(form);
+  fetch('https://script.google.com/macros/s/AKfycbwqscJy619uOduBAMRBZjM-PbuJK_rrDdPMwCDgUyFfDspP2DC2nzSYhwibirqKzYMeiQ/exec',{
+    method:'POST',
+    body: formData
+  }).then(res=>{
+    loading.style.display='none';
+    currentSection='success';
+    showSection('success');
+    downloadPDF();
+    trackSectionEvent('submit');
+  }).catch(err=>{
+    loading.style.display='none';
+    showError('Submission failed. Please try again.');
+    trackSectionEvent('submission_failed');
+  });
+}
 
-        // header
-        doc.setFillColor(6,182,212);
-        doc.rect(0,0,pageWidth,50,'F');
-        doc.setFontSize(14);
-        doc.setTextColor(255,255,255);
-        doc.text('DGS Consulting — Tech Stack Diagnostic', margin, 34);
-
-        doc.setTextColor(16,23,36);
-        doc.setFontSize(11);
-        y = 80;
-
-        function writeHeading(title){
-          doc.setFontSize(12);
-          doc.setFont(undefined,'bold');
-          doc.text(title, margin, y);
-          y += lineHeight;
-          doc.setFont(undefined,'normal');
-          doc.setFontSize(11);
-        }
-
-        function writeLines(lines){
-          lines.forEach(t => {
-            const parts = doc.splitTextToSize(t, maxWidth);
-            parts.forEach(p => {
-              if(y > doc.internal.pageSize.getHeight() - 60){
-                doc.addPage();
-                y = 60;
-              }
-              doc.text(p, margin, y);
-              y += lineHeight;
-            });
-          });
-          y += lineHeight/2;
-        }
-
-        writeHeading('Company Information');
-        writeLines([
-          `Company: ${data.companyName || 'N/A'}`,
-          `Contact: ${data.yourName || 'N/A'} — ${data.email || 'N/A'}`,
-          `Role: ${data.role || 'N/A'}`,
-          `Phone: ${data.phone || 'N/A'}`,
-          `Industry: ${data.industry || 'N/A'}`,
-          `Revenue: ${data.revenue || 'N/A'}`,
-          `Team size: ${data.teamSize || 'N/A'}`,
-          `Active users: ${data.activeUsers || 'N/A'}`
-        ]);
-
-        writeHeading('Current Tech Stack');
-        writeLines([
-          `CRM & Sales: ${data.crmTools || 'N/A'}`,
-          `Project Management: ${data.pmTools || 'N/A'}`,
-          `Communication: ${data.commTools || 'N/A'}`,
-          `Marketing & Automation: ${data.marketingTools || 'N/A'}`,
-          `Payments & Invoicing: ${data.paymentTools || 'N/A'}`,
-          `File Storage: ${data.storageTools || 'N/A'}`,
-          `Other Tools: ${data.otherTools || 'N/A'}`,
-          `Monthly Spend: ${data.monthlySpend || 'N/A'}`
-        ]);
-
-        writeHeading('Pain Points & Time');
-        writeLines([
-          `Top frustrations: ${data.frustrations || 'N/A'}`,
-          `Hours wasted/week: ${data.hoursWasted || 'N/A'}`,
-          `Time wasters: ${Array.isArray(data.timewasters) ? data.timewasters.join(', ') : (data.timewasters || 'N/A')}`,
-          `Underutilized tools: ${data.underutilized || 'N/A'}`
-        ]);
-
-        writeHeading('Goals & Implementation');
-        writeLines([
-          `Desired outcome: ${data.desiredOutcome || 'N/A'}`,
-          `Decision maker: ${data.decisionMaker || 'N/A'}`,
-          `Timeline: ${data.timeline || 'N/A'}`,
-          `Implementation support: ${data.implementationSupport || 'N/A'}`,
-          `Questions: ${data.questions || 'N/A'}`
-        ]);
-
-        // footer
-        doc.setFontSize(9);
-        doc.setTextColor(120,120,120);
-        doc.text('DGS Consulting — dgsconsult@consulting.com', pageWidth/2, doc.internal.pageSize.getHeight() - 30, { align: 'center' });
-
-        const safeName = (data.companyName || 'submission').replace(/[^a-z0-9_\-]/gi, '-').toLowerCase();
-        doc.save(`Tech-Stack-Diagnostic-${safeName}.pdf`);
-      };
-
-      // initial progress view
-      showSection(current);
-
-      // clear error style on input
-      document.querySelectorAll('input,select,textarea').forEach(i=>{
-        i.addEventListener('input',()=> i.style.borderColor = '');
-      });
-
-      // prevent accidental Enter submit
-      form.addEventListener('keypress', (e)=>{
-        if(e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') e.preventDefault();
-      });
-    })();
-  </script>
+// Initialize
+updateProgress();
+showSection(currentSection);
+</script>
 </body>
 </html>
-
