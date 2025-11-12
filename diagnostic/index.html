@@ -643,10 +643,14 @@ body {
   justify-content: center;
   z-index: 10000;
   animation: fadeIn 0.3s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .exit-overlay.active {
   display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @keyframes fadeIn {
@@ -662,13 +666,15 @@ body {
   max-width: 500px;
   text-align: center;
   position: relative;
-  animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@keyframes popIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+.exit-overlay.active .exit-popup {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .exit-icon {
