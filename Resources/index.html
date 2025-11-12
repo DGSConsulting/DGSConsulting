@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Resources — DGS Consulting</title>
+<meta name="description" content="Free tools, templates, and guides to help small business owners reclaim time and simplify operations.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../asset/logo-mark-t.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T0K5M8P9XP');
+</script>
+
+<style>
+:root{
+  --bg: #fbfdfe;
+  --ink: #0f1724;
+  --accent: #06B6D4;
+  --accent-700: #0891b2;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --radius: 12px;
+  --maxw: 1200px;
+  --pad: 20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+/* Header */
+.header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.90));backdrop-filter:blur(4px);box-shadow:0 6px 20px rgba(2,6,23,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto;padding:14px var(--pad)}
+.logo{height:44px}
+.nav{display:flex;gap:14px;align-items:center}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:10px;font-size:0.95rem}
+.nav a:hover{background:rgba(6,182,212,0.06);color:var(--accent-700)}
+.book-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+/* Responsive nav toggle */
+.nav-toggle{display:none;background:none;border:0;font-size:20px;cursor:pointer}
+@media (max-width:880px){
+  .nav{display:none;position:absolute;right:14px;top:66px;background:var(--card);flex-direction:column;gap:8px;padding:12px;border-radius:10px;box-shadow:0 12px 40px rgba(2,6,23,0.08)}
+  .nav-toggle{display:block}
+}
+
+/* Page Header */
+.page-header{padding:60px 0 40px;text-align:center}
+.page-header h1{font-size:2.2rem;margin:0 0 12px;font-weight:700}
+.page-header p{color:var(--muted);font-size:1.1rem;max-width:700px;margin:0 auto}
+
+/* Category filters */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:20px 0 40px}
+.filter-btn{background:var(--card);border:1px solid rgba(15,23,36,0.08);color:var(--ink);padding:8px 16px;border-radius:10px;cursor:pointer;font-weight:600;font-size:0.95rem;transition:all .2s}
+.filter-btn:hover{background:rgba(6,182,212,0.06);border-color:var(--accent)}
+.filter-btn.active{background:var(--accent);color:white;border-color:var(--accent)}
+
+/* Resource Grid */
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;padding:20px 0 60px}
+
+.resource-card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:0 14px 40px rgba(2,6,23,0.04);transition:transform .2s,box-shadow .2s;border:1px solid rgba(6,182,212,0.04);display:flex;flex-direction:column}
+.resource-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(2,6,23,0.08)}
+
+.resource-category{display:inline-block;background:rgba(6,182,212,0.1);color:var(--accent-700);padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;margin-bottom:14px}
+
+.resource-card h3{margin:0 0 10px;font-size:1.3rem;line-height:1.3}
+.resource-card p{color:var(--muted);margin-bottom:18px;flex-grow:1}
+
+.resource-meta{display:flex;gap:14px;color:var(--muted);font-size:0.85rem;margin-bottom:18px;padding-top:12px;border-top:1px solid rgba(15,23,36,0.06)}
+.resource-meta span{display:flex;align-items:center;gap:4px}
+
+.resource-cta{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700;text-align:center;transition:background .2s}
+.resource-cta:hover{background:var(--accent-700)}
+
+/* Featured resource */
+.featured-resource{background:linear-gradient(135deg, var(--accent) 0%, var(--accent-700) 100%);color:white;border-radius:var(--radius);padding:40px;margin-bottom:40px;box-shadow:0 20px 50px rgba(6,182,212,0.15)}
+.featured-resource h2{margin:0 0 12px;font-size:1.8rem}
+.featured-resource p{margin:0 0 20px;opacity:0.95;font-size:1.05rem}
+.featured-cta{background:white;color:var(--ink);padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block;transition:transform .2s}
+.featured-cta:hover{transform:translateY(-2px)}
+
+/* Footer */
+footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid rgba(15,23,36,0.06)}
+footer a{color:var(--accent);text-decoration:none;font-weight:700}
+
+/* Utility */
+.hidden{display:none}
+
+/* Responsive */
+@media (max-width:920px){
+  .page-header h1{font-size:1.8rem}
+  .resource-grid{grid-template-columns:1fr;gap:20px}
+  .featured-resource{padding:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner container">
+    <a href="../index.html" aria-label="DGS Consulting home">
+      <img src="../asset/logo-mark-t.png" alt="DGS Consulting" class="logo">
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">☰</button>
+
+    <nav id="mainNav" class="nav" aria-label="Primary navigation">
+      <a href="../Services/index.html">Services</a>
+      <a href="../case-studies/index.html">Case Studies</a>
+      <a href="../Resources/index.html" style="color:var(--accent)">Resources</a>
+      <a href="../Intake/index.html">Contact</a>
+      <a class="book-btn" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Header -->
+<main>
+  <section class="page-header container">
+    <h1>Free Resources & Tools</h1>
+    <p>Practical guides, templates, and frameworks to help you reclaim time, reduce waste, and build systems that actually work.</p>
+  </section>
+
+  <!-- Featured Resource -->
+  <section class="container">
+    <div class="featured-resource">
+      <h2>🌟 Featured: 10 Essential SOPs</h2>
+      <p>The most requested resource. Download ready-to-use Standard Operating Procedure templates for the processes every small business needs. Stop reinventing the wheel.</p>
+      <a class="featured-cta" href="https://dgsconsulting.solutions/Resources/10-sops.html">Get the templates</a>
+    </div>
+  </section>
+
+  <!-- Category Filters -->
+  <section class="container">
+    <div class="filters">
+      <button class="filter-btn active" data-category="all">All Resources</button>
+      <button class="filter-btn" data-category="templates">Templates</button>
+      <button class="filter-btn" data-category="guides">Guides</button>
+      <button class="filter-btn" data-category="tools">Tools</button>
+      <button class="filter-btn" data-category="frameworks">Frameworks</button>
+    </div>
+
+    <!-- Resource Grid -->
+    <div class="resource-grid">
+      
+      <!-- Resource 1: 10 SOPs -->
+      <article class="resource-card" data-category="templates">
+        <span class="resource-category">Templates</span>
+        <h3>10 Essential SOPs for Small Business</h3>
+        <p>Ready-to-use Standard Operating Procedure templates covering onboarding, billing, scheduling, and more. Customize and implement immediately.</p>
+        <div class="resource-meta">
+          <span>📄 Template Pack</span>
+          <span>⏱️ 5 min setup</span>
+        </div>
+        <a class="resource-cta" href="https://dgsconsulting.solutions/Resources/10-sops.html">Download templates</a>
+      </article>
+
+      <!-- Resource 2: Time Drain Detector -->
+      <article class="resource-card" data-category="tools">
+        <span class="resource-category">Tools</span>
+        <h3>Time Drain Detector</h3>
+        <p>Interactive diagnostic that reveals exactly where your team's time goes and which tasks cost you the most. Get actionable insights in minutes.</p>
+        <div class="resource-meta">
+          <span>🔧 Interactive Tool</span>
+          <span>⏱️ 10 min audit</span>
+        </div>
+        <a class="resource-cta" href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" target="_blank" rel="noopener">Start analysis</a>
+      </article>
+
+      <!-- Resource 3: Process Clarity Tool -->
+      <article class="resource-card" data-category="tools">
+        <span class="resource-category">Tools</span>
+        <h3>Process Clarity Tool</h3>
+        <p>Transform tribal knowledge into documented SOPs your team can follow. Simple step-by-step builder that creates professional process documentation.</p>
+        <div class="resource-meta">
+          <span>🔧 Interactive Tool</span>
+          <span>⏱️ 15 min per process</span>
+        </div>
+        <a class="resource-cta" href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" rel="noopener">Build an SOP</a>
+      </article>
+
+      <!-- Resource 4: Business Audit Framework -->
+      <article class="resource-card" data-category="frameworks">
+        <span class="resource-category">Frameworks</span>
+        <h3>Business Audit Framework</h3>
+        <p>A structured approach to identify wasted subscriptions, operational blind spots, and your fastest path to measurable improvements.</p>
+        <div class="resource-meta">
+          <span>📋 Framework</span>
+          <span>⏱️ 30 min audit</span>
+        </div>
+        <a class="resource-cta" href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" rel="noopener">Start your audit</a>
+      </article>
+
+      <!-- Placeholder for future resources -->
+      <article class="resource-card" data-category="guides" style="opacity:0.6;pointer-events:none">
+        <span class="resource-category">Guides</span>
+        <h3>Coming Soon: Tool Stack Audit Guide</h3>
+        <p>A comprehensive guide to evaluating your current tools, finding redundancies, and building a lean, effective technology stack.</p>
+        <div class="resource-meta">
+          <span>📖 Guide</span>
+          <span>⏱️ Coming soon</span>
+        </div>
+        <a class="resource-cta" style="background:var(--muted)">Notify me</a>
+      </article>
+
+      <article class="resource-card" data-category="templates" style="opacity:0.6;pointer-events:none">
+        <span class="resource-category">Templates</span>
+        <h3>Coming Soon: Weekly Planning Template</h3>
+        <p>The exact weekly planning system used by our most productive clients. Stop reacting, start planning.</p>
+        <div class="resource-meta">
+          <span>📄 Template</span>
+          <span>⏱️ Coming soon</span>
+        </div>
+        <a class="resource-cta" style="background:var(--muted)">Notify me</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="container" style="padding:40px 0 60px">
+    <div style="background:linear-gradient(90deg,var(--ink) 0%, rgba(6,182,212,0.06) 100%);color:white;padding:44px;border-radius:12px;text-align:center">
+      <h3 style="margin:0 0 12px;font-size:1.5rem">Need personalized help?</h3>
+      <p style="color:rgba(255,255,255,0.92);margin:0 0 24px;max-width:600px;margin-left:auto;margin-right:auto">These resources are a great start, but sometimes you need a custom solution. Book a consultation and get a tailored plan for your business.</p>
+      <a style="background:white;color:var(--ink);padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book a Consultation</a>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p style="margin:6px 0;">© 2025 DGS Consulting • Clarity over complexity • Founded by Darren Snook • Ottawa, ON</p>
+    <p style="margin:6px 0;">
+      <a href="../Services/index.html">Services</a> ·
+      <a href="../case-studies/index.html">Case Studies</a> ·
+      <a href="../Resources/index.html">Resources</a> ·
+      <a href="mailto:DGSConsult@consultant.com">Contact</a> ·
+      <a href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book</a>
+    </p>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+// Nav toggle
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle && navToggle.addEventListener('click', () => {
+  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', String(!expanded));
+  if(mainNav.style.display === 'flex') { mainNav.style.display = 'none'; }
+  else { mainNav.style.display = 'flex'; mainNav.style.flexDirection = 'column'; }
+});
+
+// Category filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const resourceCards = document.querySelectorAll('.resource-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active state
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const category = btn.getAttribute('data-category');
+    
+    // Filter cards
+    resourceCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      if (category === 'all' || cardCategory === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
