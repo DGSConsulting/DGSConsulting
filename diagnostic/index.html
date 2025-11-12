@@ -734,22 +734,22 @@ body {
 <div class="container">
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-badge">⚡ Real-Time Waste Calculator</div>
-    <h1>You're Bleeding Money<br>Every Single Day</h1>
-    <div class="hero-counter" id="wasteCounter">$127</div>
-    <p class="hero-subtext">That's how much the average company wastes <strong>per day</strong> on unused software. Let's find yours in 90 seconds.</p>
+    <div class="hero-badge">⚡ 90-Second SMB Audit</div>
+    <h1>Small Business,<br>Big Software Waste</h1>
+    <div class="hero-counter" id="wasteCounter">$450</div>
+    <p class="hero-subtext">Most small businesses waste <strong>$5,000-$15,000 per year</strong> on software they don't use. Find your hidden costs in 90 seconds.</p>
     
     <div class="social-proof">
       <div class="proof-item">
-        <div class="proof-number">$8.4M</div>
-        <div class="proof-label">Saved for clients</div>
+        <div class="proof-number">$847K</div>
+        <div class="proof-label">Saved for SMBs</div>
       </div>
       <div class="proof-item">
-        <div class="proof-number">500+</div>
-        <div class="proof-label">Businesses optimized</div>
+        <div class="proof-number">200+</div>
+        <div class="proof-label">Small businesses helped</div>
       </div>
       <div class="proof-item">
-        <div class="proof-number">34%</div>
+        <div class="proof-number">28%</div>
         <div class="proof-label">Avg. cost reduction</div>
       </div>
     </div>
@@ -820,7 +820,23 @@ body {
           <label class="form-label">What industry are you in? *</label>
           <div class="choice-grid">
             <label class="choice-card">
-              <input type="radio" name="industry" value="saas" required>
+              <input type="radio" name="industry" value="retail">
+              <div class="choice-content">
+                <span class="choice-icon">🏪</span>
+                <span class="choice-text">Retail/Local Business</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="construction">
+              <div class="choice-content">
+                <span class="choice-icon">🏗️</span>
+                <span class="choice-text">Landscaping/Construction</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="saas">
               <div class="choice-content">
                 <span class="choice-icon">💻</span>
                 <span class="choice-text">SaaS/Tech</span>
@@ -828,18 +844,10 @@ body {
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="industry" value="ecommerce">
-              <div class="choice-content">
-                <span class="choice-icon">🛒</span>
-                <span class="choice-text">E-commerce</span>
-              </div>
-              <div class="choice-indicator"></div>
-            </label>
-            <label class="choice-card">
               <input type="radio" name="industry" value="agency">
               <div class="choice-content">
                 <span class="choice-icon">🎯</span>
-                <span class="choice-text">Agency</span>
+                <span class="choice-text">Agency/Marketing</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
@@ -852,15 +860,7 @@ body {
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="industry" value="healthcare">
-              <div class="choice-content">
-                <span class="choice-icon">🏥</span>
-                <span class="choice-text">Healthcare</span>
-              </div>
-              <div class="choice-indicator"></div>
-            </label>
-            <label class="choice-card">
-              <input type="radio" name="industry" value="other">
+              <input type="radio" name="industry" value="other" required>
               <div class="choice-content">
                 <span class="choice-icon">🏢</span>
                 <span class="choice-text">Other</span>
@@ -874,11 +874,10 @@ body {
           <label class="form-label">Team size? *</label>
           <select class="form-select" name="team_size" required>
             <option value="">Choose...</option>
-            <option value="1-5">1-5 (Startup)</option>
-            <option value="6-20">6-20 (Small Team)</option>
-            <option value="21-50">21-50 (Growing)</option>
-            <option value="51-200">51-200 (Scale-up)</option>
-            <option value="200+">200+ (Enterprise)</option>
+            <option value="1-5">Solo or 2-5 people</option>
+            <option value="6-20">6-20 employees</option>
+            <option value="21-50">21-50 employees</option>
+            <option value="51-100">51-100 employees</option>
           </select>
         </div>
 
@@ -1114,50 +1113,50 @@ body {
           <label class="form-label">Monthly software spend? *</label>
           <div class="choice-grid">
             <label class="choice-card">
-              <input type="radio" name="monthly_spend" value="<500" required>
+              <input type="radio" name="monthly_spend" value="<200" required>
               <div class="choice-content">
                 <span class="choice-icon">💵</span>
-                <span class="choice-text">< $500</span>
+                <span class="choice-text">< $200</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="monthly_spend" value="500-2000">
+              <input type="radio" name="monthly_spend" value="200-500">
               <div class="choice-content">
                 <span class="choice-icon">💰</span>
-                <span class="choice-text">$500 - $2K</span>
+                <span class="choice-text">$200 - $500</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="monthly_spend" value="2000-5000">
+              <input type="radio" name="monthly_spend" value="500-1500">
               <div class="choice-content">
                 <span class="choice-icon">💸</span>
-                <span class="choice-text">$2K - $5K</span>
+                <span class="choice-text">$500 - $1,500</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="monthly_spend" value="5000-10000">
+              <input type="radio" name="monthly_spend" value="1500-3000">
               <div class="choice-content">
                 <span class="choice-icon">🤑</span>
-                <span class="choice-text">$5K - $10K</span>
+                <span class="choice-text">$1,500 - $3,000</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="monthly_spend" value="10000-25000">
+              <input type="radio" name="monthly_spend" value="3000-5000">
               <div class="choice-content">
                 <span class="choice-icon">💎</span>
-                <span class="choice-text">$10K - $25K</span>
+                <span class="choice-text">$3,000 - $5,000</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
             <label class="choice-card">
-              <input type="radio" name="monthly_spend" value="25000+">
+              <input type="radio" name="monthly_spend" value="5000+">
               <div class="choice-content">
                 <span class="choice-icon">🏦</span>
-                <span class="choice-text">$25K+</span>
+                <span class="choice-text">$5,000+</span>
               </div>
               <div class="choice-indicator"></div>
             </label>
@@ -1391,32 +1390,32 @@ function calculateSavings() {
   
   if (!spend) return 0;
   
-  // Mapping spend ranges to midpoints
+  // SMB-focused spend ranges
   const spendMap = {
-    '<500': 300,
-    '500-2000': 1250,
-    '2000-5000': 3500,
-    '5000-10000': 7500,
-    '10000-25000': 17500,
-    '25000+': 35000
+    '<200': 150,
+    '200-500': 350,
+    '500-1500': 1000,
+    '1500-3000': 2250,
+    '3000-5000': 4000,
+    '5000+': 7000
   };
   
-  // Waste multipliers
+  // Waste multipliers (SMBs often waste more percentage-wise)
   const unusedMap = {
-    'none': 0.15,
-    '1-2': 0.25,
-    '3-5': 0.35,
-    '6+': 0.45,
-    'unsure': 0.30
+    'none': 0.20, // Even "none" has hidden waste
+    '1-2': 0.30,
+    '3-5': 0.40,
+    '6+': 0.50,
+    'unsure': 0.35
   };
   
-  const monthlySpend = spendMap[spend] || 1000;
-  const wastePercent = unusedMap[unused] || 0.25;
+  const monthlySpend = spendMap[spend] || 500;
+  const wastePercent = unusedMap[unused] || 0.30;
   
   // Additional waste for tool sprawl
   let sprawlMultiplier = 1;
-  if (toolCount === '16-30') sprawlMultiplier = 1.1;
-  if (toolCount === '30+') sprawlMultiplier = 1.2;
+  if (toolCount === '16-30') sprawlMultiplier = 1.15;
+  if (toolCount === '30+') sprawlMultiplier = 1.25;
   
   const annualWaste = Math.round(monthlySpend * 12 * wastePercent * sprawlMultiplier);
   return annualWaste;
