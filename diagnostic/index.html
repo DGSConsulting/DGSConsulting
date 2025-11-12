@@ -1,445 +1,2089 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tech Stack Diagnostic — DGS Consulting</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Bleeding $127/Day in Software Waste | DGS Consulting</title>
+
 <style>
-:root{
-  --bg:#0a0e17; --card:#141824; --accent:#06B6D4; --accent-2:#8b5cf6; --accent-glow: rgba(6,182,212,0.22);
-  --text:#e2e8f0; --muted:#94a3b8; --success:#10b981; --danger:#ef4444; --glass: rgba(255,255,255,0.03);
-  --max-width:980px;
+:root {
+  --bg: #0a0e17;
+  --card: #141824;
+  --accent: #06B6D4;
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-.bg-gradient{position:fixed;inset:0;background: radial-gradient(circle at 20% 50%, rgba(6,182,212,0.12), transparent 35%), radial-gradient(circle at 80% 80%, rgba(139,92,246,0.08), transparent 35%);pointer-events:none;z-index:0;}
-.container{position:relative;z-index:1;max-width:var(--max-width);margin:32px auto;padding:28px}
-.card{background:var(--card);border-radius:20px;padding:36px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.6);overflow:hidden;backdrop-filter:blur(6px)}
 
-.hero{display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:22px}
-.hero-left{flex:1;min-width:260px}
-.badge{display:inline-block;padding:8px 14px;border-radius:18px;background:rgba(6,182,212,0.07);border:1px solid var(--accent);font-weight:600;color:var(--accent);margin-bottom:12px}
-h1{font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.05;margin-bottom:8px;background:linear-gradient(135deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sub{color:var(--muted);font-size:1rem;max-width:720px}
-.hero-stats{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap}
-.stat{display:flex;flex-direction:column;align-items:flex-start}
-.stat .num{font-weight:800;color:var(--accent)}
-.stat .lbl{color:var(--muted);font-size:0.85rem}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-.progress-wrap{margin:20px 0}
-.progress-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.step-indicator{font-weight:700;color:var(--accent);}
-.time-est{color:var(--muted);font-size:0.9rem}
-.progress-bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;margin-top:12px;overflow:hidden;transition:all 0.4s ease}
-.progress-bar > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px var(--accent-glow);transition:width .35s ease}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-form{margin-top:14px}
-.section{display:none;animation:fadeIn .36s ease;}
-.section.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* Animated Background */
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+  animation: bgShift 15s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+}
 
-.section-header{margin-bottom:18px}
-.section-title{font-size:1.2rem;font-weight:700}
-.section-desc{color:var(--muted);margin-top:6px}
+@keyframes bgShift {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
 
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.full{grid-column:1/-1}
-.input,select,textarea{width:100%;padding:12px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.06);color:var(--text);font-size:15px}
-textarea{min-height:110px;resize:vertical}
-label.form-label{display:block;margin-bottom:8px;font-weight:600}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
 
-.choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.choice{background:transparent;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;display:flex;gap:10px;align-items:center;transition:all 0.2s ease}
-.choice input{display:none}
-.choice .text{font-weight:600}
-.choice.selected{border-color:var(--accent);box-shadow:0 6px 20px var(--accent-glow);background:rgba(6,182,212,0.06)}
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
 
-.actions{display:flex;gap:12px;margin-top:18px}
-.btn{padding:12px 18px;border-radius:10px;border:none;font-weight:800;cursor:pointer;transition:all 0.2s ease}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#042029;box-shadow:0 10px 30px rgba(6,182,212,0.12)}
-.btn-primary:hover{transform:scale(1.02)}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
-.btn-wide{flex:1}
+.hero-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  animation: pulse 2s ease infinite;
+}
 
-.savings-preview{margin-top:18px;padding:14px;border-radius:12px;border:1px dashed rgba(255,255,255,0.04);background:linear-gradient(135deg, rgba(16,185,129,0.04), rgba(6,182,212,0.02));transition:all 0.3s ease}
-.savings-large{font-weight:900;font-size:1.6rem;color:var(--success)}
-.muted{color:var(--muted)}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { box-shadow: 0 0 0 10px transparent; }
+}
 
-.error{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.12);padding:10px;border-radius:8px;color:var(--danger);margin-bottom:10px}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
 
-.footer-note{margin-top:18px;color:var(--muted);font-size:0.9rem}
+.hero-counter {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  color: var(--danger);
+  text-shadow: 0 0 40px rgba(239, 68, 68, 0.5);
+  margin: 20px 0;
+  font-variant-numeric: tabular-nums;
+}
 
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9999}
-.overlay.active{display:flex}
-.modal{background:var(--card);padding:24px;border-radius:14px;border:1px solid var(--accent);max-width:520px;text-align:center}
-.modal h3{font-size:1.2rem;margin-bottom:8px}
+.hero-subtext {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
 
-.success{display:none;text-align:center;padding:28px}
-.success.active{display:block}
-.download{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid var(--accent);color:var(--accent);font-weight:700}
+.social-proof {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
 
-@media(max-width:820px){.grid{grid-template-columns:1fr}.hero{flex-direction:column}.container{padding:18px}}
+.proof-item {
+  text-align: center;
+}
+
+.proof-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.proof-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 50px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #8b5cf6, var(--accent));
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% 0; }
+}
+
+/* Progress */
+.progress-section {
+  margin-bottom: 50px;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.progress-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.step.completed .step-circle {
+  background: var(--success);
+  border-color: var(--success);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.step.active .step-circle {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
+  transform: scale(1.1);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step.active .step-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Real-time Savings Calculator */
+.savings-preview {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+  border: 2px solid var(--success);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.savings-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  to { left: 100%; }
+}
+
+.savings-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.savings-amount {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--success);
+  text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+  margin-bottom: 10px;
+}
+
+.savings-breakdown {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.breakdown-item {
+  text-align: center;
+}
+
+.breakdown-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.breakdown-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Form Sections */
+.form-section {
+  display: none;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-section.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-number {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Interactive Choice Cards */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.choice-card {
+  position: relative;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.choice-card:hover {
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.1);
+  transform: translateY(-4px);
+}
+
+.choice-card input[type="radio"],
+.choice-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.choice-card input:checked + .choice-content {
+  color: var(--accent);
+}
+
+.choice-card input:checked ~ .choice-indicator {
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.choice-card:has(input:checked) {
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.15);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+.choice-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.choice-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.choice-text {
+  font-weight: 500;
+}
+
+.choice-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.btn {
+  flex: 1;
+  padding: 18px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #0891b2 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Success State */
+.success-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.success-icon {
+  width: 120px;
+  height: 120px;
+  background: var(--success);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 4rem;
+  animation: successPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 0 60px rgba(16, 185, 129, 0.6);
+}
+
+@keyframes successPop {
+  0% { transform: scale(0) rotate(-180deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.success-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.download-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  background: rgba(6, 182, 212, 0.1);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 14, 23, 0.95);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-overlay.active {
+  display: flex;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 30px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.loading-subtext {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid var(--danger);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 30px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.error-message.active {
+  display: flex;
+}
+
+.error-icon {
+  font-size: 1.5rem;
+}
+
+.error-text {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Exit Intent Popup */
+.exit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s;
+}
+
+.exit-overlay.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.exit-popup {
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 24px;
+  padding: 50px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.exit-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.exit-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.exit-progress {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent);
+  margin: 20px 0;
+}
+
+.exit-message {
+  color: var(--muted);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container { padding: 20px 15px; }
+  .card { padding: 30px 20px; }
+  .hero h1 { font-size: 2rem; }
+  .hero-counter { font-size: 3rem; }
+  .social-proof { gap: 20px; }
+  .choice-grid { grid-template-columns: 1fr; }
+  .button-group { flex-direction: column; }
+  .savings-breakdown { gap: 15px; }
+  .section-title { font-size: 1.5rem; }
+}
 </style>
-</head>
-<body>
-<div class="bg-gradient"></div>
-<div class="container">
-<div class="card" id="mainCard">
 
-  <div class="hero">
-    <div class="hero-left">
-      <div class="badge">⚡ Real-Time Waste Calculator</div>
-      <h1>Find $5,000+ in Hidden Software Waste</h1>
-      <div class="sub">Most small teams overspend by ~30%. This 3-minute diagnostic shows where your tech stack leaks cash.</div>
-
-      <div class="hero-stats" style="margin-top:12px">
-        <div class="stat"><div class="num">$8.4M</div><div class="lbl">Saved for clients</div></div>
-        <div class="stat"><div class="num">500+</div><div class="lbl">Businesses optimized</div></div>
-        <div class="stat"><div class="num">34%</div><div class="lbl">Avg. cost reduction</div></div>
-      </div>
-    </div>
-
-    <div style="min-width:220px;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-      <div class="step-indicator">Step <span id="currentStep">1</span> of <span id="totalSteps">5</span></div>
-      <div class="time-est" id="timeEstimate">⏱️ About 3 minutes</div>
-      <div style="width:220px;margin-top:12px">
-        <div class="progress-bar" aria-hidden><i id="progressFill"></i></div>
-      </div>
-      <button class="btn btn-ghost" id="expressBtn" style="margin-top:8px">⚡ Express Mode — 60s</button>
-    </div>
-  </div>
-
-  <!-- Form Sections -->
-  <form id="diagForm">
-
-    <!-- Section 1: Business Overview -->
-    <section class="section active" data-step="1" id="s1">
-      <div class="section-header">
-        <div class="section-title">Business Overview</div>
-        <div class="section-desc">Quick context so our numbers match your reality.</div>
-      </div>
-      <div class="grid">
-        <div>
-          <label class="form-label">Company name <span class="muted">(optional)</span></label>
-          <input class="input" name="company" id="company" placeholder="Acme Co." />
-        </div>
-        <div>
-          <label class="form-label">Industry</label>
-          <select class="input" name="industry" id="industry" required>
-            <option value="">Choose...</option>
-            <option value="saas">SaaS / Tech</option>
-            <option value="ecommerce">E-commerce</option>
-            <option value="agency">Agency</option>
-            <option value="professional">Professional Services</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div>
-          <label class="form-label">Team size</label>
-          <select class="input" name="team" id="team" required>
-            <option value="">Choose...</option>
-            <option value="1-5">1-5</option>
-            <option value="6-20">6-20</option>
-            <option value="21-50">21-50</option>
-            <option value="51-200">51-200</option>
-            <option value="200+">200+</option>
-          </select>
-        </div>
-        <div>
-          <label class="form-label">Primary goal</label>
-          <select class="input" name="goal" id="goal">
-            <option value="">Choose...</option>
-            <option value="cost">Cut costs</option>
-            <option value="time">Save team time</option>
-            <option value="adoption">Improve adoption</option>
-            <option value="consolidate">Consolidate tools</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-      </div>
-      <div class="actions">
-        <button type="button" class="btn btn-primary btn-wide nextBtn">Next →</button>
-      </div>
-    </section>
-
-    <!-- Section 2: Current Tools -->
-    <section class="section" data-step="2" id="s2">
-      <div class="section-header">
-        <div class="section-title">Current Tools</div>
-        <div class="section-desc">Which software do you currently use?</div>
-      </div>
-      <div class="choice-grid" id="toolsGrid">
-        <label class="choice"><input type="checkbox" value="Slack"><span class="text">Slack</span></label>
-        <label class="choice"><input type="checkbox" value="Zoom"><span class="text">Zoom</span></label>
-        <label class="choice"><input type="checkbox" value="Asana"><span class="text">Asana</span></label>
-        <label class="choice"><input type="checkbox" value="Trello"><span class="text">Trello</span></label>
-        <label class="choice"><input type="checkbox" value="Notion"><span class="text">Notion</span></label>
-        <label class="choice"><input type="checkbox" value="Google Workspace"><span class="text">Google Workspace</span></label>
-        <label class="choice"><input type="checkbox" value="Other"><span class="text">Other</span></label>
-      </div>
-      <div class="actions">
-        <button type="button" class="btn btn-ghost prevBtn">← Back</button>
-        <button type="button" class="btn btn-primary nextBtn">Next →</button>
-      </div>
-    </section>
-
-    <!-- Section 3: Usage & Cost -->
-    <section class="section" data-step="3" id="s3">
-      <div class="section-header">
-        <div class="section-title">Usage & Cost</div>
-        <div class="section-desc">Estimate your monthly spend per tool.</div>
-      </div>
-      <div class="grid" id="costInputs">
-        <!-- Inputs dynamically generated by JS -->
-      </div>
-      <div class="savings-preview" id="previewBox">
-        Estimated SaaS waste: <span class="savings-large" id="wasteAmt">$0</span>
-      </div>
-      <div class="actions">
-        <button type="button" class="btn btn-ghost prevBtn">← Back</button>
-        <button type="button" class="btn btn-primary nextBtn">Next →</button>
-      </div>
-    </section>
-
-    <!-- Section 4: Goals & Notes -->
-    <section class="section" data-step="4" id="s4">
-      <div class="section-header">
-        <div class="section-title">Goals & Notes</div>
-        <div class="section-desc">Anything specific we should focus on?</div>
-      </div>
-      <div class="grid">
-        <div class="full">
-          <label class="form-label">Additional notes</label>
-          <textarea id="notes" placeholder="e.g., reduce admin overhead, consolidate subscriptions..."></textarea>
-        </div>
-      </div>
-      <div class="actions">
-        <button type="button" class="btn btn-ghost prevBtn">← Back</button>
-        <button type="button" class="btn btn-primary nextBtn">Next →</button>
-      </div>
-    </section>
-
-    <!-- Section 5: Email & Download -->
-    <section class="section" data-step="5" id="s5">
-      <div class="section-header">
-        <div class="section-title">Get Your Free Report</div>
-        <div class="section-desc">Enter your email to download the PDF with personalized insights.</div>
-      </div>
-      <div class="grid">
-        <div class="full">
-          <label class="form-label">Email</label>
-          <input class="input" type="email" id="email" required placeholder="your@email.com">
-        </div>
-      </div>
-      <div class="actions">
-        <button type="button" class="btn btn-ghost prevBtn">← Back</button>
-        <button type="submit" class="btn btn-primary btn-wide">Download PDF →</button>
-      </div>
-    </section>
-
-  </form>
-
-  <!-- Success / Download -->
-  <div class="success" id="successBox">
-    <div style="font-size:2rem;font-weight:900;color:var(--success)">🎉 Report ready</div>
-    <p class="muted" style="margin-top:10px">We prepared a personalized diagnostic. Download the PDF or schedule a walkthrough.</p>
-    <div style="margin-top:16px">
-      <a id="downloadPDF" class="download" href="#">Download PDF</a>
-    </div>
-    <div class="footer-note">Or <a href="#" id="bookCall" style="color:var(--accent)">book a 15-min walkthrough</a></div>
-  </div>
-
-</div>
-</div>
-
-<!-- Exit Modal -->
-<div class="overlay" id="exitModal">
-  <div class="modal">
-    <h3>You're 60% done — want this free report?</h3>
-    <p class="muted">Finish the diagnostic to get a PDF with exact savings and next steps.</p>
-    <div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
-      <button class="btn btn-ghost" id="closeExit">Keep browsing</button>
-      <button class="btn btn-primary" id="resumeExit">Resume →</button>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p style="margin:6px 0;">© 2025 DGS Consulting • Clarity over complexity • Founded by Darren Snook • Ottawa, ON</p>
-    <p style="margin:6px 0;">
-      <a href="/Services/index.html">Services</a> ·
-      <a href="/case-studies/index.html">Case Studies</a> ·
-      <a href="mailto:DGSConsult@consultant.com">Contact</a> ·
-      <a href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book</a>
-    </p>
-  </div>
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
 <script>
-// Full JS logic including:
-// - Section navigation, progress, choice selection
-// - Dynamic preview calculations
-// - Express mode toggle
-// - LocalStorage persistence
-// - Exit modal trigger
-// - PDF generation with insights
-
-document.addEventListener('DOMContentLoaded',()=>{
-  const form=document.getElementById('diagForm');
-  const sections=document.querySelectorAll('.section');
-  const progressFill=document.getElementById('progressFill');
-  const currentStepEl=document.getElementById('currentStep');
-  const totalSteps=sections.length;
-  const expressBtn=document.getElementById('expressBtn');
-  let currentStep=0;
-  let expressMode=false;
-  const storageKey='diagProgress';
-
-  const toolsGrid=document.getElementById('toolsGrid');
-  const costInputs=document.getElementById('costInputs');
-  const previewBox=document.getElementById('wasteAmt');
-
-  function saveProgress(){
-    const data={};
-    form.querySelectorAll('input,select,textarea').forEach(el=>{data[el.id]=el.value});
-    data.tools=[...form.querySelectorAll('#toolsGrid input:checked')].map(i=>i.value);
-    localStorage.setItem(storageKey,JSON.stringify(data));
-  }
-
-  function loadProgress(){
-    const data=JSON.parse(localStorage.getItem(storageKey)||'{}');
-    if(Object.keys(data).length){
-      Object.entries(data).forEach(([k,v])=>{
-        const el=document.getElementById(k);
-        if(el) el.value=v;
-      });
-      if(data.tools){
-        form.querySelectorAll('#toolsGrid input').forEach(i=>{i.checked=data.tools.includes(i.value);});
-      }
-      updateCostInputs();
-      updatePreview();
-    }
-  }
-
-  function showStep(n){
-    sections.forEach(s=>s.classList.remove('active'));
-    sections[n].classList.add('active');
-    currentStepEl.textContent=n+1;
-    progressFill.style.width=`${((n+1)/totalSteps)*100}%`;
-  }
-
-  function updateCostInputs(){
-    costInputs.innerHTML='';
-    form.querySelectorAll('#toolsGrid input:checked').forEach(tool=>{
-      const div=document.createElement('div');
-      div.innerHTML=`<label class="form-label">${tool.value} monthly ($)</label>
-        <input type="number" min="0" class="input costInput" data-tool="${tool.value}" value="0">`;
-      costInputs.appendChild(div);
-    });
-  }
-
-  function updatePreview(){
-    let total=0;
-    form.querySelectorAll('.costInput').forEach(i=>{
-      total+=parseFloat(i.value)||0;
-    });
-    const waste=Math.round(total*0.22); // example: 22% overspending
-    previewBox.textContent=`$${waste.toLocaleString()}`;
-  }
-
-  // Section navigation
-  form.querySelectorAll('.nextBtn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      if(currentStep<sections.length-1){
-        currentStep++;
-        showStep(currentStep);
-      }
-    });
-  });
-  form.querySelectorAll('.prevBtn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      if(currentStep>0){
-        currentStep--;
-        showStep(currentStep);
-      }
-    });
-  });
-
-  // Tool selection
-  toolsGrid.querySelectorAll('.choice input').forEach(i=>{
-    i.addEventListener('change',()=>{
-      updateCostInputs(); updatePreview(); saveProgress();
-    });
-  });
-
-  costInputs.addEventListener('input',e=>{
-    if(e.target.classList.contains('costInput')){
-      updatePreview(); saveProgress();
-    }
-  });
-
-  expressBtn.addEventListener('click',()=>{
-    expressMode=!expressMode;
-    expressBtn.textContent=expressMode?'⚡ Express Mode — ON':'⚡ Express Mode — 60s';
-  });
-
-  // PDF generation
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const { jsPDF } = window.jspdf;
-    const doc=new jsPDF();
-    const company=form.company.value||'';
-    const email=form.email.value||'';
-    const waste=previewBox.textContent;
-    doc.setFontSize(16);
-    doc.text('Tech Stack Waste Diagnostic',14,22);
-    doc.setFontSize(12);
-    doc.text(`Company: ${company}`,14,32);
-    doc.text(`Email: ${email}`,14,40);
-    doc.text(`Estimated waste: ${waste}`,14,48);
-    doc.text('Tools:',14,56);
-    let y=64;
-    form.querySelectorAll('#toolsGrid input:checked').forEach(i=>{
-      doc.text(`- ${i.value}`,16,y); y+=8;
-    });
-    doc.text('Additional notes:',14,y+4);
-    doc.text(form.notes.value||'None',16,y+12);
-    doc.save('DGS-Tech-Stack-Report.pdf');
-
-    document.getElementById('mainCard').style.display='none';
-    document.getElementById('successBox').classList.add('active');
-    confetti({particleCount:100,spread:70});
-  });
-
-  loadProgress();
-  showStep(currentStep);
-
-  // Exit modal
-  window.addEventListener('beforeunload',e=>{
-    if(currentStep<sections.length-1){
-      e.preventDefault();
-      e.returnValue='';
-      document.getElementById('exitModal').classList.add('active');
-      return '';
-    }
-  });
-  document.getElementById('closeExit').addEventListener('click',()=>{
-    document.getElementById('exitModal').classList.remove('active');
-  });
-  document.getElementById('resumeExit').addEventListener('click',()=>{
-    document.getElementById('exitModal').classList.remove('active');
-  });
-
-});
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T0K5M8P9XP');
 </script>
 
-</body>
-</html>
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<div class="container">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">⚡ Real-Time Waste Calculator</div>
+    <h1>You're Bleeding Money<br>Every Single Day</h1>
+    <div class="hero-counter" id="wasteCounter">$127</div>
+    <p class="hero-subtext">That's how much the average company wastes <strong>per day</strong> on unused software. Let's find yours in 90 seconds.</p>
+    
+    <div class="social-proof">
+      <div class="proof-item">
+        <div class="proof-number">$8.4M</div>
+        <div class="proof-label">Saved for clients</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">500+</div>
+        <div class="proof-label">Businesses optimized</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">34%</div>
+        <div class="proof-label">Avg. cost reduction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="card">
+    <!-- Progress -->
+    <div class="progress-section">
+      <div class="progress-steps">
+        <div class="step active" data-step="1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Context</div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Stack</div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Pain</div>
+        </div>
+        <div class="step" data-step="4">
+          <div class="step-circle">4</div>
+          <div class="step-label">Money</div>
+        </div>
+        <div class="step" data-step="5">
+          <div class="step-circle">5</div>
+          <div class="step-label">Fix It</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Savings Preview (shown from section 2+) -->
+    <div class="savings-preview" id="savingsPreview" style="display: none;">
+      <div class="savings-label">💰 Your Estimated Annual Waste</div>
+      <div class="savings-amount" id="savingsAmount">$0</div>
+      <div class="savings-breakdown">
+        <div class="breakdown-item">
+          <div class="breakdown-value" id="dailyWaste">$0</div>
+          <div class="breakdown-label">Per Day</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-value" id="monthlyWaste">$0</div>
+          <div class="breakdown-label">Per Month</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message" id="errorMessage">
+      <span class="error-icon">⚠️</span>
+      <span class="error-text" id="errorText"></span>
+    </div>
+
+    <!-- Form -->
+    <form id="diagnosticForm">
+      
+      <!-- Section 1: Context -->
+      <div class="form-section active" data-section="1">
+        <div class="section-header">
+          <div class="section-number">Step 1 of 5</div>
+          <h2 class="section-title">Let's Set the Scene</h2>
+          <p class="section-desc">Give us context so we can calculate accurately</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What industry are you in? *</label>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="industry" value="saas" required>
+              <div class="choice-content">
+                <span class="choice-icon">💻</span>
+                <span class="choice-text">SaaS/Tech</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="ecommerce">
+              <div class="choice-content">
+                <span class="choice-icon">🛒</span>
+                <span class="choice-text">E-commerce</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="agency">
+              <div class="choice-content">
+                <span class="choice-icon">🎯</span>
+                <span class="choice-text">Agency</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="professional">
+              <div class="choice-content">
+                <span class="choice-icon">💼</span>
+                <span class="choice-text">Professional Services</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="healthcare">
+              <div class="choice-content">
+                <span class="choice-icon">🏥</span>
+                <span class="choice-text">Healthcare</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="industry" value="other">
+              <div class="choice-content">
+                <span class="choice-icon">🏢</span>
+                <span class="choice-text">Other</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Team size? *</label>
+          <select class="form-select" name="team_size" required>
+            <option value="">Choose...</option>
+            <option value="1-5">1-5 (Startup)</option>
+            <option value="6-20">6-20 (Small Team)</option>
+            <option value="21-50">21-50 (Growing)</option>
+            <option value="51-200">51-200 (Scale-up)</option>
+            <option value="200+">200+ (Enterprise)</option>
+          </select>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-primary" onclick="nextSection()">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- Section 2: Software Stack -->
+      <div class="form-section" data-section="2">
+        <div class="section-header">
+          <div class="section-number">Step 2 of 5</div>
+          <h2 class="section-title">Your Software Situation</h2>
+          <p class="section-desc">Let's map the chaos</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">How many tools are you paying for? *</label>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="software_count" value="1-5" required>
+              <div class="choice-content">
+                <span class="choice-icon">📦</span>
+                <span class="choice-text">1-5 tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="software_count" value="6-15">
+              <div class="choice-content">
+                <span class="choice-icon">📚</span>
+                <span class="choice-text">6-15 tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="software_count" value="16-30">
+              <div class="choice-content">
+                <span class="choice-icon">🗄️</span>
+                <span class="choice-text">16-30 tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="software_count" value="30+">
+              <div class="choice-content">
+                <span class="choice-icon">💥</span>
+                <span class="choice-text">30+ tools (chaos)</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Which categories are eating your budget? *</label>
+          <span class="form-hint">Select all that apply</span>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="checkbox" name="categories" value="crm">
+              <div class="choice-content">
+                <span class="choice-icon">📊</span>
+                <span class="choice-text">CRM & Sales</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="categories" value="project">
+              <div class="choice-content">
+                <span class="choice-icon">✅</span>
+                <span class="choice-text">Project Management</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="categories" value="communication">
+              <div class="choice-content">
+                <span class="choice-icon">💬</span>
+                <span class="choice-text">Communication</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="categories" value="marketing">
+              <div class="choice-content">
+                <span class="choice-icon">📈</span>
+                <span class="choice-text">Marketing Tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="categories" value="design">
+              <div class="choice-content">
+                <span class="choice-icon">🎨</span>
+                <span class="choice-text">Design Tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="categories" value="hr">
+              <div class="choice-content">
+                <span class="choice-icon">👥</span>
+                <span class="choice-text">HR & Payroll</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-secondary" onclick="prevSection()">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextSection()">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- Section 3: Pain Points -->
+      <div class="form-section" data-section="3">
+        <div class="section-header">
+          <div class="section-number">Step 3 of 5</div>
+          <h2 class="section-title">Where Does It Hurt?</h2>
+          <p class="section-desc">Be honest—we've seen it all</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Time lost per week to software inefficiencies? *</label>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="time_wasted" value="<5" required>
+              <div class="choice-content">
+                <span class="choice-icon">✓</span>
+                <span class="choice-text">< 5 hours</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="time_wasted" value="5-10">
+              <div class="choice-content">
+                <span class="choice-icon">⚠️</span>
+                <span class="choice-text">5-10 hours</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="time_wasted" value="10-20">
+              <div class="choice-content">
+                <span class="choice-icon">⚠️</span>
+                <span class="choice-text">10-20 hours</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="time_wasted" value="20+">
+              <div class="choice-content">
+                <span class="choice-icon">🚨</span>
+                <span class="choice-text">20+ hours (critical)</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+          <span class="form-hint">Password resets, switching apps, duplicate data entry, waiting for integrations...</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What's your biggest software challenge? *</label>
+          <span class="form-hint">Select all that apply</span>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="checkbox" name="bottlenecks" value="logins">
+              <div class="choice-content">
+                <span class="choice-icon">🔐</span>
+                <span class="choice-text">Too many logins</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="bottlenecks" value="silos">
+              <div class="choice-content">
+                <span class="choice-icon">📊</span>
+                <span class="choice-text">Data stuck in silos</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="bottlenecks" value="duplicates">
+              <div class="choice-content">
+                <span class="choice-icon">📋</span>
+                <span class="choice-text">Duplicate tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="bottlenecks" value="training">
+              <div class="choice-content">
+                <span class="choice-icon">📚</span>
+                <span class="choice-text">Training challenges</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="bottlenecks" value="switching">
+              <div class="choice-content">
+                <span class="choice-icon">🔄</span>
+                <span class="choice-text">Constant app switching</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="bottlenecks" value="nobody">
+              <div class="choice-content">
+                <span class="choice-icon">⭕</span>
+                <span class="choice-text">Low adoption rates</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-secondary" onclick="prevSection()">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextSection()">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- Section 4: Money Talk -->
+      <div class="form-section" data-section="4">
+        <div class="section-header">
+          <div class="section-number">Step 4 of 5</div>
+          <h2 class="section-title">Let's Talk Money</h2>
+          <p class="section-desc">This is where it gets real</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Monthly software spend? *</label>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="monthly_spend" value="<500" required>
+              <div class="choice-content">
+                <span class="choice-icon">💵</span>
+                <span class="choice-text">< $500</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="monthly_spend" value="500-2000">
+              <div class="choice-content">
+                <span class="choice-icon">💰</span>
+                <span class="choice-text">$500 - $2K</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="monthly_spend" value="2000-5000">
+              <div class="choice-content">
+                <span class="choice-icon">💸</span>
+                <span class="choice-text">$2K - $5K</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="monthly_spend" value="5000-10000">
+              <div class="choice-content">
+                <span class="choice-icon">🤑</span>
+                <span class="choice-text">$5K - $10K</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="monthly_spend" value="10000-25000">
+              <div class="choice-content">
+                <span class="choice-icon">💎</span>
+                <span class="choice-text">$10K - $25K</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="monthly_spend" value="25000+">
+              <div class="choice-content">
+                <span class="choice-icon">🏦</span>
+                <span class="choice-text">$25K+</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">How many subscriptions are barely used? *</label>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="unused_subscriptions" value="none" required>
+              <div class="choice-content">
+                <span class="choice-icon">✅</span>
+                <span class="choice-text">None</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="unused_subscriptions" value="1-2">
+              <div class="choice-content">
+                <span class="choice-icon">📌</span>
+                <span class="choice-text">1-2 tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="unused_subscriptions" value="3-5">
+              <div class="choice-content">
+                <span class="choice-icon">📍</span>
+                <span class="choice-text">3-5 tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="unused_subscriptions" value="6+">
+              <div class="choice-content">
+                <span class="choice-icon">⚠️</span>
+                <span class="choice-text">6+ tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="unused_subscriptions" value="unsure">
+              <div class="choice-content">
+                <span class="choice-icon">❓</span>
+                <span class="choice-text">Not sure</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Where should we send your diagnostic? *</label>
+          <input type="email" class="form-input" name="email" placeholder="you@company.com" required>
+          <span class="form-hint">📄 You'll get a detailed PDF breakdown + specific action steps</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Company name (optional)</label>
+          <input type="text" class="form-input" name="company_name" placeholder="Acme Inc.">
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-secondary" onclick="prevSection()">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextSection()">Final Step →</button>
+        </div>
+      </div>
+
+      <!-- Section 5: Goals -->
+      <div class="form-section" data-section="5">
+        <div class="section-header">
+          <div class="section-number">Step 5 of 5</div>
+          <h2 class="section-title">Let's Fix This</h2>
+          <p class="section-desc">What does winning look like for you?</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">In 6 months, you want to... *</label>
+          <span class="form-hint">Pick your top priorities</span>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="checkbox" name="goals" value="cost">
+              <div class="choice-content">
+                <span class="choice-icon">💰</span>
+                <span class="choice-text">Cut costs 20%+</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="goals" value="time">
+              <div class="choice-content">
+                <span class="choice-icon">⏰</span>
+                <span class="choice-text">Save 10+ hrs/week</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="goals" value="consolidate">
+              <div class="choice-content">
+                <span class="choice-icon">🎯</span>
+                <span class="choice-text">Use fewer tools</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="goals" value="integration">
+              <div class="choice-content">
+                <span class="choice-icon">🔗</span>
+                <span class="choice-text">Better integration</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="goals" value="adoption">
+              <div class="choice-content">
+                <span class="choice-icon">📈</span>
+                <span class="choice-text">Higher team adoption</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+            <label class="choice-card">
+              <input type="checkbox" name="goals" value="clarity">
+              <div class="choice-content">
+                <span class="choice-icon">🧭</span>
+                <span class="choice-text">Just want clarity</span>
+              </div>
+              <div class="choice-indicator"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">When should we reach out? *</label>
+          <select class="form-select" name="followup_timing" required>
+            <option value="">Choose...</option>
+            <option value="asap">ASAP - This is urgent</option>
+            <option value="this-week">This week - Ready to move</option>
+            <option value="next-week">Next week - Need time to digest</option>
+            <option value="report-only">Just send the report - I'll reach out</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Anything else we should know?</label>
+          <textarea class="form-textarea" name="notes" placeholder="Specific pain points, constraints, or goals..."></textarea>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-secondary" onclick="prevSection()">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="submitForm()">🚀 Show Me The Money</button>
+        </div>
+      </div>
+
+      <!-- Success Section -->
+      <div class="form-section" data-section="success">
+        <div class="success-container">
+          <div class="success-icon">✓</div>
+          <h2 class="success-title">Your Report is Ready!</h2>
+          <p class="success-message">We're downloading your personalized diagnostic now. Check your email for the detailed breakdown and next steps.</p>
+          <div class="download-info">
+            <span>📄</span>
+            <span>Downloading tech-stack-diagnostic.pdf</span>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 40px 20px; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px;">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <p style="margin: 6px 0;">© 2025 DGS Consulting • Clarity over complexity • Founded by Darren Snook • Ottawa, ON</p>
+      <p style="margin: 6px 0;">
+        <a href="/Services/index.html" style="color: var(--muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Services</a> ·
+        <a href="/case-studies/index.html" style="color: var(--muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Case Studies</a> ·
+        <a href="mailto:DGSConsult@consultant.com" style="color: var(--muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Contact</a> ·
+        <a href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Book</a>
+      </p>
+    </div>
+  </footer>
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-content">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Analyzing Your Stack...</div>
+    <div class="loading-subtext">Calculating potential savings</div>
+  </div>
+</div>
+
+<!-- Exit Intent Popup -->
+<div class="exit-overlay" id="exitOverlay" onclick="closeExitPopup()"></div>
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-icon">⚠️</div>
+  <h3 class="exit-title">Wait—You're So Close!</h3>
+  <div class="exit-progress" id="exitProgress">80%</div>
+  <p class="exit-message">You're about to discover how much you're wasting. Don't leave money on the table.</p>
+  <button class="btn btn-primary" onclick="closeExitPopup()">Finish My Diagnostic</button>
+</div>
+
+<script>
+// State
+let currentSection = 1;
+const totalSections = 5;
+let formData = {};
+let exitShown = false;
+
+// Animate counter on load
+let counterValue = 0;
+const targetValue = 127;
+const counterEl = document.getElementById('wasteCounter');
+
+function animateCounter() {
+  if (counterValue < targetValue) {
+    counterValue += Math.ceil(targetValue / 50);
+    if (counterValue > targetValue) counterValue = targetValue;
+    counterEl.textContent = ' + counterValue;
+    requestAnimationFrame(animateCounter);
+  }
+}
+animateCounter();
+
+// Calculate savings based on inputs
+function calculateSavings() {
+  const spend = document.querySelector('input[name="monthly_spend"]:checked')?.value;
+  const unused = document.querySelector('input[name="unused_subscriptions"]:checked')?.value;
+  const toolCount = document.querySelector('input[name="software_count"]:checked')?.value;
+  
+  if (!spend) return 0;
+  
+  // Mapping spend ranges to midpoints
+  const spendMap = {
+    '<500': 300,
+    '500-2000': 1250,
+    '2000-5000': 3500,
+    '5000-10000': 7500,
+    '10000-25000': 17500,
+    '25000+': 35000
+  };
+  
+  // Waste multipliers
+  const unusedMap = {
+    'none': 0.15,
+    '1-2': 0.25,
+    '3-5': 0.35,
+    '6+': 0.45,
+    'unsure': 0.30
+  };
+  
+  const monthlySpend = spendMap[spend] || 1000;
+  const wastePercent = unusedMap[unused] || 0.25;
+  
+  // Additional waste for tool sprawl
+  let sprawlMultiplier = 1;
+  if (toolCount === '16-30') sprawlMultiplier = 1.1;
+  if (toolCount === '30+') sprawlMultiplier = 1.2;
+  
+  const annualWaste = Math.round(monthlySpend * 12 * wastePercent * sprawlMultiplier);
+  return annualWaste;
+}
+
+function updateSavingsPreview() {
+  const savings = calculateSavings();
+  
+  if (savings > 0 && currentSection >= 2) {
+    document.getElementById('savingsPreview').style.display = 'block';
+    document.getElementById('savingsAmount').textContent = ' + savings.toLocaleString();
+    document.getElementById('monthlyWaste').textContent = ' + Math.round(savings/12).toLocaleString();
+    document.getElementById('dailyWaste').textContent = ' + Math.round(savings/365).toLocaleString();
+  }
+}
+
+// Progress tracking
+function updateProgress() {
+  document.querySelectorAll('.step').forEach((step, idx) => {
+    step.classList.remove('active', 'completed');
+    if (idx + 1 < currentSection) {
+      step.classList.add('completed');
+    } else if (idx + 1 === currentSection) {
+      step.classList.add('active');
+    }
+  });
+  
+  updateSavingsPreview();
+}
+
+// Analytics
+function trackEvent(action, label) {
+  gtag('event', action, {
+    'event_category': 'Diagnostic_V2',
+    'event_label': label || 'Section ' + currentSection,
+    'value': currentSection
+  });
+}
+
+// Show section
+function showSection(sectionNum) {
+  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`.form-section[data-section="${sectionNum}"]`);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  updateProgress();
+  trackEvent('section_view', 'Section ' + sectionNum);
+  saveProgress();
+}
+
+// Validation
+function validateCurrentSection() {
+  const section = document.querySelector(`[data-section="${currentSection}"]`);
+  const required = section.querySelectorAll('[required]');
+  let isValid = true;
+  let firstInvalid = null;
+  
+  required.forEach(field => {
+    if (field.type === 'radio') {
+      const checked = section.querySelector(`input[name="${field.name}"]:checked`);
+      if (!checked && isValid) {
+        isValid = false;
+        firstInvalid = field;
+      }
+    } else if (field.type === 'checkbox') {
+      const anyChecked = section.querySelectorAll(`input[name="${field.name}"]:checked`).length > 0;
+      if (!anyChecked && isValid) {
+        isValid = false;
+        firstInvalid = field;
+      }
+    } else if (!field.value.trim() && isValid) {
+      isValid = false;
+      firstInvalid = field;
+    }
+  });
+  
+  if (!isValid) {
+    showError('Please complete all required fields');
+    if (firstInvalid) {
+      firstInvalid.closest('.form-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+  
+  return isValid;
+}
+
+// Error handling
+function showError(message) {
+  const errorEl = document.getElementById('errorMessage');
+  const errorText = document.getElementById('errorText');
+  errorText.textContent = message;
+  errorEl.classList.add('active');
+  
+  setTimeout(() => {
+    errorEl.classList.remove('active');
+  }, 5000);
+}
+
+// Navigation
+function nextSection() {
+  if (!validateCurrentSection()) return;
+  
+  trackEvent('section_complete', 'Section ' + currentSection);
+  
+  if (currentSection < totalSections) {
+    currentSection++;
+    showSection(currentSection);
+  }
+}
+
+function prevSection() {
+  if (currentSection > 1) {
+    currentSection--;
+    showSection(currentSection);
+    trackEvent('section_back', 'Section ' + currentSection);
+  }
+}
+
+// Save to localStorage
+function saveProgress() {
+  const form = document.getElementById('diagnosticForm');
+  const data = new FormData(form);
+  const obj = {};
+  
+  for (let [key, value] of data.entries()) {
+    if (obj[key]) {
+      if (!Array.isArray(obj[key])) obj[key] = [obj[key]];
+      obj[key].push(value);
+    } else {
+      obj[key] = value;
+    }
+  }
+  
+  localStorage.setItem('diagnosticProgress', JSON.stringify({
+    section: currentSection,
+    data: obj
+  }));
+}
+
+// Restore from localStorage
+function restoreProgress() {
+  const saved = localStorage.getItem('diagnosticProgress');
+  if (!saved) return;
+  
+  try {
+    const { section, data } = JSON.parse(saved);
+    
+    Object.entries(data).forEach(([name, value]) => {
+      const inputs = document.querySelectorAll(`[name="${name}"]`);
+      inputs.forEach(input => {
+        if (input.type === 'radio' || input.type === 'checkbox') {
+          if (Array.isArray(value)) {
+            input.checked = value.includes(input.value);
+          } else {
+            input.checked = input.value === value;
+          }
+        } else {
+          input.value = value;
+        }
+      });
+    });
+    
+    if (section > 1) {
+      currentSection = section;
+      showSection(currentSection);
+    }
+  } catch (e) {
+    console.error('Failed to restore progress:', e);
+  }
+}
+
+// Exit intent
+let mouseOutCount = 0;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY < 5 && !exitShown && currentSection > 1 && currentSection < totalSections) {
+    mouseOutCount++;
+    if (mouseOutCount >= 2) {
+      exitShown = true;
+      const percent = Math.round((currentSection / totalSections) * 100);
+      document.getElementById('exitProgress').textContent = percent + '%';
+      document.getElementById('exitOverlay').classList.add('active');
+      document.getElementById('exitPopup').style.display = 'block';
+      trackEvent('exit_intent_shown');
+    }
+  }
+});
+
+function closeExitPopup() {
+  document.getElementById('exitOverlay').classList.remove('active');
+  document.getElementById('exitPopup').style.display = 'none';
+  trackEvent('exit_intent_dismissed');
+}
+
+// PDF Generation
+function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  
+  // Header
+  doc.setFillColor(6, 182, 212);
+  doc.rect(0, 0, 220, 40, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(24);
+  doc.setFont(undefined, 'bold');
+  doc.text('Tech Stack Diagnostic Report', 20, 25);
+  
+  // Calculate savings
+  const savings = calculateSavings();
+  
+  doc.setTextColor(0, 0, 0);
+  doc.setFontSize(16);
+  doc.setFont(undefined, 'bold');
+  doc.text('Your Estimated Annual Waste', 20, 55);
+  
+  doc.setFontSize(32);
+  doc.setTextColor(239, 68, 68);
+  doc.text(' + savings.toLocaleString(), 20, 70);
+  
+  // Form data
+  const form = document.getElementById('diagnosticForm');
+  const formData = new FormData(form);
+  
+  let y = 90;
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0);
+  doc.setFont(undefined, 'bold');
+  doc.text('Your Responses:', 20, y);
+  y += 10;
+  
+  doc.setFont(undefined, 'normal');
+  
+  const labels = {
+    industry: 'Industry',
+    team_size: 'Team Size',
+    software_count: 'Number of Tools',
+    categories: 'Software Categories',
+    time_wasted: 'Time Wasted Weekly',
+    bottlenecks: 'Main Bottlenecks',
+    monthly_spend: 'Monthly Spend',
+    unused_subscriptions: 'Unused Subscriptions',
+    email: 'Email',
+    company_name: 'Company',
+    goals: 'Goals',
+    followup_timing: 'Follow-up',
+    notes: 'Notes'
+  };
+  
+  const grouped = {};
+  for (let [key, value] of formData.entries()) {
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(value);
+  }
+  
+  Object.entries(grouped).forEach(([key, values]) => {
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+    }
+    
+    doc.setFont(undefined, 'bold');
+    doc.text((labels[key] || key) + ':', 20, y);
+    y += 7;
+    
+    doc.setFont(undefined, 'normal');
+    const displayValue = values.join(', ');
+    const lines = doc.splitTextToSize(displayValue, 170);
+    
+    lines.forEach(line => {
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+      doc.text(line, 25, y);
+      y += 6;
+    });
+    
+    y += 5;
+  });
+  
+  // Recommendations
+  if (y > 220) {
+    doc.addPage();
+    y = 20;
+  }
+  
+  y += 10;
+  doc.setFontSize(16);
+  doc.setFont(undefined, 'bold');
+  doc.text('Next Steps', 20, y);
+  y += 10;
+  
+  doc.setFontSize(11);
+  doc.setFont(undefined, 'normal');
+  
+  const recommendations = [
+    '1. Audit your current subscriptions - Create a complete inventory',
+    '2. Track actual usage - Most companies use 60% or less of their licenses',
+    '3. Identify redundancies - You likely have 3-5 tools doing the same thing',
+    '4. Negotiate better terms - Armed with usage data, renegotiate contracts',
+    '5. Consolidate strategically - Move to integrated platforms where possible',
+    '6. Set up quarterly reviews - Software waste creeps back in fast'
+  ];
+  
+  recommendations.forEach(rec => {
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+    }
+    const lines = doc.splitTextToSize(rec, 170);
+    lines.forEach(line => {
+      doc.text(line, 20, y);
+      y += 7;
+    });
+    y += 3;
+  });
+  
+  // Footer
+  doc.setFontSize(10);
+  doc.setTextColor(100, 100, 100);
+  doc.text('DGS Consulting - Tech Stack Optimization', 20, 285);
+  
+  doc.save('tech-stack-diagnostic-report.pdf');
+}
+
+// Submit form
+function submitForm() {
+  if (!validateCurrentSection()) return;
+  
+  const overlay = document.getElementById('loadingOverlay');
+  overlay.classList.add('active');
+  
+  const form = document.getElementById('diagnosticForm');
+  const data = new FormData(form);
+  
+  // Process checkboxes
+  const processed = new FormData();
+  const grouped = {};
+  
+  for (let [key, value] of data.entries()) {
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(value);
+  }
+  
+  Object.entries(grouped).forEach(([key, values]) => {
+    processed.append(key, values.join(', '));
+  });
+  
+  // Add calculated savings
+  processed.append('estimated_annual_waste', calculateSavings());
+  
+  fetch('https://script.google.com/macros/s/AKfycbwqscJy619uOduBAMRBZjM-PbuJK_rrDdPMwCDgUyFfDspP2DC2nzSYhwibirqKzYMeiQ/exec', {
+    method: 'POST',
+    body: processed
+  })
+  .then(res => res.json())
+  .then(data => {
+    overlay.classList.remove('active');
+    currentSection = 'success';
+    showSection('success');
+    generatePDF();
+    trackEvent('form_submitted', 'Success -  + calculateSavings());
+    localStorage.removeItem('diagnosticProgress');
+  })
+  .catch(err => {
+    overlay.classList.remove('active');
+    showError('Submission failed. Please try again or email us directly.');
+    trackEvent('submission_failed', err.message);
+    console.error('Submission error:', err);
+  });
+}
+
+// Auto-save on input change
+document.querySelectorAll('#diagnosticForm input, #diagnosticForm select, #diagnosticForm textarea').forEach(el => {
+  el.addEventListener('change', () => {
+    saveProgress();
+    updateSavingsPreview();
+  });
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+  // Enter to continue (but not in textarea)
+  if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && !e.shiftKey) {
+    const section = document.querySelector(`[data-section="${currentSection}"]`);
+    const primaryBtn = section?.querySelector('.btn-primary');
+    if (primaryBtn && document.activeElement.tagName !== 'BUTTON') {
+      e.preventDefault();
+      primaryBtn.click();
+    }
+  }
+  
+  // Numbers 1-5 to jump sections (for testing)
+  if (e.altKey && e.key >= '1' && e.key <= '5') {
+    const targetSection = parseInt(e.key);
+    if (targetSection !== currentSection) {
+      currentSection = targetSection;
+      showSection(currentSection);
+    }
+  }
+});
+
+// Prevent accidental navigation away
+window.addEventListener('beforeunload', (e) => {
+  if (currentSection > 1 && currentSection < totalSections) {
+    e.preventDefault();
+    e.returnValue = '';
+    return '';
+  }
+});
+
+// Add visual feedback to choice cards on click
+document.querySelectorAll('.choice-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    // Prevent double-triggering if clicking on the input itself
+    if (e.target.tagName === 'INPUT') return;
+    
+    const input = card.querySelector('input');
+    if (input.type === 'radio') {
+      // For radio buttons, just check this one (unchecking happens automatically)
+      input.checked = true;
+    } else {
+      // For checkboxes, toggle
+      input.checked = !input.checked;
+    }
+    
+    // Trigger change event for auto-save
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+    
+    // Visual feedback
+    card.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      card.style.transform = '';
+    }, 100);
+  });
+});
+
+// Smooth scroll on navigation
+function smoothScroll(target) {
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+// Initialize
+restoreProgress();
+updateProgress();
+showSection(currentSection);
+
+// Track time on page
+let startTime = Date.now();
+window.addEventListener('beforeunload', () => {
+  const timeSpent = Math.round((Date.now() - startTime) / 1000);
+  trackEvent('time_on_page', timeSpent + ' seconds');
+});
+
+// Track scroll depth
+let maxScroll = 0;
+window.addEventListener('scroll', () => {
+  const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  if (scrollPercent > maxScroll) {
+    maxScroll = Math.round(scrollPercent);
+    if (maxScroll % 25 === 0) {
+      trackEvent('scroll_depth', maxScroll + '%');
+    }
+  }
+});
+
+// Add micro-interactions
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousedown', () => {
+    btn.style.transform = 'scale(0.97)';
+  });
+  btn.addEventListener('mouseup', () => {
+    btn.style.transform = '';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+// Animate savings counter when visible
+const observerOptions = {
+  threshold: 0.5
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target.querySelector('.savings-amount');
+      if (el) {
+        const value = parseInt(el.textContent.replace(/[^0-9]/g, ''));
+        if (value > 0) {
+          animateValue(el, 0, value, 1000);
+        }
+      }
+    }
+  });
+}, observerOptions);
+
+const savingsPreview = document.getElementById('savingsPreview');
+observer.observe(savingsPreview);
+
+function animateValue(el, start, end, duration) {
+  const range = end - start;
+  const increment = range / (duration / 16);
+  let current = start;
+  
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= end) {
+      current = end;
+      clearInterval(timer);
+    }
+    el.textContent = ' + Math.round(current).toLocaleString();
+  }, 16);
+}
+
+// Track field interactions for optimization
+document.querySelectorAll('input, select, textarea').forEach(field => {
+  let focusTime = 0;
+  
+  field.addEventListener('focus', () => {
+    focusTime = Date.now();
+  });
+  
+  field.addEventListener('blur', () => {
+    if (focusTime) {
+      const timeSpent = Date.now() - focusTime;
+      if (timeSpent > 2000) { // Only track if spent more than 2s
+        trackEvent('field_interaction', field.name + ' - ' + Math.round(timeSpent/1000) + 's');
+      }
+    }
+  });
+});
+
+// Progressive disclosure hints
+document.querySelectorAll('.form-hint').forEach(hint => {
+  hint.style.opacity = '0.7';
+  hint.style.transition = 'opacity 0.3s';
+  
+  const parent = hint.closest('.form-group');
+  const input = parent.querySelector('input, select, textarea');
+  
+  if (input) {
+    input.addEventListener('focus', () => {
+      hint.style.opacity = '1';
+    });
+    input.addEventListener('blur', () => {
+      hint.style.opacity = '0.7';
+    });
+  }
+});
+
+// Add confetti effect on success (simple version)
+function celebrateSuccess() {
+  const colors = ['#06B6D4', '#10b981', '#8b5cf6', '#f59e0b'];
+  const confettiCount = 50;
+  
+  for (let i = 0; i < confettiCount; i++) {
+    setTimeout(() => {
+      const confetti = document.createElement('div');
+      confetti.style.position = 'fixed';
+      confetti.style.width = '10px';
+      confetti.style.height = '10px';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.top = '-10px';
+      confetti.style.opacity = '1';
+      confetti.style.borderRadius = '50%';
+      confetti.style.pointerEvents = 'none';
+      confetti.style.zIndex = '99999';
+      
+      document.body.appendChild(confetti);
+      
+      const duration = 3000 + Math.random() * 2000;
+      const drift = (Math.random() - 0.5) * 200;
+      
+      confetti.animate([
+        { transform: 'translateY(0) translateX(0) rotate(0deg)', opacity: 1 },
+        { transform: `translateY(${window.innerHeight}px) translateX(${drift}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+      ], {
+        duration: duration,
+        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+      }).onfinish = () => confetti.remove();
+      
+    }, i * 30);
+  }
+}
+
+// Trigger confetti on success
+const originalShowSection = showSection;
+showSection = function(sectionNum) {
+  originalShowSection(sectionNum);
+  if (sectionNum === 'success') {
+    setTimeout(celebrateSuccess, 300);
+  }
+};
+
+// Add pulse effect to CTA button in last section
+const lastSectionBtn = document.querySelector('[data-section="5"] .btn-primary');
+if (lastSectionBtn) {
+  setInterval(() => {
+    lastSectionBtn.style.animation = 'none';
+    setTimeout(() => {
+      lastSectionBtn.style.animation = 'pulse 2s ease infinite';
+    }, 10);
+  }, 5000);
+}
+
+// Mobile viewport height fix
+function setVH() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVH();
+window.addEventListener('resize', setVH);
+
+// Performance: Lazy load animations
+if ('IntersectionObserver' in window) {
+  const animatedElements = document.querySelectorAll('.form-section');
+  
+  const animationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+      }
+    });
+  });
+  
+  animatedElements.forEach(el => {
+    animationObserver.observe(el);
+  });
+}
+
+// Add tooltips to complex fields (if needed in future)
+function addTooltip(element, text) {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'tooltip';
+  tooltip.textContent = text;
+  tooltip.style.cssText = `
+    position: absolute;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  `;
+  
+  element.style.position = 'relative';
+  element.appendChild(tooltip);
+  
+  element.addEventListener('mouseenter', () => {
+    tooltip.style.opacity = '1';
+  });
+  
+  element.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = '0';
+  });
+}
+
+// Log completion rate
+trackEvent('diagnostic_loaded', 'Initial Load');
+
+// A/B test tracker (for future)
+const variant = Math.random() > 0.5 ? 'A' : 'B';
+trackEvent('ab_variant', variant);
+
+console.log('🚀 Tech Stack Diagnostic v2.0 loaded');
+console.log('💡 Press Alt+1 through Alt+5 to jump between sections (testing)');
