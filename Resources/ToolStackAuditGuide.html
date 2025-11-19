@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://dgsconsulting.solutions/tool-stack-audit-guide.html">
+  <!-- Open Graph & Social Sharing -->
+  <meta property="og:title" content="Tool Stack Audit Guide — DGS Consulting">
+  <meta property="og:description" content="A practical SMB-focused guide to reduce tool overload, save money, and simplify operations.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://dgsconsulting.solutions/assets/og-tool-stack-audit.png">
+  
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tool Stack Audit Guide  DGS Consulting</title>
+  <meta name="description" content="A practical, SMB-focused Tool Stack Audit Guide to cut costs, reduce complexity, and build a lean tech stack.">
+  <style>
+    :root{--bg:#ffffff;--muted:#6b7280;--accent:#ff7a00;--accent-2:#ff7a00;--card:#f8fafc;--max:980px;--primary-text:#1a1f2b}
+    body{font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.65;color:var(--primary-text);margin:0;background:var(--bg);}
+    .wrap{max-width:var(--max);margin:64px auto;padding:32px;}
+    header{display:flex;flex-direction:column;gap:12px}
+    h1{font-size:36px;font-weight:700;margin:0;color:var(--primary-text);}
+    .lede{color:var(--muted);font-size:15px}
+    section{margin:40px 0;padding:32px;background:var(--bg);border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.04);}
+    h2{font-size:20px;margin:0 0 10px;padding-left:14px;border-left:4px solid var(--accent);}
+    h3{font-size:16px;margin:14px 0}
+    p{margin:10px 0;color:#02102a}
+    ul{margin:10px 0 10px 20px}
+    .muted{color:var(--muted)}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .card{background:var(--card);padding:16px;border-radius:8px}
+    .tool-link{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:6px;background:rgba(255,122,0,0.08);color:var(--accent);text-decoration:none;border:1px solid rgba(11,94,215,0.08)}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px;border-bottom:1px solid #eef2f7;text-align:left}
+    .checklist{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:10px}
+    pre{background:#0b1220;color:#e6f2ff;padding:14px;border-radius:8px;overflow:auto}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    /* CTA buttons (we'll keep the provided CTA block intact) */
+    .cta-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-cta{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn-cta-primary{background:var(--accent);color:white;letter-spacing:0.3px;padding:14px 22px;}
+    .btn-cta-secondary{background:transparent;color:var(--accent);border:2px solid var(--accent);padding:14px 22px;}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}}
+  .btn-cta:hover{opacity:0.9;transform:translateY(-2px);transition:0.2s;}@media(max-width:600px){.wrap{padding:20px;}section{padding:24px;margin:24px 0;}h1{font-size:30px;}} .author-link:hover{text-decoration:underline;} </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Person","name":"Darren Snook","url":"https://www.linkedin.com/in/dg-snook/"},"publisher":{"@type":"Organization","name":"DGS Consulting"},"headline":"Tool Stack Audit Guide","description":"A practical SMB-focused guide to cut costs and simplify your tech stack."}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Darren Snook",
+  "url": "https://dgsconsulting.solutions/",
+  "sameAs": [
+    "https://www.linkedin.com/in/dg-snook/",
+    "https://dgsconsulting.solutions/"
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DGS Consulting",
+  "url": "https://dgsconsulting.solutions/",
+  "logo": "https://dgsconsulting.solutions/asset/Tech stack audit guide.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/darrensnook/"
+  ]
+}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Tool Stack Audit Guide</h1>
+      <p class="lede">A practical, SMB-focused guide to cut costs, reduce complexity, and build a tool stack that actually helps your business.</p>
+    </header>
+      <!-- Hero Image Banner -->
+      <div style="margin-top:32px;text-align:center;">
+        <img src="https://dgsconsulting.solutions/assets/og-tool-stack-audit.png" alt="Tool Stack Audit Guide by DGS Consulting" style="max-width:100%;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.08);">
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero" style="padding:48px 32px;background:var(--card);border-left:6px solid var(--accent);border-radius:12px;margin-top:32px;">
+        <h2 style="font-size:28px;font-weight:700;margin:0 0 12px;color:var(--primary-text);">Clarity over complexity.</h2>
+        <p style="font-size:18px;max-width:700px;color:var(--muted);line-height:1.6;">I help small business owners and consultants reclaim their time and profit by simplifying the systems they already use, not adding more tools. This guide shows you exactly how to start cleaning up your tech stack with calm confidence and zero overwhelm.</p>
+      </section>
+
+    <main>
+      <section>
+        <h2>Why this matters for small businesses</h2>
+        <p>Most small businesses don’t plan to build a complicated tech stack  it happens over time. A trial becomes a subscription. Someone adds a tool that only one person uses. Before long, you have more logins, more bills, and more friction.</p>
+        <p>This guide gives you a clear, step-by-step process to clean up your tools, stop wasting money, and speed up day-to-day work.</p>
+      </section>
+
+      <section class="two-col">
+        <div>
+          <h2>1. Start with a complete list</h2>
+          <p>Write down every tool: subscriptions, extensions, AI add-ons, payment tools, project apps, storage  everything with a cost or a login.</p>
+          <p>For each tool, capture:</p>
+          <ul style="list-style:none;padding-left:0;">
+            
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> What it does</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> How often you use it</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> How much it costs</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> When it renews</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Who uses it and why</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Whether another tool already does the same job</li>
+          </ul>
+          <p class="muted">Tip: a simple spreadsheet is enough. If you want a fast way to turn process decisions into repeatable SOPs, use the <a class="tool-link" href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" rel="noopener">SOP Designer</a> to capture roles, owners, and how tools connect to your processes.</p>
+
+          <h2>2. Group tools by purpose</h2>
+          <p>Sort tools into plain categories so overlap becomes obvious:</p>
+          <ul style="list-style:none;padding-left:0;">
+            
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Operations  project management, docs, tasks</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Sales & Marketing  CRM, email, social</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Finance & Admin  invoicing, payroll, contracts</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Automation  workflow/connectors</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Productivity  storage, calendar, messaging</li>
+          </ul>
+
+          <h2>3. Evaluate what’s helping vs. hurting</h2>
+          <p>For each tool ask:</p>
+          <ul style="list-style:none;padding-left:0;">
+            
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Do we use this regularly?</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Does it make work easier or add steps?</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Is it duplicating something else?</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Is the price justified?</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Does it integrate well with the rest of the stack?</li>
+          </ul>
+
+          <h2>4. Find time and cost drains</h2>
+          <p>Many issues hide inside workflows  not the tools themselves. Use the <a class="tool-link" href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" target="_blank" rel="noopener">Time Drain Detector</a> to identify the tasks and tools that consume the most time so your decisions are based on evidence, not guesswork.</p>
+
+          <h2>5. Score each tool (1–5)</h2>
+          <p>Rate every tool in these areas: Impact, Usage, Ease, Cost Value, Fit. Low-scoring tools are clear candidates for removal.</p>
+
+          <h2>6. Decide: Keep, Replace, Consolidate, Cancel</h2>
+          <p>Sort tools into one of four outcomes. Consolidation  replacing several tools with one that does multiple jobs  is where SMBs save the most.</p>
+
+          <h2>7. Build your lean stack</h2>
+          <p>A good SMB stack is simple, integrated, and easy to train on. Example:</p>
+          <ul style="list-style:none;padding-left:0;">
+            
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Operations  Notion or ClickUp</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Communication  Slack or Google Chat</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> CRM  HubSpot Free</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Email  MailerLite or ConvertKit</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Automation  Make</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Finance  Wave or QuickBooks + Stripe</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Creative  Canva</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> AI  ChatGPT</li>
+          </ul>
+
+          <h2>8. Document everything</h2>
+          <p>Record what you use, why you use it, who owns it, renewal dates, and integrations. The <a class="tool-link" href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" rel="noopener">SOP Designer</a> makes this step fast: turn decisions into SOPs and handoffs so tool ownership survives hires and role changes.</p>
+
+          <h2>9. Re-audit regularly</h2>
+          <p>Review tools every 6–12 months or whenever you hire, change processes, or add new services. Regular checks prevent sprawl from coming back.</p>
+        </div>
+
+        <aside class="card">
+          <h3>Quick wins (start here)</h3>
+          <ul style="list-style:none;padding-left:0;">
+            
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Cancel unused premium plans</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Consolidate overlapping apps</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Create one docs source of truth (Notion)</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Automate manual transfers with Make</li>
+            <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Use the Time Drain Detector to prioritize fixes</li>
+          </ul>
+
+          <h3>Audit checklist</h3>
+          <div class="checklist">
+            <div>□ Make a full tool list</div>
+            <div>□ Group by purpose</div>
+            <div>□ Score tools 1–5</div>
+            <div>□ Keep / Replace / Consolidate / Cancel</div>
+            <div>□ Document (use SOP Designer)</div>
+            <div>□ Re-audit every 6–12 months</div>
+          </div>
+
+          <h3 style="margin-top:12px">Use the tools</h3>
+          <p class="muted">The links below help you move from discovery to action without guesswork.</p>
+          <p><a class="tool-link" href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" target="_blank" rel="noopener">Open Time Drain Detector</a></p>
+          <p><a class="tool-link" href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" rel="noopener">Open SOP Designer</a></p>
+        </aside>
+      </section>
+
+      <section>
+        <h2>How to run a quick 60‑minute audit</h2>
+        <ol>
+          <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Gather: pull subscription list and app logins into a spreadsheet (15 min)</li>
+          <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Scan: open the Time Drain Detector to find top time drains (15 min)</li>
+          <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Score: rate the top 10 cost/usage items (15 min)</li>
+          <li style="margin-bottom:8px;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block;"></span> Decide: pick 3 immediate actions  cancel, consolidate, or automate (15 min)</li>
+        </ol>
+        <p>This quick loop gives you immediate impact and a clear roadmap for deeper cleanup.</p>
+      </section>
+
+      <section>
+        <h2>Sample scoring table</h2>
+        <table>
+          <thead>
+            <tr><th>Tool</th><th>Impact</th><th>Usage</th><th>Cost Value</th><th>Integrations</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Notion</td><td>5</td><td>5</td><td>5</td><td>5</td><td>20</td></tr>
+            <tr><td>Trello</td><td>2</td><td>1</td><td>5</td><td>3</td><td>11</td></tr>
+            <tr><td>Calendly Pro</td><td>3</td><td>2</td><td>1</td><td>2</td><td>8</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Final notes</h2>
+        <blockquote style="border-left:4px solid var(--accent);padding-left:16px;margin:20px 0;font-style:italic;color:var(--muted);">You can’t scale what you can’t see. Simplify first, optimize second.</blockquote>
+        <p>Cleanup delivers more than cost savings  it reduces switching friction, shortens onboarding, and frees your team to focus on revenue-generating work. Use the Time Drain Detector to target real problems, then use the SOP Designer to lock in the fixes.</p>
+      </section>
+
+      <!-- CTA Section -->
+      <div class="container">
+        <section class="cta-section">
+          <h2>Ready to Fix Your Tech Stack?</h2>
+          <p>You've identified the issues. Now let's solve them together. Book a free 20-minute Red Flag Audit call where we'll pinpoint your biggest inefficiencies and create a clear action plan.</p>
+          
+          <div class="cta-buttons">
+            <a href="https://dgsconsulting.solutions/Services/index.html" class="btn-cta btn-cta-primary">Book Your Free Red Flag Audit</a>
+            <a href="https://dgsconsulting.github.io/SOP-Designer/" class="btn-cta btn-cta-secondary">Access SOP Designer Tool</a>
+          </div>
+          
+          <p style="margin-top: 50px; font-size: 1rem; opacity: 0.9;">No pitch. No obligation. Just clarity on what's costing you time and money.</p>
+        </section>
+      </div>
+
+      <footer>
+        <p>© DGS Consulting.</p>
+      </footer>
+
+          <section class="signature" style="margin-top:60px;padding:32px;background:var(--card);border-radius:12px;">
+        <p style="margin:0;font-size:14px;color:var(--muted);">Written by</p>
+        <h3 style="margin:4px 0 0;font-size:18px;color:var(--primary-text);"><a class="author-link" href="https://www.linkedin.com/in/dg-snook/" target="_blank" rel="noopener" style="color:var(--primary-text);text-decoration:none;display:flex;align-items:center;gap:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.16h.05c.53-1 1.84-2.16 3.8-2.16 4.06 0 4.8 2.67 4.8 6.14V24h-4v-7.68c0-1.83-.03-4.18-2.55-4.18-2.55 0-2.94 1.99-2.94 4.05V24h-4V8z"/></svg> Darren Snook, Systems Clarity Consultant</a></h3>
+        <p style="margin:6px 0 0;color:var(--muted);">Founder of DGS Consulting — helping small business owners simplify systems and reclaim time.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
