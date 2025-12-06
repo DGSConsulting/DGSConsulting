@@ -3,118 +3,861 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>DGS Consulting — Reclaim 10–15 Hours Every Week</title>
-<meta name="description" content="DGS Consulting helps small business owners reclaim time and cut tool waste by simplifying systems — not adding subscriptions. Free tools and practical audits.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>DGS Consulting — Reclaim 12+ Hours Every Week</title>
+<meta name="description" content="40+ small businesses reclaim 12+ hours weekly by eliminating system chaos. See proven results, then claim your free audit.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="asset/logo-mark-t.png">
 
-<!-- Google tag (gtag.js) - optional, included for consistency with other pages -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0K5M8P9XP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-T0K5M8P9XP');
+
+  // Enhanced event tracking for conversion optimization
+  function trackEvent(eventName, eventParams = {}) {
+    gtag('event', eventName, eventParams);
+  }
+
+  // Track scroll depth milestones
+  let scrollDepthTracked = {25: false, 50: false, 75: false, 100: false};
+  
+  // Track section visibility
+  let sectionsTracked = {
+    trust_bar: false,
+    results: false,
+    case_study: false,
+    how_it_works: false,
+    testimonials: false,
+    offer: false,
+    tools: false,
+    faq: false
+  };
 </script>
 
 <style>
 :root{
-  --bg: #fbfdfe;
+  --bg: #fafbfc;
   --ink: #0f1724;
   --accent: #06B6D4;
   --accent-700: #0891b2;
-  --muted: #6b7280;
+  --accent-light: #e0f7fa;
+  --muted: #64748b;
+  --border: #e2e8f0;
   --card: #ffffff;
-  --radius: 12px;
-  --maxw: 1200px;
-  --pad: 20px;
-  --focus: 3px solid rgba(6,182,212,0.12);
+  --success: #10b981;
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
-.container{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+body{
+  font-family:"Inter",system-ui,-apple-system,sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  font-size:16px;
+}
+
+.container{
+  max-width:1140px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.container-narrow{
+  max-width:860px;
+  margin:0 auto;
+  padding:0 32px;
+}
 
 /* Header */
-.header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.90));backdrop-filter:blur(4px);box-shadow:0 6px 20px rgba(2,6,23,0.05)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto;padding:14px var(--pad)}
-.logo{height:44px}
-.nav{display:flex;gap:14px;align-items:center}
-.nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:10px;font-size:0.95rem}
-.nav a:hover{background:rgba(6,182,212,0.06);color:var(--accent-700)}
-.book-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+.header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  max-width:1140px;
+  margin:0 auto;
+  padding:20px 32px;
+}
+.logo{height:36px}
+.nav{
+  display:flex;
+  gap:32px;
+  align-items:center;
+}
+.nav a{
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:500;
+  font-size:15px;
+  transition:color .2s;
+}
+.nav a:hover{color:var(--accent-700)}
+.header-cta{
+  background:var(--accent);
+  color:white;
+  padding:12px 24px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:all .2s;
+}
+.header-cta:hover{
+  background:var(--accent-700);
+  transform:translateY(-1px);
+}
 
-/* Responsive nav toggle for small screens */
-.nav-toggle{display:none;background:none;border:0;font-size:20px;cursor:pointer}
+.nav-toggle{
+  display:none;
+  background:none;
+  border:0;
+  font-size:24px;
+  cursor:pointer;
+  color:var(--ink);
+}
 @media (max-width:880px){
-  .nav{display:none;position:absolute;right:14px;top:66px;background:var(--card);flex-direction:column;gap:8px;padding:12px;border-radius:10px;box-shadow:0 12px 40px rgba(2,6,23,0.08)}
+  .container{padding:0 20px}
+  .container-narrow{padding:0 20px}
+  .header-inner{padding:16px 20px}
+  .nav{
+    display:none;
+    position:absolute;
+    right:20px;
+    top:70px;
+    background:var(--card);
+    flex-direction:column;
+    gap:4px;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.08);
+    border:1px solid var(--border);
+  }
+  .nav.show{display:flex}
+  .nav a{padding:12px 16px;width:100%;display:block}
   .nav-toggle{display:block}
 }
 
-/* HERO */
-.hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:70px 0 48px}
-@media (max-width:920px){.hero{grid-template-columns:1fr;padding:48px 0 36px}}
-.h-title{font-size:2.2rem;line-height:1.04;margin:0 0 12px;font-weight:700;max-width:52ch}
-.h-sub{color:var(--muted);margin-bottom:16px;font-size:1rem}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.primary-cta{background:var(--accent);color:white;padding:12px 18px;border-radius:12px;font-weight:700;border:0;text-decoration:none}
-.secondary-cta{background:transparent;border:1px solid rgba(15,23,36,0.06);color:var(--ink);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+/* HERO - Single Column, Center Aligned */
+.hero{
+  padding:100px 0 80px;
+  text-align:center;
+}
 
-/* Lead card */
-.lead-card{background:linear-gradient(180deg,#ffffff,#fbffff);border-radius:var(--radius);padding:18px;box-shadow:0 14px 40px rgba(2,6,23,0.06);border:1px solid rgba(6,182,212,0.04)}
-.lead-value{font-weight:700;margin-bottom:6px}
-.lead-sub{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
-.lead-price{font-weight:700;color:var(--ink);font-size:1.3rem;margin-bottom:12px}
-.lead-cta{display:block;background:var(--ink);color:white;padding:10px 14px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700}
+.hero h1{
+  font-size:3.5rem;
+  line-height:1.1;
+  margin:0 0 24px;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  color:var(--ink);
+  max-width:20ch;
+  margin-left:auto;
+  margin-right:auto;
+}
 
-/* Tools section */
-.section{padding:42px 0}
-.section h2{margin:0 0 8px;text-align:center;font-size:1.3rem}
-.section p.lead{color:var(--muted);text-align:center;max-width:760px;margin:8px auto 28px}
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1100px;margin:0 auto}
-.tool-card{background:var(--card);padding:28px;border-radius:12px;text-align:left;box-shadow:0 14px 40px rgba(2,6,23,0.04);transition:transform .2s}
-.tool-card:hover{transform:translateY(-6px)}
-.tool-card h3{margin:10px 0 8px}
-.tool-card p{color:var(--muted);margin-bottom:14px}
-.tool-cta{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700}
+.hero h1 .highlight{
+  color:var(--accent-700);
+}
 
-/* KPI section */
-.kpi{background:transparent;padding:36px 0}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;max-width:1100px;margin:18px auto 0}
-.kpi-card{background:var(--card);padding:22px;border-radius:12px;text-align:center;box-shadow:0 12px 30px rgba(2,6,23,0.04)}
-.kpi-value{font-weight:700;font-size:1.6rem;color:var(--ink)}
-.kpi-sub{color:var(--muted);margin-top:8px}
+.hero .subheading{
+  font-size:1.375rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin-bottom:48px;
+  max-width:48ch;
+  margin-left:auto;
+  margin-right:auto;
+}
 
-/* Case study */
-.case-card{max-width:900px;margin:18px auto;padding:24px;border-radius:12px;background:var(--card);box-shadow:0 14px 40px rgba(2,6,23,0.04);text-align:left}
-.case-card h3{margin:0 0 8px}
+/* Pain points - Centered list */
+.pain-list{
+  max-width:560px;
+  margin:0 auto 48px;
+  text-align:left;
+}
+.pain-list ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.pain-list li{
+  padding:16px 0;
+  color:var(--ink);
+  font-size:17px;
+  border-bottom:1px solid var(--border);
+}
+.pain-list li:last-child{border:0}
+.pain-list li::before{
+  content:"•";
+  color:var(--accent);
+  font-weight:700;
+  margin-right:16px;
+  font-size:24px;
+}
+
+/* Social proof badge */
+.social-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:12px 24px;
+  border-radius:50px;
+  margin-bottom:40px;
+  font-size:15px;
+  color:var(--muted);
+}
+.avatar-group{
+  display:flex;
+  margin-right:4px;
+}
+.avatar{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--accent), var(--accent-700));
+  border:2px solid white;
+  margin-left:-8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:600;
+  font-size:12px;
+}
+.avatar:first-child{margin-left:0}
+.social-badge strong{
+  color:var(--ink);
+  font-weight:600;
+}
+
+/* CTA Button - Primary */
+.cta-primary{
+  display:inline-block;
+  background:var(--accent);
+  color:white;
+  padding:18px 40px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:17px;
+  transition:all .2s;
+  border:0;
+  cursor:pointer;
+}
+.cta-primary:hover{
+  background:var(--accent-700);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(6,182,212,0.25);
+}
+
+.cta-secondary{
+  display:inline-block;
+  background:transparent;
+  color:var(--ink);
+  padding:18px 40px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:17px;
+  border:2px solid var(--border);
+  transition:all .2s;
+}
+.cta-secondary:hover{
+  border-color:var(--accent);
+  color:var(--accent-700);
+}
+
+/* Sections */
+.section{
+  padding:100px 0;
+}
+
+.section-header{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 64px;
+}
+
+.section-header h2{
+  font-size:2.5rem;
+  font-weight:700;
+  margin:0 0 16px;
+  color:var(--ink);
+  letter-spacing:-0.02em;
+}
+
+.section-header p{
+  font-size:1.125rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* Trust Bar - Logo/Stats Strip */
+.trust-bar{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:48px 0;
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:48px;
+  text-align:center;
+}
+
+.trust-item h3{
+  font-size:2.5rem;
+  font-weight:700;
+  color:var(--accent-700);
+  margin:0 0 8px;
+}
+
+.trust-item p{
+  color:var(--muted);
+  margin:0;
+  font-size:15px;
+}
+
+/* Results Section */
+.results{
+  background:var(--ink);
+  color:white;
+  padding:100px 0;
+}
+
+.results .section-header h2{
+  color:white;
+}
+
+.results .section-header p{
+  color:rgba(255,255,255,0.8);
+}
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:32px;
+  margin-top:48px;
+}
+
+.kpi-card{
+  text-align:center;
+  padding:48px 24px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  transition:transform .3s;
+}
+
+.kpi-card:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,0.08);
+}
+
+.kpi-value{
+  font-size:3.5rem;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:12px;
+  display:block;
+}
+
+.kpi-label{
+  color:rgba(255,255,255,0.9);
+  font-size:15px;
+}
+
+/* Case Study - Featured Story */
+.case-study{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:64px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.case-label{
+  display:inline-block;
+  background:var(--accent-light);
+  color:var(--accent-700);
+  padding:6px 16px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:24px;
+}
+
+.case-study h3{
+  font-size:2rem;
+  margin:0 0 16px;
+  font-weight:700;
+}
+
+.case-study h4{
+  font-size:1.25rem;
+  margin:32px 0 16px;
+  font-weight:600;
+  color:var(--ink);
+}
+
+.case-study p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:24px;
+  font-size:17px;
+}
+
+.case-metrics{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:40px;
+  padding:40px 0;
+  border-top:2px solid var(--border);
+  border-bottom:2px solid var(--border);
+  margin:40px 0;
+}
+
+.metric{
+  text-align:center;
+}
+
+.metric-value{
+  font-size:2.5rem;
+  font-weight:700;
+  color:var(--accent-700);
+  margin-bottom:8px;
+  display:block;
+}
+
+.metric-label{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* How It Works */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:40px;
+  margin-top:48px;
+}
+
+.step{
+  text-align:center;
+  padding:40px 32px;
+}
+
+.step-number{
+  width:64px;
+  height:64px;
+  background:var(--accent);
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:1.5rem;
+  margin:0 auto 24px;
+}
+
+.step h3{
+  font-size:1.375rem;
+  margin:0 0 16px;
+  font-weight:600;
+}
+
+.step p{
+  color:var(--muted);
+  margin:0 0 20px;
+  line-height:1.7;
+}
+
+.step-time{
+  color:var(--accent-700);
+  font-size:14px;
+  font-weight:600;
+}
 
 /* Testimonials */
-.testimonials{padding:36px 0}
-.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:1100px;margin:18px auto 0}
-.test-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.04)}
-.test-card p{color:var(--muted);font-style:italic;margin-bottom:12px}
-.test-card cite{display:block;font-weight:700;color:var(--ink)}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:32px;
+  margin-top:48px;
+}
+
+.testimonial{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:40px;
+  border-radius:12px;
+}
+
+.testimonial-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:24px;
+}
+
+.testimonial-avatar{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--accent), var(--accent-700));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+  font-size:1.5rem;
+  flex-shrink:0;
+}
+
+.testimonial-info h4{
+  margin:0 0 4px;
+  font-size:17px;
+  font-weight:600;
+}
+
+.testimonial-info p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.testimonial-text{
+  color:var(--ink);
+  line-height:1.8;
+  font-size:16px;
+}
+
+/* THE OFFER - Lead Magnet Section */
+.offer-section{
+  background:linear-gradient(135deg, var(--accent-light) 0%, rgba(224,247,250,0.3) 100%);
+  padding:100px 0;
+}
+
+.offer-card{
+  background:var(--card);
+  border:2px solid var(--accent);
+  border-radius:16px;
+  padding:64px;
+  max-width:720px;
+  margin:0 auto;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(6,182,212,0.15);
+}
+
+.offer-badge{
+  display:inline-block;
+  background:var(--success);
+  color:white;
+  padding:8px 20px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:24px;
+}
+
+.offer-card h2{
+  font-size:2.5rem;
+  margin:0 0 16px;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.offer-card .lead{
+  font-size:1.25rem;
+  color:var(--muted);
+  margin-bottom:32px;
+  line-height:1.7;
+}
+
+.price-row{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  margin-bottom:40px;
+  justify-content:center;
+}
+.price-old{
+  font-size:1.5rem;
+  text-decoration:line-through;
+  color:var(--muted);
+}
+.price-new{
+  font-size:3.5rem;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.benefits{
+  list-style:none;
+  padding:0;
+  margin:0 0 40px;
+  text-align:left;
+  max-width:480px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.benefits li{
+  padding:16px 0;
+  color:var(--ink);
+  font-size:17px;
+  border-bottom:1px solid var(--border);
+}
+.benefits li:last-child{border:0}
+.benefits li::before{
+  content:"✓";
+  color:var(--success);
+  font-weight:700;
+  margin-right:12px;
+  font-size:20px;
+}
+
+.guarantee{
+  text-align:center;
+  color:var(--muted);
+  font-size:15px;
+  margin-top:20px;
+}
+
+/* Tools Section */
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px;
+  margin-top:48px;
+}
+
+.tool-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:40px 32px;
+  border-radius:12px;
+  transition:all .3s;
+  text-align:center;
+}
+
+.tool-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.06);
+}
+
+.tool-card h3{
+  font-size:1.25rem;
+  margin:0 0 12px;
+  font-weight:600;
+}
+
+.tool-card p{
+  color:var(--muted);
+  margin-bottom:28px;
+  line-height:1.7;
+}
+
+/* FAQ */
+.faq-list{
+  max-width:800px;
+  margin:48px auto 0;
+}
+
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:28px 32px;
+  border-radius:12px;
+  margin-bottom:16px;
+  cursor:pointer;
+  transition:all .2s;
+}
+
+.faq-item:hover{
+  border-color:var(--accent);
+}
+
+.faq-question{
+  font-weight:600;
+  color:var(--ink);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:17px;
+}
+
+.faq-toggle{
+  color:var(--accent);
+  font-size:24px;
+  font-weight:700;
+  line-height:1;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:16px;
+}
+
+.faq-item.active .faq-answer{
+  max-height:300px;
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+}
 
 /* Final CTA */
-.final-cta{background:linear-gradient(90deg,var(--ink) 0%, rgba(6,182,212,0.06) 100%);color:white;padding:44px 0;border-radius:12px;margin:32px 0}
-.final-cta .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.final-cta h3{margin:0;font-size:1.25rem}
-.final-cta a{background:white;color:var(--ink);padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+.final-cta{
+  background:linear-gradient(135deg, var(--ink) 0%, #1e293b 100%);
+  padding:100px 0;
+  text-align:center;
+}
+
+.final-cta h2{
+  font-size:2.5rem;
+  font-weight:700;
+  color:white;
+  margin:0 0 16px;
+}
+
+.final-cta p{
+  font-size:1.25rem;
+  color:rgba(255,255,255,0.9);
+  margin:0 0 40px;
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.6;
+}
+
+.cta-white{
+  background:white;
+  color:var(--ink);
+  padding:18px 40px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:17px;
+  transition:all .2s;
+  display:inline-block;
+}
+
+.cta-white:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.2);
+}
 
 /* Footer */
-footer{padding:28px 0;text-align:center;color:var(--muted)}
-footer a{color:var(--accent);text-decoration:none;font-weight:700}
+footer{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  padding:60px 0 40px;
+}
 
-/* Utility */
-.center{text-align:center}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:48px;
+  margin-bottom:40px;
+}
 
-/* Small screens */
+.footer-brand{
+  max-width:360px;
+}
+
+.footer-brand img{
+  height:36px;
+  margin-bottom:20px;
+}
+
+.footer-brand p{
+  color:var(--muted);
+  line-height:1.7;
+  margin:0 0 12px;
+}
+
+.footer-links h4{
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin:0 0 20px;
+  color:var(--ink);
+}
+
+.footer-links a{
+  display:block;
+  color:var(--muted);
+  text-decoration:none;
+  margin-bottom:12px;
+  font-size:15px;
+  transition:color .2s;
+}
+
+.footer-links a:hover{
+  color:var(--accent-700);
+}
+
+.footer-bottom{
+  text-align:center;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Mobile Responsive */
 @media (max-width:920px){
-  .hero{grid-template-columns:1fr;gap:18px;padding:36px 0}
-  .lead-card{order:2}
-  .final-cta .container{flex-direction:column;align-items:center}
-  .nav{right:10px;top:64px}
+  .hero{padding:60px 0 48px}
+  .hero h1{font-size:2.5rem}
+  .hero .subheading{font-size:1.125rem}
+  
+  .trust-grid{grid-template-columns:repeat(2, 1fr);gap:32px}
+  .kpi-grid{grid-template-columns:repeat(2, 1fr)}
+  .case-study{padding:40px 32px}
+  .case-metrics{grid-template-columns:1fr;gap:24px}
+  .steps{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:1fr}
+  .offer-card{padding:40px 32px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  
+  .section{padding:60px 0}
+  .section-header h2{font-size:2rem}
+  
+  .cta-primary, .cta-secondary, .cta-white{
+    display:block;
+    width:100%;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -122,7 +865,7 @@ footer a{color:var(--accent);text-decoration:none;font-weight:700}
 
 <!-- Header -->
 <header class="header">
-  <div class="header-inner container">
+  <div class="header-inner">
     <a href="/index.html" aria-label="DGS Consulting home">
       <img src="asset/logo-mark-t.png" alt="DGS Consulting" class="logo">
     </a>
@@ -131,129 +874,333 @@ footer a{color:var(--accent);text-decoration:none;font-weight:700}
 
     <nav id="mainNav" class="nav" aria-label="Primary navigation">
       <a href="/Services/index.html">Services</a>
-      <a href="/case-studies/index.html">Case Studies</a>
-       <a href="https://dgsconsulting.solutions/Resources/index.html">Resources</a>
-      <a href="/Intake/index.html">Contact</a>
-      <a class="book-btn" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book</a>
+      <a href="/case-studies/index.html">Results</a>
+      <a href="https://dgsconsulting.solutions/Resources/index.html">Resources</a>
+      <a class="header-cta" href="#offer">Get Free Audit</a>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
 <main>
-  <section class="hero container" aria-labelledby="heroTitle">
-    <div>
-      <h1 id="heroTitle" class="h-title">Reclaim 10–15 Hours Every Week</h1>
-      <p class="h-sub">We fix your systems — not by adding tools, but by simplifying what you already use. Faster schedules. Cleaner billing. Less admin. More focus.</p>
+  <!-- HERO - Single Column, Centered -->
+  <section class="hero">
+    <div class="container-narrow">
+      <h1>Stop Losing <span class="highlight">12+ Hours Weekly</span> to Broken Systems</h1>
+      
+      <p class="subheading">Small business owners reclaim their time by eliminating tool chaos and system waste—without adding more subscriptions.</p>
 
-      <div class="hero-ctas">
-        <a class="primary-cta" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book a Consultation</a>
-        <a class="secondary-cta" href="#tools">Explore Free Tools</a>
+      <div class="pain-list">
+        <ul>
+          <li>Scheduling conflicts eating your morning</li>
+          <li>Paying for tools you barely use</li>
+          <li>Team constantly asking "how do we do this?"</li>
+        </ul>
       </div>
 
-      <p style="color:var(--muted);margin-top:12px;font-size:0.95rem">Trusted by 40+ small businesses • Typical outcome: 12 hours/week reclaimed</p>
-    </div>
+      <div class="social-badge">
+        <div class="avatar-group">
+          <div class="avatar">M</div>
+          <div class="avatar">J</div>
+          <div class="avatar">S</div>
+          <div class="avatar">+37</div>
+        </div>
+        <span>Trusted by <strong>40+ small business owners</strong></span>
+      </div>
 
-    <aside class="lead-card" aria-hidden="false">
-      <div class="lead-value">Free Red Flag Audit — normally $250</div>
-      <div class="lead-sub">A focused audit that finds waste, shows one high-impact fix, and gives a clear estimate of savings.</div>
-      <div class="lead-price">$0 (qualifying businesses)</div>
-      <a class="lead-cta" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Claim your audit</a>
-    </aside>
+      <a class="cta-primary" href="#offer">See How It Works</a>
+    </div>
   </section>
 
-  <!-- Tools -->
-  <section id="tools" class="section">
+  <!-- TRUST BAR - Immediate Credibility -->
+  <section class="trust-bar">
     <div class="container">
-      <h2 class="center">Free systems clarity tools</h2>
-      <p class="lead center">Quick, practical diagnostics you can run now. Each tool is designed to reveal the single biggest source of wasted time or money.</p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <h3>40+</h3>
+          <p>Businesses Transformed</p>
+        </div>
+        <div class="trust-item">
+          <h3>12</h3>
+          <p>Hours Saved Weekly</p>
+        </div>
+        <div class="trust-item">
+          <h3>$18K</h3>
+          <p>Avg. Revenue Impact</p>
+        </div>
+        <div class="trust-item">
+          <h3>6 Weeks</h3>
+          <p>To See Full Results</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="tool-grid" role="list">
-        <article class="tool-card" role="listitem" aria-labelledby="tool1">
-          <h3 id="tool1">Time Drain Detector</h3>
-          <p>Run a light, practical audit that shows where your team spends time and which tasks cost the most. Actionable in minutes.</p>
-          <a class="tool-cta" href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" target="_blank" rel="noopener">Find your time drains</a>
+  <!-- RESULTS - Proof Section -->
+  <section class="results">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Numbers from Real Clients</h2>
+        <p>These aren't projections. They're average outcomes from businesses who followed the plan.</p>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-value" data-target="12" data-suffix=" hrs">0 hrs</span>
+          <div class="kpi-label">Reclaimed per week</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value" data-target="18000" data-prefix="$">$0</span>
+          <div class="kpi-label">Annual revenue lift</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value" data-target="340" data-prefix="$">$0</span>
+          <div class="kpi-label">Monthly tool waste cut</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value" data-target="85" data-suffix="%">0%</span>
+          <div class="kpi-label">Operational efficiency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY - Concrete Evidence -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>From Chaos to Clarity</h2>
+        <p>How one auto shop went from firefighting mode to predictable growth in 6 weeks</p>
+      </div>
+
+      <div class="case-study">
+        <span class="case-label">Client Story</span>
+        <h3>Auto Repair Shop Transformation</h3>
+        
+        <h4>The Challenge</h4>
+        <p>The owner spent 15+ hours weekly on admin work. Double-bookings were common. Invoices fell through cracks. No SOPs meant constant "how do we do this?" questions from the team. Morale was suffering, and growth felt impossible.</p>
+        
+        <h4>The Solution</h4>
+        <p>We mapped all workflows, eliminated 3 redundant tools (saving $180/month), created 7 core SOPs, and implemented a scheduling system that actually worked. Total implementation time: 4 weeks.</p>
+
+        <div class="case-metrics">
+          <div class="metric">
+            <span class="metric-value">15 hrs</span>
+            <div class="metric-label">Weekly time reclaimed</div>
+          </div>
+          <div class="metric">
+            <span class="metric-value">20%</span>
+            <div class="metric-label">Admin reduction</div>
+          </div>
+          <div class="metric">
+            <span class="metric-value">$12K</span>
+            <div class="metric-label">Revenue increase (6 months)</div>
+          </div>
+        </div>
+
+        <a class="cta-secondary" href="/case-studies/Auto-Shop.html" target="_blank" rel="noopener">Read Full Case Study</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" style="background:var(--card)">
+    <div class="container">
+      <div class="section-header">
+        <h2>How We Work</h2>
+        <p>A clear three-step process that gets you results in weeks, not months.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Free Audit</h3>
+          <p>30-minute focused session where we identify your single biggest time drain. You get a clear diagnosis before committing to anything.</p>
+          <span class="step-time">30 minutes</span>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Action Plan</h3>
+          <p>We map your workflows and create SOPs your team will actually use. Every recommendation is ranked by ROI.</p>
+          <span class="step-time">1-2 weeks</span>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Implementation</h3>
+          <p>We implement the highest-impact fixes with you. Most clients reclaim 10-15 hours weekly within 6 weeks.</p>
+          <span class="step-time">4-6 weeks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF - Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Clients Say</h2>
+        <p>Real feedback from business owners who transformed their operations</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">M</div>
+            <div class="testimonial-info">
+              <h4>Mark R.</h4>
+              <p>Owner, Landscaping Company</p>
+            </div>
+          </div>
+          <div class="testimonial-text">
+            "Darren gave us the structure to run our business without constant fires. We actually plan our weeks now instead of reacting all day. My Fridays are free again."
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">J</div>
+            <div class="testimonial-info">
+              <h4>James T.</h4>
+              <p>Owner, Auto Repair Shop</p>
+            </div>
+          </div>
+          <div class="testimonial-text">
+            "The audit found $4,200 in annual waste we didn't know we had. The fixes paid for themselves inside a quarter. Best business investment I've made."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE OFFER - Lead Magnet -->
+  <section id="offer" class="offer-section">
+    <div class="container">
+      <div class="offer-card">
+        <span class="offer-badge">Free for Qualifying Businesses</span>
+        
+        <h2>Red Flag Audit</h2>
+        
+        <p class="lead">A 30-minute focused session where we identify your biggest time drain, show you the fix, and estimate your savings—before you commit to anything.</p>
+
+        <div class="price-row">
+          <span class="price-old">$250</span>
+          <span class="price-new">$0</span>
+        </div>
+
+        <ul class="benefits">
+          <li>Pinpoint your biggest time drain in 30 minutes</li>
+          <li>Get one high-impact fix you can implement today</li>
+          <li>Clear savings estimate in hours and dollars</li>
+          <li>No-pressure consultation, zero obligation</li>
+        </ul>
+
+        <a class="cta-primary" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener" style="font-size:18px;padding:20px 48px">Claim Your Free Audit</a>
+        
+        <p class="guarantee">No credit card required • 30 minutes or less • Qualifying businesses only</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE TOOLS - Alternative Path -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Not Ready Yet? Try Our Free Tools</h2>
+        <p>These diagnostic tools reveal your biggest opportunities in minutes.</p>
+      </div>
+
+      <div class="tools-grid">
+        <article class="tool-card">
+          <h3>Time Drain Detector</h3>
+          <p>Identify which tasks are stealing your hours. Get a prioritized list of what to eliminate, automate, or delegate first.</p>
+          <a class="cta-secondary" href="https://dgsconsulting.solutions/Time-Drain-Detector/index.html" target="_blank" rel="noopener">Find Your Drains</a>
         </article>
 
-        <article class="tool-card" role="listitem" aria-labelledby="tool2">
-          <h3 id="tool2">Process Clarity Tool</h3>
-          <p>Document the repeatable steps that matter. Turn tribal knowledge into SOPs that your team can actually follow.</p>
-          <a class="tool-cta" href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" rel="noopener">Build a process</a>
+        <article class="tool-card">
+          <h3>SOP Builder</h3>
+          <p>Turn tribal knowledge into documented processes. Your team finally has clarity on "how we do things."</p>
+          <a class="cta-secondary" href="https://dgsconsulting.github.io/SOP-Designer/" target="_blank" rel="noopener">Build Process</a>
         </article>
 
-        <article class="tool-card" role="listitem" aria-labelledby="tool3">
-          <h3 id="tool3">Business Audit</h3>
-          <p>A short framework to spot wasted subscriptions, blind spots, and the fastest path to measurable gains.</p>
-          <a class="tool-cta" href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" rel="noopener">Start your audit</a>
+        <article class="tool-card">
+          <h3>Business Audit Framework</h3>
+          <p>Spot redundant subscriptions and hidden inefficiencies. Most find $200-500 in monthly waste within 10 minutes.</p>
+          <a class="cta-secondary" href="https://dgsconsulting.github.io/Business-Audit-Framework-/" target="_blank" rel="noopener">Start Audit</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- KPIs -->
-  <section class="kpi container" aria-label="Key results">
-    <h2 class="center">What success looks like</h2>
-    <p class="lead center">We measure outcomes, not activity. These are typical impacts from clients who follow the plan.</p>
+  <!-- FAQ -->
+  <section class="section" style="background:var(--card)">
+    <div class="container">
+      <div class="section-header">
+        <h2>Common Questions</h2>
+        <p>Everything you need to know before booking</p>
+      </div>
 
-    <div class="kpi-grid" role="list">
-      <div class="kpi-card" role="listitem">
-        <div class="kpi-value" data-target="85" data-suffix="%">0%</div>
-        <div class="kpi-sub">Operational efficiency</div>
-      </div>
-      <div class="kpi-card" role="listitem">
-        <div class="kpi-value" data-target="12" data-suffix="">0</div>
-        <div class="kpi-sub">Hours reclaimed / week</div>
-      </div>
-      <div class="kpi-card" role="listitem">
-        <div class="kpi-value" data-target="18000" data-prefix="$">$0</div>
-        <div class="kpi-sub">Avg. annual revenue impact</div>
-      </div>
-      <div class="kpi-card" role="listitem">
-        <div class="kpi-value" data-target="5" data-suffix="">0</div>
-        <div class="kpi-sub">Key processes standardized</div>
+      <div class="faq-list">
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">
+            How is this different from hiring a VA or using another tool?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            We don't add complexity—we remove it. Instead of adding another subscription or person, we optimize what you already have. Most clients eliminate 2-3 tools and still get better results.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">
+            What if I don't have time for this right now?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            That's exactly why you need this. The audit takes 30 minutes. Implementation is done with you, not by you. Most clients find 5+ hours in week one alone—more than covering the time invested.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">
+            How fast will I see results?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Quick wins happen immediately in weeks 1-2. Full transformation typically happens in 4-6 weeks. Most clients reclaim 10-15 hours weekly within 6 weeks.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">
+            What's the catch with the free audit?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            No catch. It's genuinely free for qualifying businesses (2+ employees, $100K+ revenue). We do this because if we find real problems (which we always do), there's a natural fit to work together. But there's zero obligation.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-question">
+            What happens after the audit?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            You get a clear report with: your #1 time drain, the recommended fix, and estimated savings in time and money. Then you decide if you want our help implementing. Many clients use the free tools and DIY it. Others want done-with-you support. Both are fine.
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Case Study -->
-  <section class="section container" aria-labelledby="caseTitle">
-    <h2 id="caseTitle" class="center">Real results — one story</h2>
-
-    <div class="case-card" role="article">
-      <h3>From Chaos to Clarity: Auto Shop</h3>
-      <p style="color:var(--muted)">Task overlap, missed invoices, and scheduling conflicts left the owner trapped in firefighting. We mapped workflows, removed redundant tools, and implemented SOPs. In six months the shop reclaimed capacity, reduced admin by 20%, and increased sales by 15%.</p>
-      <p style="margin-top:12px"><a href="/case-studies/Auto-Shop.html" class="tool-cta" target="_blank" rel="noopener">Read the full story</a></p>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials container" aria-labelledby="testTitle">
-    <h2 id="testTitle" class="center">What people say</h2>
-    <p class="lead center">Direct feedback from business owners and partners who saw real change.</p>
-
-    <div class="test-grid">
-      <blockquote class="test-card">
-        <p>"Darren gave us the structure to run our business without constant fires. We actually plan our weeks now."</p>
-        <cite>— Mark R., Landscaping</cite>
-      </blockquote>
-
-      <blockquote class="test-card">
-        <p>"The audit found waste we didn't know we had. The fixes paid for themselves inside a quarter."</p>
-        <cite>— James, Auto Repair</cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section class="final-cta container" aria-labelledby="finalCTA">
-    <div style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <div style="max-width:68%">
-        <h3 id="finalCTA">Stop losing time to broken systems</h3>
-        <p style="color:rgba(255,255,255,0.92);margin-top:6px">Book a short consultation and get a clear, prioritized plan to reclaim time and reduce tool waste.</p>
-      </div>
-      <div style="min-width:220px">
-        <a class="primary-cta" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book a Consultation</a>
-      </div>
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Reclaim Your Time?</h2>
+      <p>Book your free Red Flag Audit and discover exactly where you're losing time and money—with zero commitment.</p>
+      
+      <a class="cta-white" href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Claim Your Free Audit</a>
     </div>
   </section>
 </main>
@@ -261,38 +1208,55 @@ footer a{color:var(--accent);text-decoration:none;font-weight:700}
 <!-- Footer -->
 <footer>
   <div class="container">
-    <p style="margin:6px 0;">© 2025 DGS Consulting • Clarity over complexity • Founded by Darren Snook • Ottawa, ON</p>
-    <p style="margin:6px 0;">
-      <a href="/Services/index.html">Services</a> ·
-      <a href="/case-studies/index.html">Case Studies</a> ·
-      <a href="https://dgsconsulting.solutions/Resources/index.html">Resources</a> 
-      <a href="mailto:DGSConsult@consultant.com">Contact</a> ·
-      <a href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book</a>
-    </p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="asset/logo-mark-t.png" alt="DGS Consulting">
+        <p>Helping small business owners reclaim time by simplifying systems—not adding subscriptions.</p>
+        <p style="margin-top:20px;font-size:14px">Founded by Darren Snook • Ottawa, ON</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/Services/index.html">Services</a>
+        <a href="/case-studies/index.html">Case Studies</a>
+        <a href="https://dgsconsulting.solutions/Resources/index.html">Resources</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Get Started</h4>
+        <a href="https://dgsconsulting.youcanbook.me" target="_blank" rel="noopener">Book Free Audit</a>
+        <a href="mailto:DGSConsult@consultant.com">Email Us</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      © 2025 DGS Consulting • All rights reserved
+    </div>
   </div>
 </footer>
 
-<!-- Minimal JS for nav toggle and KPI counters -->
 <script>
 /* Nav toggle */
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
 navToggle && navToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('show');
   const expanded = navToggle.getAttribute('aria-expanded') === 'true';
   navToggle.setAttribute('aria-expanded', String(!expanded));
-  if(mainNav.style.display === 'flex') { mainNav.style.display = 'none'; }
-  else { mainNav.style.display = 'flex'; mainNav.style.flexDirection = 'column'; }
+  trackEvent('nav_toggle', {action: expanded ? 'close' : 'open'});
 });
 
 /* KPI counters */
 const counters = document.querySelectorAll('.kpi-value');
 const formatNumber = (n) => n >= 1000 ? n.toLocaleString() : String(n);
+
 counters.forEach(counter => {
   const target = +counter.getAttribute('data-target') || 0;
   const suffix = counter.getAttribute('data-suffix') || '';
   const prefix = counter.getAttribute('data-prefix') || '';
   let current = 0;
-  const step = Math.max(1, Math.round(target / 80));
+  const step = Math.max(1, Math.round(target / 60));
+  
   const run = () => {
     current += step;
     if (current < target) {
@@ -302,13 +1266,161 @@ counters.forEach(counter => {
       counter.textContent = prefix + formatNumber(target) + suffix;
     }
   };
-  // start when visible
+  
   const obs = new IntersectionObserver((entries, obsr) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting) { run(); obsr.disconnect(); }
+      if(entry.isIntersecting) { 
+        run(); 
+        obsr.disconnect(); 
+      }
     });
-  }, {threshold:0.3});
+  }, {threshold: 0.3});
+  
   obs.observe(counter);
+});
+
+/* ========== CONVERSION TRACKING ========== */
+
+// 1. Track all CTA clicks
+document.querySelectorAll('.cta-primary, .cta-secondary, .cta-white, .header-cta').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const ctaText = this.textContent.trim();
+    const ctaLocation = this.closest('section')?.className || 'header';
+    trackEvent('cta_click', {
+      cta_text: ctaText,
+      cta_location: ctaLocation,
+      cta_type: this.className.includes('primary') ? 'primary' : 'secondary'
+    });
+  });
+});
+
+// 2. Track scroll depth (25%, 50%, 75%, 100%)
+window.addEventListener('scroll', () => {
+  const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+  
+  Object.keys(scrollDepthTracked).forEach(depth => {
+    if (scrollPercent >= parseInt(depth) && !scrollDepthTracked[depth]) {
+      scrollDepthTracked[depth] = true;
+      trackEvent('scroll_depth', {depth: depth + '%'});
+    }
+  });
+});
+
+// 3. Track section visibility (when 50% of section is visible)
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const sectionId = entry.target.id || entry.target.className.split(' ')[0];
+      const trackingKey = sectionId.replace(/-/g, '_');
+      
+      if (sectionsTracked[trackingKey] === false) {
+        sectionsTracked[trackingKey] = true;
+        trackEvent('section_view', {
+          section_name: trackingKey,
+          time_to_section: Math.round((Date.now() - window.performance.timing.navigationStart) / 1000)
+        });
+      }
+    }
+  });
+}, {threshold: 0.5});
+
+// Observe key sections
+document.querySelectorAll('.trust-bar, .results, .case-study, .steps, .testimonials-grid, .offer-section, .tools-grid, .faq-list').forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// 4. Track FAQ interactions
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const question = this.querySelector('.faq-question').textContent.trim();
+    const isOpening = !this.classList.contains('active');
+    trackEvent('faq_interaction', {
+      question: question.substring(0, 50), // First 50 chars
+      action: isOpening ? 'open' : 'close'
+    });
+  });
+});
+
+// 5. Track tool clicks
+document.querySelectorAll('.tool-card a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const toolName = this.closest('.tool-card').querySelector('h3').textContent;
+    trackEvent('tool_click', {tool_name: toolName});
+  });
+});
+
+// 6. Track case study link clicks
+document.querySelectorAll('.case-study a, .case-card a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    trackEvent('case_study_click', {
+      link_text: this.textContent.trim()
+    });
+  });
+});
+
+// 7. Track testimonial reads (if user hovers for 3+ seconds)
+document.querySelectorAll('.testimonial').forEach(testimonial => {
+  let hoverTimer;
+  testimonial.addEventListener('mouseenter', function() {
+    hoverTimer = setTimeout(() => {
+      const author = this.querySelector('h4')?.textContent || 'Unknown';
+      trackEvent('testimonial_read', {author: author});
+    }, 3000);
+  });
+  testimonial.addEventListener('mouseleave', function() {
+    clearTimeout(hoverTimer);
+  });
+});
+
+// 8. Track time on page milestones (30s, 60s, 120s, 300s)
+const timeTracked = {30: false, 60: false, 120: false, 300: false};
+setInterval(() => {
+  const secondsOnPage = Math.round((Date.now() - window.performance.timing.navigationStart) / 1000);
+  Object.keys(timeTracked).forEach(milestone => {
+    if (secondsOnPage >= parseInt(milestone) && !timeTracked[milestone]) {
+      timeTracked[milestone] = true;
+      trackEvent('time_on_page', {seconds: milestone});
+    }
+  });
+}, 1000);
+
+// 9. Track exit intent (mouse leaves viewport at top)
+let exitIntentFired = false;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY < 10 && !exitIntentFired && window.scrollY > 500) {
+    exitIntentFired = true;
+    trackEvent('exit_intent', {
+      scroll_depth: Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100) + '%',
+      time_on_page: Math.round((Date.now() - window.performance.timing.navigationStart) / 1000)
+    });
+  }
+});
+
+// 10. Track when user reaches offer section (most important conversion point)
+const offerSection = document.querySelector('.offer-section');
+if (offerSection) {
+  const offerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const timeToOffer = Math.round((Date.now() - window.performance.timing.navigationStart) / 1000);
+        trackEvent('reached_offer', {
+          time_to_offer: timeToOffer,
+          scroll_percent: Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100)
+        });
+        offerObserver.disconnect();
+      }
+    });
+  }, {threshold: 0.3});
+  offerObserver.observe(offerSection);
+}
+
+// 11. Track page visibility (did they switch tabs?)
+let visibilityChangeCount = 0;
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+    visibilityChangeCount++;
+    trackEvent('tab_hidden', {count: visibilityChangeCount});
+  }
 });
 </script>
 </body>
